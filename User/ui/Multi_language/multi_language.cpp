@@ -336,6 +336,7 @@ void disp_language_init()
             tool_menu.movez=MOVE_Z_AXIS_CN;
             tool_menu.check=UV_TEST_CN;
             tool_menu.z0=Z_ZERO_CN;
+            tool_menu.clean=CLEAN_CN;
             tool_menu.stop=QUICK_STOP_CN;
 
             dialog_menu.home_tips=DIALOG_HOME_TIPS_CN;
@@ -355,7 +356,17 @@ void disp_language_init()
            about_menu.systom=INFO_SYSTOM_CN;
            about_menu.firmware=INFO_FIRMWARE_CN;
            about_menu.website=SERVICE_WEBSITE_CN;
-           about_menu.email=SERVICE_EMAIL_CN;           
+           about_menu.email=SERVICE_EMAIL_CN;   
+
+           common_menu.start = START_CN;
+           common_menu.adjust = ADJUST_CN;
+           common_menu.clean_platform = CLEAN_PLATFORM_CN; 
+           common_menu.cleaning = CLEANING_TIME_CN; 
+           common_menu.clean_time_text = CLEAN_TIME_TEXT_CN;
+            common_menu.clean_time_value = CLEAN_TIME_VALUE_CN;
+            common_menu.stop = CLEAN_STOP_CN;
+            common_menu.confirm = CLEAN_CONFIRM_CN;
+
 			break;
 		#if 1
 		case LANG_COMPLEX_CHINESE:
@@ -557,6 +568,7 @@ void disp_language_init()
             tool_menu.movez=MOVE_Z_AXIS_T_CN;
             tool_menu.check=UV_TEST_T_CN;
             tool_menu.z0=Z_ZERO_T_CN;
+            tool_menu.clean=CLEAN_T_CN;
             tool_menu.stop=QUICK_STOP_T_CN; 
 
             dialog_menu.home_tips=DIALOG_HOME_TIPS_T_CN;
@@ -576,7 +588,17 @@ void disp_language_init()
            about_menu.systom=INFO_SYSTOM_T_CN;
            about_menu.firmware=INFO_FIRMWARE_T_CN;
            about_menu.website=SERVICE_WEBSITE_T_CN;
-           about_menu.email=SERVICE_EMAIL_T_CN;           
+           about_menu.email=SERVICE_EMAIL_T_CN; 
+           
+           common_menu.start = START_T_CN;
+           common_menu.adjust = ADJUST_T_CN;
+           common_menu.clean_platform = CLEAN_PLATFORM_T_CN;   
+           common_menu.cleaning = CLEANING_TIME_T_CN; 
+           common_menu.clean_time_text = CLEAN_TIME_TEXT_T_CN;
+            common_menu.clean_time_value = CLEAN_TIME_VALUE_T_CN;
+            common_menu.stop = CLEAN_STOP_T_CN;
+            common_menu.confirm = CLEAN_CONFIRM_T_CN;
+
 			break;
 		case LANG_ENGLISH:
 			common_menu.dialog_confirm_title = TITLE_DIALOG_CONFIRM_EN;
@@ -773,6 +795,7 @@ void disp_language_init()
             tool_menu.movez=MOVE_Z_AXIS_EN;
             tool_menu.check=UV_TEST_EN;
             tool_menu.z0=Z_ZERO_EN;
+            tool_menu.clean=CLEAN_EN;
             tool_menu.stop=QUICK_STOP_EN;    
 
             dialog_menu.home_tips=DIALOG_HOME_TIPS_EN;
@@ -792,7 +815,17 @@ void disp_language_init()
            about_menu.systom=INFO_SYSTOM_EN;
            about_menu.firmware=INFO_FIRMWARE_EN;
             about_menu.website=SERVICE_WEBSITE_EN;
-           about_menu.email=SERVICE_EMAIL_EN;          
+           about_menu.email=SERVICE_EMAIL_EN;  
+           
+           common_menu.start = START_EN;
+           common_menu.adjust = ADJUST_EN;
+           common_menu.clean_platform = CLEAN_PLATFORM_EN; 
+           common_menu.cleaning = CLEANING_TIME_EN; 
+           common_menu.clean_time_text = CLEAN_TIME_TEXT_EN;
+            common_menu.clean_time_value = CLEAN_TIME_VALUE_EN;
+            common_menu.stop = CLEAN_STOP_EN;
+            common_menu.confirm = CLEAN_CONFIRM_EN;
+
 			break;
 		case LANG_RUSSIAN:
 			common_menu.dialog_confirm_title = TITLE_DIALOG_CONFIRM_RU;
@@ -989,6 +1022,7 @@ void disp_language_init()
             tool_menu.movez=MOVE_Z_AXIS_RU;
             tool_menu.check=UV_TEST_RU;
             tool_menu.z0=Z_ZERO_RU;
+            tool_menu.clean=CLEAN_RU;
             tool_menu.stop=QUICK_STOP_RU; 
 
             dialog_menu.home_tips=DIALOG_HOME_TIPS_RU;
@@ -1008,7 +1042,17 @@ void disp_language_init()
            about_menu.systom=INFO_SYSTOM_RU;
            about_menu.firmware=INFO_FIRMWARE_RU;  
            about_menu.website=SERVICE_WEBSITE_RU;
-           about_menu.email=SERVICE_EMAIL_RU;           
+           about_menu.email=SERVICE_EMAIL_RU;    
+
+           common_menu.start = START_RU;
+           common_menu.adjust = ADJUST_RU;
+           common_menu.clean_platform = CLEAN_PLATFORM_RU;   
+           common_menu.cleaning = CLEANING_TIME_RU; 
+           common_menu.clean_time_text = CLEAN_TIME_TEXT_RU;
+            common_menu.clean_time_value = CLEAN_TIME_VALUE_RU;
+            common_menu.stop = CLEAN_STOP_RU;
+            common_menu.confirm = CLEAN_CONFIRM_RU;
+
 			break;
 		case LANG_SPANISH:
 			common_menu.dialog_confirm_title = TITLE_DIALOG_CONFIRM_SP;
@@ -1210,6 +1254,7 @@ void disp_language_init()
             tool_menu.movez=MOVE_Z_AXIS_SP;
             tool_menu.check=UV_TEST_SP;
             tool_menu.z0=Z_ZERO_SP;
+            tool_menu.clean=CLEAN_SP;
             tool_menu.stop=QUICK_STOP_SP;        
 
             dialog_menu.home_tips=DIALOG_HOME_TIPS_SP;
@@ -1228,7 +1273,17 @@ void disp_language_init()
            about_menu.systom=INFO_SYSTOM_SP;
            about_menu.firmware=INFO_FIRMWARE_SP;
            about_menu.website=SERVICE_WEBSITE_SP;
-           about_menu.email=SERVICE_EMAIL_SP;           
+           about_menu.email=SERVICE_EMAIL_SP;   
+
+           common_menu.start = START_SP;
+           common_menu.adjust = ADJUST_SP;
+           common_menu.clean_platform = CLEAN_PLATFORM_SP;
+           common_menu.cleaning = CLEANING_TIME_SP; 
+           common_menu.clean_time_text = CLEAN_TIME_TEXT_SP;
+            common_menu.clean_time_value = CLEAN_TIME_VALUE_SP;
+            common_menu.stop = CLEAN_STOP_SP;
+            common_menu.confirm = CLEAN_CONFIRM_SP;
+
 			break;
 		#endif
 
@@ -1418,6 +1473,7 @@ void disp_language_init()
             tool_menu.movez=MOVE_Z_AXIS_FR;
             tool_menu.check=UV_TEST_FR;
             tool_menu.z0=Z_ZERO_FR;
+            tool_menu.clean=CLEAN_FR;
             tool_menu.stop=QUICK_STOP_FR;    
 
             dialog_menu.home_tips=DIALOG_HOME_TIPS_FR;
@@ -1436,7 +1492,17 @@ void disp_language_init()
             about_menu.systom=INFO_SYSTOM_FR;
             about_menu.firmware=INFO_FIRMWARE_FR;
            about_menu.website=SERVICE_WEBSITE_FR;
-           about_menu.email=SERVICE_EMAIL_FR;            
+           about_menu.email=SERVICE_EMAIL_FR; 
+
+           common_menu.start = START_FR;
+           common_menu.adjust = ADJUST_FR;
+           common_menu.clean_platform = CLEAN_PLATFORM_FR; 
+           common_menu.cleaning = CLEANING_TIME_FR; 
+           common_menu.clean_time_text = CLEAN_TIME_TEXT_FR;
+            common_menu.clean_time_value = CLEAN_TIME_VALUE_FR;
+            common_menu.stop = CLEAN_STOP_FR;
+            common_menu.confirm = CLEAN_CONFIRM_FR;
+
 			break;
 			
 		case LANG_ITALY:
@@ -1626,6 +1692,7 @@ void disp_language_init()
             tool_menu.movez=MOVE_Z_AXIS_IT;
             tool_menu.check=UV_TEST_IT;
             tool_menu.z0=Z_ZERO_IT;
+            tool_menu.clean=CLEAN_IT;
             tool_menu.stop=QUICK_STOP_IT;   
 
             dialog_menu.home_tips=DIALOG_HOME_TIPS_IT;
@@ -1647,6 +1714,15 @@ void disp_language_init()
            about_menu.firmware=INFO_FIRMWARE_IT;
            about_menu.website=SERVICE_WEBSITE_IT;
            about_menu.email=SERVICE_EMAIL_IT;
+           
+           common_menu.start = START_IT;
+           common_menu.adjust = ADJUST_IT;
+           common_menu.clean_platform = CLEAN_PLATFORM_IT;  
+           common_menu.cleaning = CLEANING_TIME_IT; 
+           common_menu.clean_time_text = CLEAN_TIME_TEXT_IT;
+            common_menu.clean_time_value = CLEAN_TIME_VALUE_IT;
+            common_menu.stop = CLEAN_STOP_IT;
+            common_menu.confirm = CLEAN_CONFIRM_IT;
 			break;
 
 			#if 0

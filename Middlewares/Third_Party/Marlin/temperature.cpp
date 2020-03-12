@@ -543,6 +543,9 @@ int Temperature::getHeaterPower(int heater) {
 
 #endif // HAS_AUTO_FAN
 
+#if 1
+extern void temper_error_kill();
+#endif//
 //
 // Temperature Error Handlers
 //
@@ -559,6 +562,9 @@ void Temperature::_temp_error(const int8_t e, const char * const serial_msg, con
       Running = false;
       killed = true;
       //kill(lcd_msg);
+      #if 1
+      temper_error_kill();
+      #endif
     }
     else
       disable_all_heaters(); // paranoia

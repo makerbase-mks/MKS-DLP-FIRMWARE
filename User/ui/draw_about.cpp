@@ -55,6 +55,11 @@ static void cbAboutWin(WM_MESSAGE * pMsg) {
 
 void draw_About()
 {
+		
+//	int titleHeight = 30;
+
+//	int imgHeight = LCD_HEIGHT - titleHeight;	
+	
 	int i;
 	uint8_t buf[30];
 	
@@ -64,10 +69,19 @@ void draw_About()
 		disp_state_stack._disp_state[disp_state_stack._disp_index] = ABOUT_UI;
 	}
 	disp_state = ABOUT_UI;
-
+/*
+	GUI_SetBkColor(gCfgItems.state_background_color);
+	GUI_SetColor(gCfgItems.state_text_color);
+	GUI_Clear();
+*/
 	GUI_SetBkColor(gCfgItems.background_color);
 	GUI_SetColor(gCfgItems.title_color);
 	GUI_Clear();
+
+
+	
+	//GUI_DispStringAt(about_menu.type, 240, titleHeight  + 135);
+	//GUI_DispStringAt(about_menu.version, 240, titleHeight + 175);
 
 	GUI_DispStringAt(creat_title_text(),  TITLE_XPOS, TITLE_YPOS);
 	
@@ -75,8 +89,10 @@ void draw_About()
 
 	TFT_Type_text = TEXT_CreateEx(BTN_X_PIXEL,BTN_Y_PIXEL-60, LCD_WIDTH-BTN_X_PIXEL, 30, hAboutWnd, WM_CF_SHOW,TEXT_CF_LEFT|GUI_TA_VCENTER, GUI_ID_TEXT1, "Type:MKS TFT");
 	TFT_Version_text = TEXT_CreateEx(BTN_X_PIXEL,BTN_Y_PIXEL-30, LCD_WIDTH-BTN_X_PIXEL, 30, hAboutWnd, WM_CF_SHOW,TEXT_CF_LEFT|GUI_TA_VCENTER, GUI_ID_TEXT1, "Version:1.0.0");
+	Wifi_Ver_text = TEXT_CreateEx(BTN_X_PIXEL,BTN_Y_PIXEL, LCD_WIDTH-BTN_X_PIXEL, 30, hAboutWnd, WM_CF_SHOW,TEXT_CF_LEFT|GUI_TA_VCENTER, GUI_ID_TEXT1, "Wifi: ");
 
 	buttonRet.btnHandle = BUTTON_CreateEx(BTN_X_PIXEL*3+INTERVAL_V*4 , BTN_Y_PIXEL+INTERVAL_H,BTN_X_PIXEL, BTN_Y_PIXEL, hAboutWnd, BUTTON_CF_SHOW, 0, alloc_win_id());
+	//TEXT_SetDefaultFont(&FONT_STATE_INF);	
 
 	BUTTON_SetBmpFileName(buttonRet.btnHandle, "bmp_return.bin",1);	
 	BUTTON_SetBitmapEx(buttonRet.btnHandle, 0, &bmp_struct,BMP_PIC_X, BMP_PIC_Y);
@@ -90,6 +106,8 @@ void draw_About()
 	TEXT_SetTextColor(TFT_Type_text, gCfgItems.state_text_color);
 	TEXT_SetBkColor(TFT_Version_text, gCfgItems.state_background_color);
 	TEXT_SetTextColor(TFT_Version_text, gCfgItems.state_text_color);
+	TEXT_SetBkColor(Wifi_Ver_text, gCfgItems.state_background_color);
+	TEXT_SetTextColor(Wifi_Ver_text, gCfgItems.state_text_color);
 
 	strcpy((char*)buf,(const char *)about_menu.type);
 	strcat((char*)buf,(const char *)about_menu.type_name);
@@ -98,6 +116,23 @@ void draw_About()
 	strcpy((char*)buf,(const char *)about_menu.version);
 	strcat((char*)buf,(const char *)about_menu.firmware_v);	
 	TEXT_SetText(TFT_Version_text,(char *)buf);
+
+	//GUI_DispStringAt(about_menu.type, 40, titleHeight  + 50);
+	//GUI_DispStringAt(about_menu.version, 40, titleHeight + 75); 
+	if(gCfgItems.wifi_type == ESP_WIFI)
+	{
+		//GUI_DispStringAt(about_menu.wifi, 40, titleHeight + 100);
+		//TEXT_SetText(TFT_Version_text,about_menu.wifi);
+		if(wifi_firm_ver[0] != 0)
+		{
+			memset(buf,0,sizeof(buf));
+			//GUI_DispStringAt((const char *)wifi_firm_ver, 90, titleHeight + 100); 
+			strcpy((char*)buf,(const char *)about_menu.wifi);
+			strcat((char*)buf,(const char *)wifi_firm_ver);
+			TEXT_SetText(Wifi_Ver_text,(char*)buf);
+			
+		}
+	}
 
 	if(gCfgItems.multiple_language != 0)
 	{

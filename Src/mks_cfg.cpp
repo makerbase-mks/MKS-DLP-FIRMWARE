@@ -34,7 +34,10 @@ CFG_PRINTER_ITMES mksCfg;
 TMP_PRINTER_ITMES mksTmp;
 CFG_ITMES gCfgItems;
 
-
+#if 1//def USE_MKS_WIFI
+extern int cfg_wifi_flag;
+extern int cfg_cloud_flag;
+#endif
 
 void epr_write_data(uint16_t pos, const uint8_t* value, uint16_t size);
 
@@ -68,7 +71,12 @@ void mksGetParameterToFlash(char *str)
 	memset(cmd_code,0,sizeof(cmd_code));
 	p = cmd_code;
 	while(((*str) != '\r')&&((*str) != '\n')&&((*str) != '#'))
-	{		
+	{	
+	    if((*str == 0x20)||(*str == 0x09))
+		{
+			str++;
+			continue;
+		}	
 		*p++ = *str++;
 		if((p- cmd_code) > CMD_CODE_LEN) 
 			break;
@@ -99,6 +107,7 @@ void mksCardTest()
 
 void CardReader::mksConfiguration() 
 {
+	uint8_t sector_cnt;
 	int16_t cfg_data;
 	char *p;
 	uint8_t notes_flag =0;
@@ -121,7 +130,9 @@ void CardReader::mksConfiguration()
       SERIAL_PROTOCOLLNPGM(".");
       SERIAL_PROTOCOLLNPGM("Refresh eeprom...");
 	  
-	  SPI_FLASH_SectorErase(SD_INF_ADDR);
+	  //SPI_FLASH_SectorErase(SD_INF_ADDR);
+      for(sector_cnt=0;sector_cnt<3;sector_cnt++)
+         SPI_FLASH_SectorErase(SD_INF_ADDR+sector_cnt*4096);
 
 	 mksReset();
 	 (void)settings.reset();	//Marlin默认参数值恢复
@@ -418,7 +429,81 @@ void CardReader::mksEepromRefresh()
 	eprBurnValue(">DEFAULT_MINTRAVELFEEDRATE",&planner.min_travel_feedrate_mm_s);
 // DEFAULT_JERK   
 	eprBurnValue(">DEFAULT_ZJERK",&planner.max_jerk[Z_AXIS]);
-    
+
+#if 1//def USE_MKS_WIFI 
+/*wifi paras*/	
+	tmp_index = (char *)strstr(cfg_buf, ">CFG_WIFI_MODE");
+	if(tmp_index)
+	{
+		/*
+		if( tmp_index[strlen(">CFG_WIFI_MODE")] == '1')
+		{
+			gCfgItems.wifi_mode_sel = 1;	
+		}
+		else
+		{
+			gCfgItems.wifi_mode_sel = 2;
+		}		
+
+		*/
+		tmp_index += strlen(">CFG_WIFI_MODE");
+		mksGetParameter(tmp_index);
+		gCfgItems.wifi_mode_sel = atoi(cmd_code);
+        if(gCfgItems.wifi_mode_sel != 1)
+		{
+			gCfgItems.wifi_mode_sel = 2;
+		}		
+        
+		cfg_wifi_flag = 1;
+	}
+
+	tmp_index = (char *)strstr(cfg_buf, ">CFG_WIFI_AP_NAME");
+	if(tmp_index)
+	{
+		tmp_index += strlen(">CFG_WIFI_AP_NAME");
+		mksGetParameter(tmp_index);	
+		memset((char *)gCfgItems.wifi_ap, 0, sizeof(gCfgItems.wifi_ap));
+		strncpy((char *)gCfgItems.wifi_ap,  cmd_code, sizeof(gCfgItems.wifi_ap));
+		cfg_wifi_flag = 1;
+	}
+
+	tmp_index = (char *)strstr(cfg_buf, ">CFG_WIFI_KEY_CODE");
+	if(tmp_index)
+	{
+		tmp_index += strlen(">CFG_WIFI_KEY_CODE");
+		mksGetParameter(tmp_index);	
+		memset((char *)gCfgItems.wifi_key, 0, sizeof(gCfgItems.wifi_key));
+		strncpy((char *)gCfgItems.wifi_key,  cmd_code, sizeof(gCfgItems.wifi_key));
+		cfg_wifi_flag = 1;
+	}
+	eprBurnValue(">CFG_CLOUD_ENABLE", (uint8_t *)&gCfgItems.cloud_enable, EPR_ENABLE_CLOUD);
+
+	tmp_index = (char *)strstr(cfg_buf, ">CFG_WIFI_CLOUD_HOST");
+	if(tmp_index)
+	{
+		tmp_index += strlen(">CFG_WIFI_CLOUD_HOST");
+		mksGetParameter(tmp_index);	
+		memset((char *)gCfgItems.cloud_hostUrl, 0, sizeof(gCfgItems.cloud_hostUrl));
+		strncpy((char *)gCfgItems.cloud_hostUrl,  cmd_code, sizeof(gCfgItems.cloud_hostUrl));
+					
+		cfg_cloud_flag = 1;
+	}
+
+	tmp_index = (char *)strstr(cfg_buf, ">CFG_CLOUD_PORT");
+	if(tmp_index)
+	{
+		if( (strcmp((const char *)(&tmp_index[strlen(">CFG_CLOUD_PORT")]), "0") > 0) &&(strcmp((const char *)(&tmp_index[strlen(">CFG_CLOUD_PORT")]), "99999") < 0))
+		{
+			gCfgItems.cloud_port = atoi((char *)(&tmp_index[strlen(">CFG_CLOUD_PORT")]));
+		}
+		else					
+			gCfgItems.cloud_port = 10086;
+		cfg_cloud_flag = 1;
+	}
+	
+#endif        
+
+        
 
 /*------------------------Marlin 自带参数配置 end---------------------------------*/
 
@@ -508,6 +593,13 @@ void CardReader::mksEepromRefresh()
 	hexBurnValue(">cfg_layer_area_bkcolor",&gCfgItems.layer_area_bkcolor,EPR_LAYER_AREA_BKCOLOR);
 	hexBurnValue(">cfg_printing_state_bkcolor",&gCfgItems.printing_state_bkcolor,EPR_PRINTING_STATE_BKCOLOR);    
 	hexBurnValue(">cfg_printing_state_textcolor",&gCfgItems.printing_state_text_color,EPR_PRINTING_STATE_TEXTCOLOR);  
+
+	flashBurnValue(">cfg_system_type", SYSTEM_TYPE_ADDR);
+	eprBurnValue(">cfg_version_custom",(uint8_t *)&gCfgItems.version_number_custom,EPR_VERSION_NUMBER_CUSTOM);  	
+	flashBurnValue(">cfg_firmware_version", FIRMWARE_VERSION_ADDR);
+	flashBurnValue(">cfg_website",WEBSITE_ADDR);
+	flashBurnValue(">cfg_email",EMAIL_ADDR);
+
 /*
 	eprBurnValue(">cfg_insert_det_module", (int32_t *)&gCfgItems.insert_det_module, EPR_INSERT_DET_MODULE_TYPE);
 	eprBurnValue(">cfg_have_ups_device", (int32_t *)&gCfgItems.have_ups, EPR_HAS_UPS);

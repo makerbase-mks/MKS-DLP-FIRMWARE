@@ -3,6 +3,7 @@
 #include "draw_ui.h"
 #include "draw_service.h"
 
+extern char cmd_code[CMD_CODE_LEN+1];
 
 GUI_HWIN hServiceWnd;
 static BUTTON_STRUCT buttonRet;
@@ -87,9 +88,15 @@ void draw_Service()
 	TEXT_SetTextColor(Email_val, gCfgItems.state_msg_textcolor);
     
     TEXT_SetText(Website,about_menu.website);
-    TEXT_SetText(Website_val,about_menu.website_v);
+    //TEXT_SetText(Website_val,about_menu.website_v);
+    memset(cmd_code,0,sizeof(cmd_code));
+    SPI_FLASH_BufferRead((u8 *)cmd_code,WEBSITE_ADDR,201);
+    TEXT_SetText(Website_val,cmd_code);    
     TEXT_SetText(Email,about_menu.email);
-    TEXT_SetText(Email_val,about_menu.email_v);
+    //TEXT_SetText(Email_val,about_menu.email_v);
+    memset(cmd_code,0,sizeof(cmd_code));
+    SPI_FLASH_BufferRead((u8 *)cmd_code,EMAIL_ADDR,201);    
+    TEXT_SetText(Email_val,cmd_code);
 
     //if(gCfgItems.multiple_language != 0)
     {

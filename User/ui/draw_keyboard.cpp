@@ -266,6 +266,19 @@ static void cbKeyBoardWin(WM_MESSAGE * pMsg) {
                     }
                     point_flg=1;
                 break;
+
+                case Clean_edit:
+      			    temp=strchr(key_value,'.');
+    			    if(temp)
+                    {
+                       gCfgItems.clean_time = atof(key_value);
+                    }
+                    else
+                    {
+                        gCfgItems.clean_time = atoi(key_value);
+                    }
+                    point_flg=1;                  
+                    break;
                 default:break;
                  }
 			    last_disp_state = KEYBOARD_UI;
@@ -478,6 +491,12 @@ void draw_keyboard()
             sprintf(key_value,"%d",(int)key_set_value);
             TEXT_SetText(textKeyNumb, key_value);
             cnt=strlen(key_value);
+            break;
+         case Clean_edit:
+            memset(key_value,0,sizeof(key_value));
+            sprintf(key_value,"%d",gCfgItems.clean_time);
+            TEXT_SetText(textKeyNumb, key_value);
+            cnt=strlen(key_value);            
             break;
          default:break;
     }

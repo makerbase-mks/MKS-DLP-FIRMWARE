@@ -5,11 +5,20 @@
 #include "draw_set.h"
 #include "fontLib.h"
 #include "LISTBOX.h"
+#include "draw_disk.h"
+
+#include "draw_machine.h"
+#include "draw_log_ui.h"
 #include "draw_language.h"
 #include "draw_about.h"
+#include "draw_wifi.h"
+//#include "touch_calibrate.h"
 #include "pic_manager.h"
 #include "spi_flash.h"
+#include "draw_fan.h"
 #include "draw_print_file.h"
+#include "draw_filamentchange.h"
+#include "draw_manual_leveling.h"
 
 #ifndef GUI_FLASH
 #define GUI_FLASH

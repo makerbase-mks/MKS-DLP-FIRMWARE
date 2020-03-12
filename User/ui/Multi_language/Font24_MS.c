@@ -131,6 +131,7 @@
   C-file modified by Font converter for emWin version 5.22: Oct 18 2018 at 17:09:05
   C-file modified by Font converter for emWin version 5.22: Oct 18 2018 at 17:15:58
   C-file modified by Font converter for emWin version 5.22: Oct 18 2018 at 18:28:47
+  C-file modified by Font converter for emWin version 5.22: Nov 29 2019 at 11:15:01
 */
 
 #include "GUI.h"
@@ -17915,6 +17916,32 @@ GUI_CONST_STORAGE unsigned char acGUI_FontHZ_fontHz14_51FA[ 72] = { /* code 51FA
   ________,________,________,
   ________,________,________};
 
+GUI_CONST_STORAGE unsigned char acGUI_FontHZ_fontHz14_51FB[ 72] = { /* code 51FB */
+  ________,________,________,
+  ________,________,________,
+  ________,________,________,
+  ________,________,________,
+  ________,X_______,________,
+  ________,X_______,________,
+  ________,X_______,________,
+  _XXXXXXX,XXXXXXXX,________,
+  ________,X_______,________,
+  ________,X_______,________,
+  ________,X_______,________,
+  XXXXXXXX,XXXXXXXX,X_______,
+  ________,X_______,________,
+  ________,X_______,________,
+  __X_____,X_____X_,________,
+  __X_____,X_____X_,________,
+  __X_____,X_____X_,________,
+  __X_____,X_____X_,________,
+  __X_____,X_____X_,________,
+  __XXXXXX,XXXXXXX_,________,
+  ________,______X_,________,
+  ________,________,________,
+  ________,________,________,
+  ________,________,________};
+
 GUI_CONST_STORAGE unsigned char acGUI_FontHZ_fontHz14_5220[ 72] = { /* code 5220 */
   ________,________,________,
   ________,________,________,
@@ -19969,6 +19996,32 @@ GUI_CONST_STORAGE unsigned char acGUI_FontHZ_fontHz14_64C7[ 72] = { /* code 64C7
   ________,________,________,
   ________,________,________};
 
+GUI_CONST_STORAGE unsigned char acGUI_FontHZ_fontHz14_64CA[ 72] = { /* code 64CA */
+  ________,________,________,
+  ________,________,________,
+  ________,________,________,
+  ________,________,________,
+  _____X__,________,________,
+  XXXXXXXX,XX_XXXXX,________,
+  _____X__,___X___X,________,
+  _XXXXXXX,X_X____X,XX______,
+  _XXXXXXX,X_______,________,
+  _X___X__,X_XXXXXX,X_______,
+  _XXXXXXX,X__X___X,X_______,
+  XXXXXXXX,XXX_X_X_,________,
+  _X___X__,X___XXX_,________,
+  _XXXXXXX,X_XX___X,XX______,
+  ________,________,________,
+  _XXXXXXX,XXXXXXXX,________,
+  __XXXXXX,XXXXXXXX,________,
+  ________,_X______,________,
+  XXXXXXXX,XXXXXXXX,XX______,
+  ________,_X______,________,
+  _____XXX,XX______,________,
+  ________,________,________,
+  ________,________,________,
+  ________,________,________};
+
 GUI_CONST_STORAGE unsigned char acGUI_FontHZ_fontHz14_64CD[ 72] = { /* code 64CD */
   ________,________,________,
   ________,________,________,
@@ -20983,6 +21036,32 @@ GUI_CONST_STORAGE unsigned char acGUI_FontHZ_fontHz14_6D88[ 72] = { /* code 6D88
   ________,________,________,
   ________,________,________};
 
+GUI_CONST_STORAGE unsigned char acGUI_FontHZ_fontHz14_6E05[ 72] = { /* code 6E05 */
+  ________,________,________,
+  ________,________,________,
+  ________,________,________,
+  ________,________,________,
+  XX______,___X____,________,
+  _XX__XXX,XXXXXXXX,X_______,
+  ___X____,___X____,________,
+  _____XXX,XXXXXXXX,________,
+  ________,___X____,________,
+  XX__XXXX,XXXXXXXX,X_______,
+  _XX_____,________,________,
+  __X_____,________,________,
+  ______XX,XXXXXXXX,________,
+  ______X_,_______X,________,
+  ___X__X_,_______X,________,
+  ___X__XX,XXXXXXXX,________,
+  __X___X_,_______X,________,
+  __X___X_,_______X,________,
+  __X___XX,XXXXXXXX,________,
+  _X____X_,_______X,________,
+  _X____X_,___XXXXX,________,
+  ________,________,________,
+  ________,________,________,
+  ________,________,________};
+
 GUI_CONST_STORAGE unsigned char acGUI_FontHZ_fontHz14_6E1B[ 72] = { /* code 6E1B */
   ________,________,________,
   ________,________,________,
@@ -21503,6 +21582,32 @@ GUI_CONST_STORAGE unsigned char acGUI_FontHZ_fontHz14_7387[ 72] = { /* code 7387
   ________,________,________,
   ________,________,________};
 
+GUI_CONST_STORAGE unsigned char acGUI_FontHZ_fontHz14_7406[ 72] = { /* code 7406 */
+  ________,________,________,
+  ________,________,________,
+  ________,________,________,
+  ________,________,________,
+  ________,________,________,
+  XXXXXX_X,XXXXXXXX,________,
+  ___X___X,___X___X,________,
+  ___X___X,___X___X,________,
+  ___X___X,XXXXXXXX,________,
+  ___X___X,___X___X,________,
+  ___X___X,___X___X,________,
+  XXXXXX_X,XXXXXXXX,________,
+  ___X___X,___X___X,________,
+  ___X____,___X____,________,
+  ___X____,___X____,________,
+  ___X___X,XXXXXXXX,________,
+  ___X_X__,___X____,________,
+  __XXX___,___X____,________,
+  XX______,___X____,________,
+  ______XX,XXXXXXXX,X_______,
+  ________,________,________,
+  ________,________,________,
+  ________,________,________,
+  ________,________,________};
+
 GUI_CONST_STORAGE unsigned char acGUI_FontHZ_fontHz14_7528[ 72] = { /* code 7528 */
   ________,________,________,
   ________,________,________,
@@ -21759,6 +21864,32 @@ GUI_CONST_STORAGE unsigned char acGUI_FontHZ_fontHz14_7981[ 72] = { /* code 7981
   __XX____,_X___XX_,________,
   XX______,_X_____X,X_______,
   ______XX,XX______,________,
+  ________,________,________,
+  ________,________,________,
+  ________,________,________};
+
+GUI_CONST_STORAGE unsigned char acGUI_FontHZ_fontHz14_79D2[ 72] = { /* code 79D2 */
+  ________,________,________,
+  ________,________,________,
+  ________,________,________,
+  ________,________,________,
+  ____XXX_,____X___,________,
+  XXXX____,____X___,________,
+  ___X____,____X___,________,
+  ___X____,_X__X__X,________,
+  ___X____,_X__X___,X_______,
+  XXXXXXX_,X___X___,X_______,
+  ___X____,X___X___,_X______,
+  __XX___X,X___X___,_X______,
+  __XXX__X,____X___,________,
+  __XX_X__,____X___,X_______,
+  _X_X__X_,____X__X,X_______,
+  _X_X____,_______X,________,
+  X__X____,______X_,________,
+  X__X____,____XX__,________,
+  ___X____,___XX___,________,
+  ___X____,_XX_____,________,
+  ___X__XX,X_______,________,
   ________,________,________,
   ________,________,________,
   ________,________,________};
@@ -24103,7 +24234,7 @@ GUI_CONST_STORAGE unsigned char acGUI_FontHZ_fontHz14_9EDE[ 72] = { /* code 9EDE
   ________,________,________,
   ________,________,________};
 
-GUI_CONST_STORAGE GUI_CHARINFO GUI_FontHZ_fontHz14_CharInfo[921] = {
+GUI_CONST_STORAGE GUI_CHARINFO GUI_FontHZ_fontHz14_CharInfo[926] = {
    {   5,   5,  1, acGUI_FontHZ_fontHz14_0020 } /* code 0020 */
   ,{   6,   6,  1, acGUI_FontHZ_fontHz14_0021 } /* code 0021 */
   ,{   8,   8,  1, acGUI_FontHZ_fontHz14_0022 } /* code 0022 */
@@ -24787,6 +24918,7 @@ GUI_CONST_STORAGE GUI_CHARINFO GUI_FontHZ_fontHz14_CharInfo[921] = {
   ,{  18,  18,  3, acGUI_FontHZ_fontHz14_51C6 } /* code 51C6 */
   ,{  18,  18,  3, acGUI_FontHZ_fontHz14_51CF } /* code 51CF */
   ,{  18,  18,  3, acGUI_FontHZ_fontHz14_51FA } /* code 51FA */
+  ,{  18,  18,  3, acGUI_FontHZ_fontHz14_51FB } /* code 51FB */
   ,{  18,  18,  3, acGUI_FontHZ_fontHz14_5220 } /* code 5220 */
   ,{  18,  18,  3, acGUI_FontHZ_fontHz14_522A } /* code 522A */
   ,{  18,  18,  3, acGUI_FontHZ_fontHz14_5230 } /* code 5230 */
@@ -24866,6 +24998,7 @@ GUI_CONST_STORAGE GUI_CHARINFO GUI_FontHZ_fontHz14_CharInfo[921] = {
   ,{  18,  18,  3, acGUI_FontHZ_fontHz14_63D2 } /* code 63D2 */
   ,{  18,  18,  3, acGUI_FontHZ_fontHz14_63DB } /* code 63DB */
   ,{  18,  18,  3, acGUI_FontHZ_fontHz14_64C7 } /* code 64C7 */
+  ,{  18,  18,  3, acGUI_FontHZ_fontHz14_64CA } /* code 64CA */
   ,{  18,  18,  3, acGUI_FontHZ_fontHz14_64CD } /* code 64CD */
   ,{  18,  18,  3, acGUI_FontHZ_fontHz14_64DA } /* code 64DA */
   ,{  18,  18,  3, acGUI_FontHZ_fontHz14_64E0 } /* code 64E0 */
@@ -24905,6 +25038,7 @@ GUI_CONST_STORAGE GUI_CHARINFO GUI_FontHZ_fontHz14_CharInfo[921] = {
   ,{  18,  18,  3, acGUI_FontHZ_fontHz14_6CE2 } /* code 6CE2 */
   ,{  18,  18,  3, acGUI_FontHZ_fontHz14_6D4B } /* code 6D4B */
   ,{  18,  18,  3, acGUI_FontHZ_fontHz14_6D88 } /* code 6D88 */
+  ,{  18,  18,  3, acGUI_FontHZ_fontHz14_6E05 } /* code 6E05 */
   ,{  18,  18,  3, acGUI_FontHZ_fontHz14_6E1B } /* code 6E1B */
   ,{  18,  18,  3, acGUI_FontHZ_fontHz14_6E29 } /* code 6E29 */
   ,{  18,  18,  3, acGUI_FontHZ_fontHz14_6E2C } /* code 6E2C */
@@ -24925,6 +25059,7 @@ GUI_CONST_STORAGE GUI_CHARINFO GUI_FontHZ_fontHz14_CharInfo[921] = {
   ,{  18,  18,  3, acGUI_FontHZ_fontHz14_72B6 } /* code 72B6 */
   ,{  18,  18,  3, acGUI_FontHZ_fontHz14_72C0 } /* code 72C0 */
   ,{  18,  18,  3, acGUI_FontHZ_fontHz14_7387 } /* code 7387 */
+  ,{  18,  18,  3, acGUI_FontHZ_fontHz14_7406 } /* code 7406 */
   ,{  18,  18,  3, acGUI_FontHZ_fontHz14_7528 } /* code 7528 */
   ,{  18,  18,  3, acGUI_FontHZ_fontHz14_7535 } /* code 7535 */
   ,{  18,  18,  3, acGUI_FontHZ_fontHz14_754C } /* code 754C */
@@ -24935,6 +25070,7 @@ GUI_CONST_STORAGE GUI_CHARINFO GUI_FontHZ_fontHz14_CharInfo[921] = {
   ,{  18,  18,  3, acGUI_FontHZ_fontHz14_786E } /* code 786E */
   ,{  18,  18,  3, acGUI_FontHZ_fontHz14_78BA } /* code 78BA */
   ,{  18,  18,  3, acGUI_FontHZ_fontHz14_7981 } /* code 7981 */
+  ,{  18,  18,  3, acGUI_FontHZ_fontHz14_79D2 } /* code 79D2 */
   ,{  18,  18,  3, acGUI_FontHZ_fontHz14_79FB } /* code 79FB */
   ,{  18,  18,  3, acGUI_FontHZ_fontHz14_7A0D } /* code 7A0D */
   ,{  18,  18,  3, acGUI_FontHZ_fontHz14_7AEF } /* code 7AEF */
@@ -25027,1626 +25163,1654 @@ GUI_CONST_STORAGE GUI_CHARINFO GUI_FontHZ_fontHz14_CharInfo[921] = {
   ,{  18,  18,  3, acGUI_FontHZ_fontHz14_9EDE } /* code 9EDE */
 };
 
-GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop285 = {
+GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop289 = {
    0x9EDE /* first character */
   ,0x9EDE /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[920] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[925] /* address of first character */
   ,(GUI_CONST_STORAGE GUI_FONT_PROP *)0 /* pointer to next GUI_FONT_PROP */
 };
 
-GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop284 = {
+GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop288 = {
    0x9AD8 /* first character */
   ,0x9AD8 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[919] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[924] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_Prop289 /* pointer to next GUI_FONT_PROP */
+};
+
+GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop287 = {
+   0x98CE /* first character */
+  ,0x98CE /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[923] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_Prop288 /* pointer to next GUI_FONT_PROP */
+};
+
+GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop286 = {
+   0x98A8 /* first character */
+  ,0x98A8 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[922] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_Prop287 /* pointer to next GUI_FONT_PROP */
+};
+
+GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop285 = {
+   0x9884 /* first character */
+  ,0x9884 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[921] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_Prop286 /* pointer to next GUI_FONT_PROP */
+};
+
+GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop284 = {
+   0x9875 /* first character */
+  ,0x9875 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[920] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop285 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop283 = {
-   0x98CE /* first character */
-  ,0x98CE /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[918] /* address of first character */
+   0x982D /* first character */
+  ,0x982D /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[919] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop284 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop282 = {
-   0x98A8 /* first character */
-  ,0x98A8 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[917] /* address of first character */
+   0x9810 /* first character */
+  ,0x9810 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[918] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop283 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop281 = {
-   0x9884 /* first character */
-  ,0x9884 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[916] /* address of first character */
+   0x9801 /* first character */
+  ,0x9801 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[917] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop282 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop280 = {
-   0x9875 /* first character */
-  ,0x9875 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[915] /* address of first character */
+   0x97FF /* first character */
+  ,0x97FF /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[916] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop281 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop279 = {
-   0x982D /* first character */
-  ,0x982D /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[914] /* address of first character */
+   0x9762 /* first character */
+  ,0x9762 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[915] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop280 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop278 = {
-   0x9810 /* first character */
-  ,0x9810 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[913] /* address of first character */
+   0x96FB /* first character */
+  ,0x96FB /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[914] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop279 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop277 = {
-   0x9801 /* first character */
-  ,0x9801 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[912] /* address of first character */
+   0x96F6 /* first character */
+  ,0x96F6 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[913] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop278 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop276 = {
-   0x97FF /* first character */
-  ,0x97FF /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[911] /* address of first character */
+   0x96F2 /* first character */
+  ,0x96F2 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[912] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop277 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop275 = {
-   0x9762 /* first character */
-  ,0x9762 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[910] /* address of first character */
+   0x9664 /* first character */
+  ,0x9664 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[911] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop276 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop274 = {
-   0x96FB /* first character */
-  ,0x96FB /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[909] /* address of first character */
+   0x95F4 /* first character */
+  ,0x95F4 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[910] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop275 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop273 = {
-   0x96F6 /* first character */
-  ,0x96F6 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[908] /* address of first character */
+   0x95ED /* first character */
+  ,0x95ED /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[909] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop274 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop272 = {
-   0x96F2 /* first character */
-  ,0x96F2 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[907] /* address of first character */
+   0x95DC /* first character */
+  ,0x95DC /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[908] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop273 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop271 = {
-   0x9664 /* first character */
-  ,0x9664 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[906] /* address of first character */
+   0x9593 /* first character */
+  ,0x9593 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[907] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop272 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop270 = {
-   0x95F4 /* first character */
-  ,0x95F4 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[905] /* address of first character */
+   0x958B /* first character */
+  ,0x958B /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[906] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop271 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop269 = {
-   0x95ED /* first character */
-  ,0x95ED /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[904] /* address of first character */
+   0x9589 /* first character */
+  ,0x9589 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[905] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop270 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop268 = {
-   0x95DC /* first character */
-  ,0x95DC /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[903] /* address of first character */
+   0x957F /* first character */
+  ,0x957F /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[904] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop269 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop267 = {
-   0x9593 /* first character */
-  ,0x9593 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[902] /* address of first character */
+   0x9577 /* first character */
+  ,0x9577 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[903] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop268 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop266 = {
-   0x958B /* first character */
-  ,0x958B /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[901] /* address of first character */
+   0x9519 /* first character */
+  ,0x9519 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[902] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop267 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop265 = {
-   0x9589 /* first character */
-  ,0x9589 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[900] /* address of first character */
+   0x932F /* first character */
+  ,0x932F /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[901] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop266 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop264 = {
-   0x957F /* first character */
-  ,0x957F /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[899] /* address of first character */
+   0x91CD /* first character */
+  ,0x91CD /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[900] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop265 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop263 = {
-   0x9577 /* first character */
-  ,0x9577 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[898] /* address of first character */
+   0x90F5 /* first character */
+  ,0x90F5 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[899] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop264 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop262 = {
-   0x9519 /* first character */
-  ,0x9519 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[897] /* address of first character */
+   0x90AE /* first character */
+  ,0x90AE /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[898] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop263 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop261 = {
-   0x932F /* first character */
-  ,0x932F /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[896] /* address of first character */
+   0x9078 /* first character */
+  ,0x9078 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[897] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop262 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop260 = {
-   0x91CD /* first character */
-  ,0x91CD /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[895] /* address of first character */
+   0x9032 /* first character */
+  ,0x9032 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[896] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop261 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop259 = {
-   0x90F5 /* first character */
-  ,0x90F5 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[894] /* address of first character */
+   0x901F /* first character */
+  ,0x901F /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[895] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop260 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop258 = {
-   0x90AE /* first character */
-  ,0x90AE /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[893] /* address of first character */
+   0x901A /* first character */
+  ,0x901A /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[894] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop259 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop257 = {
-   0x9078 /* first character */
-  ,0x9078 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[892] /* address of first character */
+   0x9009 /* first character */
+  ,0x9009 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[893] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop258 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop256 = {
-   0x9032 /* first character */
-  ,0x9032 /* last character  */
+   0x9000 /* first character */
+  ,0x9001 /* last character  */
   ,&GUI_FontHZ_fontHz14_CharInfo[891] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop257 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop255 = {
-   0x901F /* first character */
-  ,0x901F /* last character  */
+   0x8FDB /* first character */
+  ,0x8FDB /* last character  */
   ,&GUI_FontHZ_fontHz14_CharInfo[890] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop256 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop254 = {
-   0x901A /* first character */
-  ,0x901A /* last character  */
+   0x8FD4 /* first character */
+  ,0x8FD4 /* last character  */
   ,&GUI_FontHZ_fontHz14_CharInfo[889] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop255 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop253 = {
-   0x9009 /* first character */
-  ,0x9009 /* last character  */
+   0x8F7D /* first character */
+  ,0x8F7D /* last character  */
   ,&GUI_FontHZ_fontHz14_CharInfo[888] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop254 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop252 = {
-   0x9000 /* first character */
-  ,0x9001 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[886] /* address of first character */
+   0x8F74 /* first character */
+  ,0x8F74 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[887] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop253 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop251 = {
-   0x8FDB /* first character */
-  ,0x8FDB /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[885] /* address of first character */
+   0x8F09 /* first character */
+  ,0x8F09 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[886] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop252 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop250 = {
-   0x8FD4 /* first character */
-  ,0x8FD4 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[884] /* address of first character */
+   0x8EF8 /* first character */
+  ,0x8EF8 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[885] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop251 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop249 = {
-   0x8F7D /* first character */
-  ,0x8F7D /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[883] /* address of first character */
+   0x8DEF /* first character */
+  ,0x8DEF /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[884] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop250 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop248 = {
-   0x8F74 /* first character */
-  ,0x8F74 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[882] /* address of first character */
+   0x8D25 /* first character */
+  ,0x8D25 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[883] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop249 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop247 = {
-   0x8F09 /* first character */
-  ,0x8F09 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[881] /* address of first character */
+   0x8C03 /* first character */
+  ,0x8C03 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[882] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop248 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop246 = {
-   0x8EF8 /* first character */
-  ,0x8EF8 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[880] /* address of first character */
+   0x8BF7 /* first character */
+  ,0x8BF7 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[881] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop247 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop245 = {
-   0x8DEF /* first character */
-  ,0x8DEF /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[879] /* address of first character */
+   0x8BEF /* first character */
+  ,0x8BEF /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[880] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop246 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop244 = {
-   0x8D25 /* first character */
-  ,0x8D25 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[878] /* address of first character */
+   0x8BED /* first character */
+  ,0x8BED /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[879] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop245 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop243 = {
-   0x8C03 /* first character */
-  ,0x8C03 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[877] /* address of first character */
+   0x8BE5 /* first character */
+  ,0x8BE5 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[878] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop244 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop242 = {
-   0x8BF7 /* first character */
-  ,0x8BF7 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[876] /* address of first character */
+   0x8BD5 /* first character */
+  ,0x8BD5 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[877] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop243 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop241 = {
-   0x8BEF /* first character */
-  ,0x8BEF /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[875] /* address of first character */
+   0x8BBE /* first character */
+  ,0x8BBE /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[876] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop242 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop240 = {
-   0x8BED /* first character */
-  ,0x8BED /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[874] /* address of first character */
+   0x8BA4 /* first character */
+  ,0x8BA4 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[875] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop241 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop239 = {
-   0x8BE5 /* first character */
-  ,0x8BE5 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[873] /* address of first character */
+   0x8B8A /* first character */
+  ,0x8B8A /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[874] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop240 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop238 = {
-   0x8BD5 /* first character */
-  ,0x8BD5 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[872] /* address of first character */
+   0x8ACB /* first character */
+  ,0x8ACB /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[873] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop239 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop237 = {
-   0x8BBE /* first character */
-  ,0x8BBE /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[871] /* address of first character */
+   0x8ABF /* first character */
+  ,0x8ABF /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[872] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop238 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop236 = {
-   0x8BA4 /* first character */
-  ,0x8BA4 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[870] /* address of first character */
+   0x8AA4 /* first character */
+  ,0x8AA4 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[871] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop237 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop235 = {
-   0x8B8A /* first character */
-  ,0x8B8A /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[869] /* address of first character */
+   0x8A9E /* first character */
+  ,0x8A9E /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[870] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop236 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop234 = {
-   0x8ACB /* first character */
-  ,0x8ACB /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[868] /* address of first character */
+   0x8A8D /* first character */
+  ,0x8A8D /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[869] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop235 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop233 = {
-   0x8ABF /* first character */
-  ,0x8ABF /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[867] /* address of first character */
+   0x8A72 /* first character */
+  ,0x8A72 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[868] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop234 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop232 = {
-   0x8AA4 /* first character */
-  ,0x8AA4 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[866] /* address of first character */
+   0x8A66 /* first character */
+  ,0x8A66 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[867] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop233 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop231 = {
-   0x8A9E /* first character */
-  ,0x8A9E /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[865] /* address of first character */
+   0x8A2D /* first character */
+  ,0x8A2D /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[866] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop232 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop230 = {
-   0x8A8D /* first character */
-  ,0x8A8D /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[864] /* address of first character */
+   0x8A00 /* first character */
+  ,0x8A00 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[865] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop231 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop229 = {
-   0x8A72 /* first character */
-  ,0x8A72 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[863] /* address of first character */
+   0x89E3 /* first character */
+  ,0x89E3 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[864] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop230 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop228 = {
-   0x8A66 /* first character */
-  ,0x8A66 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[862] /* address of first character */
+   0x8981 /* first character */
+  ,0x8981 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[863] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop229 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop227 = {
-   0x8A2D /* first character */
-  ,0x8A2D /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[861] /* address of first character */
+   0x88DD /* first character */
+  ,0x88DD /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[862] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop228 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop226 = {
-   0x8A00 /* first character */
-  ,0x8A00 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[860] /* address of first character */
+   0x88C5 /* first character */
+  ,0x88C5 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[861] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop227 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop225 = {
-   0x89E3 /* first character */
-  ,0x89E3 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[859] /* address of first character */
+   0x884C /* first character */
+  ,0x884C /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[860] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop226 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop224 = {
-   0x8981 /* first character */
-  ,0x8981 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[858] /* address of first character */
+   0x81EA /* first character */
+  ,0x81EA /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[859] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop225 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop223 = {
-   0x88DD /* first character */
-  ,0x88DD /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[857] /* address of first character */
+   0x8017 /* first character */
+  ,0x8017 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[858] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop224 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop222 = {
-   0x88C5 /* first character */
-  ,0x88C5 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[856] /* address of first character */
+   0x7F6E /* first character */
+  ,0x7F6E /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[857] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop223 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop221 = {
-   0x884C /* first character */
-  ,0x884C /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[855] /* address of first character */
+   0x7F51 /* first character */
+  ,0x7F51 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[856] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop222 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop220 = {
-   0x81EA /* first character */
-  ,0x81EA /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[854] /* address of first character */
+   0x7EED /* first character */
+  ,0x7EED /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[855] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop221 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop219 = {
-   0x8017 /* first character */
-  ,0x8017 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[853] /* address of first character */
+   0x7EE7 /* first character */
+  ,0x7EE7 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[854] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop220 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop218 = {
-   0x7F6E /* first character */
-  ,0x7F6E /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[852] /* address of first character */
+   0x7EDF /* first character */
+  ,0x7EDF /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[853] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop219 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop217 = {
-   0x7F51 /* first character */
-  ,0x7F51 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[851] /* address of first character */
+   0x7ED3 /* first character */
+  ,0x7ED3 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[852] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop218 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop216 = {
-   0x7EED /* first character */
-  ,0x7EED /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[850] /* address of first character */
+   0x7ED1 /* first character */
+  ,0x7ED1 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[851] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop217 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop215 = {
-   0x7EE7 /* first character */
-  ,0x7EE7 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[849] /* address of first character */
+   0x7E8C /* first character */
+  ,0x7E8C /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[850] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop216 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop214 = {
-   0x7EDF /* first character */
-  ,0x7EDF /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[848] /* address of first character */
+   0x7E7C /* first character */
+  ,0x7E7C /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[849] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop215 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop213 = {
-   0x7ED3 /* first character */
-  ,0x7ED3 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[847] /* address of first character */
+   0x7E41 /* first character */
+  ,0x7E41 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[848] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop214 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop212 = {
-   0x7ED1 /* first character */
-  ,0x7ED1 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[846] /* address of first character */
+   0x7DB2 /* first character */
+  ,0x7DB2 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[847] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop213 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop211 = {
-   0x7E8C /* first character */
-  ,0x7E8C /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[845] /* address of first character */
+   0x7D81 /* first character */
+  ,0x7D81 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[846] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop212 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop210 = {
-   0x7E7C /* first character */
-  ,0x7E7C /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[844] /* address of first character */
+   0x7D71 /* first character */
+  ,0x7D71 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[845] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop211 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop209 = {
-   0x7E41 /* first character */
-  ,0x7E41 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[843] /* address of first character */
+   0x7D50 /* first character */
+  ,0x7D50 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[844] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop210 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop208 = {
-   0x7DB2 /* first character */
-  ,0x7DB2 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[842] /* address of first character */
+   0x7CFB /* first character */
+  ,0x7CFB /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[843] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop209 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop207 = {
-   0x7D81 /* first character */
-  ,0x7D81 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[841] /* address of first character */
+   0x7BB1 /* first character */
+  ,0x7BB1 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[842] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop208 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop206 = {
-   0x7D71 /* first character */
-  ,0x7D71 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[840] /* address of first character */
+   0x7B80 /* first character */
+  ,0x7B80 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[841] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop207 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop205 = {
-   0x7D50 /* first character */
-  ,0x7D50 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[839] /* address of first character */
+   0x7B49 /* first character */
+  ,0x7B49 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[840] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop206 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop204 = {
-   0x7CFB /* first character */
-  ,0x7CFB /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[838] /* address of first character */
+   0x7B2C /* first character */
+  ,0x7B2C /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[839] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop205 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop203 = {
-   0x7BB1 /* first character */
-  ,0x7BB1 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[837] /* address of first character */
+   0x7AEF /* first character */
+  ,0x7AEF /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[838] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop204 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop202 = {
-   0x7B80 /* first character */
-  ,0x7B80 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[836] /* address of first character */
+   0x7A0D /* first character */
+  ,0x7A0D /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[837] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop203 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop201 = {
-   0x7B49 /* first character */
-  ,0x7B49 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[835] /* address of first character */
+   0x79FB /* first character */
+  ,0x79FB /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[836] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop202 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop200 = {
-   0x7B2C /* first character */
-  ,0x7B2C /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[834] /* address of first character */
+   0x79D2 /* first character */
+  ,0x79D2 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[835] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop201 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop199 = {
-   0x7AEF /* first character */
-  ,0x7AEF /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[833] /* address of first character */
+   0x7981 /* first character */
+  ,0x7981 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[834] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop200 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop198 = {
-   0x7A0D /* first character */
-  ,0x7A0D /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[832] /* address of first character */
+   0x78BA /* first character */
+  ,0x78BA /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[833] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop199 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop197 = {
-   0x79FB /* first character */
-  ,0x79FB /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[831] /* address of first character */
+   0x786E /* first character */
+  ,0x786E /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[832] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop198 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop196 = {
-   0x7981 /* first character */
-  ,0x7981 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[830] /* address of first character */
+   0x786C /* first character */
+  ,0x786C /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[831] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop197 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop195 = {
-   0x78BA /* first character */
-  ,0x78BA /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[829] /* address of first character */
+   0x76E4 /* first character */
+  ,0x76E4 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[830] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop196 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop194 = {
-   0x786E /* first character */
-  ,0x786E /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[828] /* address of first character */
+   0x76D8 /* first character */
+  ,0x76D8 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[829] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop195 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop193 = {
-   0x786C /* first character */
-  ,0x786C /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[827] /* address of first character */
+   0x7570 /* first character */
+  ,0x7570 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[828] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop194 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop192 = {
-   0x76E4 /* first character */
-  ,0x76E4 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[826] /* address of first character */
+   0x754C /* first character */
+  ,0x754C /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[827] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop193 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop191 = {
-   0x76D8 /* first character */
-  ,0x76D8 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[825] /* address of first character */
+   0x7535 /* first character */
+  ,0x7535 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[826] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop192 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop190 = {
-   0x7570 /* first character */
-  ,0x7570 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[824] /* address of first character */
+   0x7528 /* first character */
+  ,0x7528 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[825] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop191 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop189 = {
-   0x754C /* first character */
-  ,0x754C /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[823] /* address of first character */
+   0x7406 /* first character */
+  ,0x7406 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[824] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop190 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop188 = {
-   0x7535 /* first character */
-  ,0x7535 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[822] /* address of first character */
+   0x7387 /* first character */
+  ,0x7387 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[823] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop189 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop187 = {
-   0x7528 /* first character */
-  ,0x7528 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[821] /* address of first character */
+   0x72C0 /* first character */
+  ,0x72C0 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[822] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop188 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop186 = {
-   0x7387 /* first character */
-  ,0x7387 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[820] /* address of first character */
+   0x72B6 /* first character */
+  ,0x72B6 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[821] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop187 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop185 = {
-   0x72C0 /* first character */
-  ,0x72C0 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[819] /* address of first character */
+   0x7279 /* first character */
+  ,0x7279 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[820] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop186 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop184 = {
-   0x72B6 /* first character */
-  ,0x72B6 /* last character  */
+   0x7247 /* first character */
+  ,0x7248 /* last character  */
   ,&GUI_FontHZ_fontHz14_CharInfo[818] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop185 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop183 = {
-   0x7279 /* first character */
-  ,0x7279 /* last character  */
+   0x71C8 /* first character */
+  ,0x71C8 /* last character  */
   ,&GUI_FontHZ_fontHz14_CharInfo[817] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop184 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop182 = {
-   0x7247 /* first character */
-  ,0x7248 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[815] /* address of first character */
+   0x71B1 /* first character */
+  ,0x71B1 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[816] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop183 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop181 = {
-   0x71C8 /* first character */
-  ,0x71C8 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[814] /* address of first character */
+   0x7136 /* first character */
+  ,0x7136 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[815] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop182 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop180 = {
-   0x71B1 /* first character */
-  ,0x71B1 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[813] /* address of first character */
+   0x7121 /* first character */
+  ,0x7121 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[814] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop181 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop179 = {
-   0x7136 /* first character */
-  ,0x7136 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[812] /* address of first character */
+   0x70ED /* first character */
+  ,0x70ED /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[813] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop180 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop178 = {
-   0x7121 /* first character */
-  ,0x7121 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[811] /* address of first character */
+   0x70B9 /* first character */
+  ,0x70B9 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[812] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop179 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop177 = {
-   0x70ED /* first character */
-  ,0x70ED /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[810] /* address of first character */
+   0x706F /* first character */
+  ,0x706F /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[811] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop178 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop176 = {
-   0x70B9 /* first character */
-  ,0x70B9 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[809] /* address of first character */
+   0x706D /* first character */
+  ,0x706D /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[810] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop177 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop175 = {
-   0x706F /* first character */
-  ,0x706F /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[808] /* address of first character */
+   0x6EC5 /* first character */
+  ,0x6EC5 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[809] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop176 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop174 = {
-   0x706D /* first character */
-  ,0x706D /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[807] /* address of first character */
+   0x6EAB /* first character */
+  ,0x6EAB /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[808] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop175 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop173 = {
-   0x6EC5 /* first character */
-  ,0x6EC5 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[806] /* address of first character */
+   0x6E96 /* first character */
+  ,0x6E96 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[807] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop174 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop172 = {
-   0x6EAB /* first character */
-  ,0x6EAB /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[805] /* address of first character */
+   0x6E2C /* first character */
+  ,0x6E2C /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[806] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop173 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop171 = {
-   0x6E96 /* first character */
-  ,0x6E96 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[804] /* address of first character */
+   0x6E29 /* first character */
+  ,0x6E29 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[805] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop172 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop170 = {
-   0x6E2C /* first character */
-  ,0x6E2C /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[803] /* address of first character */
+   0x6E1B /* first character */
+  ,0x6E1B /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[804] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop171 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop169 = {
-   0x6E29 /* first character */
-  ,0x6E29 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[802] /* address of first character */
+   0x6E05 /* first character */
+  ,0x6E05 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[803] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop170 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop168 = {
-   0x6E1B /* first character */
-  ,0x6E1B /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[801] /* address of first character */
+   0x6D88 /* first character */
+  ,0x6D88 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[802] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop169 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop167 = {
-   0x6D88 /* first character */
-  ,0x6D88 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[800] /* address of first character */
+   0x6D4B /* first character */
+  ,0x6D4B /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[801] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop168 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop166 = {
-   0x6D4B /* first character */
-  ,0x6D4B /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[799] /* address of first character */
+   0x6CE2 /* first character */
+  ,0x6CE2 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[800] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop167 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop165 = {
-   0x6CE2 /* first character */
-  ,0x6CE2 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[798] /* address of first character */
+   0x6B78 /* first character */
+  ,0x6B78 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[799] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop166 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop164 = {
-   0x6B78 /* first character */
-  ,0x6B78 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[797] /* address of first character */
+   0x6B62 /* first character */
+  ,0x6B64 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[796] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop165 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop163 = {
-   0x6B62 /* first character */
-  ,0x6B64 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[794] /* address of first character */
+   0x6AA2 /* first character */
+  ,0x6AA2 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[795] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop164 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop162 = {
-   0x6AA2 /* first character */
-  ,0x6AA2 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[793] /* address of first character */
+   0x6A5F /* first character */
+  ,0x6A5F /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[794] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop163 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop161 = {
-   0x6A5F /* first character */
-  ,0x6A5F /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[792] /* address of first character */
+   0x6A21 /* first character */
+  ,0x6A21 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[793] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop162 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop160 = {
-   0x6A21 /* first character */
-  ,0x6A21 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[791] /* address of first character */
+   0x68C0 /* first character */
+  ,0x68C0 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[792] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop161 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop159 = {
-   0x68C0 /* first character */
-  ,0x68C0 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[790] /* address of first character */
+   0x67E5 /* first character */
+  ,0x67E5 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[791] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop160 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop158 = {
-   0x67E5 /* first character */
-  ,0x67E5 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[789] /* address of first character */
+   0x677F /* first character */
+  ,0x677F /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[790] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop159 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop157 = {
-   0x677F /* first character */
-  ,0x677F /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[788] /* address of first character */
+   0x675F /* first character */
+  ,0x675F /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[789] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop158 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop156 = {
-   0x675F /* first character */
-  ,0x675F /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[787] /* address of first character */
+   0x6750 /* first character */
+  ,0x6750 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[788] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop157 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop155 = {
-   0x6750 /* first character */
-  ,0x6750 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[786] /* address of first character */
+   0x673A /* first character */
+  ,0x673A /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[787] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop156 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop154 = {
-   0x673A /* first character */
-  ,0x673A /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[785] /* address of first character */
+   0x672C /* first character */
+  ,0x672C /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[786] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop155 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop153 = {
-   0x672C /* first character */
-  ,0x672C /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[784] /* address of first character */
+   0x670D /* first character */
+  ,0x670D /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[785] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop154 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop152 = {
-   0x670D /* first character */
-  ,0x670D /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[783] /* address of first character */
+   0x66F4 /* first character */
+  ,0x66F4 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[784] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop153 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop151 = {
-   0x66F4 /* first character */
-  ,0x66F4 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[782] /* address of first character */
+   0x66DD /* first character */
+  ,0x66DD /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[783] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop152 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop150 = {
-   0x66DD /* first character */
-  ,0x66DD /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[781] /* address of first character */
+   0x66AB /* first character */
+  ,0x66AB /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[782] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop151 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop149 = {
-   0x66AB /* first character */
-  ,0x66AB /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[780] /* address of first character */
+   0x6682 /* first character */
+  ,0x6682 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[781] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop150 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop148 = {
-   0x6682 /* first character */
-  ,0x6682 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[779] /* address of first character */
+   0x6642 /* first character */
+  ,0x6642 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[780] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop149 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop147 = {
-   0x6642 /* first character */
-  ,0x6642 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[778] /* address of first character */
+   0x662F /* first character */
+  ,0x662F /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[779] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop148 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop146 = {
-   0x662F /* first character */
-  ,0x662F /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[777] /* address of first character */
+   0x65F6 /* first character */
+  ,0x65F6 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[778] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop147 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop145 = {
-   0x65F6 /* first character */
-  ,0x65F6 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[776] /* address of first character */
+   0x65E0 /* first character */
+  ,0x65E0 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[777] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop146 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop144 = {
-   0x65E0 /* first character */
-  ,0x65E0 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[775] /* address of first character */
+   0x65BC /* first character */
+  ,0x65BC /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[776] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop145 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop143 = {
-   0x65BC /* first character */
-  ,0x65BC /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[774] /* address of first character */
+   0x65B7 /* first character */
+  ,0x65B7 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[775] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop144 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop142 = {
-   0x65B7 /* first character */
-  ,0x65B7 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[773] /* address of first character */
+   0x65B0 /* first character */
+  ,0x65B0 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[774] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop143 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop141 = {
-   0x65B0 /* first character */
-  ,0x65B0 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[772] /* address of first character */
+   0x65AD /* first character */
+  ,0x65AD /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[773] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop142 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop140 = {
-   0x65AD /* first character */
-  ,0x65AD /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[771] /* address of first character */
+   0x6599 /* first character */
+  ,0x6599 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[772] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop141 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop139 = {
-   0x6599 /* first character */
-  ,0x6599 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[770] /* address of first character */
+   0x6587 /* first character */
+  ,0x6587 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[771] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop140 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop138 = {
-   0x6587 /* first character */
-  ,0x6587 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[769] /* address of first character */
+   0x6578 /* first character */
+  ,0x6578 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[770] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop139 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop137 = {
-   0x6578 /* first character */
-  ,0x6578 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[768] /* address of first character */
+   0x6574 /* first character */
+  ,0x6574 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[769] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop138 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop136 = {
-   0x6574 /* first character */
-  ,0x6574 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[767] /* address of first character */
+   0x6570 /* first character */
+  ,0x6570 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[768] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop137 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop135 = {
-   0x6570 /* first character */
-  ,0x6570 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[766] /* address of first character */
+   0x6557 /* first character */
+  ,0x6557 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[767] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop136 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop134 = {
-   0x6557 /* first character */
-  ,0x6557 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[765] /* address of first character */
+   0x64E0 /* first character */
+  ,0x64E0 /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[766] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop135 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop133 = {
-   0x64E0 /* first character */
-  ,0x64E0 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[764] /* address of first character */
+   0x64DA /* first character */
+  ,0x64DA /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[765] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop134 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop132 = {
-   0x64DA /* first character */
-  ,0x64DA /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[763] /* address of first character */
+   0x64CD /* first character */
+  ,0x64CD /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[764] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop133 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop131 = {
-   0x64CD /* first character */
-  ,0x64CD /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[762] /* address of first character */
+   0x64CA /* first character */
+  ,0x64CA /* last character  */
+  ,&GUI_FontHZ_fontHz14_CharInfo[763] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop132 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop130 = {
    0x64C7 /* first character */
   ,0x64C7 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[761] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[762] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop131 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop129 = {
    0x63DB /* first character */
   ,0x63DB /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[760] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[761] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop130 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop128 = {
    0x63D2 /* first character */
   ,0x63D2 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[759] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[760] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop129 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop127 = {
    0x636E /* first character */
   ,0x636E /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[758] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[759] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop128 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop126 = {
    0x6362 /* first character */
   ,0x6362 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[757] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[758] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop127 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop125 = {
    0x6324 /* first character */
   ,0x6324 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[756] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[757] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop126 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop124 = {
    0x6309 /* first character */
   ,0x6309 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[755] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[756] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop125 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop123 = {
    0x62E9 /* first character */
   ,0x62E9 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[754] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[755] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop124 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop122 = {
    0x627E /* first character */
   ,0x627E /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[753] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[754] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop123 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop121 = {
    0x6253 /* first character */
   ,0x6253 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[752] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[753] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop122 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop120 = {
    0x624B /* first character */
   ,0x624B /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[751] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[752] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop121 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop119 = {
    0x6247 /* first character */
   ,0x6247 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[750] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[751] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop120 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop118 = {
    0x6216 /* first character */
   ,0x6216 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[749] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[750] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop119 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop117 = {
    0x6210 /* first character */
   ,0x6210 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[748] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[749] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop118 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop116 = {
    0x614B /* first character */
   ,0x614B /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[747] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[748] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop117 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop115 = {
    0x606F /* first character */
   ,0x606F /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[746] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[747] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop116 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop114 = {
    0x6062 /* first character */
   ,0x6062 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[745] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[746] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop115 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop113 = {
    0x6025 /* first character */
   ,0x6025 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[744] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[745] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop114 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop112 = {
    0x6001 /* first character */
   ,0x6001 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[743] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[744] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop113 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop111 = {
    0x5FA9 /* first character */
   ,0x5FA9 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[742] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[743] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop112 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop110 = {
    0x5F9E /* first character */
   ,0x5F9E /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[741] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[742] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop111 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop109 = {
    0x5F91 /* first character */
   ,0x5F91 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[740] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[741] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop110 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop108 = {
    0x5F84 /* first character */
   ,0x5F85 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[738] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[739] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop109 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop107 = {
    0x5F71 /* first character */
   ,0x5F71 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[737] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[738] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop108 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop106 = {
    0x5F52 /* first character */
   ,0x5F52 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[736] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[737] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop107 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop105 = {
    0x5F02 /* first character */
   ,0x5F02 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[735] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[736] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop106 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop104 = {
    0x5F00 /* first character */
   ,0x5F00 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[734] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[735] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop105 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop103 = {
    0x5EA6 /* first character */
   ,0x5EA6 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[733] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[734] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop104 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop102 = {
    0x5E95 /* first character */
   ,0x5E95 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[732] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[733] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop103 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop101 = {
    0x5E8A /* first character */
   ,0x5E8A /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[731] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[732] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop102 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop100 = {
    0x5E73 /* first character */
   ,0x5E73 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[730] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[731] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop101 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop99 = {
    0x5E38 /* first character */
   ,0x5E38 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[729] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[730] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop100 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop98 = {
    0x5DE5 /* first character */
   ,0x5DE5 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[728] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[729] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop99 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop97 = {
    0x5C64 /* first character */
   ,0x5C64 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[727] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[728] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop98 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop96 = {
    0x5C42 /* first character */
   ,0x5C42 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[726] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[727] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop97 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop95 = {
    0x5C11 /* first character */
   ,0x5C11 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[725] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[726] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop96 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop94 = {
    0x5C06 /* first character */
   ,0x5C07 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[723] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[724] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop95 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop93 = {
    0x5B9A /* first character */
   ,0x5B9A /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[722] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[723] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop94 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop92 = {
    0x5B8C /* first character */
   ,0x5B8C /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[721] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[722] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop93 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop91 = {
    0x59CB /* first character */
   ,0x59CB /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[720] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[721] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop92 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop90 = {
    0x5934 /* first character */
   ,0x5934 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[719] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[720] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop91 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop89 = {
    0x5931 /* first character */
   ,0x5931 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[718] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[719] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop90 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop88 = {
    0x592A /* first character */
   ,0x592A /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[717] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[718] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop89 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop87 = {
    0x591A /* first character */
   ,0x591A /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[716] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[717] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop88 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop86 = {
    0x590D /* first character */
   ,0x590D /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[715] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[716] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop87 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop85 = {
    0x5907 /* first character */
   ,0x5907 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[714] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[715] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop86 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop84 = {
    0x589E /* first character */
   ,0x589E /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[713] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[714] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop85 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop83 = {
    0x584A /* first character */
   ,0x584A /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[712] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[713] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop84 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop82 = {
    0x578B /* first character */
   ,0x578B /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[711] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[712] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop83 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop81 = {
    0x5757 /* first character */
   ,0x5757 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[710] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[711] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop82 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop80 = {
    0x5740 /* first character */
   ,0x5740 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[709] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[710] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop81 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop79 = {
    0x5728 /* first character */
   ,0x5728 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[708] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[709] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop80 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop78 = {
    0x5716 /* first character */
   ,0x5716 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[707] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[708] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop79 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop77 = {
    0x56FE /* first character */
   ,0x56FE /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[706] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[707] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop78 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop76 = {
    0x56FA /* first character */
   ,0x56FA /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[705] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[706] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop77 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop75 = {
    0x56DE /* first character */
   ,0x56DE /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[704] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[705] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop76 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop74 = {
    0x56DB /* first character */
   ,0x56DB /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[703] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[704] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop75 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop73 = {
    0x5674 /* first character */
   ,0x5674 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[702] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[703] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop74 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop72 = {
    0x55B7 /* first character */
   ,0x55B7 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[701] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[702] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop73 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop71 = {
    0x54CD /* first character */
   ,0x54CD /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[700] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[701] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop72 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop70 = {
    0x5426 /* first character */
   ,0x5426 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[699] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[700] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop71 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop69 = {
    0x540E /* first character */
   ,0x540E /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[698] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[699] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop70 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop68 = {
    0x53E3 /* first character */
   ,0x53E3 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[697] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[698] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop69 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop67 = {
    0x53D8 /* first character */
   ,0x53D8 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[696] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[697] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop68 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop66 = {
    0x53D6 /* first character */
   ,0x53D6 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[695] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[696] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop67 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop65 = {
    0x5378 /* first character */
   ,0x5378 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[694] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[695] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop66 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop64 = {
    0x5370 /* first character */
   ,0x5370 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[693] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[694] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop65 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop63 = {
    0x5361 /* first character */
   ,0x5361 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[692] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[693] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop64 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop62 = {
    0x534A /* first character */
   ,0x534A /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[691] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[692] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop63 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop61 = {
    0x52D9 /* first character */
   ,0x52D9 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[690] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[691] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop62 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop60 = {
    0x52D5 /* first character */
   ,0x52D5 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[689] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[690] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop61 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop59 = {
    0x52A8 /* first character */
   ,0x52A8 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[688] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[689] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop60 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop58 = {
    0x52A0 /* first character */
   ,0x52A1 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[686] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[687] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop59 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop57 = {
    0x5230 /* first character */
   ,0x5230 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[685] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[686] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop58 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop56 = {
    0x522A /* first character */
   ,0x522A /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[684] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[685] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop57 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop55 = {
    0x5220 /* first character */
   ,0x5220 /* last character  */
-  ,&GUI_FontHZ_fontHz14_CharInfo[683] /* address of first character */
+  ,&GUI_FontHZ_fontHz14_CharInfo[684] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop56 /* pointer to next GUI_FONT_PROP */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP GUI_FontHZ_fontHz14_Prop54 = {
    0x51FA /* first character */
-  ,0x51FA /* last character  */
+  ,0x51FB /* last character  */
   ,&GUI_FontHZ_fontHz14_CharInfo[682] /* address of first character */
   ,&GUI_FontHZ_fontHz14_Prop55 /* pointer to next GUI_FONT_PROP */
 };

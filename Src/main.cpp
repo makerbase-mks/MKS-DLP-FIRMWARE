@@ -52,17 +52,19 @@
 /* USER CODE BEGIN Includes */
 #include "Marlin.h"
 #include "Marlin_export.h"
-
+#include "mks_test.h"
 #include "mks_reprint.h"
     
 #include "spi_flash.h"
 #include "cardreader.h"
-
+//#ifdef USE_MKS_WIFI
+#include "wifi_module.h"
+//#endif    
 #include "serial.h"  
 
 #include "gui.h"
 
-#include "ili9488.h"
+#include "ili9320.h"
 #include "draw_ui.h"
 #include "draw_ready_print.h"
 #include "draw_printing.h"
@@ -96,6 +98,16 @@ extern "C"void setTouchBound(int x0, int x1, int y0, int y1 );
  
 int main(void)
 {
+  
+  /* USER CODE BEGIN 1 */
+        //??????
+        //SCB->VTOR = FLASH_BASE | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal FLASH */
+        //SCB->VTOR = 0x08000000 | (0xC000 & (uint32_t)0x1FFFFF80);  /* Vector Table Relocation in Internal FLASH */
+                                                        //?bootloader?,???0x10000, Options ->Linker ->Edit...-> 0x08010000
+                                                        //?bootloader?,???0x0000, Options ->Linker ->Edit...-> 0x08000000 
+                                                        //??????:?BootLoader??????,ROM????? 0x08010000, Options ->Linker ->Edit...-> Memony Regions ->Rom ->0x08010000
+  /* USER CODE END 1 */
+
   /* MCU Configuration----------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
@@ -103,11 +115,13 @@ int main(void)
 
   /* Configure the system clock */
   SystemClock_Config();
+  //NVIC_SetVectorTable(NVIC_VectTab_FLASH, 0x0000);
   NVIC_SetVectorTable(NVIC_VectTab_FLASH, 0x10000);
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init(); 
   MX_DMA_Init();
+ // MX_FSMC_Init();
   MX_FATFS_Init();
   MX_RTC_Init();
   MX_I2C1_Init();
@@ -116,25 +130,37 @@ int main(void)
   MX_TIM2_Init();
   MX_TIM3_Init();
   MX_TIM5_Init();
+  //MX_ADC1_Init();
   MX_USART6_UART_Init();
 
   MX_USB_HOST_Init();
+  //MX_DAC_Init();
+  //MX_SPI3_Init();
   MX_SPI1_Init();
+  //MX_IWDG_Init();     //??
   /* Initialize interrupts */
   MX_NVIC_Init();
 
   /* USER CODE BEGIN 2 */
-  VUSB_ENA_OP = 1;
+	VUSB_ENA_OP = 1;
+  
+    MYSERIAL.begin(BAUDRATE);
+    SERIAL_PROTOCOLLNPGM("mksDLP start");
+    SERIAL_PROTOCOLPAIR("EPR_END_ADDR:",EPR_END_ADDR);
+    SERIAL_EOL();
+    SERIAL_ECHO_START();
+	
 
-  MYSERIAL.begin(BAUDRATE);
-  SERIAL_PROTOCOLLNPGM("mksDLP start");
-  SERIAL_PROTOCOLPAIR("EPR_END_ADDR:",EPR_END_ADDR);
-  SERIAL_EOL();
-  SERIAL_ECHO_START();  
+   
+    
+#ifdef USE_MKS_WIFI  
+	WIFISERIAL.begin(115200);
+        
+#endif
 
-  //使能SPI外设
-  SPI_Cmd(SPI2, ENABLE); 
-  SPI_Cmd(SPI1, ENABLE); 
+	//??SPI??
+  	SPI_Cmd(SPI2, ENABLE); 
+   	SPI_Cmd(SPI1, ENABLE); 
 
   GUI_Init();
   
@@ -142,43 +168,57 @@ int main(void)
   Lcd_Light_ON; 
   logo_tick1 = getTick();
   gui_view_init();
+
+  /*---------test begin-----------*/
+ //LCD_Init();
+ //mksEeprom_test();
+ //mksSSD2828Test();
+// mksW25Q64Test();
+ //mksSdCardTest();
+ //mksUSBTest();
+    /*---------test end-------------*/
+	//??PWM
+	HAL_TIM_PWM_Start(&htim5, TIM_CHANNEL_1);
+	TIM5->CCR1 = 0;
 	
-  //启动PWM
-  HAL_TIM_PWM_Start(&htim5, TIM_CHANNEL_1);
-  TIM5->CCR1 = 0;
+    //??TIMER
+    HAL_TIM_Base_Start_IT(&htim2);
+  	HAL_TIM_Base_Start_IT(&htim3);
+ mkstft_ui_init();
 
-  //启动TIMER
-  HAL_TIM_Base_Start_IT(&htim2);
-  HAL_TIM_Base_Start_IT(&htim3);
-  mkstft_ui_init();
+ mksTmp.cfg_hardware_test_enable = 0;
 
-  mksTmp.cfg_hardware_test_enable = 0;
-
-  gCfgItems.fileSysType = FILE_SYS_USB;	//从U盘读取配置文件
+  gCfgItems.fileSysType = FILE_SYS_USB;	//?U???????
   if(gCfgItems.fileSysType == FILE_SYS_USB)
-  {
-	if(Appli_state == APPLICATION_START)
 	{
-		for(int i=0;i<5000;i++)
+	if(Appli_state == APPLICATION_START)
 		{
+		for(int i=0;i<5000;i++)
+			{
 	  		MX_USB_HOST_Process();
 			card.checkFilesys(FILE_SYS_USB);
 			if(card.usbOK) 
 				break;
 			HAL_Delay(1);			
-		}
+			}
 		if(card.usbOK)
-		{
+			{
 	  		card.initusb();
 	  		card.mksConfiguration();
+			}
 		}
 	}
-  }
   else if(SD_DET_IP == 0)
   {
   	card.initsd();
   	card.mksConfiguration();
   }
+  #if 0//tan_mask
+  else
+  {
+    FATFS_UnLinkDriver(SD_Path); 
+  }
+  #endif
 
   switch(gCfgItems.language_bak)
   {
@@ -203,6 +243,9 @@ int main(void)
 	case 7:
 		gCfgItems.language_bak= LANG_ITALY;
 		break;
+    default:
+        gCfgItems.language_bak= LANG_ENGLISH;
+        break;		
   }
   
   if(gCfgItems.multiple_language == 0)
@@ -214,16 +257,33 @@ int main(void)
 	}
   }
 
+  //mksTmp.cfg_hardware_test_enable = 0;	//for test
+
+  if(mksTmp.cfg_hardware_test_enable)	//??????
+  {
+	GUI_SetBkColor(gCfgItems.background_color);
+	GUI_SetColor(gCfgItems.title_color);
+	GUI_Clear();
+	GUI_UC_SetEncodeNone();
+	GUI_SetFont(&GUI_FontHZ16);
+    GUI_DispStringAt("????-(??????V1.0.0_002)", 20, 0);
+  	mksHardwareTest();
+  }
   GUI_SetFont(&FONT_TITLE);
   
+	
   setup();
+  //mksdlp.ssd.test();
   mksdlp.dlp_start();
+ 
+  
+  //mksdlp.ExposureTest();
   disp_language_init();	
   GUI_UC_SetEncodeUTF8();
   
   if(DeviceCode==0x9488)
   {
-	TFT_screen.display_style = gCfgItems.display_style;// 1:简约版；0:经典版；
+	TFT_screen.display_style = gCfgItems.display_style;// 1:???;0:???;
 	TFT_screen.firstpage_gap = 32;
 	TFT_screen.gap_h = 2;
 	TFT_screen.gap_v = 2;
@@ -236,25 +296,80 @@ int main(void)
 	TFT_screen.title_high = 36;		
   }
   setTouchBound(gCfgItems.touch_adj_xMin, gCfgItems.touch_adj_xMax, gCfgItems.touch_adj_yMax, gCfgItems.touch_adj_yMin);
-
+	
+#if 0
+  if(gCfgItems.pwroff_save_mode == 1)
+  {
+  	FALA_CTRL = 1;
+	//
+  }
+#endif
+  
   mks_initPrint();
 
-  gCfgItems.fileSysType = FILE_SYS_USB;			//设定文件系统为 U盘
+  
+  gCfgItems.fileSysType = FILE_SYS_USB;			//??????? U?
+#if 0
+  if(gCfgItems.fileSysType == FILE_SYS_USB)	//?U???????
+  {
+	  for(int i=0;i<1000;i++)
+		  {
+		  MX_USB_HOST_Process();
+		  card.checkFilesys(FILE_SYS_USB);
+		  if(card.usbOK) 
+			  break;
+		  }
+  	card.initusb();
+	
+  }
+  else
+  {
+  	card.initsd();
+  }
+#endif
   mks_rePrintCheck();
 	
+/*
+  if(SD_DET_IP == 0)
+  {
+  	mks_rePrintCheck();
+  }
+  else//??????
+  {
+	  while(1)
+	  {
+		  logo_tick2 = getTick();
+		  if(getTickDiff(logo_tick2, logo_tick1)>=3000)
+		  {
+			  draw_ready_print();
+			  break;
+		  }
+	  }  
+  }
+  */
+
+#ifdef USE_MKS_WIFI 
+  if(gCfgItems.wifi_type == ESP_WIFI)
+  {
+	wifi_init();
+  }
+#endif
   /* USER CODE END 2 */
+
+	//mksdlp.ExposureTest();
 	
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-     /* USER CODE END WHILE */
-     //IsrTemperatureHandler();
-     /* USER CODE BEGIN 3 */
-     loop();
+  /* USER CODE END WHILE */
+  //IsrTemperatureHandler();
+  /* USER CODE BEGIN 3 */
+  loop();
   
-     MX_USB_HOST_Process();
-     card.udiskState_Polling();
+  MX_USB_HOST_Process();
+  card.udiskState_Polling();
+ // mksEeprom_test();
   }
   /* USER CODE END 3 */
 
@@ -266,6 +381,22 @@ uint8_t poweroff_det_low_flg;
 uint32_t poweroff_det_low_cnt;
 uint8_t poweroff_det_high_flg;
 uint32_t poweroff_det_high_cnt;
+
+uint8_t filament_det1_flg;
+uint32_t filament_det1_cnt;
+uint8_t filament_det1_low_flg;
+uint32_t filament_det1_low_cnt;
+uint8_t filament_det1_high_flg;
+uint32_t filament_det1_high_cnt;
+uint8_t filament_det1_check;
+
+uint8_t filament_det2_flg;
+uint32_t filament_det2_cnt;
+uint8_t filament_det2_low_flg;
+uint32_t filament_det2_low_cnt;
+uint8_t filament_det2_high_flg;
+uint32_t filament_det2_high_cnt;
+uint8_t filament_det2_check;
 
 volatile unsigned long BeeperFreq=0;
 volatile unsigned char BeeperCnt=0;
@@ -285,59 +416,107 @@ uint8_t beep_mtdet2=0;
 
 void mksBeeperAlarm(void)
 {
-    if(beep_pwdet)
-    {
-        if(MKS_PW_DET_OP== 1)
-        {
-            beep_pwdet=0;
-            BeeperCnt = 0;
-            delaycnt = 0;
-            mksBpAlrmEn = 0;    
-            BEEPER_OP = 0;
-        }
-    }
+#if 0
+		if((gCfgItems.filament_det1_level_flg==1)||(gCfgItems.filament_det2_level_flg==1))
+		{
+			//????????,
+			//????????????
+			//??????????????,
+			//??????????5??
+			beeper_cnt = 10;
+		}
+		else
+		{
+			if((MKS_PWRDN == 1) && (MKS_MTRDN == 1))
+			{
+				check_beeper_cnt++;
+			}
+			if(check_beeper_cnt >=5)
+			{
+					mksBpAlrmEn = 0;
+					BeeperFreq = 0;
+					BeeperCnt = 0;	
+					SPEAKER = 0;
+					check_beeper_cnt = 0;
+			}
+			beeper_cnt = 20;
+		}
 
-    if(beep_mtdet1)
-    {
-        if(MKS_MT_DET1_OP== 1)
-        {
-            beep_mtdet1=0;
-            BeeperCnt = 0;
-            delaycnt = 0;
-            mksBpAlrmEn = 0;    
-            BEEPER_OP = 0;
-        }
-    }
-    
-    if(beep_mtdet2)
-    {
-        if(MKS_MT_DET2_OP== 1)
-        {
-            beep_mtdet2=0;
-            BeeperCnt = 0;
-            delaycnt = 0;
-            mksBpAlrmEn = 0;    
-            BEEPER_OP = 0;
-        }
-    }
-    
-	if(mksBpAlrmEn)
-	{
-		delaycnt++;
-		if(delaycnt >= 1000)
+		if(mksBpAlrmEn)
 		{
-			BeeperCnt++;
-			delaycnt = 0;
-			BEEPER_OP = BeeperCnt%2;
+			BeeperFreq++;
+			
+			
+			if(BeeperFreq%3000 == 0)
+			{
+				BeeperCnt++;
+				SPEAKER = BeeperCnt%2;
+				//HAL_Delay(3000);
+			}
+		
+			if(BeeperCnt > beeper_cnt)	
+			{	
+				SPEAKER = 0;
+				mksBpAlrmEn=0;
+				BeeperCnt=0;
+				BeeperFreq = 0;
+			}
 		}
-		if(BeeperCnt>=20)
+		#endif
+        
+        if(beep_pwdet)
+        {
+            if(MKS_PW_DET_OP== 1)
+            {
+                beep_pwdet=0;
+                BeeperCnt = 0;
+                delaycnt = 0;
+                mksBpAlrmEn = 0;    
+                BEEPER_OP = 0;
+            }
+        }
+
+        if(beep_mtdet1)
+        {
+            if(MKS_MT_DET1_OP== 1)
+            {
+                beep_mtdet1=0;
+                BeeperCnt = 0;
+                delaycnt = 0;
+                mksBpAlrmEn = 0;    
+                BEEPER_OP = 0;
+            }
+        }
+        
+        if(beep_mtdet2)
+        {
+            if(MKS_MT_DET2_OP== 1)
+            {
+                beep_mtdet2=0;
+                BeeperCnt = 0;
+                delaycnt = 0;
+                mksBpAlrmEn = 0;    
+                BEEPER_OP = 0;
+            }
+        }
+        
+		if(mksBpAlrmEn)
 		{
-			BeeperCnt = 0;
-			delaycnt = 0;
-			mksBpAlrmEn = 0;	
-			BEEPER_OP = 0;
+			delaycnt++;
+			if(delaycnt >= 1000)
+			{
+				BeeperCnt++;
+				delaycnt = 0;
+				BEEPER_OP = BeeperCnt%2;
+			}
+			if(BeeperCnt>=20)
+			{
+				BeeperCnt = 0;
+				delaycnt = 0;
+				mksBpAlrmEn = 0;	
+				BEEPER_OP = 0;
+			}
 		}
-	}
 }
 
 void Close_machine_display()
@@ -349,6 +528,346 @@ void Close_machine_display()
 	GUI_Clear();
 	GUI_DispStringAt(common_menu.close_machine_tips, 190, 140);
 	MKS_PW_OFF_OP = 0;
+}
+
+//??????
+//??:PB0????,????????????????
+//??:PB1????,
+//????????:
+//PB4,????????????220DET????PWC??;
+//???PWC???
+void PowerOff_Filament_Check()
+{
+	volatile uint8_t i;
+
+	//????
+	if(gCfgItems.insert_det_module == 1)//?220det??,????
+	{
+		if((mksReprint.mks_printer_state == MKS_WORKING)&&(gCfgItems.mask_det_Function!=1))//??????????
+		{
+			if(MKS_PW_DET_OP== 0)
+			{
+				poweroff_det_flg = 1;
+				if(poweroff_det_cnt >= 1000)
+				{
+					if((MKS_PW_DET_OP==0)&&(gCfgItems.have_ups==1))//?UPS????
+					{
+						poweroff_det_flg = 0;
+						poweroff_det_cnt= 0;
+						
+						clear_cur_ui();
+						stop_print_time();
+      					card.pauseSDPrint();
+      					print_job_timer.pause();
+						mksReprint.mks_printer_state = MKS_PAUSING;
+
+						if(from_flash_pic==1)
+							flash_preview_begin = 1;
+						else
+							default_preview_flg = 1;						
+						draw_printing();
+						mksBpAlrmEn = 1;
+                        beep_pwdet=1;
+						delaycnt = 0;
+
+						return;				
+					}
+					//?UPS????
+					poweroff_det_flg = 0;
+					poweroff_det_cnt= 0;
+
+					//Close_machine_display();
+
+					return;
+				}
+			}
+			else
+			{
+				poweroff_det_flg = 0;
+				poweroff_det_cnt= 0;
+			}
+		}		
+	}
+	else//?PWC????
+	{
+		if(MKS_PW_DET_OP == 0)//
+		{
+			poweroff_det_low_flg = 1;//????
+		}
+		
+		if(poweroff_det_low_cnt >= 80)// 1s??????
+		{
+			if(MKS_PW_DET_OP == 1)
+			{
+				poweroff_det_low_flg = 0;
+				poweroff_det_low_cnt = 0;
+				poweroff_det_flg=1;
+			}
+			else
+			{
+				poweroff_det_low_flg = 0;
+				poweroff_det_low_cnt = 0;
+			}
+		}
+		
+		if(poweroff_det_flg==1)
+		{
+			poweroff_det_high_flg = 1;
+			if(poweroff_det_high_cnt >= 80)
+			{
+				if(MKS_PW_DET_OP == 1)
+				{
+					if((mksReprint.mks_printer_state == MKS_WORKING)&&(gCfgItems.have_ups==1))//?????UPS????,???????
+					{
+						poweroff_det_high_flg = 0;
+						poweroff_det_high_cnt = 0;
+						poweroff_det_flg=0;
+
+						clear_cur_ui();
+						stop_print_time();
+      					card.pauseSDPrint();
+      					print_job_timer.pause();
+						mksReprint.mks_printer_state = MKS_PAUSING;
+
+						//draw_pause();
+						if(from_flash_pic==1)
+							flash_preview_begin = 1;
+						else
+							default_preview_flg = 1;						
+						draw_printing();
+						mksBpAlrmEn = 1;
+						delaycnt = 0;
+
+						return;
+					}
+					//?UPS???????,?????
+					poweroff_det_high_flg = 0;
+					poweroff_det_high_cnt = 0;
+					poweroff_det_flg=0;
+					Close_machine_display();
+					return;					
+				}
+				else
+				{
+					poweroff_det_low_flg = 0;
+					poweroff_det_low_cnt = 0;
+					poweroff_det_high_flg = 0;
+					poweroff_det_high_cnt = 0;
+					poweroff_det_flg = 0;
+				}
+			}
+		}
+	}
+	//????2
+#if 0       //mks 2018-07_a
+	if((mksCfg.extruders == 2)&&(mksReprint.mks_printer_state == MKS_WORKING)&&(gCfgItems.mask_det_Function!=1))//??????????
+	{
+		if(gCfgItems.filament_det1_level_flg == 1)//??????????????????
+		{
+			//??????,???2s????2s???
+      		if(MKS_MT_DET2_OP == 0)
+			{
+				filament_det2_low_flg = 1;//????
+			}
+			
+			if(filament_det2_low_cnt >= 2000)// 2s
+			{
+        		if(MKS_MT_DET2_OP == 1)
+				{
+					filament_det2_high_flg = 1;
+					filament_det2_check=1;
+
+					filament_det2_low_flg = 0;
+					filament_det2_low_cnt = 0;
+				}
+				else
+				{
+					filament_det2_low_flg = 0;
+					filament_det2_low_cnt = 0;
+				}
+			}
+				
+			if(filament_det2_check ==1)
+			{
+				if(filament_det2_high_cnt >= 2000)
+				{
+					if(MKS_MT_DET2_OP == 1)
+					{
+						filament_det2_high_flg= 0;
+						filament_det2_high_cnt= 0;
+						filament_det2_check=0;
+						
+						clear_cur_ui();
+						stop_print_time();
+      					card.pauseSDPrint();
+      					print_job_timer.pause();
+						mksReprint.mks_printer_state = MKS_PAUSING;
+
+						//draw_pause();
+						if(from_flash_pic==1)
+							flash_preview_begin = 1;
+						else
+							default_preview_flg = 1;						
+						draw_printing();
+						mksBpAlrmEn = 1;
+						delaycnt = 0;
+
+						return;		
+					}
+					else
+					{
+						filament_det2_low_flg = 0;
+						filament_det2_low_cnt = 0;
+						filament_det2_high_flg= 0;
+						filament_det2_high_cnt= 0;
+						filament_det2_check=0;
+					}
+				}
+			}
+		}
+		else//?????????????????
+		{
+			if(MKS_MT_DET2_OP == 0)
+			{
+				filament_det2_flg = 1;
+				if(filament_det2_cnt >= 1000)
+				{
+					if(MKS_MT_DET2_OP == 0)
+					{
+						filament_det2_flg = 0;
+						filament_det2_cnt= 0;
+
+						clear_cur_ui();
+						stop_print_time();
+      					card.pauseSDPrint();
+      					print_job_timer.pause();
+						mksReprint.mks_printer_state = MKS_PAUSING;
+
+						if(from_flash_pic==1)
+							flash_preview_begin = 1;
+						else
+							default_preview_flg = 1;						
+						draw_printing();
+						mksBpAlrmEn = 1;
+                        beep_mtdet2=1;
+						delaycnt = 0;
+
+						return;				
+					}
+				}
+			}
+			else
+			{
+				filament_det2_flg = 0;
+                filament_det2_cnt = 0;
+			}
+		}
+	}
+#endif	
+	//????1
+	if((mksReprint.mks_printer_state == MKS_WORKING)&&(gCfgItems.mask_det_Function!=1))//??????????
+	{
+		if(gCfgItems.filament_det0_level_flg == 1)//??????????????????
+		{
+			//??????,???2s????2s???
+      		if(MKS_MT_DET1_OP == 0)
+			{
+				filament_det1_low_flg = 1;//????
+			}
+			
+			if(filament_det1_low_cnt >= 2000)// 2s
+			{
+        		if(MKS_MT_DET1_OP == 1)
+				{
+					filament_det1_high_flg = 1;
+					filament_det1_check=1;
+
+					filament_det1_low_flg = 0;
+					filament_det1_low_cnt = 0;
+				}
+				else
+				{
+					filament_det1_low_flg = 0;
+					filament_det1_low_cnt = 0;
+				}
+			}
+				
+			if(filament_det1_check ==1)
+			{
+				if(filament_det1_high_cnt >= 2000)
+				{
+					if(MKS_MT_DET1_OP == 1)
+					{
+						filament_det1_high_flg= 0;
+						filament_det1_high_cnt= 0;
+						filament_det1_check=0;
+
+						clear_cur_ui();
+						stop_print_time();
+      					card.pauseSDPrint();
+      					print_job_timer.pause();
+						mksReprint.mks_printer_state = MKS_PAUSING;
+
+
+						if(from_flash_pic==1)
+							flash_preview_begin = 1;
+						else
+							default_preview_flg = 1;						
+						draw_printing();
+						mksBpAlrmEn = 1;
+						delaycnt = 0;
+
+						return;		
+					}
+					else
+					{
+						filament_det1_low_flg = 0;
+						filament_det1_low_cnt = 0;
+						filament_det1_high_flg= 0;
+						filament_det1_high_cnt= 0;
+						filament_det1_check=0;
+					}
+				}
+			}
+		}
+		else//?????????????????
+		{
+			if(MKS_MT_DET1_OP == 0)
+			{
+				filament_det1_flg = 1;
+				if(filament_det1_cnt >= 1000)
+				{
+					if(MKS_MT_DET1_OP == 0)
+					{
+						filament_det1_flg = 0;
+						filament_det1_cnt= 0;
+
+						clear_cur_ui();
+						stop_print_time();
+      					card.pauseSDPrint();
+      					print_job_timer.pause();
+						mksReprint.mks_printer_state = MKS_PAUSING;
+
+						if(from_flash_pic==1)
+							flash_preview_begin = 1;
+						else
+							default_preview_flg = 1;						
+						draw_printing();
+						mksBpAlrmEn = 1;
+                        beep_mtdet1=1;
+						delaycnt = 0;
+
+						return;				
+					}
+				}
+			}
+			else
+			{
+				filament_det1_flg = 0;
+                filament_det1_cnt = 0;
+			}
+		}
+	}
 }
 
 /** System Clock Configuration

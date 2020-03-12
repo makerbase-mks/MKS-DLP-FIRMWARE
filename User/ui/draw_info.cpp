@@ -4,6 +4,7 @@
 #include "draw_info.h"
 #include "mks_dlp_main.h"
 
+extern char cmd_code[CMD_CODE_LEN+1];
 
 GUI_HWIN hInfoWnd;
 static BUTTON_STRUCT buttonRet,buttonBeeper;
@@ -121,10 +122,22 @@ void draw_Info()
     BUTTON_SetTextColor(buttonRet.btnHandle, BUTTON_CI_UNPRESSED, gCfgItems.btn_textcolor);
 
     TEXT_SetText(Systom,about_menu.systom);
-    TEXT_SetText(Systom_val,about_menu.systom_v);
+    memset(cmd_code,0,sizeof(cmd_code));
+    SPI_FLASH_BufferRead((u8 *)cmd_code,SYSTEM_TYPE_ADDR,201); 
+    TEXT_SetText(Systom_val,cmd_code);	
+    //TEXT_SetText(Systom_val,about_menu.systom_v);
     TEXT_SetText(Firmware_ver,about_menu.firmware);
-    sprintf(buf,about_menu.firmware_val,mksdlp.get_cpld_ver());
-    TEXT_SetText(Firmware_ver_val,buf);    
+	if(gCfgItems.version_number_custom == 1)//客户自定义版本号
+	{
+    	memset(cmd_code,0,sizeof(cmd_code));
+    	SPI_FLASH_BufferRead((u8 *)cmd_code,FIRMWARE_VERSION_ADDR,201);     
+    	TEXT_SetText(Firmware_ver_val,cmd_code);
+	}
+	else//默认版号，出厂必须有个版本号，以确保区分新旧版本。
+	{
+		sprintf(buf,about_menu.firmware_val,mksdlp.get_cpld_ver());
+    	TEXT_SetText(Firmware_ver_val,buf);   
+	}   
 
     if(mksdlp.get_buzzer_status()!=1)
     {

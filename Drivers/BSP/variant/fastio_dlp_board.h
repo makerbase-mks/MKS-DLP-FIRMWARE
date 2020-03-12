@@ -2,6 +2,8 @@
 #define _MKS_FASTIO_H_
 
 #include "sys.h"
+#if defined(USE_STM32F407ZET)
+
 
 #define NULL_PIN_OUT	PGout(5)
 #define NULL_PIN_IN		PGin(4)
@@ -55,6 +57,61 @@
 #define MKS_REV_IO3  PGin(8)
 
 #define CPLD_REV_IO  PFout(15)
+#elif defined(USE_STM32F407VET)
+#define NULL_PIN_OUT	PBout(2)
+#define NULL_PIN_IN		PAin(6)
+
+/*-------------电机步进-----------------*/
+#define	ZSTEP_OP  PAout(1)
+#define	ZDIR_OP  PCout(1)
+#define	ZENA_OP  PAout(2)
+
+#define	EXT_STEP_OP  PEout(6)
+#define	EXT_DIR_OP  PEout(5)
+#define	EXT_ENA_OP  PCout(13)
+
+/*-------------限位开关-----------------*/
+#define ZMIN_OP   PCin(0)
+#define ZMAX_OP   PCin(2)
+
+/*------------- CONTROL IO----------------*/
+
+#define BEEPER_OP			PBout(13)
+#define LED_BACK_LIGHT_OP	PEout(2)
+#define LED_F_OP   	 		PEout(4)		
+#define MB_F_OP   	 		PEout(3)
+#define VUSB_ENA_OP			PDout(3)
+/*------------- SSD CPLD IO----------------*/
+
+#define SSD2828_SDC_OP 		PCout(4)
+#define SSD2828_1_CS_OP 	PCout(3)		//SSD2828_1_CS
+#define SSD2828_2_CS_OP 	PAout(3)		//SSD2828_2_CS
+#define CPLD_RST_OP 		PBout(1)		//SSD2828_RST and CPLD_RST and LS055R1SX04_RST
+#define LS_IOVCC_ENA_OP	 	PAout(4)		//LS055R1SX04 IOVCC 
+#define LS_VSP_N_ENA_OP	 	PAout(5)		//LS055R1SX04 VSP VSN 
+#define CPLD_CRC_IP	 		PBin(0)			//CRC
+#define CPLD_SPI_CS_OP 		PAout(7)		//CPLD_SPI_CS
+
+//#define MIPI_HSYNC_IP			PBin(1)	
+//#define MIPI_TE_IP				PAin(4)	
+
+/*-------------LCD CONTROL IO----------------*/
+#define	MKS_LCD_RST            PDout(13)
+#define	MKS_LCD_ON             PBout(12)
+
+/*-------------WIFI CONTROL IO----------------*/
+#define	MKS_WIFI_IO1             PEout(0)
+#define	MKS_WIFI_IO2             PEout(1)
+#define	MKS_WIFI_RST             PAout(8)
+
+/*---------------------REV IO--------------------------------*/
+#define MKS_REV_IO1  PDout(6)
+#define MKS_REV_IO2  PBout(8)
+#define MKS_REV_IO3  PBout(9)
+
+#define CPLD_REV_IO  PCout(5)
+
+#endif
 
 
 /*---------------------NULL_PIN BEGIN--------------------------------*/

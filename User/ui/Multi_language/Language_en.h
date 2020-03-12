@@ -29,7 +29,17 @@
 #define MOVE_Z_AXIS_EN              "Move Z"
 #define Z_ZERO_EN                   "Z=0"
 #define UV_TEST_EN                  "Detection"
+#define CLEAN_EN                    "Clean"
 #define QUICK_STOP_EN               "Stop"
+
+#define START_EN                    "Start"
+#define ADJUST_EN                   "Adjust"
+#define CLEAN_PLATFORM_EN           "Click start to clean platform"
+#define CLEANING_TIME_EN            "Cleaning Platform"
+#define CLEAN_STOP_EN               "Stop"
+#define CLEAN_CONFIRM_EN            "Confirm"
+#define CLEAN_TIME_TEXT_EN          "Time:"
+#define CLEAN_TIME_VALUE_EN         " %d S"
 
 #define TOOL_TEXT_EN		    "Tool"
 #define PREHEAT_TEXT_EN         "Preheat"

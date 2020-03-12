@@ -16,11 +16,16 @@
 #include "id_manage.h"
 #include "draw_dialog.h"
 #include "id_manage.h"
+//#include "configuration.h"
+//#include "repetier.h"
 #include "ff.h"
+//#include "hal.h"
+//#include "ui.h"
 #include "mks_dlp_main.h"
 #include "string_deal.h"
 #include "pic.h"
 #include "Multi_language.h"
+#include "draw_meshleveling.h"
 #include "draw_keyboard.h"
 #include "draw_detection.h"
 #include "draw_ExposureTest.h"
@@ -31,6 +36,11 @@
 #include "draw_preview.h"
 #include "draw_printing.h"
 #include "draw_print_file.h"
+#include "draw_clean.h"
+#include "pic_manager.h"
+#include "spi_flash.h"
+
+ 
 extern char value_test;
 
 typedef struct Screen_size
@@ -56,32 +66,70 @@ typedef struct Screen_size
 
 extern Screen TFT_screen;
 
+
+//#define SAVE_FROM_SD				//断电续打保存在SD中。
+
 #define VERSION_WITH_PIC	1
 extern uint32_t To_pre_view;
 
 extern uint8_t flash_preview_begin;
 extern uint8_t default_preview_flg;
 
-#define PREVIEW_LITTLE_PIC_SIZE		40910
-#define PREVIEW_SIZE			202720
+//**#define LCD_WIDTH	320
+//**#define LCD_HEIGHT	240
 
+#define PREVIEW_LITTLE_PIC_SIZE		40910//400*100+9*101+1
+#define PREVIEW_SIZE			202720//(PREVIEW_LITTLE_PIC_SIZE+800*200+201*9+1)
+
+#if (0)
+#define LCD_WIDTH			800
+#define LCD_HEIGHT		480
+
+#define titleHeight	40
+
+
+#define imgHeight		(LCD_HEIGHT - titleHeight)	
+
+#define TITLE_XPOS		3
+#define TITLE_YPOS		5
+
+#define MARGIN_PIXEL 3
+
+#define INTERVAL_H	4
+#define INTERVAL_V	3
+
+#define BTN_X_PIXEL	196
+#define BTN_Y_PIXEL	216
+
+#define BTN_PIC_X_PIXEL	100
+#define BTN_PIC_Y_PIXEL	100
+
+#define BTN_PIC_X_OFFSET		45
+#define BTN_PIC_Y_OFFSET		30
+
+#define BTN_TEXT_OFFSET		25
+
+#define STATE_PIC_X_PIXEL	50
+#define STATE_PIC_Y_PIXEL	50
+
+
+#endif
 #define LCD_WIDTH			480
 #define LCD_HEIGHT		320
-
 #if defined(MKS_DLP_BOARD)
 
-#define titleHeight	0
+#define titleHeight	0//TFT_screen.title_high//36
 
 
-#define imgHeight		LCD_HEIGHT//
+#define imgHeight		LCD_HEIGHT//(TFT_screen.high-TFT_screen.title_high)//(LCD_HEIGHT - titleHeight)	
 
 #define TITLE_XPOS	 TFT_screen.title_xpos//	3
 #define TITLE_YPOS		TFT_screen.title_ypos//5
 
 #define MARGIN_PIXEL  3
 
-#define INTERVAL_H	15//
-#define INTERVAL_V	33//
+#define INTERVAL_H	15//((LCD_WIDTH-(BTN_X_PIXEL*3))/3)
+#define INTERVAL_V	33//((LCD_HEIGHT-(BTN_Y_PIXEL+BTN_TEXT_Y_PIXEL)*2+2)/2)
 
 #define MAIN_MENU_X_GAP 15
 
@@ -107,33 +155,86 @@ extern uint8_t default_preview_flg;
 
 #define FILE_PRE_PIC_X_OFFSET	12
 #define FILE_PRE_PIC_Y_OFFSET	0
+#else
+#define titleHeight	TFT_screen.title_high//36
+
+
+#define imgHeight		(TFT_screen.high-TFT_screen.title_high)//(LCD_HEIGHT - titleHeight)	
+
+#define TITLE_XPOS	 TFT_screen.title_xpos//	3
+#define TITLE_YPOS		TFT_screen.title_ypos//5
+
+#define MARGIN_PIXEL  3
+
+#define INTERVAL_H	TFT_screen.gap_h// 2
+#define INTERVAL_V	TFT_screen.gap_v// 2
+
+#define BTN_X_PIXEL	TFT_screen.btn_x_pixel//117
+#define BTN_Y_PIXEL	TFT_screen.btn_y_pixel// 140
+
+#define BTN_PIC_X_PIXEL	117
+#define BTN_PIC_Y_PIXEL	140
+
+#define BTN_PIC_X_OFFSET		0
+#define BTN_PIC_Y_OFFSET		0
+
+#define BTN_TEXT_OFFSET		8
+
+#define OTHER_BTN_XPIEL		117
+#define OTHER_BTN_YPIEL		92
+
+#define STATE_PIC_X_PIXEL	45
+#define STATE_PIC_Y_PIXEL	45
+
+#define FILE_PRE_PIC_X_OFFSET	8
+#define FILE_PRE_PIC_Y_OFFSET	5
+
 #endif
+
 
 #define GUI_PURPLE			0x300018
 
-#define GUI_RET_BUTTON_COLOR			GUI_BLACK
-#define GUI_STATE_COLOR        			GUI_BLACK
+//#define GUI_STATE_COLOR         0x646400 
+//#define GUI_STATE_COLOR         0x806480 
+#define GUI_RET_BUTTON_COLOR			GUI_BLACK//GUI_DARKGREEN//0x00a800
+#define GUI_STATE_COLOR        			GUI_BLACK//GUI_DARKBLUE
 #define GUI_BK_CLOLOR					GUI_BLACK
 #define GUI_TITLE_TEXT_COLOR			GUI_WHITE
 #define GUI_STATE_TEXT_COLOR			GUI_WHITE
 #define GUI_FILE_NAME_TEXT_COLOR		GUI_WHITE
-#define GUI_FILE_NAME_BK_COLOR			GUI_BLACK
-#define GUI_PRINTING_STATE_BK_COLOR		GUI_BLACK
+#define GUI_FILE_NAME_BK_COLOR			GUI_BLACK//GUI_BLUE
+#define GUI_PRINTING_STATE_BK_COLOR		GUI_BLACK//GUI_DARKBLUE
 #define GUI_PRINTING_STATE_TEXT_COLOR		GUI_WHITE
 
-#define GUI_BUTTON_COLOR		GUI_BLACK 
+
+#define GUI_BUTTON_COLOR		GUI_BLACK // GUI_BLUE
 #define GUI_FOCUS_CLOLOR		GUI_RET_BUTTON_COLOR
+
 
 #define GUI_DARKGREEN2         GUI_DARKGREEN
 
+
+
 extern char BMP_PIC_X ;
-extern char BMP_PIC_Y;  
+extern char BMP_PIC_Y;  // 0// 17
 
 #define BMP_PIC_X_H		0
 #define BMP_PIC_Y_H    0
 
+#if 0
+//璇█
+#define LANG_SIMPLE_CHINESE		1
+#define LANG_COMPLEX_CHINESE	2
+#define LANG_ENGLISH			3
+
+#define FONT_BUTTON	GUI_FontHZ_fontHz14
+#define FONT_STATE_INF	GUI_FontHZ_fontHz14
+#define FONT_TITLE		GUI_FontHZ_fontHz14
+#endif
+
 #define FILE_SYS_USB	0
 #define FILE_SYS_SD	1
+
 
 struct PressEvt
 {
@@ -197,7 +298,8 @@ typedef enum
 	EXPOSURE_UI,
 	SERVICE_UI,
 	INFO_UI,
-	PREVIEW_UI
+	PREVIEW_UI,
+	CLEAN_UI
 } DISP_STATE;
 
 typedef struct
@@ -247,6 +349,10 @@ extern CFG_ITMES gCfgItems;
 
 extern uint8_t temperature_change_frequency;
 
+//extern fileNameList gcodeFileList;
+
+//extern GUI_FLASH const GUI_FONT GUI_FontHZ_fontHz14;
+
 extern DISP_STATE disp_state;
 extern DISP_STATE last_disp_state;
 extern DISP_STATE_STACK disp_state_stack;
@@ -257,15 +363,18 @@ extern TCHAR curFileName[150];
 extern char curFileName[150];
 #endif
 
+//extern PR_STATUS printerStaus;
 extern void DRAW_LOGO();
 extern int8_t get_printing_rate(FIL *fileHandle);
 extern void disp_sel_lang(void);
 extern void draw_return_ui();
+
 extern void clear_cur_ui(void);
 extern char *creat_title_text(void);
 extern void gui_view_init(void);
 extern void push_cb_stack(int16_t event_id);
 extern void GUI_callback(void);
+//extern void BUTTON_SetBmpFileName(BUTTON_STRUCT *btnStruct, const uint8_t *picName);
 extern void GUI_RefreshPage(void);
 extern void save_preview_to_flash(char *path,int xpos_pixel,int ypos_pixel);
 extern void disp_pre_gcode(int xpos_pixel,int ypos_pixel);
@@ -274,6 +383,9 @@ extern uint8_t have_pre_pic(char *path);
 extern void layer_pic_display(uint8_t *display_buf,int xstart,int ystart,int x_size,int y_size);
 extern void layer_pic_clean(int xstart,int ystart,int x_size,int y_size,int color);
 
+//extern uint8_t drawicon_preview(char *path,int xsize_small,int ysize_small,int xsize_big,int ysize_big,char sel);
+
+// HC-chen 2017.7.27
 //按钮背景色
 #define PreHeat_bk_color 0x008bff
 #define Move_bk_color 0x2311e8

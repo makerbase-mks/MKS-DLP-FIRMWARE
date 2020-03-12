@@ -429,6 +429,7 @@ void MKS_DLP::getHead2()
 }
 void MKS_DLP::startFileprint()
 {
+    mksdlp.ssd.init();//重新初始化2k屏，避免长时间待机之后，2k屏无法正常打印。
 	getHead1();
 	getHead2();
 	clean_Information_layer();
@@ -501,6 +502,56 @@ uint8_t MKS_DLP:: reTransmission()
 	return 0;
 }
 /*******************************************************************************
+整行填充1
+flag =0 ,填充前半页,范围(0~line-1)
+flag = 1,填充后半页,范围(line~2560-1)
+*******************************************************************************/
+void MKS_DLP:: line_fill_all_one(uint8_t bank_used_id)
+{
+	uint16_t cur_line,startLine,endLine;
+	uint8_t cur_block;
+	
+	startLine = 0;
+	endLine = X_RATIO;
+
+	for(cur_line=startLine;cur_line<endLine;cur_line++)
+		{
+		
+		bmp.line.d_frame.mark1 = 0x40 | (bank_used_id<<4) | ((cur_line >> 8)&0x0F);
+		bmp.line.d_frame.mark2 =  cur_line&0xFF;
+		memset(bmp.line.d_frame.data,0xff,DATA_LEN);
+		bmp.line.d_frame.CRC16 = CRC16_XMODEM(&bmp.line.d_frame.mark1,DATA_CRC_LEN);
+
+		while(hdma_spin_tx.State == HAL_DMA_STATE_BUSY);				//等待DMA发送完成
+
+		bmp.line.crc_status = CPLD_CRC_IP;
+		if(bmp.line.crc_status == 0)	//重传判断
+		{
+			reTransmission();
+			reTransmission_zero_cnt++;
+		}
+		
+		CPLD_SPI_CS_OP = 0;
+		memcpy(&bmp.line.d_frame_bakup[0],&bmp.line.d_frame.mark1,TXDATA_LEN);
+		HAL_SPI_Transmit_DMA(&hspin, &bmp.line.d_frame_bakup[0], TXDATA_LEN);	  //启动DMA发送
+		//hspi1.hdmatx.Instance.CR |= DMA_IT_TC | DMA_IT_TE | DMA_IT_DME;
+		*spi1_hdmatx_CR &= 0xFFFFFFF7;
+		
+#if ENABLED(MKS_DLP_WRITE_FILE)	
+		uint8_t *p;
+		p = &bmp.line.d_frame.mark1;
+		for(uint8_t i=0;i<TXDATA_LEN;i++)
+			f_printf(&file,"%02x",*p++);
+		f_printf(&file,"\n");
+#endif		
+		//if(cur_line%100 == 0)	idle();
+		}
+
+	while(hdma_spin_tx.State == HAL_DMA_STATE_BUSY);				//等待DMA发送完成
+	CPLD_SPI_CS_OP = 1;												
+}
+
+/*******************************************************************************
 整行填充0
 flag =0 ,填充前半页,范围(0~line-1)
 flag = 1,填充后半页,范围(line~2560-1)
@@ -557,9 +608,9 @@ void MKS_DLP:: line_fill_zero(uint16_t line,uint8_t bank_used_id)
 	
 		cur_line = line;
 		
-		bmp.line.d_frame.mark1 = 0x40 | (bank_used_id<<4) | ((cur_line >> 8)&0x0F);
+		bmp.line.d_frame.mark1 = 0x40 | (bank_used_id<<4) | ((cur_line >> 8)&0x0F);//tan ---写sdram
 		bmp.line.d_frame.mark2 =  cur_line&0xFF;
-		memset(bmp.line.d_frame.data,0,DATA_LEN);
+		memset(bmp.line.d_frame.data,0,DATA_LEN);       //tan ---传输数据全为0
 		bmp.line.d_frame.CRC16 = CRC16_XMODEM(&bmp.line.d_frame.mark1,DATA_CRC_LEN);
 
 		while(hdma_spin_tx.State == HAL_DMA_STATE_BUSY);				//等待DMA发送完成
@@ -595,32 +646,32 @@ void MKS_DLP::line_gen_data(uint16_t line,uint8_t bank_used_id)
 	uint8_t *p,*q;
 	uint8_t i,j;
 	
-	bmp.line.d_frame.mark1 = 0x40 | (bank_used_id<<4) | ((line >> 8)&0x0F);
+	bmp.line.d_frame.mark1 = 0x40 | (bank_used_id<<4) | ((line >> 8)&0x0F);//tan ---写sdram
 	bmp.line.d_frame.mark2 =  line&0xFF;
 	memset(bmp.line.d_frame.data,0,DATA_LEN);
 
 	p=bmp.line.d_frame.data;
-	q = Line_Pixel;
-	for(i=0;i<DATA_LEN;i++)
-		{
+	q = Line_Pixel;         //tan ---从切片中，已解析出来的一行数据(2k屏显示的数据)
+	for(i=0;i<DATA_LEN;i++) //tan ---将数据从Line_Pixel复制到bmp.line.d_frame.data
+	{
 		for(j=0;j<8;j++)
-			{
-			*p <<= 1;
-			if(*q++ == 1)
+		{
+			*p <<= 1;     //tan ---bmp.line.d_frame.data左移一位，循环8次，将Line_Pixel[]的数据转换
+			if(*q++ == 1)//tan ---将Line_Pixel按字节算转换为按位算放到bmp.line.d_frame.data
 				*p |= 1;
-			}
-		p++;
 		}
+		p++;
+	}
 	bmp.line.d_frame.CRC16 = CRC16_XMODEM(&bmp.line.d_frame.mark1,DATA_CRC_LEN);
 
 	while(hdma_spin_tx.State == HAL_DMA_STATE_BUSY);		  		//等待DMA发送完成
 
-	bmp.line.crc_status = CPLD_CRC_IP;
+	bmp.line.crc_status = CPLD_CRC_IP;              //tan ---检测crc管脚，高电平校验正常。
 	if(bmp.line.crc_status == 0)	//重传判断
-		{
+	{
 		reTransmission();
 		reTransmission_data_cnt++;
-		}
+	}
 	
 	CPLD_SPI_CS_OP = 0;
 	memcpy(&bmp.line.d_frame_bakup[0],&bmp.line.d_frame.mark1,TXDATA_LEN);
@@ -692,7 +743,7 @@ void MKS_DLP::get_sdcard_bmps()
 	memset(Line_Pixel,0,sizeof(Line_Pixel));
 	memset(&bmp_layer_buf[0],0,DATA_LEN_TFT*X_RATIO_TFT);
 	for(int i=0;i<bmp.totalPoint;i++)
-		{
+	{
 		rc = card.gets(sd_char,2);					
 		bmp.line.start_py = sd_char[0]<<8 | sd_char[1];	//起始点
 		if(bmp.line.start_py > Y_RATIO-1) bmp.line.start_py = Y_RATIO-1;
@@ -705,49 +756,49 @@ void MKS_DLP::get_sdcard_bmps()
 		bmp.coordinate_X = sd_char[0]<<8 | sd_char[1];	//行号
 		if(bmp.coordinate_X > X_RATIO-1) bmp.coordinate_X = X_RATIO-1;
 		
-		if(i==0)
+		if(i==0)// tan ---第一行开始之前，前面的行全部填0
 			{
 					//前面行填充"0"
 				line_fill_all_zero(0,bmp.coordinate_X,WORK_USED_BANK);	
-				bmp.current_line = 	bmp.coordinate_X;					
+				bmp.current_line = 	bmp.coordinate_X;	//tan ---有点亮数据的开始行，此处为点亮2k屏的起始行				
 			}
 		
-		if(bmp.current_line == bmp.coordinate_X)
+		if(bmp.current_line == bmp.coordinate_X)    //tan ---将切片出来的图片数据需要点亮部分转成1
 			{
-			p = &Line_Pixel[bmp.line.start_py];
+			p = &Line_Pixel[bmp.line.start_py];     //tan ---每一行的数据，(理解为:一个字节为2k屏的一个点)，由起始点到结束点，都写1，这样就可以转成2k屏的显示数据
 			for(int j = bmp.line.start_py;j<bmp.line.end_py+1;j++)  
 				{
-					if(j<Y_RATIO/2)	{*p = 1;}
-					else			{*(p+FILLCODE) = 1;}
+					if(j<Y_RATIO/2)	{*p = 1;}           //tan ---前半页点亮数据
+					else			{*(p+FILLCODE) = 1;}//tan ---后半页点亮数据(由于有填充48位)
 					p++;
 				}
 			}
 		else
 			{
-			line_gen_data(bmp.current_line,WORK_USED_BANK);			//一行完成
+			line_gen_data(bmp.current_line,WORK_USED_BANK);			//一行完成//tan ---组合一行数据格式，并发送到sdram中
 			line_gen_data_TFT(bmp.current_line);
 /*----------------------------------------*/
-			while((bmp.coordinate_X - bmp.current_line) > 1)
-				{
+			while((bmp.coordinate_X - bmp.current_line) > 1)        //tan ---为什么在传完一行之后，第二行要传0。这是因为中间有空隙的。
+			{
 				bmp.current_line++;
 				line_fill_zero(bmp.current_line,WORK_USED_BANK);
-				}
+			}
 /*----------------------------------------*/
 
 			bmp.current_line = bmp.coordinate_X;
 			
 			
-			memset(Line_Pixel,0,sizeof(Line_Pixel));
-			p = &Line_Pixel[bmp.line.start_py];
+			memset(Line_Pixel,0,sizeof(Line_Pixel));//tan ---清空数据
+			p = &Line_Pixel[bmp.line.start_py];       //tan ---将切片数据解析到Line_Pixel
 			for(int j = bmp.line.start_py;j<bmp.line.end_py+1;j++) 
-				{
+			{
 					if(j<Y_RATIO/2)	{*p = 1;}
 					else			{*(p+FILLCODE) = 1;}
 					p++;
-				}
+			}
 			}
 		
-		}
+	}
 
 		if(bmp.totalPoint>1)
 			{
@@ -1083,6 +1134,30 @@ void MKS_DLP::ExposureTest()
 #endif
 }
 
+void MKS_DLP::ExposureAll_on()
+{
+    line_fill_all_one(TEST_USED_BANK);
+    
+    bank2disp_enable(TEST_USED_BANK,1,1);
+    ssd.sleep_out();
+    LED_BACK_LIGHT_OP = 1;
+    status.led_status = true;
+}
+void MKS_DLP::ExposureAll_off()
+{
+    LED_BACK_LIGHT_OP = 0; 
+    status.led_status = false;
+    bank2disp_enable(CLEAN_USED_BANK,1,1);  //清除屏幕
+    ssd.sleep_in();
+    HAL_Delay(20);
+    bank2disp_enable(CLEAN_USED_BANK,0,0);  //关闭RGB信号
+    //恢复曝光测试数据
+    ExposureDataTrans_circle();
+    CleanDataTrans();
+
+}
+
+
 #if 0
 u32 exposure_test_cnt = 0;
 void MKS_DLP::ExposureTest()
@@ -1235,6 +1310,7 @@ void MKS_DLP::dlp_start()
 
 	AT24CXX_Read((uint16_t)EPR_BUZZER_ENABLE,&buzzer_ena,1);
 	gCfgItems.beeper_on=buzzer_ena;
+
 	ExposureDataTrans_circle();
 	CleanDataTrans();
 	LED_F_OP = 1;
@@ -1351,7 +1427,7 @@ uint32_t MKS_DLP::get_totalPrintTime()
 uint32_t MKS_DLP::get_currentPrintTime()	
 {
 	uint32_t curLedOnTime;		//亮灯时间
-	uint32_t curLedOffTime;	//灭灯时间
+	uint32_t curLedOffTime;		//灭灯时间
 	uint32_t curMoveTime;		//移动时间
 	
 	curLedOnTime = status.curBottomlayers * head.BottomLedOnTime/1000 + status.currentLayer*head.LedOnTime/1000;
@@ -1480,14 +1556,14 @@ void MKS_DLP::PrintStatePolling()
 	if(status.quickStop_status) return;
 	
 	if(mksReprint.mks_printer_state == MKS_PAUSING || mksReprint.mks_printer_state == MKS_STOP)
-	{
+		{
 		status.quickStop_status = true;
 
 		if(planner.blocks_queued() || stepper.cleaning_buffer_counter)
-		{
+			{
 			quickstop_stepper();                    
+			}
 		}
-	}
 }
 
 bool MKS_DLP::pausePrint()

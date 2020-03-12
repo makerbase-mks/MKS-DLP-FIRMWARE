@@ -153,6 +153,20 @@ EEPROM 2K byte 分配
 #define EPR_FILAMENT_DET0_LEVEL					EPR_HAS_UPS+1
 #define EPR_FILAMENT_DET1_LEVEL					EPR_FILAMENT_DET0_LEVEL+1
 #define EPR_MASK_DET_FUNCTION						EPR_FILAMENT_DET1_LEVEL+1
+#if 0
+#define EPR_LEVELING_MODE								EPR_MASK_DET_FUNCTION+1
+#define EPR_LEVELING_POINT_CNT							EPR_LEVELING_MODE+1
+#define EPR_LEVELING_POINT1_X								EPR_LEVELING_POINT_CNT+1
+#define EPR_LEVELING_POINT1_Y								EPR_LEVELING_POINT1_X+2
+#define EPR_LEVELING_POINT2_X								EPR_LEVELING_POINT1_Y+2
+#define EPR_LEVELING_POINT2_Y								EPR_LEVELING_POINT2_X+2
+#define EPR_LEVELING_POINT3_X								EPR_LEVELING_POINT2_Y+2
+#define EPR_LEVELING_POINT3_Y								EPR_LEVELING_POINT3_X+2
+#define EPR_LEVELING_POINT4_X								EPR_LEVELING_POINT3_Y+2
+#define EPR_LEVELING_POINT4_Y								EPR_LEVELING_POINT4_X+2
+#define EPR_LEVELING_POINT5_X								EPR_LEVELING_POINT4_Y+2
+#define EPR_LEVELING_POINT5_Y								EPR_LEVELING_POINT5_X+2
+#endif
 
 #define EPR_AUTO_CLOSE_MACHINE							EPR_MASK_DET_FUNCTION+1
 
@@ -171,8 +185,9 @@ EEPROM 2K byte 分配
 #define EPR_PRINTING_STATE_TEXTCOLOR			EPR_PRINTING_STATE_BKCOLOR+4
 
 #define EPR_Z_PAUSE_POS			EPR_PRINTING_STATE_TEXTCOLOR + 4
+#define EPR_VERSION_NUMBER_CUSTOM	EPR_Z_PAUSE_POS+4
 
-#define EPR_END_ADDR			EPR_Z_PAUSE_POS + 4
+#define EPR_END_ADDR			EPR_VERSION_NUMBER_CUSTOM + 1
 #if EPR_END_ADDR > 2048
   #error "EPR_END_ADDR IS OVERFLOW!"
 #endif
@@ -191,6 +206,15 @@ typedef struct
 	int16_t current_vref_z;					//CURRENT_VREF_Z
 	float	z_pause_pos;				//Z_PAUSE_POS
 	
+#ifdef USE_MKS_WIFI  
+	char wifi_ap[32];	//wifi网络名称字符串
+	char wifi_key[64]; //wifi密码字符串
+	uint8_t wifi_mode_sel;
+
+	char cloud_enable;	
+	char cloud_hostUrl[64];	//云连接地址
+	int cloud_port;		//云连接端口
+#endif	
 }CFG_PRINTER_ITMES;
 
 typedef struct
@@ -326,8 +350,40 @@ typedef struct
 	
 		volatile uint8_t print_finish_close_machine_flg;	
 	
+		//volatile uint32_t filamentchange_speed;//换料速度
+		//volatile uint8_t filamentchange_step;//换料步进 
+		//volatile uint32_t filament_limit_temper;
+		
 		uint8_t morefunc_cnt;//volatile 
+#if 0 //mks 2018-07 	filament	
+		uint32_t filamentchange_load_speed;//换料速度
+		uint32_t filamentchange_unload_speed;//换料速度
+		uint32_t filamentchange_load_length;//换料步进 
+		uint32_t filamentchange_unload_length;//换料步进 
+		uint32_t filament_load_limit_temper;
+		uint32_t filament_unload_limit_temper;
+		uint32_t filament_loading_time;
+		uint32_t filament_unloading_time;
+#endif		
 
+#if 0	
+		volatile uint8_t leveling_mode;//调平模式0:手动调平，1:自动调平
+		volatile uint8_t leveling_point_number;//手动调平设置坐标数(可设3/4/5三个值)
+		
+		volatile int16_t leveling_point1_x;
+		volatile int16_t leveling_point1_y;
+		volatile int16_t leveling_point2_x;
+		volatile int16_t leveling_point2_y;
+		volatile int16_t leveling_point3_x;
+		volatile int16_t leveling_point3_y;
+		volatile int16_t leveling_point4_x;
+		volatile int16_t leveling_point4_y;
+		volatile int16_t leveling_point5_x;
+		volatile int16_t leveling_point5_y; 	
+		
+		volatile int32_t leveling_z_speed;
+		volatile int32_t leveling_xy_speed;
+#endif	
 		//tan 
 		volatile uint8_t temperature_ctrl_err;
 	
@@ -340,7 +396,7 @@ typedef struct
 		volatile int16_t Pause_XPOS;
 		volatile int16_t Pause_YPOS;
 		volatile uint8_t pre_fanSpeed;//预设风机速度
-
+		//volatile uint8_t wifi_mode_sel;//wifi模式选择。
 		volatile uint8_t custom_bed_flag;//热床定制
 		volatile uint8_t firmware_type;//主板固件类型。1:marlin;2:repetier;3:smoothie
 		volatile float preheat_max_desireSprayerTemp;//喷头最大目标温度
@@ -377,11 +433,24 @@ typedef struct
 		volatile uint8_t quickstop_display_flg;	
     volatile uint8_t mask_det_Function;
 
+		volatile char wifi_ap[32];	//wifi网络名称字符串
+		volatile char wifi_key[64]; //wifi密码字符串
+		volatile uint8_t wifi_mode_sel;		
+    volatile uint8_t wifi_type;
+		volatile char cloud_enable; 
+		volatile char cloud_hostUrl[96];	//云连接地址
+		volatile int cloud_port;		//云连接端口
+
 		volatile uint8_t btn_text_offset;//按钮字体偏移底边位置		
 		volatile uint8_t display_style;
 
 		volatile float breakpoint_z_pos;
 		volatile uint8_t beeper_on;
+
+		volatile uint16_t clean_time;
+		volatile uint16_t clean_time_bak;
+
+		volatile uint8_t version_number_custom;// 1:版本号由配置文件决定，0:版本号采用出厂值
 }CFG_ITMES;
 
 typedef struct   //**
@@ -428,7 +497,7 @@ extern uint8_t total_probe_points;
 void epr_write_data(uint16_t pos, const uint8_t* value, uint16_t size);
 void epr_read_data(int pos, uint8_t* value, uint16_t size);
 
-
+extern void btn_beeper(uint32_t beeper);
 //extern mesh_bed_leveling mbl;
 
 

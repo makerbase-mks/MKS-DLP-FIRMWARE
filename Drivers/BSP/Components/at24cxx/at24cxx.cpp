@@ -262,7 +262,13 @@ HAL_StatusTypeDef AT24CXX_Write(uint16_t MemAddress, uint8_t* pBuffer, uint32_t 
 			}
 		}
 	}
-
+/*			方式 2 ：效率低							*/	
+//	while(BufferSize--)
+//	{
+//		AT24CXX_WriteByte(MemAddress,*pBuffer);
+//		MemAddress++;
+//		pBuffer++;
+//	}
 	return err;
 }
 

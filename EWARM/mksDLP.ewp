@@ -79,7 +79,7 @@
         </option>
         <option>
           <name>RTDescription</name>
-          <state>To be used with the full configuration of the C/C++ runtime library. Full locale interface, C locale, file descriptor support, multibytes in printf and scanf, and hex floats in strtod.</state>
+          <state>Use the full configuration of the C/C++ runtime library. Full locale interface, C locale, file descriptor support, multibytes in printf and scanf, and hex floats in strtod.</state>
         </option>
         <option>
           <name>OGProductVersion</name>
@@ -99,7 +99,7 @@
         </option>
         <option>
           <name>OGChipSelectEditMenu</name>
-          <state>STM32F407ZE	ST STM32F407ZE</state>
+          <state>STM32F407VE	ST STM32F407VE</state>
         </option>
         <option>
           <name>GenLowLevelInterface</name>
@@ -178,6 +178,7 @@
           <state>USE_HAL_LIB</state>
           <state>MKS_DLP_BOARD</state>
           <state>TFT35</state>
+          <state>USE_STM32F407VET</state>
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -325,23 +326,10 @@
           <state>$PROJ_DIR$/../Drivers/libstmf4</state>
           <state>$PROJ_DIR$/../Drivers/libstmf4/include</state>
           <state>$PROJ_DIR$/../Middlewares/arduino/stm32/cores/arduino</state>
-          <state>$PROJ_DIR$/../Middlewares/gui</state>
-          <state>$PROJ_DIR$/../Middlewares/gui/GUI/ConvertColor</state>
-          <state>$PROJ_DIR$/../Middlewares/gui/GUI/ConvertMono</state>
-          <state>$PROJ_DIR$/../Middlewares/gui/GUI/Core</state>
-          <state>$PROJ_DIR$/../Middlewares/gui/GUI/Font</state>
-          <state>$PROJ_DIR$/../Middlewares/gui/AntiAlias</state>
-          <state>$PROJ_DIR$/../Middlewares/gui/GUI/GUIDemo</state>
-          <state>$PROJ_DIR$/../Middlewares/gui/GUI/LCDDriver</state>
-          <state>$PROJ_DIR$/../Middlewares/gui/GUI/MemDev</state>
-          <state>$PROJ_DIR$/../Middlewares/gui/GUI/MultiLayer</state>
-          <state>$PROJ_DIR$/../Middlewares/gui/GUI/Widget</state>
-          <state>$PROJ_DIR$/../Middlewares/gui/GUI/WM</state>
-          <state>$PROJ_DIR$/../Middlewares/gui/GUI_X</state>
-          <state>$PROJ_DIR$/../Middlewares/gui/Config</state>
           <state>$PROJ_DIR$/../User/ui</state>
           <state>$PROJ_DIR$/../User/ui/Multi_language</state>
           <state>$PROJ_DIR$/../User/ui/QRENCODE</state>
+          <state>$PROJ_DIR$/../Middlewares/GUI</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -969,7 +957,7 @@
         </option>
         <option>
           <name>IarchiveOutput</name>
-          <state>E:\DLP_Proj\DLP_source\branches\DLP_opensource\EWARM\mksDLP/Exe\mksDLP.a</state>
+          <state>D:\DLP_proj\ttt\dlp\EWARM\mksDLP/Exe\mksDLP.a</state>
         </option>
       </data>
     </settings>
@@ -990,9 +978,51 @@
     <group>
       <name>User</name>
       <group>
+        <name>QRENCODE</name>
+        <file>
+          <name>$PROJ_DIR$\..\User\ui\QRENCODE\bitstream.c</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\User\ui\QRENCODE\mask.c</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\User\ui\QRENCODE\mmask.c</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\User\ui\QRENCODE\mqrspec.c</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\User\ui\QRENCODE\QR_Encode.c</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\User\ui\QRENCODE\qrencode.c</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\User\ui\QRENCODE\qrinput.c</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\User\ui\QRENCODE\qrspec.c</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\User\ui\QRENCODE\rscode.c</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\User\ui\QRENCODE\split.c</name>
+        </file>
+      </group>
+      <group>
         <name>UI</name>
         <file>
           <name>$PROJ_DIR$\..\User\ui\draw_about.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\User\ui\draw_bind.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\User\ui\draw_change_speed.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\User\ui\draw_clean.cpp</name>
         </file>
         <file>
           <name>$PROJ_DIR$\..\User\ui\draw_detection.cpp</name>
@@ -1001,7 +1031,22 @@
           <name>$PROJ_DIR$\..\User\ui\draw_dialog.cpp</name>
         </file>
         <file>
+          <name>$PROJ_DIR$\..\User\ui\draw_disk.cpp</name>
+        </file>
+        <file>
           <name>$PROJ_DIR$\..\User\ui\draw_ExposureTest.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\User\ui\draw_extrusion.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\User\ui\draw_fan.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\User\ui\draw_filamentchange.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\User\ui\draw_FileTransfer_ui.cpp</name>
         </file>
         <file>
           <name>$PROJ_DIR$\..\User\ui\draw_info.cpp</name>
@@ -1013,10 +1058,22 @@
           <name>$PROJ_DIR$\..\User\ui\draw_language.cpp</name>
         </file>
         <file>
+          <name>$PROJ_DIR$\..\User\ui\draw_manual_leveling.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\User\ui\draw_mesh_leveling.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\User\ui\draw_more.cpp</name>
+        </file>
+        <file>
           <name>$PROJ_DIR$\..\User\ui\draw_move_motor.cpp</name>
         </file>
         <file>
           <name>$PROJ_DIR$\..\User\ui\draw_operate.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\User\ui\draw_pre_heat.cpp</name>
         </file>
         <file>
           <name>$PROJ_DIR$\..\User\ui\draw_preview.cpp</name>
@@ -1026,6 +1083,9 @@
         </file>
         <file>
           <name>$PROJ_DIR$\..\User\ui\draw_printing.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\User\ui\draw_printing_moremenu.cpp</name>
         </file>
         <file>
           <name>$PROJ_DIR$\..\User\ui\draw_ready_print.cpp</name>
@@ -1041,6 +1101,12 @@
         </file>
         <file>
           <name>$PROJ_DIR$\..\User\ui\draw_ui.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\User\ui\draw_wifi.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\User\ui\draw_zero.cpp</name>
         </file>
         <file>
           <name>$PROJ_DIR$\..\User\ui\Multi_language\Font24_MS.c</name>
@@ -1074,7 +1140,7 @@
         <name>$PROJ_DIR$\..\Src\i2c.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\Src\ili9488.c</name>
+        <name>$PROJ_DIR$\..\Src\ili9320.c</name>
       </file>
       <file>
         <name>$PROJ_DIR$\..\Src\iwdg.c</name>
@@ -1084,6 +1150,9 @@
       </file>
       <file>
         <name>$PROJ_DIR$\..\Src\mks_cfg.cpp</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\Src\mks_test.cpp</name>
       </file>
       <file>
         <name>$PROJ_DIR$\..\Src\mks_touch_screen.c</name>
@@ -1123,6 +1192,12 @@
       </file>
       <file>
         <name>$PROJ_DIR$\..\Src\usbh_conf.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\Src\wifi_module.cpp</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\Src\wifi_upload.cpp</name>
       </file>
     </group>
   </group>
@@ -1437,10 +1512,10 @@
         <name>$PROJ_DIR$\..\Middlewares\ST\STM32_USB_Host_Library\Core\Src\usbh_pipes.c</name>
       </file>
     </group>
-    <file>
-      <name>$PROJ_DIR$\..\Middlewares\mksDLP.a</name>
-    </file>
   </group>
+  <file>
+    <name>$PROJ_DIR$\..\Middlewares\GUI\mksDLP.a</name>
+  </file>
 </project>
 
 

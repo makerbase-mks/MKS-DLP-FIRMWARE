@@ -321,18 +321,6 @@ void Stepper::wake_up() {
  *   COREYZ: Y_AXIS=B_AXIS and Z_AXIS=C_AXIS
  */
 void Stepper::set_directions() {
-#if 1
-
-    if (motor_direction(Z_AXIS)) { 
-      Z_APPLY_DIR(INVERT_Z_DIR, false);
-      count_direction[Z_AXIS] = -1; 
-    } 
-    else {
-      Z_APPLY_DIR(!INVERT_Z_DIR, false); 
-      count_direction[Z_AXIS] = 1;
-    }
-  
-#else
 
   #define SET_STEP_DIR(AXIS) \
     if (motor_direction(AXIS ##_AXIS)) { \
@@ -354,7 +342,7 @@ void Stepper::set_directions() {
     SET_STEP_DIR(Z); // C
   #endif
 
-  #if DISABLED(LIN_ADVANCE)
+  #if 0//DISABLED(LIN_ADVANCE)
     if (motor_direction(E_AXIS)) {
       REV_E_DIR();
       count_direction[E_AXIS] = -1;
@@ -364,8 +352,6 @@ void Stepper::set_directions() {
       count_direction[E_AXIS] = 1;
     }
   #endif // !LIN_ADVANCE
-
-#endif
 }
 
 #if ENABLED(ENDSTOP_INTERRUPTS_FEATURE)

@@ -42,6 +42,7 @@
 
 
 #include "serial.h"   
+#include "mks_test.h"
 #include "mks_dlp_main.h"
 #include "cardreader.h"
 #include "usb_host.h"

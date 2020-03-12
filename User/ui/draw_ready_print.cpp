@@ -7,20 +7,31 @@
 #include "fontLib.h"
 #include "draw_move_motor.h"
 #include "text.h"
+//#include "printer.h"
+#include "draw_pre_heat.h"
+#include "draw_extrusion.h"
+#include "draw_zero.h"
 #include "draw_set.h"
+#include "draw_more.h"
+#include "draw_fan.h"
+#include "draw_more.h"
+#include "draw_log_ui.h"
 #include "draw_language.h"
 #include "pic_manager.h"
 #include "spi_flash.h"
+#include "draw_manual_leveling.h"
 #include "draw_tool.h"
+//#include "sd_usr.h"
 #include "pic_manager.h"
 #include "spi_flash.h"
+#include "draw_meshleveling.h"
 #include "marlin.h"
 #include "draw_keyboard.h"
 #ifndef GUI_FLASH
 #define GUI_FLASH
 #endif
 
-static BUTTON_STRUCT  buttonPrint,buttonSet;
+static BUTTON_STRUCT  buttonPreHeat, buttonPrint, buttonExtruder, buttonMove, buttonFan, buttonMore, buttonZero, buttonSet,buttonLeveling;
 static BUTTON_STRUCT  buttonTool;
 static BUTTON_STRUCT  buttonSet_Text,buttonPrint_Text,buttonTool_Text;
 
@@ -61,7 +72,12 @@ static void cbReadPrintWin(WM_MESSAGE * pMsg) {
 	
 	switch (pMsg->MsgId) {
 		case WM_PAINT:
-            
+			#if 0
+			GUI_SetColor(GUI_WHITE);
+			GUI_DrawRect(LCD_WIDTH/4 + 1, 1, LCD_WIDTH *3 / 4 -3, imgHeight /2 - 3);
+			GUI_SetColor(GUI_STATE_COLOR);
+			GUI_FillRect(LCD_WIDTH/4 + 2, 2, LCD_WIDTH *3 / 4 -4, imgHeight /2 - 4);
+			#endif
 			break;
 		
 		  
@@ -74,6 +90,7 @@ static void cbReadPrintWin(WM_MESSAGE * pMsg) {
 					last_disp_state = PRINT_READY_UI;
 					Clear_ready_print();
 					draw_print_file();      //printing °´¼ü Èë¿Ú
+					//draw_operate();
 				}
 
 				else if(pMsg->hWinSrc == buttonSet.btnHandle)
@@ -88,6 +105,80 @@ static void cbReadPrintWin(WM_MESSAGE * pMsg) {
 					Clear_ready_print();
 					draw_tool();
 				}                
+                #if 0
+				else if(pMsg->hWinSrc == buttonMove.btnHandle)
+				{
+					gCfgItems.getzpos_flg = 1;
+					last_disp_state = PRINT_READY_UI;
+					Clear_ready_print();
+					draw_move_motor();			
+				}                
+				else if(pMsg->hWinSrc == buttonPreHeat.btnHandle)
+				{
+					//get_temp_flag=1;
+					//Get_Temperature_Flg = 1;
+					last_disp_state = PRINT_READY_UI;
+					Clear_ready_print();
+					draw_preHeat();
+				}
+				else if(pMsg->hWinSrc == buttonExtruder.btnHandle)
+				{
+					
+					//Get_Temperature_Flg = 1;
+					//get_temp_flag = 1;
+					last_disp_state = PRINT_READY_UI;
+					Clear_ready_print();
+					draw_extrusion();
+				}
+				else if(pMsg->hWinSrc == buttonZero.btnHandle)
+				{
+					last_disp_state = PRINT_READY_UI;
+					Clear_ready_print();
+					draw_Zero();
+				}
+
+				else if(pMsg->hWinSrc == buttonSet.btnHandle)
+				{
+					last_disp_state = PRINT_READY_UI;
+					Clear_ready_print();
+					draw_Set();
+				}           
+				else if(pMsg->hWinSrc == buttonMore.btnHandle)
+				{
+					last_disp_state = PRINT_READY_UI;
+					Clear_ready_print();
+					draw_More();
+				}
+  
+				else if(pMsg->hWinSrc == buttonLeveling.btnHandle)
+				{
+#if 0					
+					if(gCfgItems.leveling_mode == 1)
+					{
+						if(BED_LEVELING_METHOD & MESH_BED_LEVELING)
+                        {
+                            last_disp_state = PRINT_READY_UI;
+                            Clear_ready_print();
+                            draw_meshleveling();
+                        }   
+                        else
+                        {
+						    SPI_FLASH_BufferRead((u8 *)cmd_code,BUTTON_AUTOLEVELING_ADDR,201);
+						    codebufpoint = cmd_code;		
+                        }
+					}
+					else
+#endif                                          
+					{
+						leveling_first_time = 1;
+						last_disp_state = PRINT_READY_UI;
+						Clear_ready_print();
+						draw_leveling();
+					}
+					
+					
+				}
+				#endif
 			}
 			break;
 		default:
@@ -113,6 +204,173 @@ void draw_ready_print()
 	GUI_SetBkColor(gCfgItems.background_color);
 	GUI_SetColor(gCfgItems.title_color);
 	GUI_Clear();
+#if 0	
+	if(TFT_screen.display_style == 0)
+	{
+	GUI_DispStringAt(creat_title_text(), TITLE_XPOS, TITLE_YPOS);
+
+	hReadyPrintWnd = WM_CreateWindow(0, titleHeight, LCD_WIDTH, imgHeight, WM_CF_SHOW, cbReadPrintWin, 0);
+	buttonPreHeat.btnHandle = BUTTON_CreateEx(INTERVAL_V,0,BTN_X_PIXEL, BTN_Y_PIXEL,hReadyPrintWnd, BUTTON_CF_SHOW, 0, 22);//alloc_win_id());
+	buttonMove.btnHandle = BUTTON_CreateEx(BTN_X_PIXEL+INTERVAL_V*2,0,BTN_X_PIXEL, BTN_Y_PIXEL,hReadyPrintWnd, BUTTON_CF_SHOW, 0, 23);//alloc_win_id());
+	buttonZero.btnHandle = BUTTON_CreateEx(BTN_X_PIXEL*2+INTERVAL_V*3,0,BTN_X_PIXEL, BTN_Y_PIXEL,hReadyPrintWnd, BUTTON_CF_SHOW, 0, 24);//alloc_win_id());
+	buttonPrint.btnHandle = BUTTON_CreateEx(BTN_X_PIXEL*3+INTERVAL_V*4,  0,BTN_X_PIXEL, BTN_Y_PIXEL,hReadyPrintWnd, BUTTON_CF_SHOW, 0, 25);//alloc_win_id());
+	buttonExtruder.btnHandle = BUTTON_CreateEx(INTERVAL_V,  BTN_Y_PIXEL+INTERVAL_H,BTN_X_PIXEL, BTN_Y_PIXEL,hReadyPrintWnd, BUTTON_CF_SHOW, 0, 26);//alloc_win_id());
+	//if(gCfgItems.leveling_mode != 2)
+	{
+		buttonLeveling.btnHandle  = BUTTON_CreateEx(BTN_X_PIXEL+INTERVAL_V*2,BTN_Y_PIXEL+INTERVAL_H,BTN_X_PIXEL, BTN_Y_PIXEL, hReadyPrintWnd, BUTTON_CF_SHOW, 0, 27);
+		buttonSet.btnHandle = BUTTON_CreateEx(BTN_X_PIXEL*2+INTERVAL_V*3,  BTN_Y_PIXEL+INTERVAL_H,BTN_X_PIXEL,BTN_Y_PIXEL,hReadyPrintWnd, BUTTON_CF_SHOW, 0, 29);//alloc_win_id());
+		buttonMore.btnHandle = BUTTON_CreateEx(BTN_X_PIXEL*3+INTERVAL_V*4,  BTN_Y_PIXEL+INTERVAL_H,BTN_X_PIXEL, BTN_Y_PIXEL,hReadyPrintWnd, BUTTON_CF_SHOW, 0, 28);//alloc_win_id());
+	}
+#if 0        
+	else
+	{
+		buttonSet.btnHandle  = BUTTON_CreateEx(BTN_X_PIXEL+INTERVAL_V*2,BTN_Y_PIXEL+INTERVAL_H,BTN_X_PIXEL, BTN_Y_PIXEL, hReadyPrintWnd, BUTTON_CF_SHOW, 0, 27);
+		buttonMore.btnHandle = BUTTON_CreateEx(BTN_X_PIXEL*2+INTERVAL_V*3,  BTN_Y_PIXEL+INTERVAL_H,BTN_X_PIXEL,BTN_Y_PIXEL,hReadyPrintWnd, BUTTON_CF_SHOW, 0, 29);//alloc_win_id());
+	}
+#endif     
+	BUTTON_SetBmpFileName(buttonPreHeat.btnHandle, "bmp_preheat.bin",1);	
+	BUTTON_SetBmpFileName(buttonPrint.btnHandle, "bmp_printing.bin",1);
+	BUTTON_SetBmpFileName(buttonMove.btnHandle, "bmp_mov.bin",1);
+	BUTTON_SetBmpFileName(buttonMore.btnHandle, "bmp_more.bin",1);
+	BUTTON_SetBmpFileName(buttonZero.btnHandle, "bmp_zero.bin",1);
+	//BUTTON_SetBmpFileName(buttonFan.btnHandle, "bmp_fan.bin",1);
+#if 0        
+	if(gCfgItems.leveling_mode != 2)
+	{
+		if(gCfgItems.leveling_mode == 1)
+		{
+			BUTTON_SetBmpFileName(buttonLeveling.btnHandle, "bmp_autoleveling.bin",1);
+		}
+		else
+		{
+			BUTTON_SetBmpFileName(buttonLeveling.btnHandle, "bmp_leveling.bin",1);
+		}
+	}
+	else
+	{
+		//BUTTON_SetBmpFileName(buttonLeveling.btnHandle, "bmp_fan.bin",1);
+	}
+#endif	
+	BUTTON_SetBmpFileName(buttonExtruder.btnHandle, "bmp_extruct.bin",1);
+	BUTTON_SetBmpFileName(buttonSet.btnHandle, "bmp_set.bin",1);
+	
+	BUTTON_SetBitmapEx(buttonPreHeat.btnHandle, 0, &bmp_struct,BMP_PIC_X, BMP_PIC_Y);
+	BUTTON_SetBitmapEx(buttonMove.btnHandle, 0, &bmp_struct,BMP_PIC_X, BMP_PIC_Y);	
+	BUTTON_SetBitmapEx(buttonZero.btnHandle, 0, &bmp_struct,BMP_PIC_X, BMP_PIC_Y);
+	BUTTON_SetBitmapEx(buttonPrint.btnHandle, 0, &bmp_struct,BMP_PIC_X, BMP_PIC_Y);	
+	BUTTON_SetBitmapEx(buttonLeveling.btnHandle, 0, &bmp_struct,BMP_PIC_X, BMP_PIC_Y);
+	BUTTON_SetBitmapEx(buttonExtruder.btnHandle, 0, &bmp_struct,BMP_PIC_X, BMP_PIC_Y);	
+	BUTTON_SetBitmapEx(buttonSet.btnHandle, 0, &bmp_struct,BMP_PIC_X, BMP_PIC_Y);	
+	BUTTON_SetBitmapEx(buttonMore.btnHandle, 0, &bmp_struct,BMP_PIC_X, BMP_PIC_Y);	
+	
+	BUTTON_SetBkColor(buttonPreHeat.btnHandle, BUTTON_CI_PRESSED, gCfgItems.btn_color);
+	BUTTON_SetBkColor(buttonPreHeat.btnHandle, BUTTON_CI_UNPRESSED, gCfgItems.btn_color);
+	BUTTON_SetTextColor(buttonPreHeat.btnHandle, BUTTON_CI_PRESSED, gCfgItems.btn_textcolor);
+	BUTTON_SetTextColor(buttonPreHeat.btnHandle, BUTTON_CI_UNPRESSED, gCfgItems.btn_textcolor);
+	
+	BUTTON_SetBkColor(buttonPrint.btnHandle, BUTTON_CI_PRESSED, gCfgItems.btn_color);
+	BUTTON_SetBkColor(buttonPrint.btnHandle, BUTTON_CI_UNPRESSED, gCfgItems.btn_color);
+	BUTTON_SetTextColor(buttonPrint.btnHandle, BUTTON_CI_PRESSED, gCfgItems.btn_textcolor);
+	BUTTON_SetTextColor(buttonPrint.btnHandle, BUTTON_CI_UNPRESSED, gCfgItems.btn_textcolor);
+
+	BUTTON_SetBkColor(buttonMove.btnHandle, BUTTON_CI_PRESSED, gCfgItems.btn_color);
+	BUTTON_SetBkColor(buttonMove.btnHandle,BUTTON_CI_UNPRESSED, gCfgItems.btn_color);
+	BUTTON_SetTextColor(buttonMove.btnHandle, BUTTON_CI_PRESSED, gCfgItems.btn_textcolor);
+	BUTTON_SetTextColor(buttonMove.btnHandle, BUTTON_CI_UNPRESSED, gCfgItems.btn_textcolor);
+
+	BUTTON_SetBkColor(buttonMore.btnHandle, BUTTON_CI_PRESSED, gCfgItems.btn_color);
+	BUTTON_SetBkColor(buttonMore.btnHandle, BUTTON_CI_UNPRESSED, gCfgItems.btn_color);
+	BUTTON_SetTextColor(buttonMore.btnHandle, BUTTON_CI_PRESSED, gCfgItems.btn_textcolor);
+	BUTTON_SetTextColor(buttonMore.btnHandle, BUTTON_CI_UNPRESSED, gCfgItems.btn_textcolor);
+
+	BUTTON_SetBkColor(buttonZero.btnHandle, BUTTON_CI_PRESSED, gCfgItems.btn_color);
+	BUTTON_SetBkColor(buttonZero.btnHandle, BUTTON_CI_UNPRESSED, gCfgItems.btn_color);
+	BUTTON_SetTextColor(buttonZero.btnHandle, BUTTON_CI_PRESSED, gCfgItems.btn_textcolor);
+	BUTTON_SetTextColor(buttonZero.btnHandle, BUTTON_CI_UNPRESSED, gCfgItems.btn_textcolor);
+
+	BUTTON_SetBkColor(buttonLeveling.btnHandle, BUTTON_CI_PRESSED, gCfgItems.btn_color);
+	BUTTON_SetBkColor(buttonLeveling.btnHandle, BUTTON_CI_UNPRESSED, gCfgItems.btn_color);
+	BUTTON_SetTextColor(buttonLeveling.btnHandle, BUTTON_CI_PRESSED, gCfgItems.btn_textcolor);
+	BUTTON_SetTextColor(buttonLeveling.btnHandle, BUTTON_CI_UNPRESSED, gCfgItems.btn_textcolor);
+
+	BUTTON_SetBkColor(buttonExtruder.btnHandle, BUTTON_CI_PRESSED, gCfgItems.btn_color);
+	BUTTON_SetBkColor(buttonExtruder.btnHandle, BUTTON_CI_UNPRESSED, gCfgItems.btn_color);
+	BUTTON_SetTextColor(buttonExtruder.btnHandle, BUTTON_CI_PRESSED, gCfgItems.btn_textcolor);
+	BUTTON_SetTextColor(buttonExtruder.btnHandle, BUTTON_CI_UNPRESSED, gCfgItems.btn_textcolor);
+
+	BUTTON_SetBkColor(buttonSet.btnHandle, BUTTON_CI_PRESSED, gCfgItems.btn_color);
+	BUTTON_SetBkColor(buttonSet.btnHandle, BUTTON_CI_UNPRESSED, gCfgItems.btn_color);
+	BUTTON_SetTextColor(buttonSet.btnHandle, BUTTON_CI_PRESSED, gCfgItems.btn_textcolor);
+	BUTTON_SetTextColor(buttonSet.btnHandle, BUTTON_CI_UNPRESSED, gCfgItems.btn_textcolor);
+
+	if(gCfgItems.multiple_language !=0)
+	{   
+		BUTTON_SetText(buttonPreHeat.btnHandle, main_menu.preheat);
+		BUTTON_SetText(buttonMove.btnHandle, main_menu.move);
+		BUTTON_SetText(buttonZero.btnHandle, main_menu.home);
+		BUTTON_SetText(buttonPrint.btnHandle, main_menu.print);
+		BUTTON_SetText(buttonExtruder.btnHandle, main_menu.extrude);
+#if 0		
+                if(gCfgItems.leveling_mode !=2)
+		{
+			if(gCfgItems.leveling_mode == 1)
+			{	
+				BUTTON_SetText(buttonLeveling.btnHandle, main_menu.autoleveling);
+			}
+			else
+			{
+				BUTTON_SetText(buttonLeveling.btnHandle, main_menu.leveling);
+			}
+		}
+		else
+		{
+			//BUTTON_SetText(buttonLeveling.btnHandle, main_menu.fan);
+		}
+#endif                
+		BUTTON_SetText(buttonSet.btnHandle, main_menu.set);
+		BUTTON_SetText(buttonMore.btnHandle, main_menu.more);
+	}
+	}
+	else
+	{
+		hReadyPrintWnd = WM_CreateWindow(0, titleHeight, LCD_WIDTH, imgHeight, WM_CF_SHOW, cbReadPrintWin, 0);
+		buttonPrint.btnHandle = BUTTON_CreateEx(MAIN_MENU_X_GAP,(LCD_HEIGHT-BTN_Y_PIXEL)/2-titleHeight,BTN_X_PIXEL,BTN_Y_PIXEL,hReadyPrintWnd, BUTTON_CF_SHOW, 0, 22);//alloc_win_id());
+		buttonSet.btnHandle = BUTTON_CreateEx(BTN_X_PIXEL+MAIN_MENU_X_GAP*2,(LCD_HEIGHT-BTN_Y_PIXEL)/2-titleHeight,BTN_X_PIXEL,BTN_Y_PIXEL,hReadyPrintWnd, BUTTON_CF_SHOW, 0, 23);//alloc_win_id());
+		buttonTool.btnHandle = BUTTON_CreateEx(BTN_X_PIXEL*2+MAIN_MENU_X_GAP*3,(LCD_HEIGHT-BTN_Y_PIXEL)/2-titleHeight,BTN_X_PIXEL,BTN_Y_PIXEL,hReadyPrintWnd, BUTTON_CF_SHOW, 0, 24);//alloc_win_id());		
+
+
+		BUTTON_SetBmpFileName(buttonTool.btnHandle,"bmp_tool.bin",1);
+		BUTTON_SetBmpFileName(buttonSet.btnHandle,"bmp_set.bin",1);
+		BUTTON_SetBmpFileName(buttonPrint.btnHandle,"bmp_printing.bin",1);
+
+		BUTTON_SetBitmapEx(buttonTool.btnHandle, 0, &bmp_struct,BMP_PIC_X, BMP_PIC_Y);	
+		BUTTON_SetBitmapEx(buttonSet.btnHandle, 0, &bmp_struct,BMP_PIC_X, BMP_PIC_Y);	
+		BUTTON_SetBitmapEx(buttonPrint.btnHandle, 0, &bmp_struct,BMP_PIC_X, BMP_PIC_Y);	
+
+		BUTTON_SetBkColor(buttonTool.btnHandle, BUTTON_CI_PRESSED, gCfgItems.btn_color);
+		BUTTON_SetBkColor(buttonTool.btnHandle, BUTTON_CI_UNPRESSED, gCfgItems.btn_color);
+		BUTTON_SetTextColor(buttonTool.btnHandle, BUTTON_CI_PRESSED, gCfgItems.btn_textcolor);
+		BUTTON_SetTextColor(buttonTool.btnHandle, BUTTON_CI_UNPRESSED, gCfgItems.btn_textcolor);
+
+		BUTTON_SetBkColor(buttonSet.btnHandle, BUTTON_CI_PRESSED, gCfgItems.btn_color);
+		BUTTON_SetBkColor(buttonSet.btnHandle, BUTTON_CI_UNPRESSED, gCfgItems.btn_color);
+		BUTTON_SetTextColor(buttonSet.btnHandle, BUTTON_CI_PRESSED, gCfgItems.btn_textcolor);
+		BUTTON_SetTextColor(buttonSet.btnHandle, BUTTON_CI_UNPRESSED, gCfgItems.btn_textcolor);
+
+		BUTTON_SetBkColor(buttonPrint.btnHandle, BUTTON_CI_PRESSED, gCfgItems.btn_color);
+		BUTTON_SetBkColor(buttonPrint.btnHandle, BUTTON_CI_UNPRESSED, gCfgItems.btn_color);
+		BUTTON_SetTextColor(buttonPrint.btnHandle, BUTTON_CI_PRESSED, gCfgItems.btn_textcolor);
+		BUTTON_SetTextColor(buttonPrint.btnHandle, BUTTON_CI_UNPRESSED, gCfgItems.btn_textcolor);
+/*
+		if(gCfgItems.multiple_language !=0)
+		{
+			BUTTON_SetText(buttonTool.btnHandle, main_menu.tool);
+			BUTTON_SetText(buttonSet.btnHandle, main_menu.set);
+			BUTTON_SetText(buttonPrint.btnHandle, main_menu.print);
+		}
+*/
+	}
+    #endif
 
 	hReadyPrintWnd = WM_CreateWindow(0, titleHeight, LCD_WIDTH, imgHeight, WM_CF_SHOW, cbReadPrintWin, 0);
 	buttonPrint.btnHandle = BUTTON_CreateEx(20,95,120,130,hReadyPrintWnd, BUTTON_CF_SHOW, 0, 22);//alloc_win_id());

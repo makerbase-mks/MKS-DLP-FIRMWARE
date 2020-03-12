@@ -29,7 +29,17 @@
 #define MOVE_Z_AXIS_T_CN              "移動Z軸"
 #define Z_ZERO_T_CN                   "Z=0"
 #define UV_TEST_T_CN                  "檢測"
+#define CLEAN_T_CN                    "清理料盤"
 #define QUICK_STOP_T_CN               "停止"
+
+#define START_T_CN                    "開始"
+#define ADJUST_T_CN                   "調整"
+#define CLEAN_PLATFORM_T_CN           "點擊開始進行料盤清理"
+#define CLEANING_TIME_T_CN            "正在清理料盤"
+#define CLEAN_STOP_T_CN               "停止"
+#define CLEAN_CONFIRM_T_CN            "確定"
+#define CLEAN_TIME_TEXT_T_CN              "時間:"
+#define CLEAN_TIME_VALUE_T_CN             " %d 秒"
 
 #define TOOL_TEXT_T_CN							"工具"
 #define PREHEAT_TEXT_T_CN 					    "預熱"

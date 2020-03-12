@@ -19,7 +19,7 @@
 #define  X_RATIO 2560
 #define  Y_RATIO 1440
 #define  FILLCODE 48
-#define  DATA_LEN		192 	// (Y_RATIO+2*FILLCODE)/8
+#define  DATA_LEN		192 	// (Y_RATIO+2*FILLCODE)/8				//tan ---一行数据长度，有(720+48+720+48)位
 #define  DATA_CRC_LEN	194 	// mark16 + DATA_LEN
 #define  TXDATA_LEN		196		//mark16 + DATA_LEN + CRC16
 
@@ -291,6 +291,10 @@ class MKS_DLP {
 
 	uint8_t bank2disp_enable_gray(uint8_t bank_used_id,uint8_t scan_en,uint8_t rd_sdram_en,uint8_t gray);
 	 void grag_test();
+
+	 void line_fill_all_one(uint8_t bank_used_id);
+	 void ExposureAll_on();
+	 void ExposureAll_off();
 
 	
 };

@@ -49,6 +49,15 @@ typedef struct common_menu_disp
 	char *print_special_title;
 	char *pause_special_title;
 	char *operate_special_title;
+
+	char *start;
+	char *adjust;
+	char *clean_platform;
+	char *clean_time_text;
+	char *clean_time_value;
+	char *cleaning;
+	char *confirm;
+	char *stop;
 }common_menu_def;
 extern common_menu_def common_menu;
 
@@ -458,6 +467,7 @@ typedef struct tool_menu_disp
 	char *check;
 	char *z0;
 	char *stop;
+	char *clean;
 }tool_menu_def;
 extern tool_menu_def tool_menu;
 
@@ -529,7 +539,14 @@ extern detection_menu_def detection_menu;
 #define ABOUT_VERSION_TEXT			"1.0.0"
 //#define ABOUT_WIFI_TEXT				"WiFi:"
 #define INFO_SYSTOM_VAL          "MKS DLP"
-#define INFO_FIRMWARE_VAL        "1.0.%d"
+
+//The second bit means hardware version, 1 for V1.1, 0 for V1.0, the bit follows F means fpga firmware version
+#ifdef USE_STM32F407ZET
+#define INFO_FIRMWARE_VAL        "1.0.3_F%d"
+#else
+#define INFO_FIRMWARE_VAL        "1.1.3_F%d"
+#endif
+
 
 #define SERVICE_WEBSITE           "www.makerbase.com.cn"
 #define SERVICE_EMAIL             "King@makerbase.com.cn"

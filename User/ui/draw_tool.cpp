@@ -1,11 +1,24 @@
 #include "gui.h"
+//#include "button.h"
+//#include "PROGBAR.h"
 #include "draw_tool.h"
 #include "draw_ui.h"
 #include "draw_print_file.h"
 #include "pic.h"
+//#include "fontLib.h"
 #include "draw_move_motor.h"
+//#include "text.h"
+//#include "printer.h"
+#include "draw_more.h"
+#include "draw_manual_leveling.h"
+#include "draw_filamentchange.h"
+#include "draw_pre_heat.h"
+#include "draw_extrusion.h"
+#include "draw_zero.h"
 #include "pic_manager.h"
 #include "spi_flash.h"
+#include "draw_meshleveling.h"
+//#include "sd_usr.h"
 #include "temperature.h"
 #ifndef GUI_FLASH
 #define GUI_FLASH
@@ -20,7 +33,7 @@ extern volatile uint8_t get_temp_flag;
 
 static BUTTON_STRUCT buttonPreHeat, buttonExtruse, buttonMove, buttonZero,buttonLeveling,buttonFilament,buttonMore,buttonRet;
 static GUI_HWIN hToolWnd;
-static BUTTON_STRUCT buttonMoveZ,buttonCheck,buttonZ0,buttonStop;
+static BUTTON_STRUCT buttonMoveZ,buttonCheck,buttonZ0,buttonStop,buttonClean;
 static BUTTON_STRUCT buttonMoveZ_Text,buttonCheck_Text,buttonZ0_Text,buttonStop_Text,buttonRet_Text;
 
 //extern GUI_FLASH const GUI_FONT GUI_FontHZ_fontHz18;
@@ -74,6 +87,12 @@ static void cbDrawToolWin(WM_MESSAGE * pMsg) {
 					//quickstop_stepper();	
 					mksdlp.quick_stop();	//skyblue modify 2018-10
 				}
+                else if(pMsg->hWinSrc == buttonClean.btnHandle)
+                {
+                    last_disp_state = TOOL_UI;
+                    Clear_Tool();
+                    draw_Clean();
+                }
 				else if(pMsg->hWinSrc == buttonRet.btnHandle)
 				{
 					last_disp_state = TOOL_UI;
@@ -331,6 +350,7 @@ void draw_tool()
     buttonCheck.btnHandle = BUTTON_CreateEx(180,20,120,130,hToolWnd,BUTTON_CF_SHOW,0,alloc_win_id());
     buttonZ0.btnHandle = BUTTON_CreateEx(340,20,120,130,hToolWnd,BUTTON_CF_SHOW,0,alloc_win_id());
     buttonStop.btnHandle = BUTTON_CreateEx(20,170,120,130,hToolWnd,BUTTON_CF_SHOW,0,alloc_win_id());
+    buttonClean.btnHandle = BUTTON_CreateEx(180,170,120,130,hToolWnd,BUTTON_CF_SHOW,0,alloc_win_id());
 	buttonRet.btnHandle = BUTTON_CreateEx(340,170,120,130,hToolWnd,BUTTON_CF_SHOW, 0, 308);
 
 #if 1
@@ -339,12 +359,14 @@ void draw_tool()
     BUTTON_SetBmpFileName(buttonCheck.btnHandle, "bmp_check.bin",1);
     BUTTON_SetBmpFileName(buttonZ0.btnHandle, "bmp_set_z0.bin",1);
     BUTTON_SetBmpFileName(buttonStop.btnHandle, "bmp_quickstop.bin",1);
+    BUTTON_SetBmpFileName(buttonClean.btnHandle, "bmp_clean.bin",1);
     BUTTON_SetBmpFileName(buttonRet.btnHandle, "bmp_return.bin",1);
 
     BUTTON_SetBitmapEx(buttonMoveZ.btnHandle, 0, &bmp_struct,BMP_PIC_X, BMP_PIC_Y);	
     BUTTON_SetBitmapEx(buttonCheck.btnHandle, 0, &bmp_struct,BMP_PIC_X, BMP_PIC_Y);
     BUTTON_SetBitmapEx(buttonZ0.btnHandle, 0, &bmp_struct,BMP_PIC_X, BMP_PIC_Y);
     BUTTON_SetBitmapEx(buttonStop.btnHandle, 0, &bmp_struct,BMP_PIC_X, BMP_PIC_Y);
+    BUTTON_SetBitmapEx(buttonClean.btnHandle, 0, &bmp_struct,BMP_PIC_X, BMP_PIC_Y);
     BUTTON_SetBitmapEx(buttonRet.btnHandle, 0, &bmp_struct,BMP_PIC_X, BMP_PIC_Y);  
     
 
@@ -355,7 +377,9 @@ void draw_tool()
 	BUTTON_SetBkColor(buttonZ0.btnHandle, BUTTON_CI_PRESSED, gCfgItems.btn_color);
 	BUTTON_SetBkColor(buttonZ0.btnHandle, BUTTON_CI_UNPRESSED, gCfgItems.btn_color);
 	BUTTON_SetBkColor(buttonStop.btnHandle, BUTTON_CI_PRESSED, gCfgItems.btn_color);
-	BUTTON_SetBkColor(buttonStop.btnHandle, BUTTON_CI_UNPRESSED, gCfgItems.btn_color);	
+	BUTTON_SetBkColor(buttonStop.btnHandle, BUTTON_CI_UNPRESSED, gCfgItems.btn_color);
+	BUTTON_SetBkColor(buttonClean.btnHandle, BUTTON_CI_PRESSED, gCfgItems.btn_color);
+	BUTTON_SetBkColor(buttonClean.btnHandle, BUTTON_CI_UNPRESSED, gCfgItems.btn_color);    
 	BUTTON_SetBkColor(buttonRet.btnHandle, BUTTON_CI_PRESSED, gCfgItems.btn_color);
 	BUTTON_SetBkColor(buttonRet.btnHandle, BUTTON_CI_UNPRESSED, gCfgItems.btn_color);
 
@@ -366,7 +390,9 @@ void draw_tool()
 	BUTTON_SetTextColor(buttonZ0.btnHandle, BUTTON_CI_PRESSED, gCfgItems.btn_textcolor);
 	BUTTON_SetTextColor(buttonZ0.btnHandle, BUTTON_CI_UNPRESSED, gCfgItems.btn_textcolor);
 	BUTTON_SetTextColor(buttonStop.btnHandle, BUTTON_CI_PRESSED, gCfgItems.btn_textcolor);
-	BUTTON_SetTextColor(buttonStop.btnHandle, BUTTON_CI_UNPRESSED, gCfgItems.btn_textcolor);    
+	BUTTON_SetTextColor(buttonStop.btnHandle, BUTTON_CI_UNPRESSED, gCfgItems.btn_textcolor);
+	BUTTON_SetTextColor(buttonClean.btnHandle, BUTTON_CI_PRESSED, gCfgItems.btn_textcolor);
+	BUTTON_SetTextColor(buttonClean.btnHandle, BUTTON_CI_UNPRESSED, gCfgItems.btn_textcolor);    
  	BUTTON_SetTextColor(buttonRet.btnHandle, BUTTON_CI_PRESSED, gCfgItems.btn_textcolor);
 	BUTTON_SetTextColor(buttonRet.btnHandle, BUTTON_CI_UNPRESSED, gCfgItems.btn_textcolor); 
     
@@ -383,6 +409,7 @@ void draw_tool()
 		BUTTON_SetText(buttonCheck.btnHandle,tool_menu.check);
 		BUTTON_SetText(buttonZ0.btnHandle,tool_menu.z0);
 		BUTTON_SetText(buttonStop.btnHandle,tool_menu.stop);
+        BUTTON_SetText(buttonClean.btnHandle,tool_menu.clean);
         BUTTON_SetText(buttonRet.btnHandle,common_menu.text_back);
     }
     

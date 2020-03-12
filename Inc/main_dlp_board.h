@@ -49,7 +49,7 @@
 /* USER CODE END Includes */
 
 /* Private define ------------------------------------------------------------*/
-
+#if defined(USE_STM32F407ZET)
 #define ENET_RXER_Pin GPIO_PIN_2
 #define ENET_RXER_GPIO_Port GPIOE
 #define ETH_RESET_Pin GPIO_PIN_3
@@ -134,7 +134,81 @@
 #define FL_CS_GPIO_Port GPIOA
 #define BEEPER_BOARD_Pin GPIO_PIN_8
 #define BEEPER_BOARD_GPIO_Port GPIOB
+#elif defined(USE_STM32F407VET)
+#define NULL_OUT_Pin GPIO_PIN_2
+#define NULL_OUT_GPIO_Port GPIOB
 
+#define LED_Pin GPIO_PIN_2
+#define LED_GPIO_Port GPIOE
+#define FAN1_Pin GPIO_PIN_3
+#define FAN1_GPIO_Port GPIOE
+#define FAN2_Pin GPIO_PIN_4
+#define FAN2_GPIO_Port GPIOE
+#define EXT_DIR_Pin GPIO_PIN_5
+#define EXT_DIR_GPIO_Port GPIOE
+#define EXT_STEP_Pin GPIO_PIN_6
+#define EXT_STEP_GPIO_Port GPIOE
+#define EXT_ENA_Pin GPIO_PIN_13
+#define EXT_ENA_GPIO_Port GPIOC
+#define ZMIN_Pin GPIO_PIN_0
+#define ZMIN_GPIO_Port GPIOC
+#define Z_DIR_Pin GPIO_PIN_1
+#define Z_DIR_GPIO_Port GPIOC
+#define ZMAX_Pin GPIO_PIN_2
+#define ZMAX_GPIO_Port GPIOC
+#define SPI1_CS_SSDA_Pin GPIO_PIN_3
+#define SPI1_CS_SSDA_GPIO_Port GPIOC
+#define Z_VREF_Pin GPIO_PIN_0
+#define Z_VREF_GPIO_Port GPIOA
+#define Z_STEP_Pin GPIO_PIN_1
+#define Z_STEP_GPIO_Port GPIOA
+#define Z_ENA_Pin GPIO_PIN_2
+#define Z_ENA_GPIO_Port GPIOA
+#define SPI1_CS_SSDB_Pin GPIO_PIN_3
+#define SPI1_CS_SSDB_GPIO_Port GPIOA
+#define MIPI_CE_Pin GPIO_PIN_4
+#define MIPI_CE_GPIO_Port GPIOA
+#define MIPI_EN_PWR_Pin GPIO_PIN_5
+#define MIPI_EN_PWR_GPIO_Port GPIOA
+#define SPI1_CS_CPLD_Pin GPIO_PIN_7
+#define SPI1_CS_CPLD_GPIO_Port GPIOA
+#define SPI1_SDC_Pin GPIO_PIN_4
+#define SPI1_SDC_GPIO_Port GPIOC
+#define EPM1270T_IO1_Pin GPIO_PIN_5
+#define EPM1270T_IO1_GPIO_Port GPIOC
+#define SPI1_CRC_Pin GPIO_PIN_0
+#define SPI1_CRC_GPIO_Port GPIOB
+#define CPLD_CLR_Pin GPIO_PIN_1
+#define CPLD_CLR_GPIO_Port GPIOB
+#define FSMC_LIGHT_Pin GPIO_PIN_12
+#define FSMC_LIGHT_GPIO_Port GPIOB
+#define BEEPER_TFT_Pin GPIO_PIN_13
+#define BEEPER_TFT_GPIO_Port GPIOB
+#define TH_CS_Pin GPIO_PIN_11
+#define TH_CS_GPIO_Port GPIOD
+#define FSMC_RST_Pin GPIO_PIN_13
+#define FSMC_RST_GPIO_Port GPIOD
+#define WIFI_RST_Pin GPIO_PIN_8
+#define WIFI_RST_GPIO_Port GPIOA
+#define WIFI_TX_Pin GPIO_PIN_9
+#define WIFI_TX_GPIO_Port GPIOA
+#define WIFI_RX_Pin GPIO_PIN_10
+#define WIFI_RX_GPIO_Port GPIOA
+#define FL_CS_Pin GPIO_PIN_15
+#define FL_CS_GPIO_Port GPIOA
+#define VUSB_ENA_Pin GPIO_PIN_3
+#define VUSB_ENA_GPIO_Port GPIOD
+#define EXT_IO1_Pin GPIO_PIN_6
+#define EXT_IO1_GPIO_Port GPIOD
+#define EXT_IO2_Pin GPIO_PIN_8
+#define EXT_IO2_GPIO_Port GPIOB
+#define EXT_IO3_Pin GPIO_PIN_9
+#define EXT_IO3_GPIO_Port GPIOB
+#define WIFI_IO0_Pin GPIO_PIN_0
+#define WIFI_IO0_GPIO_Port GPIOE
+#define WIFI_IO1_Pin GPIO_PIN_1
+#define WIFI_IO1_GPIO_Port GPIOE
+#endif
 #define USART6_TX_Pin GPIO_PIN_6
 #define USART6_TX_GPIO_Port GPIOC
 #define USART6_RX_Pin GPIO_PIN_7

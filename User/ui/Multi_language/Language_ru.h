@@ -29,7 +29,17 @@
 #define MOVE_Z_AXIS_RU              "Move Z"
 #define Z_ZERO_RU                   "Z=0"
 #define UV_TEST_RU                  "Detection"
+#define CLEAN_RU                    "Clean"
 #define QUICK_STOP_RU               "Stop"
+
+#define START_RU                    "Start"
+#define ADJUST_RU                   "Adjust"
+#define CLEAN_PLATFORM_RU           "Click start to clean platform!"
+#define CLEANING_TIME_RU            "Cleaning Platform"
+#define CLEAN_STOP_RU               "Stop"
+#define CLEAN_CONFIRM_RU            "Confirm"
+#define CLEAN_TIME_TEXT_RU          "Time:"
+#define CLEAN_TIME_VALUE_RU         " %d S"
 
 #define TOOL_TEXT_RU		    "инструмент"
 #define PREHEAT_TEXT_RU         " нагрев"

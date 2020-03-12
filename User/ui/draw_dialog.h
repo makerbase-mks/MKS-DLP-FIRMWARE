@@ -28,6 +28,8 @@
 #define DIALOG_TYPE_Z_UNHOME			19
 #define DIALOG_TYPE_DEL_FILE			20
 
+#define DIALOG_TYPE_CLEANING			21
+#define DIALOG_TYPE_COMPLETE			22
 #if defined(__cplusplus)
 extern "C" {     /* Make sure we have C-declarations in C++ programs */
 #endif

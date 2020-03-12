@@ -255,24 +255,39 @@
 #include "cardreader.h"
 #include "configuration_store.h"
 #include "language.h"
+//#include "pins_arduino.h"
 #include "math.h"
 #include "nozzle.h"
 #include "duration_t.h"
+//#include "types.h"
 #include "tim.h"
 #include "gcode.h"
+
 #include "least_squares_fit.h"
+//#include "ubl.h"
+
 #include "mks_cfg.h"
 #include "mks_reprint.h"
 #include "mks_dlp_main.h"
+#if 1
+
+#include "wifi_module.h"
+
 #include "gui.h"
+
 #include "draw_ready_print.h"
+
 #include "draw_ui.h"
+#include "wifi_module.h"
 #include "draw_printing.h"
+
 
 volatile uint8_t temper_error_flg = 0;
 
 volatile uint8_t mks_heating_busy = 0;
 
+extern void PowerOff_Filament_Check();
+extern void display_temper_error();
 extern void Close_machine_display();
 
 extern uint8_t IsChooseAutoShutdown;
@@ -283,11 +298,25 @@ extern uint8_t from_flash_pic;
 static uint32_t temperature_change_frequency_cnt = 0;
 static uint32_t After_finish_print_time = 0;
 
+#if 0
+uint8_t filament_loading_time_flg;
+uint32_t filament_loading_time_cnt;
+uint8_t filament_loading_completed;
+uint8_t filament_unloading_time_flg;
+uint32_t filament_unloading_time_cnt;
+uint8_t filament_unloading_completed;
+
+uint8_t filament_heat_completed_load;
+uint8_t filament_heat_completed_unload;
+
+extern uint32_t filament_rate;
+#endif
+
 volatile uint32_t TimeIncrease;
 uint8_t volatile printing_rate_update_flag;
 uint8_t preview_no_display;
 extern PRINT_TIME  print_time;
-
+#endif
 
 
 #if HAS_ABL
@@ -540,6 +569,7 @@ const char axis_codes[XYZE] = { 'X', 'Y', 'Z', 'E' };
 
 // Number of characters read in the current line of serial input
 static int serial_count = 0;
+static int wifi_read_count = 0;
 
 // Inactivity shutdown
 millis_t previous_cmd_ms = 0;
@@ -1052,6 +1082,7 @@ void gcode_line_error(const char* err, bool doFlush = true) {
 
 uint8_t serial_wait_tick = 0; //use to calculate the serial wait ticks
 
+uint8_t from_wifi_flag = 0; // whether data comes from wifi model
 
 /**
  * Get all commands waiting on the serial port and queue them.
@@ -1095,6 +1126,7 @@ inline void get_serial_commands() {
     char serial_char = c;
 	
 	serial_wait_tick = 0;
+	from_wifi_flag = 0;
 
     /**
      * If the character ends the line
@@ -1310,6 +1342,102 @@ inline void get_serial_commands() {
   }
 
 #endif // SDSUPPORT
+#if 1
+inline void get_wifi_commands() {
+  static char wifi_line_buffer[MAX_CMD_SIZE];
+  static bool wifi_comment_mode = false;
+
+  if(serial_wait_tick > 5)
+  {
+  	from_wifi_flag = 1;
+
+/**
+	   * Loop while serial characters are incoming and the queue is not full
+	   */
+	  while ((commands_in_queue < BUFSIZE) && (espGcodeFifo.r != espGcodeFifo.w)) {
+
+	    char wifi_char = espGcodeFifo.Buffer[espGcodeFifo.r];
+
+	    espGcodeFifo.r = (espGcodeFifo.r + 1) % WIFI_GCODE_BUFFER_SIZE;
+
+	    /**
+	     * If the character ends the line
+	     */
+	    if (wifi_char == '\n' || wifi_char == '\r') {
+
+	      wifi_comment_mode = false; // end of line == end of comment
+
+	      if (!wifi_read_count) continue; // skip empty lines
+
+	      wifi_line_buffer[wifi_read_count] = 0; // terminate string
+	      wifi_read_count = 0; //reset buffer
+
+	      char* command = wifi_line_buffer;
+
+	      while (*command == ' ') command++; // skip any leading spaces	    
+
+	      // Movement commands alert when stopped
+	      if (IsStopped()) {
+	        char* gpos = strchr(command, 'G');
+	        if (gpos) {
+	          const int codenum = strtol(gpos + 1, NULL, 10);
+	          switch (codenum) {
+	            case 0:
+	            case 1:
+	            case 2:
+	            case 3:
+	              SERIAL_ERRORLNPGM(MSG_ERR_STOPPED);
+	              LCD_MESSAGEPGM(MSG_STOPPED);
+	              break;
+	          }
+	        }
+	      }
+
+	      #if DISABLED(EMERGENCY_PARSER)
+	        // If command was e-stop process now
+	        if (strcmp(command, "M108") == 0) {
+	          wait_for_heatup = false;
+	          #if ENABLED(ULTIPANEL)
+	            wait_for_user = false;
+	          #endif
+	        }
+	        if (strcmp(command, "M112") == 0) kill(PSTR(MSG_KILLED));
+	        if (strcmp(command, "M410") == 0) { quickstop_stepper(); }
+	      #endif
+
+	      #if defined(NO_TIMEOUTS) && NO_TIMEOUTS > 0
+	        last_command_time = ms;
+	      #endif
+
+	      // Add the command to the queue
+	      _enqueuecommand(wifi_line_buffer, true);
+	    }
+	    else if (wifi_read_count >= MAX_CMD_SIZE - 1) {
+	      // Keep fetching, but ignore normal characters beyond the max length
+	      // The command will be injected when EOL is reached
+	    }
+		/*
+	    else if (wifi_char == '\\') {  // Handle escapes
+	      if (MYSERIAL.available() > 0) {
+	        // if we have one more character, copy it over
+	        wifi_char = MYSERIAL.read();
+	        if (!serial_comment_mode) serial_line_buffer[serial_count++] = serial_char;
+	      }
+	      // otherwise do nothing
+	    }*/
+	    else { // it's not a newline, carriage return or escape char
+	      if (wifi_char == ';') wifi_comment_mode = true;
+	      if (!wifi_comment_mode) wifi_line_buffer[wifi_read_count++] = wifi_char;
+	    }
+
+	  }
+    }// queue has space, serial has data
+    else
+    {
+    	from_wifi_flag = 0;
+    }
+}
+#endif
 
 /**
  * Add to the circular command queue the next command from:
@@ -1324,6 +1452,10 @@ void get_available_commands() {
 
   get_serial_commands();
   
+#if 1
+	get_wifi_commands();
+#endif
+
   #if ENABLED(SDSUPPORT) && DISABLED(MKS_DLP_BOARD)
     get_sdcard_commands();
   #endif
@@ -7036,13 +7168,38 @@ inline void gcode_M17() {
   /**
    * M23: Open a file
    */
+   #ifdef USE_MKS_WIFI    
+  inline void gcode_M23() { 
+  	if(card.openFile(parser.command_ptr, true) < 0)
+  	{
+  		/*for 8.3 principle*/
+		char *gSuffix = strstr((char *)parser.command_ptr, ".g");
+		if(!gSuffix)
+		{
+			gSuffix = strstr((char *)parser.command_ptr, ".G");		
+		}
+		if(gSuffix)
+		{
+			*(gSuffix + 2) = '\0';
+			if((uint32_t)gSuffix - (uint32_t)parser.command_ptr > 8)
+			{
+				parser.command_ptr[7] = '~';
+				parser.command_ptr[8] = '.';
+				parser.command_ptr[9] = 'g';
+				parser.command_ptr[10] = '\0';
+			}
+			card.openFile(parser.command_ptr, true) ;
+		}
+  	}
+  }
+#else
   inline void gcode_M23() {
     // Simplify3D includes the size, so zero out all spaces (#7227)
     for (char *fn = parser.string_arg; *fn; ++fn) if (*fn == ' ') *fn = '\0';
     card.openFile(parser.string_arg, true);
     strcpy(curFileName, mksReprint.filename);//(uint8_t *)&mksReprint.filename[0]
   }
-
+#endif
   /**
    * M24: Start or Resume SD Print
    */
@@ -7053,11 +7210,14 @@ inline void gcode_M17() {
       resume_print();
     #endif
 	
-	if(mksReprint.mks_printer_state != MKS_REPRINTING && mksReprint.mks_printer_state != MKS_REPRINTED)
-	{
-    	card.startFileprint();
-    	print_job_timer.start();
-	}
+	#ifdef USE_MKS_WIFI
+	if(card.lastOpenOk())
+	#endif	
+		if(mksReprint.mks_printer_state != MKS_REPRINTING && mksReprint.mks_printer_state != MKS_REPRINTED)
+		{
+	    	card.startFileprint();
+	    	print_job_timer.start();
+		}
   }
 
   /**
@@ -14651,10 +14811,15 @@ void idle(
     Max7219_idle_tasks();
   #endif  // MAX7219_DEBUG
 
+#if  DISABLED(MKS_DLP_BOARD)
+  lcd_update();
+#endif
+
   host_keepalive();
 
   #if ENABLED(AUTO_REPORT_TEMPERATURES) && (HAS_TEMP_HOTEND || HAS_TEMP_BED)
     thermalManager.auto_report_temperatures();
+  no use
   #endif
 
   manage_inactivity(
@@ -14663,26 +14828,42 @@ void idle(
     #endif
   );
 
+#if  DISABLED(MKS_DLP_BOARD)
+  thermalManager.manage_heater();
+#endif
+
   #if ENABLED(PRINTCOUNTER)
     print_job_timer.tick();
   #endif
 
   #if HAS_BUZZER && DISABLED(LCD_USE_I2C_BUZZER)
     buzzer.tick();
+  no use
   #endif
+  
+#if  DISABLED(MKS_DLP_BOARD)
+  display_temper_error();
+#endif
 
-  GUI_RefreshPage();
-
+  wifi_looping();
+  
+  if(wifi_link_state != WIFI_TRANS_FILE)
+  {
+	  GUI_RefreshPage();
+  }
+  #if defined(TFT70)
+  disp_pre_gcode(3,40);
+  #elif defined(TFT35)
   if(preview_no_display != 1)
   {
 	  disp_pre_gcode(25,15);
   }
-
+  #endif
+  
   GUI_TOUCH_Exec(); 	  
   GUI_Exec(); 
-
+  //mksdlp.buzzer_polling();
   mksdlp.PrintStatePolling();
-  
   #if ENABLED(I2C_POSITION_ENCODERS)
     if (planner.blocks_queued() &&
         ( (blockBufferIndexRef != planner.block_buffer_head) ||
@@ -14725,6 +14906,36 @@ void kill_c(const char* lcd_msg) {
     #endif
   } // Wait for reset
 }
+#if 1
+void temper_error_kill()
+{
+  SERIAL_ERROR_START();
+  SERIAL_ERRORLNPGM(MSG_ERR_KILLED);
+
+  thermalManager.disable_all_heaters();
+  disable_all_steppers();	
+
+  _delay_ms(600);
+
+  temper_error_flg = 1;
+}
+
+void display_temper_error()
+{
+	if(temper_error_flg == 1)
+	{
+		card.sdprinting = false;
+		wait_for_heatup = false;
+		
+		GUI_SetBkColor(gCfgItems.background_color);
+		GUI_SetColor(0X0000ff);//	oимиж?б┴?им?
+		GUI_DispStringAt("Error",380, TITLE_YPOS);
+		GUI_SetBkColor(gCfgItems.background_color);
+		GUI_SetColor(gCfgItems.title_color);			
+	}
+}
+
+#endif
 
 /**
  * Kill all activity and lock the machine.
@@ -14887,7 +15098,7 @@ void setup() {
   #if ENABLED(USE_WATCHDOG)
     watchdog_init();
   #endif
-  //
+  //tan add
   soft_endstop_min_init();
 
   stepper.init();    // Initialize stepper, this enables interrupts!
@@ -15055,12 +15266,23 @@ void setup() {
 
 
 
-void loop() 
-{
+void loop() {
+#if 0
+	display_temper_error();
+	
+	PowerOff_Filament_Check();
+	
+	MYSERIAL.MoremenuCmd();
+
+#endif
   if (commands_in_queue < BUFSIZE) get_available_commands();
 
   mksdlp.get_available_bmps();
 
+	
+  #if 0//ENABLED(SDSUPPORT)
+    card.checkautostart(false);
+  #endif
   card.checkFilesys(gCfgItems.fileSysType);
 
   if (commands_in_queue) {
@@ -15110,25 +15332,72 @@ void loop()
   }
   endstops.report_state();
   idle();
+
   
   mks_PrintStatePolling();
 }
 #if 1
 uint16_t z_high_count;
 
+extern uint8_t poweroff_det_flg;
+extern uint32_t poweroff_det_cnt;
+extern uint8_t poweroff_det_low_flg;
+extern uint32_t poweroff_det_low_cnt;
+extern uint8_t poweroff_det_high_flg;
+extern uint32_t poweroff_det_high_cnt;
 
+extern uint8_t filament_det1_flg;
+extern uint32_t filament_det1_cnt;
+extern uint8_t filament_det1_low_flg;
+extern uint32_t filament_det1_low_cnt;
+extern uint8_t filament_det1_high_flg;
+extern uint32_t filament_det1_high_cnt;
+extern uint8_t filament_det1_check;
+
+extern uint8_t filament_det2_flg;
+extern uint32_t filament_det2_cnt;
+extern uint8_t filament_det2_low_flg;
+extern uint32_t filament_det2_low_cnt;
+extern uint8_t filament_det2_high_flg;
+extern uint32_t filament_det2_high_cnt;
+extern uint8_t filament_det2_check;
+
+uint32_t wifi_loop_cycle = 500;
+extern char wifi_check_time;
+uint8_t wifi_init_flg = 0;
+uint8_t wifi_init_state = 0;
+uint8_t wifi_refresh_flg = 0, cloud_refresh_flg = 0;
+uint8_t waiting_wifi_time = 0;
 
 uint8_t btn_flg;
 uint32_t btn_beep_cnt;
 
 extern void mksBeeperAlarm(void);
 
+extern uint8_t clean_time_flg;
+extern uint8_t time_1s_flg;
+
+void btn_beeper(uint32_t beeper)
+{
+    btn_flg = 1;
+    btn_beep_cnt = beeper;
+    BEEPER_OP=1;
+}
 
 void SysTick_Handler_User()
 {
 		TimeIncrease++;
 
-
+        if(clean_time_flg==1)
+        {
+    		if(!(TimeIncrease * TICK_CYCLE % 1000))	// 1s
+    		{		
+    			time_1s_flg = 1;
+                gCfgItems.clean_time_bak--;
+                if(gCfgItems.clean_time_bak == 0)
+                   clean_time_flg = 0; 
+    		}            
+        }
 	
 		temperature_change_frequency_cnt++;
 		if((temperature_change_frequency_cnt>=2000)&&(temperature_change_frequency!=1))
@@ -15153,6 +15422,71 @@ void SysTick_Handler_User()
 		{
 			z_high_count=1;
 		}
+
+	if(poweroff_det_flg==1)
+	{
+		poweroff_det_cnt++;
+	}
+		
+	if(filament_det1_flg==1)
+	{
+		filament_det1_cnt++;
+	}
+
+	if(filament_det1_low_flg==1)
+	{
+		filament_det1_low_cnt++;
+	}
+
+	if(filament_det1_high_flg==1)
+	{
+		filament_det1_high_cnt++;
+	}
+	if(filament_det2_flg==1)
+	{
+		filament_det2_cnt++;
+	}
+
+	if(filament_det2_low_flg==1)
+	{
+		filament_det2_low_cnt++;
+	}
+
+	if(filament_det2_high_flg==1)
+	{
+		filament_det2_high_cnt++;
+	}
+
+	if(poweroff_det_low_flg==1)
+	{
+		poweroff_det_low_cnt++;
+	}
+	
+	if(poweroff_det_high_flg==1)
+	{
+		poweroff_det_high_cnt++;
+	}		
+
+	if(!(TimeIncrease * TICK_CYCLE % 5000))	//5s
+	{
+		wifi_check_time = 1;
+		waiting_wifi_time ++;
+		if((waiting_wifi_time == 8) || (gCfgItems.wifi_type == ESP_WIFI))//40s
+		{
+			if(wifi_init_flg == 0)
+			{
+				wifi_init_flg = 1;
+			}
+			
+		}
+		if(wifi_refresh_flg == 0)
+			wifi_refresh_flg = 1;
+		
+		if(cloud_refresh_flg == 0)
+			cloud_refresh_flg = 1;
+
+	}
+	
 
 	mksBeeperAlarm();
 

@@ -1,3 +1,13 @@
+/******************** (C) COPYRIGHT 2010 www.armjishu.com ********************
+* File Name          : spi_flash.c
+* Author             : www.armjishu.com
+* Version            : V1.0
+* Library            : Using STM32F2XX_STDPERIPH_VERSION V3.3.0
+* Date               : 10/16/2010
+* Description        : This file provides a set of functions needed to manage the
+*                      communication between SPI peripheral and SPI W25X16 FLASH.
+*******************************************************************************/
+
 /* Includes ------------------------------------------------------------------*/
 #include "spi.h"
 #include "spi_flash.h"
@@ -358,7 +368,7 @@ u32 SPI_FLASH_ReadDeviceID(void)
 
   /* Select the FLASH: Chip Select low */
 
-	W25QXX_CS=0;//
+	W25QXX_CS=0;//SPI_FLASH_CS_LOW();-3
 
 
   /* Send "RDID " instruction */
@@ -372,7 +382,7 @@ u32 SPI_FLASH_ReadDeviceID(void)
 
   /* Deselect the FLASH: Chip Select high */
 
-	W25QXX_CS=1;//
+	W25QXX_CS=1;//SPI_FLASH_CS_HIGH();
 
 
   return Temp;
@@ -523,14 +533,35 @@ void SPI_FLASH_WaitForWriteEnd(void)
 void SPI_Flash_PowerDown(void)   
 { 
   /* Select the FLASH: Chip Select low */
+#if 0
+	W25QXX_CS=0;//SPI_FLASH_CS_LOW();-5
+	
 
+  /* Send "Power Down" instruction */
+  SPI_FLASH_SendByte(W25X_PowerDown);
+
+  /* Deselect the FLASH: Chip Select high */
+
+	W25QXX_CS=1;//SPI_FLASH_CS_HIGH();
+#endif
 }   
 
 //»½ÐÑ
 void SPI_Flash_WAKEUP(void)   
 {
   /* Select the FLASH: Chip Select low */
+#if 0
+	W25QXX_CS=0;//SPI_FLASH_CS_LOW();-6
 
+
+  /* Send "Power Down" instruction */
+  SPI_FLASH_SendByte(W25X_ReleasePowerDown);
+
+  /* Deselect the FLASH: Chip Select high */
+
+	W25QXX_CS=1;//SPI_FLASH_CS_HIGH();
+                        //µÈ´ýTRES1
+#endif	
 }   
 
 /******************* (C) COPYRIGHT 2010 www.armjishu.com *****END OF FILE****/

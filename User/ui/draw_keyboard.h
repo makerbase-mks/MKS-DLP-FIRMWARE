@@ -25,7 +25,9 @@ typedef enum
     ExpoOff_edit,
     BottomExpo_edit,
     NormalExpo_edit,
-    DetectionExpo_edit
+    DetectionExpo_edit,
+
+		Clean_edit
 }para_edit;
 
 extern para_edit text_edit; 

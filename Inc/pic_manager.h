@@ -70,8 +70,13 @@
 #define BUTTON_MOREFUNC6_ADDR		BUTTON_MOREFUNC5_ADDR+204
 #define BUTTON_MOREFUNC7_ADDR		BUTTON_MOREFUNC6_ADDR+204
 //自动调平指令存储地址
-#define BUTTON_AUTOLEVELING_ADDR		BUTTON_MOREFUNC7_ADDR+204
-#define WIFI_MODE_TYPE_ADDR					BUTTON_AUTOLEVELING_ADDR+204
+#define BUTTON_AUTOLEVELING_ADDR	BUTTON_MOREFUNC7_ADDR+204
+#define WIFI_MODE_TYPE_ADDR			BUTTON_AUTOLEVELING_ADDR+204
+
+#define SYSTEM_TYPE_ADDR			WIFI_MODE_TYPE_ADDR+204
+#define FIRMWARE_VERSION_ADDR		SYSTEM_TYPE_ADDR+204
+#define WEBSITE_ADDR				FIRMWARE_VERSION_ADDR+204
+#define EMAIL_ADDR					WEBSITE_ADDR+204
 
 #define PER_PIC_MAX_SPACE		(32*1024)	//为了防止出现越界的问题，每张小图片的区间划分应该取能够整除4K的值
 
@@ -95,6 +100,7 @@ typedef struct pic_msg PIC_MSG;
 extern "C" { 
 #endif
 
+extern void PicMsg_Init(void);
 extern void Pic_Read(uint8_t *Pname,uint8_t *P_Rbuff);
 extern void bindBmpFileData(const uint8_t **pBuf, uint8_t *pName);
 extern void Pic_Logo_Read(uint8_t *LogoName,uint8_t *Logo_Rbuff,uint32_t LogoReadsize);

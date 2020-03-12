@@ -1,5 +1,5 @@
 [DebugChecksum]
-Checksum=1351386011
+Checksum=-893921247
 [Stack]
 FillEnabled=0
 OverflowWarningsEnabled=1
@@ -43,33 +43,27 @@ Fmt2=SPI_TypeDef-CR2	4	0
 [array_types]
 Fmt0=uint8_t[192]	4	0
 Fmt1=uint8_t[196]	4	0
-Fmt2=unsigned char[32]	4	0
 [watch_formats]
-Fmt0={W}0:*spi1_hdmatx_CR	4	0
-Fmt1={W}0:FlashID	4	0
-Fmt2={W}0:SSD2828_DATA	4	0
-Fmt3={W}0:SSD2828_ID	4	0
-Fmt4={W}0:Temp	4	0
-Fmt5={W}0:W25QXX_TYPE	4	0
-Fmt6={W}0:disp_state_stack._disp_index	3	0
-Fmt7={W}0:gCfgItems.background_color	4	0
-Fmt8={W}0:gCfgItems.btn_text_bkcolor	4	0
-Fmt9={W}0:gCfgItems.btn_textcolor	4	0
-Fmt10={W}0:gCfgItems.dialog_text_color	4	0
-Fmt11={W}0:gCfgItems.msg_area_bkcolor	4	0
-Fmt12={W}0:mksCfg.invert_z_dir	3	0
-Fmt13={W}0:mksCfg.z_home_dir	3	0
-Fmt14={W}0:mksCfg.z_max_endstop_inverting	3	0
-Fmt15={W}0:mksCfg.z_min_endstop_inverting	3	0
-Fmt16={W}0:oregist1	4	0
-Fmt17={W}0:oregist2	4	0
-Fmt18={W}0:point	4	0
-Fmt19={W}0:ssd_id	4	0
-Fmt20={W}0:ssd_id1	4	0
-Fmt21={W}0:ssd_isr_data	4	0
-Fmt22={W}0:ssd_test_data	4	0
-Fmt23={W}0:test_cmdread	4	0
-Fmt24={W}0:tmp_index	4	0
+Fmt0={W}0:*p	4	0
+Fmt1={W}0:*spi1_hdmatx_CR	4	0
+Fmt2={W}0:DeviceCode	4	0
+Fmt3={W}0:FlashID	4	0
+Fmt4={W}0:SSD2828_DATA	4	0
+Fmt5={W}0:SSD2828_ID	4	0
+Fmt6={W}0:Temp	4	0
+Fmt7={W}0:W25QXX_TYPE	4	0
+Fmt8={W}0:gCfgItems.title_color	4	0
+Fmt9={W}0:mksCfg.invert_z_dir	3	0
+Fmt10={W}0:mksCfg.z_home_dir	3	0
+Fmt11={W}0:mksCfg.z_max_endstop_inverting	3	0
+Fmt12={W}0:mksCfg.z_min_endstop_inverting	3	0
+Fmt13={W}0:oregist1	4	0
+Fmt14={W}0:oregist2	4	0
+Fmt15={W}0:ssd_id	4	0
+Fmt16={W}0:ssd_id1	4	0
+Fmt17={W}0:ssd_isr_data	4	0
+Fmt18={W}0:ssd_test_data	4	0
+Fmt19={W}0:test_cmdread	4	0
 [SWOTraceWindow]
 PcSampling=0
 InterruptLogs=0
@@ -130,18 +124,20 @@ Exclusions=
 [Disassemble mode]
 mode=0
 [Breakpoints2]
-Bp0=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\ili9320.c}.920.1" 0 0 1 "" 0 "" 0
-Bp1=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Drivers\BSP\Components\SSD2828\ssd2828.c}.257.3" 0 0 1 "" 0 "" 0
-Bp2=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Drivers\BSP\Components\SSD2828\ssd2828.cpp}.353.3" 0 0 1 "" 0 "" 0
-Bp3=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Drivers\BSP\Components\SSD2828\ssd2828.cpp}.353.3" 0 0 1 "" 0 "" 0
-Bp4=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Drivers\BSP\Components\SSD2828\ssd2828.cpp}.353.3" 0 0 1 "" 0 "" 0
-Bp5=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Drivers\BSP\Components\SSD2828\ssd2828.cpp}.353.3" 0 0 1 "" 0 "" 0
-Bp6=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\User\ui\touch_calibrate.cpp}.604.6" 0 0 1 "" 0 "" 0
-Bp7=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\User\ui\touch_calibrate.cpp}.430.4" 0 0 1 "" 0 "" 0
-Count=8
+Bp0=_ 1 "EMUL_CODE" "{$PROJ_DIR$\..\Src\ili9320.c}.1905.4" 0 0 1 "" 0 "" 0
+Bp1=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\mks_reprint.cpp}.1868.1" 0 0 1 "" 0 "" 0
+Bp2=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\User\ui\draw_print_file.cpp}.292.8" 0 0 1 "" 0 "" 0
+Bp3=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\User\ui\draw_ui.cpp}.1406.2" 0 0 1 "" 0 "" 0
+Bp4=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Drivers\BSP\Components\SSD2828\ssd2828.c}.257.3" 0 0 1 "" 0 "" 0
+Bp5=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Drivers\BSP\Components\SSD2828\ssd2828.cpp}.353.1" 0 0 1 "" 0 "" 0
+Bp6=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Drivers\BSP\Components\SSD2828\ssd2828.cpp}.353.1" 0 0 1 "" 0 "" 0
+Bp7=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Drivers\BSP\Components\SSD2828\ssd2828.cpp}.353.1" 0 0 1 "" 0 "" 0
+Bp8=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Drivers\BSP\Components\SSD2828\ssd2828.cpp}.353.3" 0 0 1 "" 0 "" 0
+Bp9=_ 1 "EMUL_CODE" "{$PROJ_DIR$\..\User\ui\draw_operate.cpp}.146.17" 0 0 1 "" 0 "" 0
+Bp10=_ 1 "EMUL_CODE" "{$PROJ_DIR$\..\Src\mks_reprint.cpp}.818.1" 0 0 1 "" 0 "" 0
+Bp11=_ 1 "EMUL_CODE" "{$PROJ_DIR$\..\User\ui\draw_printing.cpp}.229.7" 0 0 1 "" 0 "" 0
+Bp12=_ 1 "EMUL_CODE" "{$PROJ_DIR$\..\Src\mks_reprint.cpp}.818.2" 0 0 1 "" 0 "" 0
+Count=13
 [Aliases]
-A0=_ "E:\DLP_Proj\DLP_source\branches\DLP_opensource\Middlewares\Ucgui\GUI\Core\GUI_DrawHLine.c" ""
-A1=_ "E:\DLP_Proj\DLP_source\branches\DLP_opensource\Middlewares\Ucgui\GUI\Core\GUI_DrawVLine.c" ""
-A2=_ "E:\DLP_Proj\DLP_source\branches\DLP_opensource\Middlewares\Ucgui\GUI\Widget\WIDGET_Effect_3D.c" ""
-Count=3
+Count=0
 SuppressDialog=0

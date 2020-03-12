@@ -93,7 +93,9 @@ void draw_ExposureTest()
     exposure_msg_display(1);
     //mksdlp.set_test_exposure_time((uint16_t)key_set_value);
     //mksdlp.ExposureTest();
-    
+    GUI_Exec();
+    //重新初始化2k屏，避免长时间待机之后，2k屏无法正常打印。
+    mksdlp.ssd.init();    
 }
 
 void exposure_msg_display(char exposure_msg)
