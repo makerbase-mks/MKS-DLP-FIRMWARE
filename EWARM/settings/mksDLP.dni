@@ -125,7 +125,7 @@ Exclusions=
 mode=0
 [Breakpoints2]
 Bp0=_ 1 "EMUL_CODE" "{$PROJ_DIR$\..\Src\ili9320.c}.1905.4" 0 0 1 "" 0 "" 0
-Bp1=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\mks_reprint.cpp}.1879.1" 0 0 1 "" 0 "" 0
+Bp1=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\mks_reprint.cpp}.1868.1" 0 0 1 "" 0 "" 0
 Bp2=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\User\ui\draw_print_file.cpp}.292.8" 0 0 1 "" 0 "" 0
 Bp3=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\User\ui\draw_ui.cpp}.1406.2" 0 0 1 "" 0 "" 0
 Bp4=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Drivers\BSP\Components\SSD2828\ssd2828.c}.257.3" 0 0 1 "" 0 "" 0
