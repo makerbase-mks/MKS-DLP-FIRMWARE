@@ -1270,6 +1270,19 @@ void mks_contiuePrint_UI()
 	
 	card.openFile(mksReprint.filename, true);
 	strcpy(curFileName,mksReprint.filename);
+
+	if((strstr((char *)curFileName,".cbddlp")!=NULL)
+		||(strstr((char *)curFileName,".CBDDLP")!=NULL)
+		||(strstr((char *)curFileName,".photon")!=NULL)
+		||(strstr((char *)curFileName,".PHOTON")!=NULL))
+	{
+		mksdlp.print_file_type= 2;
+	}	
+	else 
+	{
+		mksdlp.print_file_type= 1;
+	}
+	
 	if(!card.isFileOpen())	//打开续打文件失败
 	{
 		draw_dialog(DIALOG_TYPE_REPRINT_NO_FILE);

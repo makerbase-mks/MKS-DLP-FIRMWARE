@@ -1007,19 +1007,39 @@ void disp_udisk_files(int seq)
 	}
 	else
 	{
-		if(have_pre_pic((char *)card.gcodeFileList.fileName[j]))
+		if((strstr((char *)card.gcodeFileList.fileName[j],".cbddlp")!=NULL)
+			||(strstr((char *)card.gcodeFileList.fileName[j],".CBDDLP")!=NULL)
+			||(strstr((char *)card.gcodeFileList.fileName[j],".photon")!=NULL)
+			||(strstr((char *)card.gcodeFileList.fileName[j],".PHOTON")!=NULL))
 		{
-			BUTTON_SetBmpFileNamePath(buttonF[i].btnHandle, NULL,card.gcodeFileList.fileName[j],1);
-			#if defined(TFT35)
-			BUTTON_SetBitmapEx(buttonF[i].btnHandle, 0, &bmp_struct_116X116,0, 0);
-			#endif			
+				mksdlp.print_file_type= 2;
+
+				BUTTON_SetBmp_CBDDLP(buttonF[i].btnHandle, NULL,card.gcodeFileList.fileName[j],1,1);
+				#if defined(TFT35)
+				BUTTON_SetBitmapEx(buttonF[i].btnHandle, 0, &bmp_struct_116X116,0, 0);
+				#endif	
+				BUTTON_SetBkColor(buttonF[i].btnHandle, BUTTON_CI_PRESSED, 0x5C5C5C);
+				BUTTON_SetBkColor(buttonF[i].btnHandle, BUTTON_CI_UNPRESSED, 0x5C5C5C);
+				BUTTON_SetTextColor(buttonF[i].btnHandle, BUTTON_CI_UNPRESSED,gCfgItems.filename_color);
+				BUTTON_SetTextColor(buttonF[i].btnHandle, BUTTON_CI_PRESSED,gCfgItems.filename_color);				
 		}
 		else
 		{
-			BUTTON_SetBmpFileName(buttonF[i].btnHandle, "bmp_file.bin",1);
-			#if defined(TFT35)
-			BUTTON_SetBitmapEx(buttonF[i].btnHandle, 0, &bmp_struct_90X90,13, 25);
-			#endif			
+			if(have_pre_pic((char *)card.gcodeFileList.fileName[j]))
+			{
+				mksdlp.print_file_type = 1;
+				BUTTON_SetBmpFileNamePath(buttonF[i].btnHandle, NULL,card.gcodeFileList.fileName[j],1);
+				#if defined(TFT35)
+				BUTTON_SetBitmapEx(buttonF[i].btnHandle, 0, &bmp_struct_116X116,0, 0);
+				#endif			
+			}
+			else
+			{
+				BUTTON_SetBmpFileName(buttonF[i].btnHandle, "bmp_file.bin",1);
+				#if defined(TFT35)
+				BUTTON_SetBitmapEx(buttonF[i].btnHandle, 0, &bmp_struct_90X90,13, 25);
+				#endif			
+			}
 		}
 		#if defined(TFT70)
 		BUTTON_SetBitmapEx(buttonF[i].btnHandle, 0, &bmp_struct,BMP_PIC_X, BMP_PIC_Y);
@@ -1049,7 +1069,6 @@ void Clear_print_file()
 	
 	GUI_Clear();
 }
-
 
 
 

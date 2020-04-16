@@ -1,0 +1,4161 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.10.1.6676/W32 for ARM        16/Apr/2020  18:38:50
+# Copyright 1999-2014 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\draw_ui.cpp
+#    Command line =  
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\draw_ui.cpp -D
+#        USE_HAL_DRIVER -D STM32F407xx -D STM32F40_41xxx -D USE_HAL_LIB -D
+#        MKS_DLP_BOARD -D TFT35 -D USE_STM32F407VET -lC
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM\mksDLP/List\ -lA
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM\mksDLP/List\
+#        --diag_suppress Pa050 -o
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM\mksDLP/Obj\ --no_unroll
+#        --no_inline --no_tbaa --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M4F -e --char_is_signed --fpu=VFPv4_sp --dlib_config
+#        "D:\Program Files (x86)\IAR Systems\Embedded Workbench
+#        7.0\arm\INC\c\DLib_Config_Full.h" -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Inc\ -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Src\ -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Drivers/STM32F4xx_HAL_Driver/Inc\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Middlewares/Third_Party/FatFs/src/drivers\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Middlewares/ST/STM32_USB_Host_Library/Core/Inc\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Inc\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Drivers/CMSIS/Device/ST/STM32F4xx/Include\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Middlewares/Third_Party/FatFs/src\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Middlewares/Third_Party/Marlin\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Drivers/CMSIS/Include\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Drivers/BSP/variant\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Drivers/BSP/Components/at24cxx\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Drivers/BSP/Components/w25qxx\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Drivers/BSP/Components/ssd2828\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Drivers/BSP/Components/lcd\
+#        -I D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Drivers/libstmf4\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Drivers/libstmf4/include\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Middlewares/arduino/stm32/cores/arduino\
+#        -I D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../User/ui\ -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../User/ui/Multi_language\
+#        -I D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../User/ui/QRENCODE\
+#        -I D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Middlewares/GUI\
+#        -Om --eec++ -I "D:\Program Files (x86)\IAR Systems\Embedded Workbench
+#        7.0\arm\CMSIS\Include\"
+#    List file    =  
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM\mksDLP/List\draw_ui.lst
+#    Object file  =  
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM\mksDLP/Obj\draw_ui.o
+#
+###############################################################################
+
+D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\draw_ui.cpp
+      1          #include "gui.h"
+      2          #include "button.h"
+      3          #include "PROGBAR.h"
+      4          #include "string_deal.h"
+      5          #include "draw_ui.h"
+
+  #define UNUSED(x) (void) (x)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marlin\macros.h",101  Warning[Pe047]: 
+          incompatible redefinition of macro "UNUSED" (declared at line 87 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_def.h")
+
+  		volatile volatile float desireBedTempBak;
+  		         ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Inc\mks_cfg.h",407  Warning[Pe083]: 
+          type qualifier specified more than once
+
+  #define IS_SPI_MODE(MODE) (((MODE) == SPI_Mode_Master) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_spi.h",173  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_SPI_MODE" (declared at line
+          511 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_spi.h")
+
+  #define IS_SPI_DATASIZE(DATASIZE) (((DATASIZE) == SPI_DataSize_16b) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_spi.h",185  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_SPI_DATASIZE" (declared at
+          line 523 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_spi.h")
+
+  #define IS_SPI_CPOL(CPOL) (((CPOL) == SPI_CPOL_Low) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_spi.h",197  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_SPI_CPOL" (declared at line
+          526 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_spi.h")
+
+  #define IS_SPI_CPHA(CPHA) (((CPHA) == SPI_CPHA_1Edge) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_spi.h",209  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_SPI_CPHA" (declared at line
+          529 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_spi.h")
+
+  #define IS_SPI_NSS(NSS) (((NSS) == SPI_NSS_Soft) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_spi.h",221  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_SPI_NSS" (declared at line
+          532 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_spi.h")
+
+  #define IS_SPI_BAUDRATE_PRESCALER(PRESCALER) (((PRESCALER) == SPI_BaudRatePrescaler_2) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_spi.h",239  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_SPI_BAUDRATE_PRESCALER"
+          (declared at line 536 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_spi.h")
+
+  #define IS_SPI_FIRST_BIT(BIT) (((BIT) == SPI_FirstBit_MSB) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_spi.h",257  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_SPI_FIRST_BIT" (declared at
+          line 545 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_spi.h")
+
+  #define IS_SPI_DIRECTION(DIRECTION) (((DIRECTION) == SPI_Direction_Rx) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_spi.h",400  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_SPI_DIRECTION" (declared at
+          line 514 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_spi.h")
+
+  #define SPI_FLAG_CRCERR                 ((uint16_t)0x0010)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_spi.h",442  Warning[Pe047]: 
+          incompatible redefinition of macro "SPI_FLAG_CRCERR" (declared at
+          line 293 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_spi.h")
+
+  #define SPI_FLAG_MODF                   ((uint16_t)0x0020)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_spi.h",443  Warning[Pe047]: 
+          incompatible redefinition of macro "SPI_FLAG_MODF" (declared at line
+          294 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_spi.h")
+
+  #define IS_SPI_CRC_POLYNOMIAL(POLYNOMIAL) ((POLYNOMIAL) >= 0x1)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_spi.h",462  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_SPI_CRC_POLYNOMIAL" (declared
+          at line 554 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_spi.h")
+
+  #define SPI_IT_TXE                   SPI_I2S_IT_TXE
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_spi.h",473  Warning[Pe047]: 
+          incompatible redefinition of macro "SPI_IT_TXE" (declared at line
+          280 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_spi.h")
+
+  #define SPI_IT_RXNE                  SPI_I2S_IT_RXNE
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_spi.h",474  Warning[Pe047]: 
+          incompatible redefinition of macro "SPI_IT_RXNE" (declared at line
+          281 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_spi.h")
+
+  #define SPI_IT_ERR                   SPI_I2S_IT_ERR
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_spi.h",475  Warning[Pe047]: 
+          incompatible redefinition of macro "SPI_IT_ERR" (declared at line
+          282 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_spi.h")
+
+  #define SPI_FLAG_RXNE                SPI_I2S_FLAG_RXNE
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_spi.h",477  Warning[Pe047]: 
+          incompatible redefinition of macro "SPI_FLAG_RXNE" (declared at line
+          290 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_spi.h")
+
+  #define SPI_FLAG_TXE                 SPI_I2S_FLAG_TXE
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_spi.h",478  Warning[Pe047]: 
+          incompatible redefinition of macro "SPI_FLAG_TXE" (declared at line
+          291 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_spi.h")
+
+  #define SPI_FLAG_OVR                 SPI_I2S_FLAG_OVR
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_spi.h",479  Warning[Pe047]: 
+          incompatible redefinition of macro "SPI_FLAG_OVR" (declared at line
+          295 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_spi.h")
+
+  #define SPI_FLAG_BSY                 SPI_I2S_FLAG_BSY
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_spi.h",480  Warning[Pe047]: 
+          incompatible redefinition of macro "SPI_FLAG_BSY" (declared at line
+          292 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_spi.h")
+
+    #define FILAMENT_CHANGE_TEXT_EN				"Please click <Load> \nor <unload>,After \npinter pause."
+            ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\Multi_language\Language_en.h",175  Warning[Pe047]: 
+          incompatible redefinition of macro "FILAMENT_CHANGE_TEXT_EN"
+          (declared at line 153)
+
+  #define DIALOG_UNBIND_PRINTER_CN            "Ëß£Èô§ÁªëÂÆö?"
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\Multi_language\Language_s_cn.h",258  Warning[Pe047]: 
+          incompatible redefinition of macro "DIALOG_UNBIND_PRINTER_CN"
+          (declared at line 253)
+
+    #define FILAMENT_CHANGE_TEXT_T_CN				"ÂæÖÊâìÂç∞Ê©üÊö´ÂÅúÂêé,\nË´ãÊåâ<ÈÄ≤Êñô>Êàñ<ÈÄÄÊñô>"
+            ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\Multi_language\Language_t_cn.h",167  Warning[Pe047]: 
+          incompatible redefinition of macro "FILAMENT_CHANGE_TEXT_T_CN"
+          (declared at line 153)
+
+    #define FILAMENT_CHANGE_TEXT_RU				"Please click <Load> \nor <unload>,After \npinter pause."
+            ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\Multi_language\Language_ru.h",173  Warning[Pe047]: 
+          incompatible redefinition of macro "FILAMENT_CHANGE_TEXT_RU"
+          (declared at line 153)
+
+  #define DIALOG_UNBIND_PRINTER_RU            "Unbind the printer?"
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\Multi_language\Language_ru.h",270  Warning[Pe047]: 
+          incompatible redefinition of macro "DIALOG_UNBIND_PRINTER_RU"
+          (declared at line 265)
+
+    #define FILAMENT_CHANGE_TEXT_FR				"Please click <Load> \nor <unload>,After \npinter pause."
+            ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\Multi_language\Language_fr.h",173  Warning[Pe047]: 
+          incompatible redefinition of macro "FILAMENT_CHANGE_TEXT_FR"
+          (declared at line 153)
+
+  #define DIALOG_UNBIND_PRINTER_FR        "Unbind the printer?"
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\Multi_language\Language_fr.h",273  Warning[Pe047]: 
+          incompatible redefinition of macro "DIALOG_UNBIND_PRINTER_FR"
+          (declared at line 269)
+
+    #define FILAMENT_CHANGE_TEXT_SP				"Please click <Load> \nor <unload>,After \npinter pause."
+            ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\Multi_language\Language_sp.h",173  Warning[Pe047]: 
+          incompatible redefinition of macro "FILAMENT_CHANGE_TEXT_SP"
+          (declared at line 154)
+
+    #define FILAMENT_CHANGE_TEXT_IT				"Please click <Load> \nor <unload>,After \npinter pause."
+            ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\Multi_language\Language_it.h",173  Warning[Pe047]: 
+          incompatible redefinition of macro "FILAMENT_CHANGE_TEXT_IT"
+          (declared at line 153)
+
+  #define DIALOG_UNBIND_PRINTER_IT                "Unbind the printer?"
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\Multi_language\Language_it.h",269  Warning[Pe047]: 
+          incompatible redefinition of macro "DIALOG_UNBIND_PRINTER_IT"
+          (declared at line 264)
+
+  #define FILAMENT_CHANGE_TEXT_JP				"Please click <Load> \nor <unload>,After \npinter pause."
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\Multi_language\Multi_language.h",705  Warning[Pe047]: 
+          incompatible redefinition of macro "FILAMENT_CHANGE_TEXT_JP"
+          (declared at line 698)
+
+  #define FILAMENT_CHANGE_TEXT_GN				"Please click <Load> \nor <unload>,After \npinter pause."
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\Multi_language\Multi_language.h",913  Warning[Pe047]: 
+          incompatible redefinition of macro "FILAMENT_CHANGE_TEXT_GN"
+          (declared at line 907)
+
+  #define Simple_Dec"ºı…Ÿ"
+                    ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\draw_ui.h",499  Warning[Pe1649]: 
+          white space is required between the macro name "Simple_Dec" and its
+          replacement text
+
+  #define Simple_Speed "ÀŸ∂»"
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\draw_ui.h",554  Warning[Pe047]: 
+          incompatible redefinition of macro "Simple_Speed" (declared at line
+          551)
+
+  #define Complex_Speed "ÀŸ∂»"
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\draw_ui.h",555  Warning[Pe047]: 
+          incompatible redefinition of macro "Complex_Speed" (declared at line
+          552)
+      6          #include "draw_ready_print.h"
+      7          //#include "gcode.h"
+      8          //#include "printer.h"
+      9          #include "draw_machine.h"
+     10          #include "draw_log_ui.h"
+     11          #include "draw_language.h"
+     12          #include "draw_about.h"
+     13          #include "draw_wifi.h"
+     14          #include "draw_print_file.h"
+     15          #include "draw_printing.h"
+     16          #include "draw_move_motor.h"
+     17          #include "draw_operate.h"
+     18          #include "draw_pause_ui.h"
+     19          #include "draw_extrusion.h"
+     20          #include "draw_pre_heat.h"
+     21          #include "draw_change_speed.h"
+     22          #include "draw_fan.h"
+     23          #include "draw_set.h"
+     24          #include "draw_zero.h"
+     25          #include "draw_sprayer.h"
+     26          #include "draw_machine.h"
+     27          #include "draw_language.h"
+     28          #include "draw_log_ui.h"
+     29          #include "draw_wifi.h"
+     30          #include "draw_more.h"
+     31          #include "ff.h"
+     32          #include "pic_manager.h"
+     33          #include "ili9320.h"
+     34          #include "draw_printing_moremenu.h"
+     35          #include "draw_filamentchange.h"
+     36          /******add********/
+     37          #include "draw_main.h"
+     38          #include "tim.h"
+     39          //#include "mks_tft_com.h"
+     40          #include "draw_manual_leveling.h"
+     41          //#include "mks_tft_reprint.h"
+     42          #include "configuration_adv.h"
+     43          #include "types.h"
+     44          #include "mks_reprint.h"
+     45          
+     46          #include "stm32f4xx_hal.h"
+     47          #include "stm32f4xx_hal_flash_ex.h"
+     48          
+     49          #include "at24cxx.h"
+     50          #include "draw_bind.h"
+     51          #include "draw_disk.h"
+     52          #include "draw_zoffset.h"
+     53          #include "draw_tool.h"
+     54          #include "fatfs.h"
+     55          
+     56          #include "marlin.h"
+
+  #define pgm_read_byte(addr) (*(const unsigned char *)(addr))
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marlin\Marlin_export.h",64  Warning[Pe047]: 
+          incompatible redefinition of macro "pgm_read_byte" (declared at line
+          32 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Middlewares/Third_P
+          arty/Marlin\cardreader.h")
+
+    #define MIN_SOFTWARE_ENDSTOPS mksCfg.min_software_endstops	/*--mks cfg--*/
+            ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marlin\Configuration.h",824  Warning[Pe047]: 
+          incompatible redefinition of macro "MIN_SOFTWARE_ENDSTOPS" (declared
+          at line 819)
+
+    #define MAX_SOFTWARE_ENDSTOPS mksCfg.max_software_endstops	/*--mks cfg--*/
+            ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marlin\Configuration.h",834  Warning[Pe047]: 
+          incompatible redefinition of macro "MAX_SOFTWARE_ENDSTOPS" (declared
+          at line 829)
+
+  #define strcpy_P(dest, src) strcpy((dest), (src))
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\arduino\stm32\cores\arduino\avr\pgmspace.h",23  Warning[Pe047]: 
+          incompatible redefinition of macro "strcpy_P" (declared at line 93
+          of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marl
+          in\Marlin_export.h")
+
+  #define strstr_P(a, b) strstr((a), (b))
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\arduino\stm32\cores\arduino\avr\pgmspace.h",26  Warning[Pe047]: 
+          incompatible redefinition of macro "strstr_P" (declared at line 94
+          of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marl
+          in\Marlin_export.h")
+
+  #define sprintf_P(s, f, ...) sprintf((s), (f), __VA_ARGS__)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\arduino\stm32\cores\arduino\avr\pgmspace.h",28  Warning[Pe047]: 
+          incompatible redefinition of macro "sprintf_P" (declared at line 95
+          of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marl
+          in\Marlin_export.h")
+
+  #define pgm_read_word_near(addr) pgm_read_word(addr)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\arduino\stm32\cores\arduino\avr\pgmspace.h",38  Warning[Pe047]: 
+          incompatible redefinition of macro "pgm_read_word_near" (declared at
+          line 65 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marl
+          in\Marlin_export.h")
+
+  #define IS_IWDG_PRESCALER(PRESCALER) (((PRESCALER) == IWDG_Prescaler_4)  || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_iwdg.h",80  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_IWDG_PRESCALER" (declared at
+          line 209 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_iwdg.h")
+
+  #define IS_IWDG_RELOAD(RELOAD) ((RELOAD) <= 0xFFF)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_iwdg.h",97  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_IWDG_RELOAD" (declared at
+          line 222 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_iwdg.h")
+
+  #define IS_FSMC_NORSRAM_BANK(BANK) (((BANK) == FSMC_Bank1_NORSRAM1) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",272  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_NORSRAM_BANK" (declared
+          at line 834 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_NAND_BANK(BANK) (((BANK) == FSMC_Bank2_NAND) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",277  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_NAND_BANK" (declared at
+          line 855 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_MUX(MUX) (((MUX) == FSMC_DataAddressMux_Disable) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",298  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_MUX" (declared at line
+          839 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_MEMORY(MEMORY) (((MEMORY) == FSMC_MemoryType_SRAM) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",311  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_MEMORY" (declared at
+          line 842 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_BURSTMODE(STATE) (((STATE) == FSMC_BurstAccessMode_Disable) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",336  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_BURSTMODE" (declared at
+          line 894 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_ASYNWAIT(STATE) (((STATE) == FSMC_AsynchronousWait_Disable) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",347  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_ASYNWAIT" (declared at
+          line 915 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_WAIT_POLARITY(POLARITY) (((POLARITY) == FSMC_WaitSignalPolarity_Low) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",358  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_WAIT_POLARITY" (declared
+          at line 897 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_WRAP_MODE(MODE) (((MODE) == FSMC_WrapMode_Disable) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",369  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_WRAP_MODE" (declared at
+          line 900 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_WAIT_SIGNAL_ACTIVE(ACTIVE) (((ACTIVE) == FSMC_WaitSignalActive_BeforeWaitState) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",380  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_WAIT_SIGNAL_ACTIVE"
+          (declared at line 903 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_WRITE_OPERATION(OPERATION) (((OPERATION) == FSMC_WriteOperation_Disable) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",391  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_WRITE_OPERATION"
+          (declared at line 906 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_WAITE_SIGNAL(SIGNAL) (((SIGNAL) == FSMC_WaitSignal_Disable) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",402  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_WAITE_SIGNAL" (declared
+          at line 909 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_EXTENDED_MODE(MODE) (((MODE) == FSMC_ExtendedMode_Disable) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",414  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_EXTENDED_MODE" (declared
+          at line 912 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_WRITE_BURST(BURST) (((BURST) == FSMC_WriteBurst_Disable) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",426  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_WRITE_BURST" (declared
+          at line 920 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_ADDRESS_SETUP_TIME(TIME) ((TIME) <= 0xF)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",435  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_ADDRESS_SETUP_TIME"
+          (declared at line 923 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_ADDRESS_HOLD_TIME(TIME) ((TIME) <= 0xF)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",443  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_ADDRESS_HOLD_TIME"
+          (declared at line 925 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_DATASETUP_TIME(TIME) (((TIME) > 0) && ((TIME) <= 0xFF))
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",451  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_DATASETUP_TIME"
+          (declared at line 927 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_TURNAROUND_TIME(TIME) ((TIME) <= 0xF)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",459  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_TURNAROUND_TIME"
+          (declared at line 929 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_CLK_DIV(DIV) ((DIV) <= 0xF)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",467  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_CLK_DIV" (declared at
+          line 934 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_DATA_LATENCY(LATENCY) ((LATENCY) <= 0xF)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",475  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_DATA_LATENCY" (declared
+          at line 918 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_ACCESS_MODE(MODE) (((MODE) == FSMC_AccessMode_A) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",487  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_ACCESS_MODE" (declared
+          at line 850 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_WAIT_FEATURE(FEATURE) (((FEATURE) == FSMC_Waitfeature_Disable) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",508  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_WAIT_FEATURE" (declared
+          at line 858 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_ECC_STATE(STATE) (((STATE) == FSMC_ECC_Disable) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",520  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_ECC_STATE" (declared at
+          line 864 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_ECCPAGE_SIZE(SIZE) (((SIZE) == FSMC_ECCPageSize_256Bytes) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",535  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_ECCPAGE_SIZE" (declared
+          at line 867 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_TCLR_TIME(TIME) ((TIME) <= 0xFF)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",548  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_TCLR_TIME" (declared at
+          line 874 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_TAR_TIME(TIME) ((TIME) <= 0xFF)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",556  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_TAR_TIME" (declared at
+          line 876 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_SETUP_TIME(TIME) ((TIME) <= 0xFF)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",564  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_SETUP_TIME" (declared at
+          line 878 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_WAIT_TIME(TIME) ((TIME) <= 0xFF)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",572  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_WAIT_TIME" (declared at
+          line 880 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_HOLD_TIME(TIME) ((TIME) <= 0xFF)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",580  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_HOLD_TIME" (declared at
+          line 882 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_HIZ_TIME(TIME) ((TIME) <= 0xFF)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",588  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_HIZ_TIME" (declared at
+          line 884 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define FSMC_FLAG_FEMPT                          ((uint32_t)0x00000040)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",613  Warning[Pe047]: 
+          incompatible redefinition of macro "FSMC_FLAG_FEMPT" (declared at
+          line 530 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+    #define assert_param(expr) ((void)0)        
+            ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\stm32f4xx_conf.h",149  Warning[Pe047]: 
+          incompatible redefinition of macro "assert_param" (declared at line
+          431 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Inc\stm32f4xx_hal_conf.h")
+
+  #define PSTR(x)          (x)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marlin\marlin.h",63  Warning[Pe047]: 
+          incompatible redefinition of macro "PSTR" (declared at line 31 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Middlewares/Third_P
+          arty/Marlin\cardreader.h")
+
+   \                                 In section .bss, align 4
+     57          Screen TFT_screen;
+   \                     TFT_screen:
+   \   00000000                      DS8 20
+     58          
+     59          char value_test;
+     60          
+     61          static float zpos_bak = -1;
+     62          extern volatile uint8_t temper_error_flg;
+     63          
+     64          extern volatile int16_t logo_time;
+     65          //extern PR_STATUS printerStaus;
+     66          extern uint8_t temp_update_flag;
+     67          
+     68          extern uint8_t print_start_flg;
+     69          extern uint8_t from_flash_pic;
+     70          /******end********/
+     71          extern GUI_FLASH const GUI_FONT GUI_FontHZ_fontHz14;
+     72          
+     73          extern GUI_CONST_STORAGE GUI_BITMAP bmpreheat;
+     74          extern GUI_CONST_STORAGE GUI_BITMAP bmadd;
+     75          extern GUI_CONST_STORAGE GUI_BITMAP bmdec;
+     76          extern GUI_CONST_STORAGE GUI_BITMAP bmdir;
+     77          extern GUI_CONST_STORAGE GUI_BITMAP bmextru;
+     78          extern GUI_CONST_STORAGE GUI_BITMAP bmfile;
+     79          extern GUI_CONST_STORAGE GUI_BITMAP bmmov;
+     80          extern GUI_CONST_STORAGE GUI_BITMAP bmpageDown;
+     81          extern GUI_CONST_STORAGE GUI_BITMAP bmpageUp;
+     82          extern GUI_CONST_STORAGE GUI_BITMAP bmprinting;
+     83          extern GUI_CONST_STORAGE GUI_BITMAP bmreturn;
+     84          extern GUI_CONST_STORAGE GUI_BITMAP bmset;
+     85          extern GUI_CONST_STORAGE GUI_BITMAP bmzero;
+     86          
+     87          extern uint8_t gcode_preview_over;
+     88          
+     89          uint8_t temperature_change_frequency = 1;//”√”⁄œ‘ æŒ¬∂»∏¸–¬µƒ∆µ¬ 
+     90          //unsigned char bmp_public_buf[16*1024] = {0};
+     91          
+     92          extern uint8_t wifi_refresh_flg;
+     93          extern void disp_wifi_state();
+     94          
+     95          extern void filament_dialog_handle(void);
+     96          
+     97          
+
+   \                                 In section .bss, align 4
+     98          DISP_STATE_STACK disp_state_stack;
+   \                     disp_state_stack:
+   \   00000000                      DS8 104
+     99          DISP_STATE disp_state = MAIN_UI;
+
+   \                                 In section .bss, align 1
+    100          DISP_STATE last_disp_state;
+   \                     last_disp_state:
+   \   00000000                      DS8 1
+    101          
+
+   \                                 In section .bss, align 1
+    102          char BMP_PIC_X = 0 ;
+   \                     BMP_PIC_X:
+   \   00000000                      DS8 1
+
+   \                                 In section .bss, align 1
+    103          char BMP_PIC_Y = 0;
+   \                     BMP_PIC_Y:
+   \   00000000                      DS8 1
+    104          
+    105          uint32_t To_pre_view;
+    106          
+    107          static   GUI_HWIN hMainWnd;
+
+   \                                 In section .bss, align 4
+    108          static  BUTTON_STRUCT button4;//button1, button2, button3, button4;
+   \                     button4:
+   \   00000000                      DS8 24
+    109          
+    110          extern GUI_FLASH const GUI_FONT GUI_FontHZ_fontHz18;
+    111          #if _LFN_UNICODE
+    112          extern TCHAR curFileName[150];
+    113          //TCHAR curFileName[150];
+    114          #else
+    115          extern char curFileName[150];
+    116          //char curFileName[150];
+    117          #endif
+    118          
+    119          extern GUI_CONST_STORAGE GUI_BITMAP bmlogo;
+    120          extern GUI_CONST_STORAGE GUI_BITMAP bmpreheat;
+    121          
+    122          extern CFG_ITMES gCfgItems;
+    123          
+    124          extern int X_ADD,X_INTERVAL;   //**Õº∆¨º‰∏Ù
+    125          extern uint8_t volatile printing_rate_update_flag;
+    126          extern volatile uint32_t TimeIncrease;
+    127          static volatile uint8_t fan_move_flag;
+    128          //extern FILE_PRINT_STATE gCurFileState ;
+    129          extern uint8_t fan_change_flag;
+    130          
+    131          
+    132          //PR_STATUS printerStaus = pr_idle;
+    133          
+    134          #define MAX_TITLE_LEN	28
+    135          
+
+   \                                 In section .bss, align 4
+    136          static CB_EVENT_STACK gCbEventStack;
+   \                     gCbEventStack:
+   \   00000000                      DS8 44
+    137          //Tan21060406
+    138          #define INC_RD_POINT(b)	((b.r_idx+1 == sizeof(b.event) / sizeof(b.event[0])) ? 0 : b.r_idx+1)
+    139          #define INC_WR_POINT(b)	((b.w_idx+1 == sizeof(b.event) / sizeof(b.event[0])) ? 0 : b.w_idx+1)
+    140          
+
+   \                                 In section .bss, align 4
+    141          FIL *srcfp;
+   \                     srcfp:
+   \   00000000                      DS8 4
+    142          
+
+   \                                 In section .text, align 2, keep-with-next
+    143          void init_cb_stack()
+    144          {
+   \                     _Z13init_cb_stackv: (+1)
+   \   00000000   0xB510             PUSH     {R4,LR}
+    145          	memset(&gCbEventStack.event, 0, sizeof(gCbEventStack.event));
+   \   00000002   0x.... 0x....      LDR.W    R4,??DataTable15
+   \   00000006   0x2228             MOVS     R2,#+40
+   \   00000008   0x2100             MOVS     R1,#+0
+   \   0000000A   0x4620             MOV      R0,R4
+   \   0000000C   0x.... 0x....      BL       memset
+    146          	gCbEventStack.r_idx = 0;
+   \   00000010   0x2000             MOVS     R0,#+0
+   \   00000012   0x8520             STRH     R0,[R4, #+40]
+    147          	gCbEventStack.w_idx = 0;
+    148          }
+   \   00000014   0xBD10             POP      {R4,PC}          ;; return
+    149          
+
+   \                                 In section .text, align 2, keep-with-next
+    150          void push_cb_stack(int16_t event_id)
+    151          {
+   \                     push_cb_stack: (+1)
+   \   00000000   0xB430             PUSH     {R4,R5}
+    152          
+    153          	if(INC_WR_POINT(gCbEventStack) == gCbEventStack.r_idx) //overflow
+   \   00000002   0x.... 0x....      LDR.W    R1,??DataTable15
+   \   00000006   0xF101 0x0228      ADD      R2,R1,#+40
+   \   0000000A   0xF992 0x3001      LDRSB    R3,[R2, #+1]
+   \   0000000E   0x1C5C             ADDS     R4,R3,#+1
+   \   00000010   0x2C14             CMP      R4,#+20
+   \   00000012   0xD100             BNE.N    ??push_cb_stack_0
+   \   00000014   0x2400             MOVS     R4,#+0
+   \                     ??push_cb_stack_0: (+1)
+   \   00000016   0xF991 0x5028      LDRSB    R5,[R1, #+40]
+   \   0000001A   0x42AC             CMP      R4,R5
+   \   0000001C   0xD00B             BEQ.N    ??push_cb_stack_1
+    154          	{
+    155          		return;
+    156          	}
+    157          	gCbEventStack.event[gCbEventStack.w_idx] = event_id;
+   \   0000001E   0xF821 0x0013      STRH     R0,[R1, R3, LSL #+1]
+    158          	gCbEventStack.w_idx = INC_WR_POINT(gCbEventStack);
+   \   00000022   0xF992 0x0001      LDRSB    R0,[R2, #+1]
+   \   00000026   0x1C41             ADDS     R1,R0,#+1
+   \   00000028   0x2914             CMP      R1,#+20
+   \   0000002A   0xD102             BNE.N    ??push_cb_stack_2
+   \   0000002C   0x2000             MOVS     R0,#+0
+   \   0000002E   0x7050             STRB     R0,[R2, #+1]
+   \   00000030   0xE001             B.N      ??push_cb_stack_1
+   \                     ??push_cb_stack_2: (+1)
+   \   00000032   0x1C40             ADDS     R0,R0,#+1
+   \   00000034   0x7050             STRB     R0,[R2, #+1]
+    159          	
+    160          			
+    161          }
+   \                     ??push_cb_stack_1: (+1)
+   \   00000036   0xBC30             POP      {R4,R5}
+   \   00000038   0x4770             BX       LR               ;; return
+    162          
+
+   \                                 In section .text, align 2, keep-with-next
+    163          int16_t pop_cb_stack()
+    164          {
+    165          	int16_t ret;
+    166          	if(gCbEventStack.r_idx != gCbEventStack.w_idx)
+   \                     _Z12pop_cb_stackv: (+1)
+   \   00000000   0x.... 0x....      LDR.W    R1,??DataTable15
+   \   00000004   0xF991 0x2028      LDRSB    R2,[R1, #+40]
+   \   00000008   0xF991 0x0029      LDRSB    R0,[R1, #+41]
+   \   0000000C   0x4282             CMP      R2,R0
+   \   0000000E   0xD00C             BEQ.N    ??pop_cb_stack_0
+    167          	{
+    168          		ret = gCbEventStack.event[gCbEventStack.r_idx];
+   \   00000010   0xF931 0x0012      LDRSH    R0,[R1, R2, LSL #+1]
+    169          		gCbEventStack.r_idx = INC_RD_POINT(gCbEventStack);
+   \   00000014   0x1C53             ADDS     R3,R2,#+1
+   \   00000016   0x2B14             CMP      R3,#+20
+   \   00000018   0xD103             BNE.N    ??pop_cb_stack_1
+   \   0000001A   0x2200             MOVS     R2,#+0
+   \   0000001C   0xF881 0x2028      STRB     R2,[R1, #+40]
+   \   00000020   0x4770             BX       LR
+   \                     ??pop_cb_stack_1: (+1)
+   \   00000022   0x1C52             ADDS     R2,R2,#+1
+   \   00000024   0xF881 0x2028      STRB     R2,[R1, #+40]
+    170          		return ret;
+   \   00000028   0x4770             BX       LR
+    171          	
+    172          	}
+    173          	else
+    174          	{
+    175          		return -1;
+   \                     ??pop_cb_stack_0: (+1)
+   \   0000002A   0xF04F 0x30FF      MOV      R0,#-1
+   \   0000002E   0x4770             BX       LR               ;; return
+    176          	}
+    177          	
+    178          	
+    179          }
+    180          
+
+   \                                 In section .text, align 2, keep-with-next
+    181          void GUI_callback()
+    182          {
+    183          	int16_t action_id = pop_cb_stack();
+   \                     GUI_callback: (+1)
+   \   00000000   0x....             B.N      _Z12pop_cb_stackv
+    184          	if(action_id != (int16_t)-1)
+    185          	{
+    186          		//uid.executeAction(action_id);
+    187          	}
+    188          }
+    189          
+    190          
+
+   \                                 In section .text, align 2, keep-with-next
+    191          void titleText_cat(char *str, int strSize, char *addPart)
+    192          {
+   \                     _Z13titleText_catPciS_: (+1)
+   \   00000000   0xB5F8             PUSH     {R3-R7,LR}
+   \   00000002   0x4604             MOV      R4,R0
+   \   00000004   0x460D             MOV      R5,R1
+   \   00000006   0x4616             MOV      R6,R2
+    193          	if(str == 0 || addPart == 0)
+   \   00000008   0x2C00             CMP      R4,#+0
+   \   0000000A   0xD010             BEQ.N    ??titleText_cat_0
+   \   0000000C   0x2E00             CMP      R6,#+0
+   \   0000000E   0xD00E             BEQ.N    ??titleText_cat_0
+    194          	{
+    195          		return;
+    196          	}
+    197          
+    198          	if(strlen(str) + strlen(addPart) >= strSize)
+   \   00000010   0x.... 0x....      BL       strlen
+   \   00000014   0x4607             MOV      R7,R0
+   \   00000016   0x4630             MOV      R0,R6
+   \   00000018   0x.... 0x....      BL       strlen
+   \   0000001C   0x19C0             ADDS     R0,R0,R7
+   \   0000001E   0x42A8             CMP      R0,R5
+   \   00000020   0xD205             BCS.N    ??titleText_cat_0
+    199          	{
+    200          		return;
+    201          	}
+    202          
+    203          	strcat(str, addPart);
+   \   00000022   0x4631             MOV      R1,R6
+   \   00000024   0x4620             MOV      R0,R4
+   \   00000026   0xE8BD 0x40F4      POP      {R2,R4-R7,LR}
+   \   0000002A   0x.... 0x....      B.W      strcat
+   \                     ??titleText_cat_0: (+1)
+   \   0000002E   0xBDF1             POP      {R0,R4-R7,PC}    ;; return
+    204          }
+    205          
+    206          
+    207          
+
+   \                                 In section .text, align 2, keep-with-next
+    208          char *getDispText(int index)
+    209          {
+    210          #if 0
+    211          	static char TitleText[30];
+    212          
+    213          	memset(TitleText, 0, sizeof(TitleText));
+    214          	
+    215          	switch(disp_state_stack._disp_state[index])
+    216          	{
+    217          		case PRINT_READY_UI:
+    218          			strcpy(TitleText, main_menu.title);
+    219          
+    220          			break;
+    221          
+    222          		case PRINT_FILE_UI:
+    223          			strcpy(TitleText, file_menu.title);
+    224          
+    225          			break;
+    226          
+    227          		case PRINTING_UI:
+    228          			if(disp_state_stack._disp_state[disp_state_stack._disp_index] == PRINTING_UI
+    229          			/*
+    230          			|| disp_state_stack._disp_state[disp_state_stack._disp_index] == OPERATE_UI
+    231          			|| disp_state_stack._disp_state[disp_state_stack._disp_index] == PAUSE_UI
+    232          			*/)
+    233          			{
+    234          				strcpy(TitleText, common_menu.print_special_title);
+    235          			}
+    236          			else
+    237          			{
+    238          				strcpy(TitleText, printing_menu.title);
+    239          			}
+    240          
+    241          			break;
+    242          
+    243          		case MOVE_MOTOR_UI:
+    244          			strcpy(TitleText, move_menu.title);
+    245          
+    246          			break;
+    247          
+    248          		case OPERATE_UI:
+    249          			if(disp_state_stack._disp_state[disp_state_stack._disp_index] == PRINTING_UI
+    250          			/*
+    251          			|| disp_state_stack._disp_state[disp_state_stack._disp_index] == OPERATE_UI
+    252          			|| disp_state_stack._disp_state[disp_state_stack._disp_index] == PAUSE_UI
+    253          			*/)
+    254          			{
+    255          				strcpy(TitleText, common_menu.operate_special_title);
+    256          			}
+    257          			else
+    258          			{
+    259          				strcpy(TitleText, operation_menu.title);
+    260          			}
+    261          
+    262          			break;
+    263          
+    264          		case PAUSE_UI:
+    265          			if(disp_state_stack._disp_state[disp_state_stack._disp_index] == PRINTING_UI
+    266          			|| disp_state_stack._disp_state[disp_state_stack._disp_index] == OPERATE_UI)
+    267          			{
+    268          				strcpy(TitleText, common_menu.pause_special_title);
+    269          			}
+    270          			else
+    271          			{
+    272          				strcpy(TitleText, pause_menu.title);
+    273          			}
+    274          
+    275          			break;
+    276          
+    277          		case EXTRUSION_UI:
+    278          			strcpy(TitleText, extrude_menu.title);
+    279          
+    280          			break;
+    281          
+    282          		case CHANGE_SPEED_UI:
+    283          			strcpy(TitleText, speed_menu.title);
+    284          
+    285          			break;
+    286          			
+    287          		case FAN_UI:
+    288          			strcpy(TitleText, fan_menu.title);
+    289          
+    290          			break;
+    291          			
+    292          		case PRE_HEAT_UI:
+    293          			if((disp_state_stack._disp_state[disp_state_stack._disp_index - 1] == OPERATE_UI))
+    294          			{
+    295          				strcpy(TitleText,preheat_menu.adjust_title);
+    296          
+    297          			}
+    298          			else
+    299          			{
+    300          				strcpy(TitleText, preheat_menu.title);
+    301          
+    302          			} 			
+    303          			break;
+    304          
+    305          		case SET_UI:
+    306          			strcpy(TitleText, set_menu.title);
+    307          
+    308          			break;
+    309          
+    310          		case ZERO_UI:
+    311          			strcpy(TitleText, home_menu.title);
+    312          
+    313          			break;
+    314          
+    315          		case SPRAYER_UI:
+    316          
+    317          			break;
+    318          
+    319          		case MACHINE_UI:
+    320          
+    321          			break;
+    322          
+    323          		case LANGUAGE_UI:
+    324          			strcpy(TitleText, language_menu.title);
+    325          
+    326          			break;
+    327          
+    328          		case ABOUT_UI:
+    329          			strcpy(TitleText, about_menu.title);
+    330          
+    331          			break;
+    332          
+    333          		case LOG_UI:
+    334          
+    335          			break;
+    336          
+    337          		case DISK_UI:
+    338          			strcpy(TitleText, filesys_menu.title);
+    339          			break;
+    340          
+    341          		case DIALOG_UI:
+    342          			strcpy(TitleText, common_menu.dialog_confirm_title);
+    343          			break;	
+    344          
+    345          		case WIFI_UI:
+    346          			strcpy(TitleText, wifi_menu.title);
+    347          
+    348          			break;	
+    349          		case MORE_UI:
+    350          		case PRINT_MORE_UI:
+    351          			strcpy(TitleText, more_menu.title);
+    352          
+    353          			break;	
+    354          		case FILAMENTCHANGE_UI:
+    355          			strcpy(TitleText, filament_menu.title); 		
+    356          			break;	
+    357          		case LEVELING_UI:
+    358                  case MESHLEVELING_UI:
+    359          			strcpy(TitleText, leveling_menu.title); 					
+    360          			break;		
+    361          		case BIND_UI:
+    362          			strcpy(TitleText, cloud_menu.title);			
+    363          			break;
+    364          		case ZOFFSET_UI:
+    365          			strcpy(TitleText, zoffset_menu.title);			
+    366          			break;	
+    367          		case TOOL_UI:
+    368          			strcpy(TitleText, tool_menu.title);			
+    369          			break;				
+    370          		default:
+    371          			break;
+    372          	}
+    373          
+    374          	return TitleText;
+    375          #endif
+    376          }
+                 ^
+Warning[Pe940]: missing return statement at end of non-void function
+          "getDispText"
+   \                     _Z11getDispTexti: (+1)
+   \   00000000   0x4770             BX       LR               ;; return
+    377          
+    378          
+    379          //uint8_t curFileName[30] = {0};
+    380          
+
+   \                                 In section .text, align 2, keep-with-next
+    381          char *creat_title_text()
+    382          {
+    383          #if 0
+    384          	static char titleText[100] = {0};
+    385          
+    386          	int index = 0;
+    387          	
+    388          	char *tmpText = 0;
+    389          	
+    390          	TCHAR tmpCurFileStr[20];
+    391          	
+    392          
+    393          	memset(tmpCurFileStr, 0, sizeof(tmpCurFileStr));
+    394          
+    395          	#if _LFN_UNICODE
+    396          	cutFileName((TCHAR *)curFileName, 16, 16, (TCHAR *)tmpCurFileStr);	
+    397          	#else
+    398          	cutFileName(curFileName, 16, 16, tmpCurFileStr);
+    399          	#endif
+    400          	
+    401          	memset(titleText, 0, sizeof(titleText));
+    402          	
+    403          	while(index <= disp_state_stack._disp_index)
+    404          	{
+    405          		
+    406          		tmpText = getDispText(index);
+    407          		if((*tmpText == 0) || (tmpText == 0))
+    408          		{
+    409          			index++;
+    410          			continue;
+    411          		}
+    412          		
+    413          		titleText_cat(titleText, sizeof(titleText), tmpText);
+    414          		if(index < disp_state_stack._disp_index)
+    415          		{
+    416          			titleText_cat(titleText, sizeof(titleText), ">");
+    417          		}
+    418          		
+    419          		index++;
+    420          	}
+    421          	
+    422          	if(disp_state_stack._disp_state[disp_state_stack._disp_index] == PRINTING_UI
+    423          		/*|| disp_state_stack._disp_state[disp_state_stack._disp_index] == OPERATE_UI
+    424          		|| disp_state_stack._disp_state[disp_state_stack._disp_index] == PAUSE_UI*/)
+    425          	{
+    426          		titleText_cat(titleText, sizeof(titleText), ":");
+    427          		titleText_cat(titleText, sizeof(titleText), (char *)tmpCurFileStr);	
+    428          	}
+    429          
+    430          	if(strlen(titleText) > MAX_TITLE_LEN)
+    431          	{
+    432          		memset(titleText, 0, sizeof(titleText));
+    433          	
+    434          		tmpText = getDispText(0);
+    435          		if(*tmpText != 0)
+    436          		{
+    437          			titleText_cat(titleText, sizeof(titleText), tmpText);
+    438          			titleText_cat(titleText, sizeof(titleText), ">...>");
+    439          			tmpText = getDispText(disp_state_stack._disp_index);
+    440          			if(*tmpText != 0)
+    441          			{
+    442          				titleText_cat(titleText, sizeof(titleText), tmpText);
+    443          			}
+    444          		}
+    445          		
+    446          	}
+    447          
+    448          	return titleText;
+    449          #endif
+    450          }
+                 ^
+Warning[Pe940]: missing return statement at end of non-void function
+          "creat_title_text"
+   \                     creat_title_text: (+1)
+   \   00000000   0x4770             BX       LR               ;; return
+    451          
+
+   \                                 In section .text, align 2, keep-with-next
+    452          void disp_sel_lang()
+    453          {
+    454          	if(gCfgItems.language == LANG_ENGLISH)
+   \                     disp_sel_lang: (+1)
+   \   00000000   0x.... 0x....      LDR.W    R0,??DataTable15_1
+   \   00000004   0xF9B0 0x0000      LDRSH    R0,[R0, #+0]
+   \   00000008   0x.... 0x....      LDR.W    R1,??DataTable15_2
+   \   0000000C   0xF991 0x10D8      LDRSB    R1,[R1, #+216]
+   \   00000010   0x2903             CMP      R1,#+3
+   \   00000012   0xD103             BNE.N    ??disp_sel_lang_0
+    455          	{
+    456          		BUTTON_SetBkColor(button4.btnHandle, BUTTON_CI_UNPRESSED, GUI_FOCUS_CLOLOR);	
+   \   00000014   0x2200             MOVS     R2,#+0
+   \   00000016   0x4611             MOV      R1,R2
+   \   00000018   0x.... 0x....      B.W      BUTTON_SetBkColor
+    457          		//BUTTON_SetBkColor(button1, BUTTON_CI_UNPRESSED, GUI_BLUE);	
+    458          		//BUTTON_SetBkColor(button3, BUTTON_CI_UNPRESSED, GUI_BLUE);	
+    459          	}
+    460          	/*else if(gCfgItems.language == 3)
+    461          	{
+    462          		BUTTON_SetBkColor(button3, BUTTON_CI_UNPRESSED, GUI_FOCUS_CLOLOR);	
+    463          		BUTTON_SetBkColor(button1, BUTTON_CI_UNPRESSED, GUI_BLUE);	
+    464          		BUTTON_SetBkColor(button2, BUTTON_CI_UNPRESSED, GUI_BLUE);	
+    465          	}*/
+    466          	else
+    467          	{
+    468          		//BUTTON_SetBkColor(button1, BUTTON_CI_UNPRESSED, GUI_FOCUS_CLOLOR);	
+    469          		BUTTON_SetBkColor(button4.btnHandle, BUTTON_CI_UNPRESSED, GUI_BUTTON_COLOR);	
+   \                     ??disp_sel_lang_0: (+1)
+   \   0000001C   0x2200             MOVS     R2,#+0
+   \   0000001E   0x4611             MOV      R1,R2
+   \   00000020   0x.... 0x....      B.W      BUTTON_SetBkColor
+    470          		//BUTTON_SetBkColor(button3, BUTTON_CI_UNPRESSED, GUI_BLUE);	
+    471          	}
+    472          		
+    473          }
+    474          
+    475          
+    476          
+
+   \                                 In section .text, align 4, keep-with-next
+    477          void clear_cur_ui()
+    478          {
+    479          	last_disp_state = disp_state_stack._disp_state[disp_state_stack._disp_index];
+   \                     clear_cur_ui: (+1)
+   \   00000000   0x.... 0x....      LDR.W    R0,??DataTable15_3
+   \   00000004   0xF990 0x1064      LDRSB    R1,[R0, #+100]
+   \   00000008   0x5608             LDRSB    R0,[R1, R0]
+   \   0000000A   0x.... 0x....      LDR.W    R1,??DataTable15_4
+   \   0000000E   0x7008             STRB     R0,[R1, #+0]
+    480          	
+    481          	switch(disp_state_stack._disp_state[disp_state_stack._disp_index])
+   \   00000010   0x1E40             SUBS     R0,R0,#+1
+   \   00000012   0x2826             CMP      R0,#+38
+   \   00000014   0xD901             BLS.N    ??clear_cur_ui_1
+   \   00000016   0x.... 0x....      B.W      GUI_Clear
+   \                     ??clear_cur_ui_1: (+1)
+   \   0000001A   0xB580             PUSH     {R7,LR}
+   \   0000001C   0xE8DF 0xF000      TBB      [PC, R0]
+   \                     ??clear_cur_ui_0:
+   \   00000020   0x14 0x17          DC8      0x14,0x17,0x1A,0x1D
+   \              0x1A 0x1D    
+   \   00000024   0x20 0x49          DC8      0x20,0x49,0x49,0x49
+   \              0x49 0x49    
+   \   00000028   0x49 0x49          DC8      0x49,0x49,0x49,0x23
+   \              0x49 0x23    
+   \   0000002C   0x49 0x49          DC8      0x49,0x49,0x49,0x26
+   \              0x49 0x26    
+   \   00000030   0x29 0x49          DC8      0x29,0x49,0x49,0x49
+   \              0x49 0x49    
+   \   00000034   0x2F 0x2C          DC8      0x2F,0x2C,0x49,0x49
+   \              0x49 0x49    
+   \   00000038   0x49 0x49          DC8      0x49,0x49,0x49,0x49
+   \              0x49 0x49    
+   \   0000003C   0x49 0x49          DC8      0x49,0x49,0x49,0x32
+   \              0x49 0x32    
+   \   00000040   0x35 0x38          DC8      0x35,0x38,0x3B,0x3E
+   \              0x3B 0x3E    
+   \   00000044   0x41 0x44          DC8      0x41,0x44,0x47,0x0
+   \              0x47 0x00    
+    482          	{
+    483          		case PRINT_READY_UI:	
+    484          			//Get_Temperature_Flg = 0;
+    485          			Clear_ready_print();
+   \                     ??clear_cur_ui_2: (+1)
+   \   00000048   0x.... 0x....      BL       Clear_ready_print
+    486          			break;
+   \   0000004C   0xE031             B.N      ??clear_cur_ui_3
+    487          
+    488          		case PRINT_FILE_UI:
+    489          			Clear_print_file();
+   \                     ??clear_cur_ui_4: (+1)
+   \   0000004E   0x.... 0x....      BL       Clear_print_file
+    490          			break;
+   \   00000052   0xE02E             B.N      ??clear_cur_ui_3
+    491          
+    492          		case PRINTING_UI:
+    493          			Clear_printing();
+   \                     ??clear_cur_ui_5: (+1)
+   \   00000054   0x.... 0x....      BL       Clear_printing
+    494          			break;
+   \   00000058   0xE02B             B.N      ??clear_cur_ui_3
+    495          
+    496          		case MOVE_MOTOR_UI:
+    497          			Clear_move_motor();
+   \                     ??clear_cur_ui_6: (+1)
+   \   0000005A   0x.... 0x....      BL       Clear_move_motor
+    498          			break;
+   \   0000005E   0xE028             B.N      ??clear_cur_ui_3
+    499          
+    500          		case OPERATE_UI:
+    501          			Clear_operate();
+   \                     ??clear_cur_ui_7: (+1)
+   \   00000060   0x.... 0x....      BL       Clear_operate
+    502          			break;
+   \   00000064   0xE025             B.N      ??clear_cur_ui_3
+    503          
+    504          		case PAUSE_UI:
+    505          			//Clear_pause();
+    506          			break;
+    507          #if 0
+    508          		case EXTRUSION_UI:
+    509          			Clear_extrusion();
+    510          			break;
+    511          
+    512          		case PRE_HEAT_UI:
+    513          			Clear_preHeat();
+    514          			break;
+    515          
+    516          		case CHANGE_SPEED_UI:
+    517          			Clear_changeSpeed();
+    518          			break;
+    519          
+    520          		case FAN_UI:
+    521          			Clear_fan();
+    522          			break;
+    523          #endif
+    524          		case SET_UI:
+    525          			Clear_Set();
+   \                     ??clear_cur_ui_8: (+1)
+   \   00000066   0x.... 0x....      BL       Clear_Set
+    526          			break;
+   \   0000006A   0xE022             B.N      ??clear_cur_ui_3
+    527          #if 0
+    528          		case ZERO_UI:
+    529          			Clear_Zero();
+    530          			break;
+    531          
+    532          		case SPRAYER_UI:
+    533          			//Clear_Sprayer();
+    534          			break;
+    535          
+    536          		case MACHINE_UI:
+    537          			//Clear_Machine();
+    538          			break;
+    539          #endif
+    540          		case LANGUAGE_UI:
+    541          			Clear_Language();
+   \                     ??clear_cur_ui_9: (+1)
+   \   0000006C   0x.... 0x....      BL       Clear_Language
+    542          			break;
+   \   00000070   0xE01F             B.N      ??clear_cur_ui_3
+    543          
+    544          		case ABOUT_UI:
+    545          			Clear_About();
+   \                     ??clear_cur_ui_10: (+1)
+   \   00000072   0x.... 0x....      BL       Clear_About
+    546          			break;
+   \   00000076   0xE01C             B.N      ??clear_cur_ui_3
+    547          #if 0
+    548          		case LOG_UI:
+    549          			//Clear_Connect();
+    550          			break;
+    551          		case DISK_UI:
+    552          			Clear_Disk();
+    553          			break;
+    554          #endif
+    555          		case WIFI_UI:
+    556          			Clear_Wifi();
+   \                     ??clear_cur_ui_11: (+1)
+   \   00000078   0x.... 0x....      BL       Clear_Wifi
+    557          			break;
+   \   0000007C   0xE019             B.N      ??clear_cur_ui_3
+    558          #if 0			
+    559          		case MORE_UI:
+    560          			Clear_more();
+    561          			break;
+    562          			
+    563          		case FILETRANSFER_UI:
+    564          			//Clear_fileTransfer();
+    565          			break;
+    566          #endif
+    567          		case DIALOG_UI:
+    568          			Clear_dialog();
+   \                     ??clear_cur_ui_12: (+1)
+   \   0000007E   0x.... 0x....      BL       Clear_dialog
+    569          			break;	
+   \   00000082   0xE016             B.N      ??clear_cur_ui_3
+    570          #if 0
+    571          		case FILETRANSFERSTATE_UI:
+    572          		/////	Clear_WifiFileTransferdialog();
+    573          			break;
+    574          		case PRINT_MORE_UI:
+    575          			Clear_Printmore();
+    576          			break;
+    577          		case LEVELING_UI:
+    578          			Clear_Leveling();//**
+    579          			break;
+    580          		case BIND_UI:
+    581          			Clear_Bind();
+    582          			break;
+    583          		case ZOFFSET_UI:
+    584          			//Clear_Zoffset();
+    585          			break;
+    586          #endif
+    587          		case TOOL_UI:
+    588          			Clear_Tool();
+   \                     ??clear_cur_ui_13: (+1)
+   \   00000084   0x.... 0x....      BL       _Z10Clear_Toolv
+    589          			break;
+   \   00000088   0xE013             B.N      ??clear_cur_ui_3
+    590          #if 0
+    591                  case MESHLEVELING_UI:
+    592                      Clear_MeshLeveling();
+    593                      break;
+    594          #endif
+    595                  case KEYBOARD_UI:
+    596                      Clear_keyboard();
+   \                     ??clear_cur_ui_14: (+1)
+   \   0000008A   0x.... 0x....      BL       Clear_keyboard
+    597                      break;
+   \   0000008E   0xE010             B.N      ??clear_cur_ui_3
+    598                  case DETECTION_UI:
+    599                      Clear_detection();
+   \                     ??clear_cur_ui_15: (+1)
+   \   00000090   0x.... 0x....      BL       Clear_detection
+    600                      break;
+   \   00000094   0xE00D             B.N      ??clear_cur_ui_3
+    601                  case EXPOSURE_UI:
+    602                      Clear_ExposureTest();
+   \                     ??clear_cur_ui_16: (+1)
+   \   00000096   0x.... 0x....      BL       Clear_ExposureTest
+    603                      break; 
+   \   0000009A   0xE00A             B.N      ??clear_cur_ui_3
+    604                  case SERVICE_UI:
+    605                      Clear_Service();
+   \                     ??clear_cur_ui_17: (+1)
+   \   0000009C   0x.... 0x....      BL       Clear_Service
+    606                      break;
+   \   000000A0   0xE007             B.N      ??clear_cur_ui_3
+    607                  case INFO_UI:
+    608                      Clear_Info();
+   \                     ??clear_cur_ui_18: (+1)
+   \   000000A2   0x.... 0x....      BL       Clear_Info
+    609                      break;  
+   \   000000A6   0xE004             B.N      ??clear_cur_ui_3
+    610                  case PREVIEW_UI:
+    611                      Clear_Preview();
+   \                     ??clear_cur_ui_19: (+1)
+   \   000000A8   0x.... 0x....      BL       Clear_Preview
+    612                      break;
+   \   000000AC   0xE001             B.N      ??clear_cur_ui_3
+    613                  case CLEAN_UI:
+    614                      Clear_Clean();
+   \                     ??clear_cur_ui_20: (+1)
+   \   000000AE   0x.... 0x....      BL       Clear_Clean
+    615                      break;            
+    616          		default:
+    617          			break;
+    618          	}
+    619          	GUI_Clear();
+   \                     ??clear_cur_ui_3: (+1)
+   \   000000B2   0xE8BD 0x4001      POP      {R0,LR}
+   \   000000B6   0x.... 0x....      B.W      GUI_Clear
+    620          }
+    621          
+
+   \                                 In section .text, align 4, keep-with-next
+    622          void draw_return_ui()
+    623          {
+    624          	if(disp_state_stack._disp_index > 0)
+   \                     draw_return_ui: (+1)
+   \   00000000   0x.... 0x....      LDR.W    R0,??DataTable15_3
+   \   00000004   0xF990 0x1064      LDRSB    R1,[R0, #+100]
+   \   00000008   0x2901             CMP      R1,#+1
+   \   0000000A   0xDA00             BGE.N    ??draw_return_ui_1
+   \   0000000C   0x4770             BX       LR
+    625          	{
+    626          		disp_state_stack._disp_index--;
+   \                     ??draw_return_ui_1: (+1)
+   \   0000000E   0xB580             PUSH     {R7,LR}
+   \   00000010   0x1E49             SUBS     R1,R1,#+1
+   \   00000012   0xF880 0x1064      STRB     R1,[R0, #+100]
+    627          		
+    628          		switch(disp_state_stack._disp_state[disp_state_stack._disp_index])
+   \   00000016   0xB249             SXTB     R1,R1
+   \   00000018   0x5608             LDRSB    R0,[R1, R0]
+   \   0000001A   0x1E40             SUBS     R0,R0,#+1
+   \   0000001C   0x2826             CMP      R0,#+38
+   \   0000001E   0xD85D             BHI.N    ??draw_return_ui_2
+   \   00000020   0xE8DF 0xF000      TBB      [PC, R0]
+   \                     ??draw_return_ui_0:
+   \   00000024   0x14 0x18          DC8      0x14,0x18,0x1C,0x24
+   \              0x1C 0x24    
+   \   00000028   0x28 0x5C          DC8      0x28,0x5C,0x5C,0x5C
+   \              0x5C 0x5C    
+   \   0000002C   0x5C 0x5C          DC8      0x5C,0x5C,0x5C,0x2C
+   \              0x5C 0x2C    
+   \   00000030   0x5C 0x5C          DC8      0x5C,0x5C,0x5C,0x30
+   \              0x5C 0x30    
+   \   00000034   0x34 0x5C          DC8      0x34,0x5C,0x5C,0x5C
+   \              0x5C 0x5C    
+   \   00000038   0x5C 0x38          DC8      0x5C,0x38,0x5C,0x5C
+   \              0x5C 0x5C    
+   \   0000003C   0x5C 0x5C          DC8      0x5C,0x5C,0x5C,0x5C
+   \              0x5C 0x5C    
+   \   00000040   0x5C 0x5C          DC8      0x5C,0x5C,0x5C,0x3C
+   \              0x5C 0x3C    
+   \   00000044   0x40 0x44          DC8      0x40,0x44,0x48,0x4C
+   \              0x48 0x4C    
+   \   00000048   0x50 0x54          DC8      0x50,0x54,0x58,0x0
+   \              0x58 0x00    
+    629          		{
+    630          			case PRINT_READY_UI:
+    631          				draw_ready_print();
+   \                     ??draw_return_ui_3: (+1)
+   \   0000004C   0xE8BD 0x4001      POP      {R0,LR}
+   \   00000050   0x.... 0x....      B.W      draw_ready_print
+    632          				break;
+    633          			case PRINT_FILE_UI:
+    634          				draw_print_file();
+   \                     ??draw_return_ui_4: (+1)
+   \   00000054   0xE8BD 0x4001      POP      {R0,LR}
+   \   00000058   0x.... 0x....      B.W      draw_print_file
+    635          				break;
+    636          			case PRINTING_UI:
+    637          				draw_printing();
+   \                     ??draw_return_ui_5: (+1)
+   \   0000005C   0x.... 0x....      BL       draw_printing
+    638          				mksdlp.draw_return_printing_ui();
+   \   00000060   0x.... 0x....      LDR.W    R0,??DataTable15_5
+   \   00000064   0xE8BD 0x4002      POP      {R1,LR}
+   \   00000068   0x.... 0x....      B.W      _ZN7MKS_DLP23draw_return_printing_uiEv
+    639          				break;
+    640          
+    641          			case MOVE_MOTOR_UI:
+    642          				draw_move_motor();
+   \                     ??draw_return_ui_6: (+1)
+   \   0000006C   0xE8BD 0x4001      POP      {R0,LR}
+   \   00000070   0x.... 0x....      B.W      draw_move_motor
+    643          				break;
+    644          
+    645          
+    646          			case OPERATE_UI:
+    647          				draw_operate();
+   \                     ??draw_return_ui_7: (+1)
+   \   00000074   0xE8BD 0x4001      POP      {R0,LR}
+   \   00000078   0x.... 0x....      B.W      draw_operate
+    648          				break;
+    649          #if tan_mask
+    650          			case PAUSE_UI:
+    651          				draw_pause();
+    652          				break;
+    653          #endif
+    654          #if 0
+    655          
+    656          			case EXTRUSION_UI:
+    657          				draw_extrusion();
+    658          				break;
+    659          
+    660          			case PRE_HEAT_UI:
+    661          				draw_preHeat();
+    662          				break;
+    663          				
+    664          			case CHANGE_SPEED_UI:
+    665          				draw_changeSpeed();
+    666          				break;
+    667          
+    668          			case FAN_UI:
+    669          				draw_fan();
+    670          				break;
+    671          #endif
+    672          			case SET_UI:
+    673          				draw_Set();
+   \                     ??draw_return_ui_8: (+1)
+   \   0000007C   0xE8BD 0x4001      POP      {R0,LR}
+   \   00000080   0x.... 0x....      B.W      draw_Set
+    674          				break;
+    675          #if 0
+    676          			case ZERO_UI:
+    677          				draw_Zero();
+    678          				break;
+    679          
+    680          			case SPRAYER_UI:
+    681          				//draw_Sprayer();
+    682          				break;
+    683          
+    684          			case MACHINE_UI:
+    685          				//draw_Machine();
+    686          				break;
+    687          #endif
+    688          			case LANGUAGE_UI:
+    689          				draw_Language();
+   \                     ??draw_return_ui_9: (+1)
+   \   00000084   0xE8BD 0x4001      POP      {R0,LR}
+   \   00000088   0x.... 0x....      B.W      draw_Language
+    690          				break;
+    691          
+    692          			case ABOUT_UI:
+    693          				draw_About();
+   \                     ??draw_return_ui_10: (+1)
+   \   0000008C   0xE8BD 0x4001      POP      {R0,LR}
+   \   00000090   0x.... 0x....      B.W      draw_About
+    694          				break;
+    695          #if tan_mask
+    696          
+    697          			case LOG_UI:
+    698          				draw_Connect();
+    699          				break;
+    700          #endif
+    701          #if 0
+    702          
+    703          			case CALIBRATE_UI:
+    704          		////		draw_calibrate();
+    705          				break;
+    706                          
+    707          			case DISK_UI:
+    708          				draw_Disk();
+    709          				break;  
+    710          #endif				
+    711          			case WIFI_UI:
+    712          				draw_Wifi();
+   \                     ??draw_return_ui_11: (+1)
+   \   00000094   0xE8BD 0x4001      POP      {R0,LR}
+   \   00000098   0x.... 0x....      B.W      draw_Wifi
+    713          				break;
+    714          #if 0
+    715          			case MORE_UI:
+    716          				draw_More();
+    717          				break;
+    718          				
+    719          			case PRINT_MORE_UI:
+    720          				draw_printmore();
+    721          				break;
+    722          			
+    723          			case FILAMENTCHANGE_UI:
+    724          				draw_FilamentChange();
+    725          				break;
+    726          			case LEVELING_UI:
+    727          				draw_leveling();
+    728          				break;
+    729          				
+    730          			case BIND_UI:
+    731          				draw_bind();
+    732          				break;
+    733          #if tan_mask
+    734          			case ZOFFSET_UI:
+    735          				draw_Zoffset();
+    736          				break;
+    737          #endif
+    738          #endif
+    739          			case TOOL_UI:
+    740          				draw_tool();
+   \                     ??draw_return_ui_12: (+1)
+   \   0000009C   0xE8BD 0x4001      POP      {R0,LR}
+   \   000000A0   0x.... 0x....      B.W      _Z9draw_toolv
+    741          				break;
+    742          #if 0
+    743                      case MESHLEVELING_UI:
+    744                          draw_meshleveling();
+    745                          break;
+    746          #endif
+    747                      case KEYBOARD_UI:
+    748                          draw_keyboard();
+   \                     ??draw_return_ui_13: (+1)
+   \   000000A4   0xE8BD 0x4001      POP      {R0,LR}
+   \   000000A8   0x.... 0x....      B.W      draw_keyboard
+    749                          break;
+    750                      case DETECTION_UI:
+    751                          draw_detection();
+   \                     ??draw_return_ui_14: (+1)
+   \   000000AC   0xE8BD 0x4001      POP      {R0,LR}
+   \   000000B0   0x.... 0x....      B.W      draw_detection
+    752                          break; 
+    753                      case EXPOSURE_UI:
+    754                          draw_ExposureTest();
+   \                     ??draw_return_ui_15: (+1)
+   \   000000B4   0xE8BD 0x4001      POP      {R0,LR}
+   \   000000B8   0x.... 0x....      B.W      draw_ExposureTest
+    755                          break;
+    756                      case SERVICE_UI:
+    757                          draw_Service();
+   \                     ??draw_return_ui_16: (+1)
+   \   000000BC   0xE8BD 0x4001      POP      {R0,LR}
+   \   000000C0   0x.... 0x....      B.W      draw_Service
+    758                          break;
+    759                      case INFO_UI:
+    760                          draw_Info();
+   \                     ??draw_return_ui_17: (+1)
+   \   000000C4   0xE8BD 0x4001      POP      {R0,LR}
+   \   000000C8   0x.... 0x....      B.W      draw_Info
+    761                          break;  
+    762                      case PREVIEW_UI:
+    763                          draw_Preview();
+   \                     ??draw_return_ui_18: (+1)
+   \   000000CC   0xE8BD 0x4001      POP      {R0,LR}
+   \   000000D0   0x.... 0x....      B.W      draw_Preview
+    764                          break;
+    765                      case CLEAN_UI:
+    766                          draw_Clean();
+   \                     ??draw_return_ui_19: (+1)
+   \   000000D4   0xE8BD 0x4001      POP      {R0,LR}
+   \   000000D8   0x.... 0x....      B.W      draw_Clean
+    767                          break;
+    768          			default:
+    769          				break;
+    770          		}
+    771          	}
+    772          
+    773          	
+    774          }
+   \                     ??draw_return_ui_2: (+1)
+   \   000000DC   0xBD01             POP      {R0,PC}          ;; return
+    775          
+
+   \                                 In section .text, align 2, keep-with-next
+    776          void gui_view_init()
+    777          {
+   \                     gui_view_init: (+1)
+   \   00000000   0xB538             PUSH     {R3-R5,LR}
+    778          /*
+    779          	gCfgItems.custom_pic_flag = 1;
+    780          	gCfgItems.language = LANG_SIMPLE_CHINESE;
+    781          	gCfgItems.background_color = GUI_BK_CLOLOR;
+    782          	gCfgItems.title_color = GUI_TITLE_TEXT_COLOR;
+    783          	gCfgItems.state_background_color = GUI_STATE_COLOR;
+    784          	gCfgItems.state_text_color = GUI_STATE_TEXT_COLOR;
+    785          	gCfgItems.filename_color = GUI_FILE_NAME_TEXT_COLOR;
+    786          	gCfgItems.filename_background_color = GUI_FILE_NAME_BK_COLOR;
+    787          	gCfgItems.printingstate_word_background_color = GUI_PRINTING_STATE_BK_COLOR;
+    788          	gCfgItems.printingstate_word_color = GUI_PRINTING_STATE_TEXT_COLOR;
+    789          	//gCfgItems.language = 3;
+    790          */	
+    791          #if 0
+    792          	if(gCfgItems.language == LANG_COMPLEX_CHINESE)
+    793          	{
+    794          		GUI_SetFont(&GUI_FontHZ16);
+    795          	}
+    796          	else
+    797          	{
+    798          		GUI_SetFont(&FONT_TITLE);
+    799          	}
+    800          
+    801          	GUI_SetBkColor(gCfgItems.background_color);
+    802          	
+    803          	BUTTON_SetDefaultTextAlign(GUI_TA_BOTTOM | GUI_TA_HCENTER);
+    804          	if(gCfgItems.language == LANG_COMPLEX_CHINESE)
+    805          	{
+    806          		BUTTON_SetDefaultFont(&GUI_FontHZ16);
+    807          	}
+    808          	else
+    809          	{
+    810          		BUTTON_SetDefaultFont(&FONT_TITLE);
+    811          	}
+    812          
+    813          	if(gCfgItems.language == LANG_COMPLEX_CHINESE)
+    814          	{
+    815          		TEXT_SetDefaultFont(&GUI_FontHZ16);
+    816          	}
+    817          	else
+    818          	{
+    819          		TEXT_SetDefaultFont(&FONT_TITLE);
+    820          	}
+    821          	//BUTTON_SetDefaultFont(&FONT_BUTTON);	
+    822          /*	
+    823          	BUTTON_SetDefaultBkColor(GUI_BUTTON_COLOR, BUTTON_CI_UNPRESSED);
+    824          	BUTTON_SetDefaultBkColor(GUI_BUTTON_COLOR, BUTTON_CI_PRESSED);
+    825          	BUTTON_SetDefaultTextColor(GUI_WHITE, BUTTON_CI_UNPRESSED);
+    826          	BUTTON_SetDefaultTextColor(GUI_WHITE, BUTTON_CI_PRESSED);
+    827          */
+    828          #endif
+    829          	GUI_SetFont(&FONT_TITLE);
+   \   00000002   0x.... 0x....      LDR.W    R4,??DataTable15_6
+   \   00000006   0x4620             MOV      R0,R4
+   \   00000008   0x.... 0x....      BL       GUI_SetFont
+    830          	BUTTON_SetDefaultFont(&FONT_TITLE);
+   \   0000000C   0x4620             MOV      R0,R4
+   \   0000000E   0x.... 0x....      BL       BUTTON_SetDefaultFont
+    831          	TEXT_SetDefaultFont(&FONT_TITLE);
+   \   00000012   0x4620             MOV      R0,R4
+   \   00000014   0x.... 0x....      BL       TEXT_SetDefaultFont
+    832          	GUI_SetBkColor(gCfgItems.background_color);
+   \   00000018   0x.... 0x....      LDR.W    R4,??DataTable15_2
+   \   0000001C   0x6860             LDR      R0,[R4, #+4]
+   \   0000001E   0x.... 0x....      BL       GUI_SetBkColor
+    833          	BUTTON_SetDefaultTextAlign(GUI_TA_BOTTOM | GUI_TA_HCENTER);
+   \   00000022   0x2006             MOVS     R0,#+6
+   \   00000024   0x.... 0x....      BL       BUTTON_SetDefaultTextAlign
+    834          
+    835          	BUTTON_SetDefaultBkColor(gCfgItems.background_color, BUTTON_CI_UNPRESSED);
+   \   00000028   0x2100             MOVS     R1,#+0
+   \   0000002A   0x6860             LDR      R0,[R4, #+4]
+   \   0000002C   0x.... 0x....      BL       BUTTON_SetDefaultBkColor
+    836          	BUTTON_SetDefaultBkColor(gCfgItems.background_color, BUTTON_CI_PRESSED);
+   \   00000030   0x2101             MOVS     R1,#+1
+   \   00000032   0x6860             LDR      R0,[R4, #+4]
+   \   00000034   0x.... 0x....      BL       BUTTON_SetDefaultBkColor
+    837          	BUTTON_SetDefaultTextColor(gCfgItems.title_color, BUTTON_CI_UNPRESSED);
+   \   00000038   0x1D25             ADDS     R5,R4,#+4
+   \   0000003A   0x2100             MOVS     R1,#+0
+   \   0000003C   0x6D68             LDR      R0,[R5, #+84]
+   \   0000003E   0x.... 0x....      BL       BUTTON_SetDefaultTextColor
+    838          	BUTTON_SetDefaultTextColor(gCfgItems.title_color, BUTTON_CI_PRESSED);
+   \   00000042   0x2101             MOVS     R1,#+1
+   \   00000044   0x6D68             LDR      R0,[R5, #+84]
+   \   00000046   0x.... 0x....      BL       BUTTON_SetDefaultTextColor
+    839          	if(gCfgItems.button_3d_effect_flag != 1)
+   \   0000004A   0xF894 0x00EC      LDRB     R0,[R4, #+236]
+   \   0000004E   0x2801             CMP      R0,#+1
+   \   00000050   0xD003             BEQ.N    ??gui_view_init_0
+    840          	{
+    841          		WIDGET_SetDefaultEffect(&WIDGET_Effect_Simple);
+   \   00000052   0x.... 0x....      LDR.W    R0,??DataTable15_7
+   \   00000056   0x.... 0x....      BL       WIDGET_SetDefaultEffect
+    842          	}
+    843          
+    844          	init_cb_stack();
+   \                     ??gui_view_init_0: (+1)
+   \   0000005A   0xE8BD 0x4031      POP      {R0,R4,R5,LR}
+   \   0000005E   0x....             B.N      _Z13init_cb_stackv
+    845          }
+    846          
+    847          //**
+
+   \                                 In section .text, align 4, keep-with-next
+    848          int8_t get_printing_rate(FIL *fileHandle)
+    849          {
+    850          	int8_t rate;
+    851          	
+    852          	if(fileHandle == 0)
+   \                     get_printing_rate: (+1)
+   \   00000000   0x2800             CMP      R0,#+0
+   \   00000002   0xD00A             BEQ.N    ??get_printing_rate_0
+    853          		return -1;
+    854          
+    855          	if(fileHandle->fptr == 0)
+   \   00000004   0xF8D0 0x1208      LDR      R1,[R0, #+520]
+   \   00000008   0x2900             CMP      R1,#+0
+   \   0000000A   0xD006             BEQ.N    ??get_printing_rate_0
+   \   0000000C   0xF500 0x7002      ADD      R0,R0,#+520
+   \   00000010   0x6840             LDR      R0,[R0, #+4]
+   \   00000012   0x2800             CMP      R0,#+0
+   \   00000014   0xD001             BEQ.N    ??get_printing_rate_0
+    856          		return -1;
+    857          
+    858          	if(fileHandle->fsize == 0)
+    859          		return -1;
+    860          
+    861          	if(fileHandle->fptr > fileHandle->fsize)
+   \   00000016   0x4288             CMP      R0,R1
+   \   00000018   0xD202             BCS.N    ??get_printing_rate_1
+    862          		return -1;
+   \                     ??get_printing_rate_0: (+1)
+   \   0000001A   0xF04F 0x30FF      MOV      R0,#-1
+   \   0000001E   0x4770             BX       LR
+    863          	
+    864          	if(from_flash_pic != 1)
+   \                     ??get_printing_rate_1: (+1)
+   \   00000020   0xEE00 0x1A10      VMOV     S0,R1
+   \   00000024   0xEEB8 0x0A40      VCVT.F32.U32 S0,S0
+   \   00000028   0xEDDF 0x....      VLDR.W   S1,??DataTable10  ;; 0x42c80000
+   \   0000002C   0x.... 0x....      LDR.W    R1,??DataTable15_8
+   \   00000030   0x790A             LDRB     R2,[R1, #+4]
+   \   00000032   0x2A01             CMP      R2,#+1
+   \   00000034   0xD00C             BEQ.N    ??get_printing_rate_2
+    865          	{
+    866          		rate = (unsigned char)((float)f_tell(fileHandle)  * 100 / f_size(fileHandle));
+   \   00000036   0xEE20 0x0A20      VMUL.F32 S0,S0,S1
+   \   0000003A   0xEE00 0x0A90      VMOV     S1,R0
+   \   0000003E   0xEEF8 0x0A60      VCVT.F32.U32 S1,S1
+   \   00000042   0xEE80 0x0A20      VDIV.F32 S0,S0,S1
+   \   00000046   0xEEBD 0x0AC0      VCVT.S32.F32 S0,S0
+   \   0000004A   0xEE10 0x0A10      VMOV     R0,S0
+   \   0000004E   0xE019             B.N      ??get_printing_rate_3
+    867          	}
+    868          	else
+    869          	{
+    870          		rate = (unsigned char)(((float)f_tell(fileHandle)-(PREVIEW_SIZE+To_pre_view))  * 100 / (f_size(fileHandle)-(PREVIEW_SIZE+To_pre_view)));
+   \                     ??get_printing_rate_2: (+1)
+   \   00000050   0x6889             LDR      R1,[R1, #+8]
+   \   00000052   0x.... 0x....      LDR.W    R2,??DataTable15_9  ;; 0x317e0
+   \   00000056   0x1852             ADDS     R2,R2,R1
+   \   00000058   0xEE01 0x2A10      VMOV     S2,R2
+   \   0000005C   0xEEB8 0x1A41      VCVT.F32.U32 S2,S2
+   \   00000060   0xEE30 0x0A41      VSUB.F32 S0,S0,S2
+   \   00000064   0xEE20 0x0A20      VMUL.F32 S0,S0,S1
+   \   00000068   0x1A40             SUBS     R0,R0,R1
+   \   0000006A   0x.... 0x....      LDR.W    R1,??DataTable15_10  ;; 0xfffce820
+   \   0000006E   0x1808             ADDS     R0,R1,R0
+   \   00000070   0xEE00 0x0A90      VMOV     S1,R0
+   \   00000074   0xEEF8 0x0A60      VCVT.F32.U32 S1,S1
+   \   00000078   0xEE80 0x0A20      VDIV.F32 S0,S0,S1
+   \   0000007C   0xEEBD 0x0AC0      VCVT.S32.F32 S0,S0
+   \   00000080   0xEE10 0x0A10      VMOV     R0,S0
+    871          	}
+    872          
+    873          
+    874          
+    875          	if((rate == 100) && (mksReprint.mks_printer_state != MKS_IDLE))	
+   \                     ??get_printing_rate_3: (+1)
+   \   00000084   0xB240             SXTB     R0,R0
+   \   00000086   0x2864             CMP      R0,#+100
+   \   00000088   0xD106             BNE.N    ??get_printing_rate_4
+   \   0000008A   0x.... 0x....      LDR.W    R1,??DataTable15_11
+   \   0000008E   0xF891 0x1058      LDRB     R1,[R1, #+88]
+   \   00000092   0x29A6             CMP      R1,#+166
+   \   00000094   0xD000             BEQ.N    ??get_printing_rate_4
+    876          	{
+    877          		rate = 99;
+   \   00000096   0x2063             MOVS     R0,#+99
+    878          	}
+    879          
+    880          	if((rate == 99) && (mksReprint.mks_printer_state == MKS_IDLE))	
+   \                     ??get_printing_rate_4: (+1)
+   \   00000098   0x2863             CMP      R0,#+99
+   \   0000009A   0xD106             BNE.N    ??get_printing_rate_5
+   \   0000009C   0x.... 0x....      LDR.W    R1,??DataTable15_11
+   \   000000A0   0xF891 0x1058      LDRB     R1,[R1, #+88]
+   \   000000A4   0x29A6             CMP      R1,#+166
+   \   000000A6   0xD100             BNE.N    ??get_printing_rate_5
+    881          	{
+    882          		rate = 100;
+   \   000000A8   0x2064             MOVS     R0,#+100
+    883          	}
+    884          	
+    885          
+    886          	gCurFileState.totalSend = rate;
+   \                     ??get_printing_rate_5: (+1)
+   \   000000AA   0x.... 0x....      LDR.W    R1,??DataTable15_12
+   \   000000AE   0xF8C1 0x0238      STR      R0,[R1, #+568]
+    887          
+    888          	return  rate;
+   \   000000B2   0x4770             BX       LR               ;; return
+    889          
+    890          }
+    891          
+    892          #if 1
+    893          extern uint16_t z_high_count;
+    894          extern uint8_t move_speed_flg;
+    895          
+
+   \                                 In section .text, align 2, keep-with-next
+    896          void GUI_RefreshPage()
+    897          {
+   \                     GUI_RefreshPage: (+1)
+   \   00000000   0xB510             PUSH     {R4,LR}
+   \   00000002   0xB082             SUB      SP,SP,#+8
+    898          
+    899            		__IO uint32_t i =0;
+   \   00000004   0x2000             MOVS     R0,#+0
+   \   00000006   0x9000             STR      R0,[SP, #+0]
+    900          		switch(disp_state)
+   \   00000008   0x.... 0x....      LDR.W    R4,??DataTable15_8
+   \   0000000C   0xF994 0x0005      LDRSB    R0,[R4, #+5]
+   \   00000010   0x2800             CMP      R0,#+0
+   \   00000012   0xD008             BEQ.N    ??GUI_RefreshPage_0
+   \   00000014   0x2803             CMP      R0,#+3
+   \   00000016   0xD009             BEQ.N    ??GUI_RefreshPage_1
+   \   00000018   0x2816             CMP      R0,#+22
+   \   0000001A   0xD029             BEQ.N    ??GUI_RefreshPage_2
+   \   0000001C   0x2823             CMP      R0,#+35
+   \   0000001E   0xD031             BEQ.N    ??GUI_RefreshPage_3
+   \   00000020   0x2827             CMP      R0,#+39
+   \   00000022   0xD047             BEQ.N    ??GUI_RefreshPage_4
+   \   00000024   0xE048             B.N      ??GUI_RefreshPage_5
+    901          		{
+    902          		      case MAIN_UI:                                                    //**
+    903          				
+    904          				//if(logo_time * TICK_CYCLE >= 3000 )
+    905          				//{
+    906          					
+    907          				//	clear_main_ui();
+    908          				//	last_disp_state = MAIN_UI;
+    909          					draw_ready_print();
+   \                     ??GUI_RefreshPage_0: (+1)
+   \   00000026   0x.... 0x....      BL       draw_ready_print
+    910          					
+    911          				//}
+    912          				break;
+   \   0000002A   0xE045             B.N      ??GUI_RefreshPage_5
+    913                          #if 0
+    914          			case EXTRUSION_UI:  
+    915          				if(temperature_change_frequency == 1)
+    916          				{
+    917          					temperature_change_frequency = 0;
+    918          					disp_sprayer_temp();
+    919          				}
+    920          				break;
+    921          			case PRE_HEAT_UI:
+    922          				if(temperature_change_frequency == 1)
+    923          				{
+    924          					temperature_change_frequency = 0;
+    925          					disp_desire_temp();
+    926          				}
+    927          				break;
+    928                      #endif
+    929          			case PRINT_READY_UI:
+    930          			/*	if(fan_move_flag)
+    931          				{
+    932          					fan_move_flag = 0;
+    933          					disp_fan_move();
+    934          				}*/
+    935          				break;
+    936          
+    937          			case PRINT_FILE_UI:
+    938          				break;
+    939          
+    940          			case PRINTING_UI:
+    941                          //if(mksdlp.get_displayStatus())
+    942                          if(value_test==1)
+   \                     ??GUI_RefreshPage_1: (+1)
+   \   0000002C   0xF994 0x0000      LDRSB    R0,[R4, #+0]
+   \   00000030   0x2801             CMP      R0,#+1
+   \   00000032   0xD101             BNE.N    ??GUI_RefreshPage_6
+    943                          {
+    944                              value_test=0;
+   \   00000034   0x2000             MOVS     R0,#+0
+   \   00000036   0x7020             STRB     R0,[R4, #+0]
+    945                              //layer_pic_display(bmp_layer_buf,30,15,320,180);     // printing_step3
+    946                          }
+    947                          //«Âø’œ‘ æ°£
+    948                          //if(mksdlp.get_ttfStatus_OFF())
+    949                          {
+    950                              //layer_pic_display(bmp_layer_buf,30,15,320,180);
+    951                          }
+    952          				//if(temperature_change_frequency)
+    953          				if(!(TimeIncrease * TICK_CYCLE % 100))
+   \                     ??GUI_RefreshPage_6: (+1)
+   \   00000038   0x.... 0x....      LDR.W    R0,??DataTable15_13
+   \   0000003C   0x6800             LDR      R0,[R0, #+0]
+   \   0000003E   0x2164             MOVS     R1,#+100
+   \   00000040   0xFBB0 0xF1F1      UDIV     R1,R0,R1
+   \   00000044   0x2264             MOVS     R2,#+100
+   \   00000046   0xFB02 0x0011      MLS      R0,R2,R1,R0
+   \   0000004A   0x2800             CMP      R0,#+0
+   \   0000004C   0xD103             BNE.N    ??GUI_RefreshPage_7
+    954          					{
+    955          						temperature_change_frequency = 0;
+   \   0000004E   0x2000             MOVS     R0,#+0
+   \   00000050   0x7060             STRB     R0,[R4, #+1]
+    956          						//disp_sprayer_tem_printing();
+    957          						//disp_bed_temp_printing();
+    958          						//disp_print_time();
+    959          						//display_print_statue();	//skyblue modify 2018-10
+    960          						display_print_times();
+   \   00000052   0x.... 0x....      BL       display_print_times
+    961          					}
+    962          					if(printing_rate_update_flag)
+   \                     ??GUI_RefreshPage_7: (+1)
+   \   00000056   0x.... 0x....      LDR.W    R0,??DataTable15_14
+   \   0000005A   0x7801             LDRB     R1,[R0, #+0]
+   \   0000005C   0x2900             CMP      R1,#+0
+   \   0000005E   0xD02B             BEQ.N    ??GUI_RefreshPage_5
+    963          					{
+    964          						printing_rate_update_flag = 0;
+   \   00000060   0x2100             MOVS     R1,#+0
+   \   00000062   0x7001             STRB     R1,[R0, #+0]
+    965          						if(gcode_preview_over == 0)
+   \   00000064   0x78A0             LDRB     R0,[R4, #+2]
+   \   00000066   0x2800             CMP      R0,#+0
+   \   00000068   0xD126             BNE.N    ??GUI_RefreshPage_5
+    966          						{
+    967          							setProBarRate(/*get_printing_rate(srcfp)*/);
+   \   0000006A   0x.... 0x....      BL       setProBarRate
+   \   0000006E   0xE023             B.N      ??GUI_RefreshPage_5
+    968          						}
+    969          					}
+    970                              #if 0
+    971          					if(!(TimeIncrease * TICK_CYCLE % 100))	// 0.1s
+    972          					{		
+    973          						fan_move_flag = 1;
+    974          					}
+    975          					#if VERSION_WITH_PIC
+    976          					if(fan_move_flag)
+    977          					{
+    978          						fan_move_flag = 0;
+    979          						disp_fan_move_printing();
+    980          					}
+    981          					#endif
+    982          					
+    983          					#if tan_mask
+    984          					if(move_speed_flg == 1)
+    985          					{
+    986          						move_speed_flg =0;
+    987          						disp_printing_speed();
+    988          					}
+    989          					#endif
+    990          					#endif
+    991          					break;
+    992          #if tan_mask
+    993          
+    994          			case OPERATE_UI:
+    995          				/*if(temperature_change_frequency == 1)
+    996          				{
+    997          					temperature_change_frequency = 0;
+    998          					disp_temp_operate();
+    999          				}			
+   1000          				setProBarRateOpera();
+   1001          				break;*/
+   1002          					if(temp_update_flag)
+   1003          					{
+   1004          						temp_update_flag = 0;
+   1005          						disp_temp_operate();
+   1006          					}
+   1007          					if(printing_rate_update_flag)
+   1008          					{
+   1009          						printing_rate_update_flag = 0;
+   1010          						setProBarRateOpera(get_printing_rate(srcfp));
+   1011          					}
+   1012          					if((mksReprint.mks_printer_state == MKS_IDLE)&&(gCurFileState.totalSend == 100))
+   1013          					{
+   1014          						clear_cur_ui();
+   1015          						draw_printing();
+   1016          					}
+   1017          					break;
+   1018          
+   1019          			case PAUSE_UI:
+   1020          				if(mksReprint.mks_printer_state == MKS_IDLE)
+   1021          				{
+   1022          					Clear_pause();
+   1023          					stop_print_time();
+   1024          					f_close(srcfp);
+   1025          
+   1026          					reset_file_info();
+   1027          					//reset_tx_fifo();
+   1028          					draw_ready_print();
+   1029          				}
+   1030          				if(temp_update_flag)
+   1031          				{
+   1032          					temp_update_flag = 0;
+   1033          					disp_temp_pause();
+   1034          				}
+   1035          				
+   1036          				if(fan_change_flag)
+   1037          				{
+   1038          					fan_change_flag = 0;
+   1039          					disp_temp_pause();
+   1040          				}
+   1041          					
+   1042          				
+   1043          				break;
+   1044          #endif	
+   1045          #if 0
+   1046          			case FAN_UI:
+   1047          				if(temperature_change_frequency == 1)
+   1048          				{
+   1049          					temperature_change_frequency = 0;
+   1050          					disp_fan_speed();
+   1051          				}
+   1052          				break;
+   1053          					
+   1054          			case MOVE_MOTOR_UI:
+   1055          				#if 1
+   1056          				//œ‘ æZ÷·◊¯±Í
+   1057          				if(mksReprint.mks_printer_state == MKS_IDLE)
+   1058          				{
+   1059          					if((z_high_count==1)&&(temper_error_flg != 1)) //√ø∏Ù500msœ‘ æ“ª¥Œ
+   1060          					{
+   1061          						z_high_count = 0;
+   1062          						//if((current_position[Z_AXIS] != zpos_bak)||current_position[Z_AXIS]=0)
+   1063          						{
+   1064          							//zpos_bak = current_position[Z_AXIS];
+   1065          							memset((char *)gCfgItems.move_z_coordinate,' ',sizeof(gCfgItems.move_z_coordinate));
+   1066          							GUI_DispStringAt((const char *)gCfgItems.move_z_coordinate,380, TITLE_YPOS);
+   1067          							sprintf((char *)gCfgItems.move_z_coordinate,"Z: %.3f",current_position[Z_AXIS]);
+   1068          							GUI_DispStringAt((const char *)gCfgItems.move_z_coordinate,380, TITLE_YPOS);
+   1069          						}
+   1070          					}
+   1071          				}
+   1072          				#endif
+   1073          				break;
+   1074          #endif
+   1075          		case WIFI_UI:
+   1076          			if(wifi_refresh_flg == 1)
+   \                     ??GUI_RefreshPage_2: (+1)
+   \   00000070   0x.... 0x....      LDR.W    R4,??DataTable15_15
+   \   00000074   0x7820             LDRB     R0,[R4, #+0]
+   \   00000076   0x2801             CMP      R0,#+1
+   \   00000078   0xD11E             BNE.N    ??GUI_RefreshPage_5
+   1077          			{					
+   1078          				disp_wifi_state();
+   \   0000007A   0x.... 0x....      BL       disp_wifi_state
+   1079          				wifi_refresh_flg = 0;
+   \   0000007E   0x2000             MOVS     R0,#+0
+   \   00000080   0x7020             STRB     R0,[R4, #+0]
+   \   00000082   0xE019             B.N      ??GUI_RefreshPage_5
+   1080          			}
+   1081          			break;
+   1082          #if 0
+   1083          		case FILAMENTCHANGE_UI:
+   1084          			if(temperature_change_frequency)
+   1085          			{
+   1086          				temperature_change_frequency = 0;
+   1087          				disp_filament_sprayer_temp();
+   1088          			}
+   1089          			//FilamentChange_handle();
+   1090          			break;
+   1091          		case DIALOG_UI:
+   1092          			filament_dialog_handle();
+   1093          			break;		
+   1094          		case MESHLEVELING_UI:
+   1095                      disp_zpos();
+   1096                      break;
+   1097          #endif
+   1098                  case EXPOSURE_UI:
+   1099                      //if(mksdlp.get_displayStatus())
+   1100                      if(value_test==1)
+   \                     ??GUI_RefreshPage_3: (+1)
+   \   00000084   0xF994 0x0000      LDRSB    R0,[R4, #+0]
+   \   00000088   0x2801             CMP      R0,#+1
+   \   0000008A   0xD115             BNE.N    ??GUI_RefreshPage_5
+   1101                      {
+   1102                          value_test=0;
+   \   0000008C   0x2000             MOVS     R0,#+0
+   \   0000008E   0x7020             STRB     R0,[R4, #+0]
+   1103          #if 0				
+   1104          				layer_pic_display(bmp_layer_buf,80,20,320,180); 
+   1105          				exposure_msg_display(2);
+   1106          				mksdlp.set_test_exposure_time(key_set_value);
+   1107          				mksdlp.ExposureTest();
+   1108                          exposure_msg_display(3);  
+   1109          #else	
+   1110          				mksdlp.set_test_exposure_time(key_set_value);		//skyblue modify 2018-10
+                 				                              ^
+Warning[Pa093]: implicit conversion from floating point to integer
+   \   00000090   0x.... 0x....      LDR.W    R4,??DataTable15_5
+   \   00000094   0x.... 0x....      LDR.W    R0,??DataTable15_16
+   \   00000098   0xED90 0x0A00      VLDR     S0,[R0, #0]
+   \   0000009C   0xEEBD 0x0AC0      VCVT.S32.F32 S0,S0
+   \   000000A0   0xEE10 0x1A10      VMOV     R1,S0
+   \   000000A4   0xB289             UXTH     R1,R1
+   \   000000A6   0x4620             MOV      R0,R4
+   \   000000A8   0x.... 0x....      BL       _ZN7MKS_DLP22set_test_exposure_timeEt
+   1111          				mksdlp.ExposureTest();
+   \   000000AC   0x4620             MOV      R0,R4
+   \   000000AE   0x.... 0x....      BL       _ZN7MKS_DLP12ExposureTestEv
+   \   000000B2   0xE001             B.N      ??GUI_RefreshPage_5
+   1112          #endif
+   1113                      }
+   1114          
+   1115                      break;
+   1116                      case CLEAN_UI:
+   1117                          time_value_cnt();
+   \                     ??GUI_RefreshPage_4: (+1)
+   \   000000B4   0x.... 0x....      BL       time_value_cnt
+   1118                          break;
+   1119          			default:
+   1120          				break;
+   1121          				
+   1122          	    }
+   1123          		
+   1124          		print_time_run();
+   \                     ??GUI_RefreshPage_5: (+1)
+   \   000000B8   0xE8BD 0x4013      POP      {R0,R1,R4,LR}
+   \   000000BC   0x.... 0x....      B.W      print_time_run
+   1125          
+   1126          	
+   1127          }
+   1128          	#endif
+   1129          //tan 20160830
+   1130          /*
+   1131          void BUTTON_SetBmpFileName(BUTTON_STRUCT *btnStruct, const uint8_t *picName)
+   1132          {
+   1133          
+   1134          	btnStruct->btnPic.XSize = 78;
+   1135          	btnStruct->btnPic.YSize = 104;
+   1136          	btnStruct->btnPic.BytesPerLine = 160;
+   1137          	btnStruct->btnPic.BitsPerPixel = 16;
+   1138          	btnStruct->btnPic.pPal = NULL;
+   1139          	btnStruct->btnPic.pMethods = GUI_DRAW_BMPM565;
+   1140          	btnStruct->btnPic.pData = bmp_public_buf;
+   1141          	bindBmpFileData(&btnStruct->btnPic.pData, (uint8_t *)picName);
+   1142          	
+   1143          	BUTTON_SetBitmapEx(btnStruct->btnHandle, 0, &btnStruct->btnPic, BMP_PIC_X, BMP_PIC_Y);
+   1144          
+   1145          	BUTTON_SetFocussable(btnStruct->btnHandle, 0);
+   1146          }
+   1147          */
+   1148          //unsigned char bmp_public_buf[1280] = {0};
+   1149          #if 0
+   1150          FATFS SDFatFs_logo;  /* File system object for SD card logical drive */
+   1151          FIL MyFile_logo;     /* File object */
+   1152          static unsigned long lseek_length;
+   1153          void DRAW_LOGO()
+   1154          {
+   1155          	int index; 
+   1156          	int x_off = 0, y_off = 0;
+   1157          	int _x, _y;
+   1158          	uint16_t *p_index;
+   1159          	volatile int i;
+   1160          
+   1161          
+   1162          	bool testStatus = false;
+   1163          
+   1164          	FRESULT res;																					/* FatFs function common result code */
+   1165          	uint32_t byteswritten, bytesread; 										/* File write/read counts */
+   1166          
+   1167          	/*##-1- Link the micro SD disk I/O driver ##################################*/
+   1168          	//¡¥Ω” SD µ◊≤„«˝∂Ø∫Ø ˝µΩ FATFS Œƒº˛œµÕ≥£¨’‚∏ˆ‘⁄ MX_FATFS_Init()∫Ø ˝÷–“—æ≠ÕÍ≥…
+   1169          	//if(FATFS_LinkDriver(&SD_Driver, SD_Path) == 0)
+   1170          	{
+   1171          		/*##-2- Register the file system object to the FatFs module ##############*/
+   1172          		if(f_mount(&SDFatFs_logo, (TCHAR const*)SD_Path, 0) != FR_OK)
+   1173          		{
+   1174          			/* FatFs Initialization Error */
+   1175          			Error_Handler();
+   1176          		}
+   1177          		else
+   1178          		{
+   1179          			/*##-3- Create a FAT file system (format) on the logical drive #########*/
+   1180          			/* WARNING: Formatting the uSD card will delete all content on the device */
+   1181          			//∂‘ SD ø®Ω¯––∏Ò ΩªØ
+   1182          #if 0
+   1183          			if(f_mkfs((TCHAR const*)SD_Path, 0, 0) != FR_OK)
+   1184          			{
+   1185          				/* FatFs Format Error */
+   1186          				Error_Handler();
+   1187          			}
+   1188          			else
+   1189          #endif        
+   1190          			{ 			
+   1191          				/*##-4- Create and Open a new text file object with write access #####*/
+   1192          				if(f_open(&MyFile_logo, "1:\STM321.TXT", FA_CREATE_ALWAYS | FA_WRITE) != FR_OK)
+   1193          				{
+   1194          					/* 'STM32.TXT' file Open for write Error */
+   1195          					Error_Handler();
+   1196          				}
+   1197          				else
+   1198          				{
+   1199          					/*##-5- Write data to the text file ################################*/
+   1200          						for(index = 0; index < 20; index ++)
+   1201          						{
+   1202          							memset(bmp_public_buf,0,sizeof(bmp_public_buf));
+   1203          							Pic_Logo_Read((uint8_t *)"bmp_logo.bin", bmp_public_buf, 15360);
+   1204          							f_lseek(&MyFile_logo, lseek_length);
+   1205          							res = f_write(&MyFile_logo, bmp_public_buf, 15360, (uint32_t *)&byteswritten);
+   1206          							lseek_length += byteswritten;
+   1207          
+   1208          							i = 0;
+   1209                                      ili9320_SetCursor(0, y_off * 16);
+   1210          							LCD_setWindowArea(0, y_off * 16, 480,16);     //480*16
+   1211          							//LCD_setWindowArea(0, y_off * 16+120, 800,48);      //800*240  
+   1212          							LCD_WriteRAM_Prepare(); 
+   1213          							for(_y = y_off * 16; _y < (y_off + 1) * 16; _y++)
+   1214          							{
+   1215          								for (x_off = 0; x_off < 480; x_off++) 
+   1216          								{
+   1217          									p_index = (uint16_t *)(&bmp_public_buf[i]); 					
+   1218          									LCD_WriteRAM(*p_index);
+   1219          									i += 2;
+   1220          									
+   1221          								}
+   1222          								if(i >= 15360)
+   1223          									break;
+   1224          							}
+   1225          							y_off++;								
+   1226          						}
+   1227          					if((byteswritten == 0) || (res != FR_OK))
+   1228          					{
+   1229          						/* 'STM32.TXT' file Write or EOF Error */
+   1230          						Error_Handler();
+   1231          					}
+   1232          					else
+   1233          					{
+   1234          						/*##-6- Close the open text file #################################*/
+   1235          						f_close(&MyFile_logo);
+   1236          					}
+   1237          				}
+   1238          			}
+   1239          		}
+   1240          	}
+   1241          
+   1242          }
+   1243          
+   1244          #else
+   1245          
+   1246          uint8_t logo_n[13] = "bmp_logo.bin";
+   1247          #if 0
+   1248          uint8_t t[4][17] = {"bmp_more.bin",
+   1249                              "bmp_set.bin",
+   1250                              "bmp_fan.bin",
+   1251                              "bmp_leveling.bin"};
+   1252          #endif
+   1253          //√ø23(180/8==22.5)∏ˆ◊÷Ω⁄Œ™“ª¡–£¨“ªπ≤320¡–£¨√ø¡–◊Ó∫Û4∏ˆœÒÀÿ”√4∏ˆbit±Ì æ°£
+   1254          //ª∫¥Ê ˝æ›23x320∏ˆ◊÷Ω⁄(∞¥Œª¥Ê¥¢)
+   1255          //0:0x000000; 1:0xffffff
+   1256          
+
+   \                                 In section .text, align 2, keep-with-next
+   1257          void layer_pic_clean(int xstart,int ystart,int x_size,int y_size,int color)	//skyblue modify 2018-10
+   1258          {
+   \                     layer_pic_clean: (+1)
+   \   00000000   0xE92D 0x4FFB      PUSH     {R0,R1,R3-R11,LR}
+   \   00000004   0x4614             MOV      R4,R2
+   1259          		char test=0;
+                 		     ^
+Warning[Pe177]: variable "test" was declared but never referenced
+   1260          	
+   1261          		int Column=0;
+   1262          		int Row=0;
+   1263          		int i=0,j=0,k=0;
+   \   00000006   0x2500             MOVS     R5,#+0
+   1264          		int bits_cnt=8;
+   1265          		uint8_t bits_display;
+                 		        ^
+Warning[Pe177]: variable "bits_display" was declared but never referenced
+   1266          		int Row_temp=0;
+   1267          		Column = x_size;
+   1268          		Row_temp = y_size;
+   1269          	
+   1270          		 Lcd_Light_ON;
+   \   00000008   0x2001             MOVS     R0,#+1
+   \   0000000A   0x.... 0x....      LDR.W    R1,??DataTable15_17  ;; 0x424082b0
+   \   0000000E   0x6008             STR      R0,[R1, #+0]
+   1271          		 
+   1272          		for(j=0;j<Column;j++)
+   \   00000010   0x9E0C             LDR      R6,[SP, #+48]
+   \   00000012   0xE000             B.N      ??layer_pic_clean_0
+   \                     ??layer_pic_clean_1: (+1)
+   \   00000014   0x1C6D             ADDS     R5,R5,#+1
+   \                     ??layer_pic_clean_0: (+1)
+   \   00000016   0x42A5             CMP      R5,R4
+   \   00000018   0xDA2F             BGE.N    ??layer_pic_clean_2
+   1273          		{
+   1274          			if((Row_temp%8)==0)//»Áπ˚“ª¡–µƒµ„ ˝ƒ‹±ª8’˚≥˝£¨‘Ú≤ª¥Ê‘⁄“ª∏ˆ◊÷Ω⁄¥ÊÕ¨ ±¥Ê¥¢¡Ω¡–µƒ ˝æ›°£
+   \   0000001A   0x9802             LDR      R0,[SP, #+8]
+   \   0000001C   0x1080             ASRS     R0,R0,#+2
+   \   0000001E   0x9902             LDR      R1,[SP, #+8]
+   \   00000020   0xEB01 0x7050      ADD      R0,R1,R0, LSR #+29
+   \   00000024   0x10C7             ASRS     R7,R0,#+3
+   \   00000026   0x4608             MOV      R0,R1
+   \   00000028   0xEBB0 0x08C7      SUBS     R8,R0,R7, LSL #+3
+   \   0000002C   0xD000             BEQ.N    ??layer_pic_clean_3
+   1275          			{
+   1276          				Row=Row_temp/8;
+   1277          			}
+   1278          			else
+   1279          			{
+   1280          				Row=Row_temp/8+1;
+   \   0000002E   0x1C7F             ADDS     R7,R7,#+1
+   1281          			}
+   1282          			
+   1283          			bits_cnt=8;
+   \                     ??layer_pic_clean_3: (+1)
+   \   00000030   0xF04F 0x0908      MOV      R9,#+8
+   1284          	
+   1285          			for(i=0;i<Row;i++)
+   \   00000034   0xF04F 0x0A00      MOV      R10,#+0
+   \   00000038   0xE013             B.N      ??layer_pic_clean_4
+   1286          			{
+   1287          				if((Row_temp)%8!=0)
+   1288          				{
+   1289          					if(i==(Row-1))//√ø¡–◊Ó∫ÛÀƒ∏ˆµ„÷ª”√∏ﬂ4Œª¡À£¨µÕ4ŒªŒﬁ–ß°£
+   1290          						bits_cnt=(Row_temp)%8;
+   1291          				}
+   1292          					
+   1293          				for(k=0;k<bits_cnt;k++)
+   1294          				{
+   1295          						ili9320_SetPoint(xstart+Column-j,ystart+i*8+k,color/*GUI_Color565(GUI_BLACK)*/);
+   \                     ??layer_pic_clean_5: (+1)
+   \   0000003A   0x4632             MOV      R2,R6
+   \   0000003C   0xB292             UXTH     R2,R2
+   \   0000003E   0x9801             LDR      R0,[SP, #+4]
+   \   00000040   0xEB00 0x00CA      ADD      R0,R0,R10, LSL #+3
+   \   00000044   0xEB0B 0x0100      ADD      R1,R11,R0
+   \   00000048   0xB289             UXTH     R1,R1
+   \   0000004A   0x9800             LDR      R0,[SP, #+0]
+   \   0000004C   0x1820             ADDS     R0,R4,R0
+   \   0000004E   0x1B40             SUBS     R0,R0,R5
+   \   00000050   0xB280             UXTH     R0,R0
+   \   00000052   0x.... 0x....      BL       ili9320_SetPoint
+   1296          				}
+   \   00000056   0xF10B 0x0B01      ADD      R11,R11,#+1
+   \                     ??layer_pic_clean_6: (+1)
+   \   0000005A   0x45CB             CMP      R11,R9
+   \   0000005C   0xDBED             BLT.N    ??layer_pic_clean_5
+   \   0000005E   0xF10A 0x0A01      ADD      R10,R10,#+1
+   \                     ??layer_pic_clean_4: (+1)
+   \   00000062   0x45BA             CMP      R10,R7
+   \   00000064   0xDAD6             BGE.N    ??layer_pic_clean_1
+   \   00000066   0xF1B8 0x0F00      CMP      R8,#+0
+   \   0000006A   0xD003             BEQ.N    ??layer_pic_clean_7
+   \   0000006C   0x1E78             SUBS     R0,R7,#+1
+   \   0000006E   0x4582             CMP      R10,R0
+   \   00000070   0xD100             BNE.N    ??layer_pic_clean_7
+   \   00000072   0x46C1             MOV      R9,R8
+   \                     ??layer_pic_clean_7: (+1)
+   \   00000074   0xF04F 0x0B00      MOV      R11,#+0
+   \   00000078   0xE7EF             B.N      ??layer_pic_clean_6
+   1297          			
+   1298          			}
+   1299          		}
+   1300          	
+   1301          
+   1302          }
+   \                     ??layer_pic_clean_2: (+1)
+   \   0000007A   0xE8BD 0x8FF7      POP      {R0-R2,R4-R11,PC}  ;; return
+
+   \                                 In section .text, align 2, keep-with-next
+   1303          void layer_pic_display(uint8_t *display_buf,int xstart,int ystart,int x_size,int y_size)
+   1304          {
+   \                     layer_pic_display: (+1)
+   \   00000000   0xE92D 0x4FF3      PUSH     {R0,R1,R4-R11,LR}
+   \   00000004   0xB081             SUB      SP,SP,#+4
+   \   00000006   0x4614             MOV      R4,R2
+   \   00000008   0x461D             MOV      R5,R3
+   1305              char test=0;
+                          ^
+Warning[Pe177]: variable "test" was declared but never referenced
+   1306          
+   1307              int Column=0;
+   1308              int Row=0;
+   1309              int i=0,j=0,k=0;
+   \   0000000A   0x2600             MOVS     R6,#+0
+   1310              int bits_cnt=8;
+   1311              uint8_t bits_display;
+                             ^
+Warning[Pe177]: variable "bits_display" was declared but never referenced
+   1312              int Row_temp=0;
+   1313              uint8_t bit_test;
+   1314          #if 0    
+   1315              Row=x_size;
+   1316              Column=y_size;
+   1317              Lcd_Light_ON; 
+   1318          
+   1319              for(j=0;j<Row;j++)
+   1320              {
+   1321                  for(i=0;i<Column;i++)
+   1322                  {
+   1323                      if(display_buf[i+j*Column]==0)
+   1324                      {
+   1325                          ili9320_SetPoint(xstart+Row-j,ystart+i,GUI_Color565(GUI_RED)); 
+   1326                          test=1;
+   1327                      }
+   1328                      else
+   1329                      {
+   1330                          ili9320_SetPoint(xstart+Row-j,ystart+i,GUI_Color565(GUI_WHITE));
+   1331                          test=0;
+   1332                      }
+   1333                  }
+   1334              }
+   1335          #else
+   1336              Column = x_size;
+   1337              Row_temp = y_size;
+   1338          
+   1339               Lcd_Light_ON;
+   \   0000000C   0x2001             MOVS     R0,#+1
+   \   0000000E   0x.... 0x....      LDR.W    R1,??DataTable15_17  ;; 0x424082b0
+   \   00000012   0x6008             STR      R0,[R1, #+0]
+   1340               
+   1341              for(j=0;j<Column;j++)
+   \   00000014   0xE000             B.N      ??layer_pic_display_0
+   \                     ??layer_pic_display_1: (+1)
+   \   00000016   0x1C76             ADDS     R6,R6,#+1
+   \                     ??layer_pic_display_0: (+1)
+   \   00000018   0x42AE             CMP      R6,R5
+   \   0000001A   0xDA3E             BGE.N    ??layer_pic_display_2
+   1342              {
+   1343                  if((Row_temp%8)==0)//»Áπ˚“ª¡–µƒµ„ ˝ƒ‹±ª8’˚≥˝£¨‘Ú≤ª¥Ê‘⁄“ª∏ˆ◊÷Ω⁄¥ÊÕ¨ ±¥Ê¥¢¡Ω¡–µƒ ˝æ›°£
+   \   0000001C   0x980C             LDR      R0,[SP, #+48]
+   \   0000001E   0x1080             ASRS     R0,R0,#+2
+   \   00000020   0x990C             LDR      R1,[SP, #+48]
+   \   00000022   0xEB01 0x7050      ADD      R0,R1,R0, LSR #+29
+   \   00000026   0xEA4F 0x08E0      ASR      R8,R0,#+3
+   \   0000002A   0x4608             MOV      R0,R1
+   \   0000002C   0xEBB0 0x07C8      SUBS     R7,R0,R8, LSL #+3
+   \   00000030   0xD001             BEQ.N    ??layer_pic_display_3
+   1344                  {
+   1345                      Row=Row_temp/8;
+   1346                  }
+   1347                  else
+   1348                  {
+   1349                      Row=Row_temp/8+1;
+   \   00000032   0xF108 0x0801      ADD      R8,R8,#+1
+   1350                  }
+   1351                  
+   1352                  bits_cnt=8;
+   \                     ??layer_pic_display_3: (+1)
+   \   00000036   0xF04F 0x0A08      MOV      R10,#+8
+   1353          
+   1354                  for(i=0;i<Row;i++)
+   \   0000003A   0xF04F 0x0900      MOV      R9,#+0
+   \   0000003E   0xE001             B.N      ??layer_pic_display_4
+   \                     ??layer_pic_display_5: (+1)
+   \   00000040   0xF109 0x0901      ADD      R9,R9,#+1
+   \                     ??layer_pic_display_4: (+1)
+   \   00000044   0x45C1             CMP      R9,R8
+   \   00000046   0xDAE6             BGE.N    ??layer_pic_display_1
+   1355                  {
+   1356                      if((Row_temp)%8!=0)
+   \   00000048   0x2F00             CMP      R7,#+0
+   \   0000004A   0xD004             BEQ.N    ??layer_pic_display_6
+   1357                      {
+   1358                          if(i==(Row-1))//√ø¡–◊Ó∫ÛÀƒ∏ˆµ„÷ª”√∏ﬂ4Œª¡À£¨µÕ4ŒªŒﬁ–ß°£
+   \   0000004C   0xF1A8 0x0001      SUB      R0,R8,#+1
+   \   00000050   0x4581             CMP      R9,R0
+   \   00000052   0xD100             BNE.N    ??layer_pic_display_6
+   1359                              bits_cnt=(Row_temp)%8;
+   \   00000054   0x46BA             MOV      R10,R7
+   1360                      }
+   1361                          
+   1362                      for(k=0;k<bits_cnt;k++)
+   \                     ??layer_pic_display_6: (+1)
+   \   00000056   0xF04F 0x0B00      MOV      R11,#+0
+   \   0000005A   0xE006             B.N      ??layer_pic_display_7
+   1363                      {
+   1364                      	bit_test = display_buf[i+j*Row]<<k & 0x80;	//skyblue modify 2018-10
+   1365                          //if(((display_buf[i+j*Row]<<k)&0x80)==1)//∏ﬂŒªœ»œ‘ æ
+   1366                          if(bit_test)
+   1367                          {
+   1368                              ili9320_SetPoint(xstart+Column-j,ystart+i*8+k,White/*GUI_Color565(GUI_WHITE)*/); 
+   1369                          }
+   1370                          else
+   1371                          {
+   1372                              ili9320_SetPoint(xstart+Column-j,ystart+i*8+k,Black/*GUI_Color565(GUI_BLACK)*/);
+   \                     ??layer_pic_display_8: (+1)
+   \   0000005C   0x2200             MOVS     R2,#+0
+   \   0000005E   0xB289             UXTH     R1,R1
+   \   00000060   0xB280             UXTH     R0,R0
+   \   00000062   0x.... 0x....      BL       ili9320_SetPoint
+   1373                          }
+   \                     ??layer_pic_display_9: (+1)
+   \   00000066   0xF10B 0x0B01      ADD      R11,R11,#+1
+   \                     ??layer_pic_display_7: (+1)
+   \   0000006A   0x45D3             CMP      R11,R10
+   \   0000006C   0xDAE8             BGE.N    ??layer_pic_display_5
+   \   0000006E   0xEB04 0x00C9      ADD      R0,R4,R9, LSL #+3
+   \   00000072   0xEB0B 0x0100      ADD      R1,R11,R0
+   \   00000076   0x9802             LDR      R0,[SP, #+8]
+   \   00000078   0x1828             ADDS     R0,R5,R0
+   \   0000007A   0x1B80             SUBS     R0,R0,R6
+   \   0000007C   0xFB08 0x9206      MLA      R2,R8,R6,R9
+   \   00000080   0x9B01             LDR      R3,[SP, #+4]
+   \   00000082   0x5CD2             LDRB     R2,[R2, R3]
+   \   00000084   0xFA02 0xF20B      LSL      R2,R2,R11
+   \   00000088   0x0612             LSLS     R2,R2,#+24
+   \   0000008A   0xD5E7             BPL.N    ??layer_pic_display_8
+   \   0000008C   0xF64F 0x72FF      MOVW     R2,#+65535
+   \   00000090   0xB289             UXTH     R1,R1
+   \   00000092   0xB280             UXTH     R0,R0
+   \   00000094   0x.... 0x....      BL       ili9320_SetPoint
+   \   00000098   0xE7E5             B.N      ??layer_pic_display_9
+   1374                      }
+   1375                  
+   1376                  }
+   1377              }
+   1378          
+   1379          #endif
+   1380          }
+   \                     ??layer_pic_display_2: (+1)
+   \   0000009A   0xE8BD 0x8FF7      POP      {R0-R2,R4-R11,PC}  ;; return
+
+   \                                 In section .text, align 2, keep-with-next
+   1381          void DRAW_LOGO()
+   1382          {
+   \                     DRAW_LOGO: (+1)
+   \   00000000   0xB510             PUSH     {R4,LR}
+   \   00000002   0xB086             SUB      SP,SP,#+24
+   1383          	volatile int index; 
+   1384          	volatile int x_off = 0, y_off = 0;
+   \   00000004   0x2000             MOVS     R0,#+0
+   \   00000006   0x9003             STR      R0,[SP, #+12]
+   \   00000008   0x9001             STR      R0,[SP, #+4]
+   1385          	volatile int _x, _y;
+   1386          	volatile uint16_t *p_index;
+   1387          	volatile int i=0,j=0;
+   \   0000000A   0x9000             STR      R0,[SP, #+0]
+   \   0000000C   0x9002             STR      R0,[SP, #+8]
+   1388          //for test
+   1389          #if 0
+   1390              memset(bmp_public_buf,0,sizeof(bmp_public_buf));
+   1391              
+   1392              for(i=0;i<320*23;i++)
+   1393              {
+   1394                  for(j=0;j<8;j++)
+   1395                  {
+   1396                      if(j%5==0)
+   1397                      {
+   1398                          bmp_public_buf[i] |= 0x01<<j; 
+   1399                      }
+   1400                  }
+   1401              }
+   1402              layer_pic_display(bmp_public_buf,40,40,320,180);
+   1403          #endif
+   1404          
+   1405          #if 1
+   1406          	for(index = 0; index < 20/*10*/; index ++)//480*320
+   \   0000000E   0x9002             STR      R0,[SP, #+8]
+   \   00000010   0x....             LDR.N    R4,??DataTable15_18
+   \   00000012   0xE017             B.N      ??DRAW_LOGO_0
+   1407          	{
+   1408          		Pic_Logo_Read(logo_n, bmp_public_buf, 15360);//30720);//15k
+   1409          		i = 0;
+   1410          		//ili9320_SetCursor(0, y_off * 16);
+   1411          		LCD_setWindowArea(0, (uint16_t)y_off * 16/*32*/, 480,16/*32*/);	  //480*16
+   1412          		
+   1413          		LCD_WriteRAM_Prepare(); 
+   1414          		for(_y = y_off * 16/*32*/; _y < (y_off + 1) * 16/*32*/; _y++)
+   1415          		{
+   1416          			for (x_off = 0; x_off < 480; x_off++) 
+   1417          			{
+   1418          				p_index = (uint16_t *)(&bmp_public_buf[i]); 					
+   \                     ??DRAW_LOGO_1: (+1)
+   \   00000014   0x1900             ADDS     R0,R0,R4
+   1419          				LCD_WriteRAM(*p_index);
+   \   00000016   0x8800             LDRH     R0,[R0, #+0]
+   \   00000018   0x.... 0x....      BL       LCD_WriteRAM
+   1420          				i += 2;
+   \   0000001C   0x9800             LDR      R0,[SP, #+0]
+   \   0000001E   0x1C80             ADDS     R0,R0,#+2
+   \   00000020   0x9000             STR      R0,[SP, #+0]
+   1421          				
+   1422          			}
+   \   00000022   0x9803             LDR      R0,[SP, #+12]
+   \   00000024   0x1C40             ADDS     R0,R0,#+1
+   \   00000026   0x9003             STR      R0,[SP, #+12]
+   \                     ??DRAW_LOGO_2: (+1)
+   \   00000028   0x9803             LDR      R0,[SP, #+12]
+   \   0000002A   0xF5B0 0x7FF0      CMP      R0,#+480
+   \   0000002E   0x9800             LDR      R0,[SP, #+0]
+   \   00000030   0xDBF0             BLT.N    ??DRAW_LOGO_1
+   1423          			if(i >= 15360)//30720)
+   \   00000032   0xF5B0 0x5F70      CMP      R0,#+15360
+   \   00000036   0xDB1F             BLT.N    ??DRAW_LOGO_3
+   1424          					break;
+   1425          		}
+   1426          		y_off++;		
+   \                     ??DRAW_LOGO_4: (+1)
+   \   00000038   0x9801             LDR      R0,[SP, #+4]
+   \   0000003A   0x1C40             ADDS     R0,R0,#+1
+   \   0000003C   0x9001             STR      R0,[SP, #+4]
+   \   0000003E   0x9802             LDR      R0,[SP, #+8]
+   \   00000040   0x1C40             ADDS     R0,R0,#+1
+   \   00000042   0x9002             STR      R0,[SP, #+8]
+   \                     ??DRAW_LOGO_0: (+1)
+   \   00000044   0x9802             LDR      R0,[SP, #+8]
+   \   00000046   0x2814             CMP      R0,#+20
+   \   00000048   0xDA22             BGE.N    ??DRAW_LOGO_5
+   \   0000004A   0xF44F 0x5270      MOV      R2,#+15360
+   \   0000004E   0x4621             MOV      R1,R4
+   \   00000050   0x....             LDR.N    R0,??DataTable15_19
+   \   00000052   0x.... 0x....      BL       Pic_Logo_Read
+   \   00000056   0x2000             MOVS     R0,#+0
+   \   00000058   0x9000             STR      R0,[SP, #+0]
+   \   0000005A   0x2310             MOVS     R3,#+16
+   \   0000005C   0xF44F 0x72F0      MOV      R2,#+480
+   \   00000060   0x9801             LDR      R0,[SP, #+4]
+   \   00000062   0x0101             LSLS     R1,R0,#+4
+   \   00000064   0xB289             UXTH     R1,R1
+   \   00000066   0x2000             MOVS     R0,#+0
+   \   00000068   0x.... 0x....      BL       LCD_setWindowArea
+   \   0000006C   0x.... 0x....      BL       LCD_WriteRAM_Prepare
+   \   00000070   0x9801             LDR      R0,[SP, #+4]
+   \   00000072   0x0100             LSLS     R0,R0,#+4
+   \   00000074   0x9004             STR      R0,[SP, #+16]
+   \   00000076   0xE002             B.N      ??DRAW_LOGO_6
+   \                     ??DRAW_LOGO_3: (+1)
+   \   00000078   0x9804             LDR      R0,[SP, #+16]
+   \   0000007A   0x1C40             ADDS     R0,R0,#+1
+   \   0000007C   0x9004             STR      R0,[SP, #+16]
+   \                     ??DRAW_LOGO_6: (+1)
+   \   0000007E   0x9804             LDR      R0,[SP, #+16]
+   \   00000080   0x9901             LDR      R1,[SP, #+4]
+   \   00000082   0x1C49             ADDS     R1,R1,#+1
+   \   00000084   0xEBB0 0x1F01      CMP      R0,R1, LSL #+4
+   \   00000088   0xDAD6             BGE.N    ??DRAW_LOGO_4
+   \   0000008A   0x2000             MOVS     R0,#+0
+   \   0000008C   0x9003             STR      R0,[SP, #+12]
+   \   0000008E   0xE7CB             B.N      ??DRAW_LOGO_2
+   1427          
+   1428          		
+   1429          	}
+   1430          LCD_setWindowArea(0, 0, 480, 320);	
+   \                     ??DRAW_LOGO_5: (+1)
+   \   00000090   0xF44F 0x73A0      MOV      R3,#+320
+   \   00000094   0xF44F 0x72F0      MOV      R2,#+480
+   \   00000098   0x2100             MOVS     R1,#+0
+   \   0000009A   0x4608             MOV      R0,R1
+   \   0000009C   0xB006             ADD      SP,SP,#+24
+   \   0000009E   0xE8BD 0x4010      POP      {R4,LR}
+   \   000000A2   0x.... 0x....      B.W      LCD_setWindowArea
+   1431          
+   1432          #else
+   1433          
+   1434          	for(index = 0; index < 320; index ++)//480*320
+   1435          	{
+   1436          		Pic_Logo_Read(logo_n, bmp_public_buf, 960);//15k
+   1437          		i = 0;
+   1438                  //ili9320_SetCursor(0, y_off * 16);
+   1439          		LCD_setWindowArea(0, (uint16_t)y_off * 1, 480,1);     //480*16
+   1440          		//LCD_setWindowArea(0, y_off * 16+120, 800,48);      //800*240  
+   1441          		
+   1442          		LCD_WriteRAM_Prepare(); 
+   1443          		for(_y = y_off * 1; _y < (y_off + 1) * 1; _y++)
+   1444          		{
+   1445          			for (x_off = 0; x_off < 480; x_off++) 
+   1446          			{
+   1447          				p_index = (uint16_t *)(&bmp_public_buf[i]); 					
+   1448          				LCD_WriteRAM(*p_index);
+   1449          				i += 2;
+   1450          				
+   1451          			}
+   1452          			if(i >= 15360)
+   1453          					break;
+   1454          		}
+   1455          		y_off++;		
+   1456          
+   1457          		
+   1458          	}
+   1459          	LCD_setWindowArea(0, 0, 480, 320);	
+   1460          #endif
+   1461          }
+   1462          #endif
+   1463          
+   1464          #if 1
+
+   \                                 In section .text, align 2, keep-with-next
+   1465          void Draw_default_preview(int xpos_pixel,int ypos_pixel,uint8_t sel)
+   1466          {
+   \                     _Z20Draw_default_previewiih: (+1)
+   \   00000000   0xE92D 0x4FF7      PUSH     {R0-R2,R4-R11,LR}
+   \   00000004   0xB082             SUB      SP,SP,#+8
+   1467          	int index; 
+   1468          	int x_off = 0, y_off = 0;
+   \   00000006   0x2400             MOVS     R4,#+0
+   1469          	int _x, _y;
+                 	    ^
+Warning[Pe177]: variable "_x" was declared but never referenced
+   1470          	uint16_t *p_index;
+   1471          	int i;
+   1472          	uint16_t temp_p;
+   1473          	
+   1474          	for(index = 0; index < 4; index ++)//200*200
+   \   00000008   0x4625             MOV      R5,R4
+   \   0000000A   0xF644 0x6620      MOVW     R6,#+20000
+   \   0000000E   0x....             LDR.N    R7,??DataTable15_18
+   \   00000010   0xF04F 0x0832      MOV      R8,#+50
+   \   00000014   0xE003             B.N      ??Draw_default_preview_0
+   1475          	{
+   1476          		if(sel == 1)
+   1477          		{
+   1478          			flash_view_Read(bmp_public_buf, 20000);//20k
+   1479          		}
+   1480          		else
+   1481          		{
+   1482          			default_view_Read(bmp_public_buf, 20000);//20k
+   1483          		}
+   1484          
+   1485          		i = 0;
+   1486          		
+   1487          		LCD_setWindowArea(xpos_pixel, y_off * 50+ypos_pixel, 200,50);     //200*200
+   1488          
+   1489          		LCD_WriteRAM_Prepare(); 
+   1490          		for(_y = y_off * 50; _y < (y_off + 1) * 50; _y++)
+   1491          		{
+   1492          			for (x_off = 0; x_off < 200; x_off++) 
+   1493          			{
+   1494          				if(sel==1)
+   1495          				{
+   1496          					temp_p = (uint16_t)(bmp_public_buf[i]|bmp_public_buf[i+1]<<8);
+   1497          					p_index = &temp_p;
+   1498          				}
+   1499          				else
+   1500          				{
+   1501          					p_index = (uint16_t *)(&bmp_public_buf[i]); 	
+   1502          				}
+   1503          				LCD_WriteRAM(*p_index);
+   1504          				i += 2;
+   1505          				
+   1506          			}
+   1507          			if(i >= 20000)
+   \                     ??Draw_default_preview_1: (+1)
+   \   00000016   0x45B1             CMP      R9,R6
+   \   00000018   0xDB20             BLT.N    ??Draw_default_preview_2
+   1508          				break;
+   1509          		}
+   1510          		y_off++;		
+   \                     ??Draw_default_preview_3: (+1)
+   \   0000001A   0x1C64             ADDS     R4,R4,#+1
+   \   0000001C   0x1C6D             ADDS     R5,R5,#+1
+   \                     ??Draw_default_preview_0: (+1)
+   \   0000001E   0x2D04             CMP      R5,#+4
+   \   00000020   0xDA40             BGE.N    ??Draw_default_preview_4
+   \   00000022   0xF89D 0x0010      LDRB     R0,[SP, #+16]
+   \   00000026   0x9000             STR      R0,[SP, #+0]
+   \   00000028   0x2801             CMP      R0,#+1
+   \   0000002A   0x4631             MOV      R1,R6
+   \   0000002C   0x4638             MOV      R0,R7
+   \   0000002E   0xD102             BNE.N    ??Draw_default_preview_5
+   \   00000030   0x.... 0x....      BL       flash_view_Read
+   \   00000034   0xE001             B.N      ??Draw_default_preview_6
+   \                     ??Draw_default_preview_5: (+1)
+   \   00000036   0x.... 0x....      BL       default_view_Read
+   \                     ??Draw_default_preview_6: (+1)
+   \   0000003A   0xF04F 0x0900      MOV      R9,#+0
+   \   0000003E   0xFB08 0xFB04      MUL      R11,R8,R4
+   \   00000042   0x4643             MOV      R3,R8
+   \   00000044   0x22C8             MOVS     R2,#+200
+   \   00000046   0x9803             LDR      R0,[SP, #+12]
+   \   00000048   0xEB00 0x010B      ADD      R1,R0,R11
+   \   0000004C   0xB289             UXTH     R1,R1
+   \   0000004E   0x9802             LDR      R0,[SP, #+8]
+   \   00000050   0xB280             UXTH     R0,R0
+   \   00000052   0x.... 0x....      BL       LCD_setWindowArea
+   \   00000056   0x.... 0x....      BL       LCD_WriteRAM_Prepare
+   \   0000005A   0xE001             B.N      ??Draw_default_preview_7
+   \                     ??Draw_default_preview_2: (+1)
+   \   0000005C   0xF10B 0x0B01      ADD      R11,R11,#+1
+   \                     ??Draw_default_preview_7: (+1)
+   \   00000060   0x1C60             ADDS     R0,R4,#+1
+   \   00000062   0xFB08 0xF000      MUL      R0,R8,R0
+   \   00000066   0x4583             CMP      R11,R0
+   \   00000068   0xDAD7             BGE.N    ??Draw_default_preview_3
+   \   0000006A   0xF04F 0x0A00      MOV      R10,#+0
+   \   0000006E   0xE008             B.N      ??Draw_default_preview_8
+   \                     ??Draw_default_preview_9: (+1)
+   \   00000070   0xEB09 0x0007      ADD      R0,R9,R7
+   \                     ??Draw_default_preview_10: (+1)
+   \   00000074   0x8800             LDRH     R0,[R0, #+0]
+   \   00000076   0x.... 0x....      BL       LCD_WriteRAM
+   \   0000007A   0xF109 0x0902      ADD      R9,R9,#+2
+   \   0000007E   0xF10A 0x0A01      ADD      R10,R10,#+1
+   \                     ??Draw_default_preview_8: (+1)
+   \   00000082   0xF1BA 0x0FC8      CMP      R10,#+200
+   \   00000086   0xDAC6             BGE.N    ??Draw_default_preview_1
+   \   00000088   0x9800             LDR      R0,[SP, #+0]
+   \   0000008A   0x2801             CMP      R0,#+1
+   \   0000008C   0xD1F0             BNE.N    ??Draw_default_preview_9
+   \   0000008E   0xF819 0x0007      LDRB     R0,[R9, R7]
+   \   00000092   0xEB09 0x0107      ADD      R1,R9,R7
+   \   00000096   0x7849             LDRB     R1,[R1, #+1]
+   \   00000098   0xEA40 0x2001      ORR      R0,R0,R1, LSL #+8
+   \   0000009C   0xF8AD 0x0004      STRH     R0,[SP, #+4]
+   \   000000A0   0xA801             ADD      R0,SP,#+4
+   \   000000A2   0xE7E7             B.N      ??Draw_default_preview_10
+   1511          	}
+   1512          
+   1513          }
+   \                     ??Draw_default_preview_4: (+1)
+   \   000000A4   0xB005             ADD      SP,SP,#+20
+   \   000000A6   0xE8BD 0x8FF0      POP      {R4-R11,PC}      ;; return
+   1514          
+
+   \                                 In section .text, align 2, keep-with-next
+   1515          int ascii2dec_test1(char *ascii)
+   1516          {
+   1517          	int result = 0;
+   1518          
+   1519          	if(ascii == 0)
+   \                     _Z15ascii2dec_test1Pc: (+1)
+   \   00000000   0x2800             CMP      R0,#+0
+   \   00000002   0xD013             BEQ.N    ??ascii2dec_test1_0
+   1520          		return 0;
+   1521          
+   1522          	if(*(ascii) >= '0' && *(ascii) <= '9')
+   \   00000004   0xF990 0x0000      LDRSB    R0,[R0, #+0]
+   \   00000008   0x4601             MOV      R1,R0
+   \   0000000A   0xF1A1 0x0230      SUB      R2,R1,#+48
+   \   0000000E   0x2A0A             CMP      R2,#+10
+   \   00000010   0xD201             BCS.N    ??ascii2dec_test1_1
+   1523          		result = *(ascii) - '0';
+   \   00000012   0x3830             SUBS     R0,R0,#+48
+   1524          	else if(*(ascii) >= 'a' && *(ascii) <= 'f')
+   1525          		result = *(ascii) - 'a' + 0x0a;
+   1526          	else if(*(ascii) >= 'A' && *(ascii) <= 'F')
+   1527          		result = *(ascii) - 'A' + 0x0a;
+   1528          	else
+   1529          		return 0;
+   1530          		
+   1531          
+   1532          	return result;
+   \   00000014   0x4770             BX       LR               ;; return
+   \                     ??ascii2dec_test1_1: (+1)
+   \   00000016   0xF1A1 0x0261      SUB      R2,R1,#+97
+   \   0000001A   0x2A06             CMP      R2,#+6
+   \   0000001C   0xD201             BCS.N    ??ascii2dec_test1_2
+   \   0000001E   0x3857             SUBS     R0,R0,#+87
+   \   00000020   0x4770             BX       LR
+   \                     ??ascii2dec_test1_2: (+1)
+   \   00000022   0x3941             SUBS     R1,R1,#+65
+   \   00000024   0x2906             CMP      R1,#+6
+   \   00000026   0xD201             BCS.N    ??ascii2dec_test1_0
+   \   00000028   0x3837             SUBS     R0,R0,#+55
+   \   0000002A   0x4770             BX       LR
+   \                     ??ascii2dec_test1_0: (+1)
+   \   0000002C   0x2000             MOVS     R0,#+0
+   \   0000002E   0x4770             BX       LR
+   1533          }
+   1534          	FIL TEST_FIL1;
+   1535          	uint8_t gcode_preview_over;
+
+   \                                 In section .bss, align 1
+   1536          	uint8_t flash_preview_begin;
+   \                     flash_preview_begin:
+   \   00000000                      DS8 1
+
+   \                                 In section .data, align 4
+   \                     value_test:
+   \   00000000   0x00               DC8 0
+   \                     temperature_change_frequency:
+   \   00000001   0x01               DC8 1
+   \                     gcode_preview_over:
+   \   00000002   0x00               DC8 0
+   1537          	uint8_t default_preview_flg;
+   \                     default_preview_flg:
+   \   00000003   0x00               DC8 0
+   1538          	uint8_t from_flash_pic;
+   \                     from_flash_pic:
+   \   00000004   0x00               DC8 0
+   \                     disp_state:
+   \   00000005   0x00               DC8 0
+   \   00000006   0x00 0x00          DC8 0, 0
+   \                     To_pre_view:
+   \   00000008   0x00 0x00          DC8 0, 0, 0, 0
+   \              0x00 0x00    
+   1539          
+   1540          extern int once_flag;
+   1541          extern "C" void SPI_FLASH_BufferWrite(u8* pBuffer, u32 WriteAddr, u16 NumByteToWrite);
+   1542          extern "C" void SPI_FLASH_SectorErase(u32 SectorAddr);
+   1543          uint32_t row;
+   \                     row:
+   \   0000000C   0x00 0x00          DC8 0, 0, 0, 0
+   \              0x00 0x00    
+   \                     TEST_FIL1:
+   \   00000010   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \   00000020   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \   00000030   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \   00000040   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \   00000050   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \   00000060   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \   00000070   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \   00000080   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \   00000090   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \   000000A0   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \   000000B0   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \   000000C0   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \   000000D0   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \   000000E0   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \   000000F0   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \   00000100   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \   00000110   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \   00000120   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \   00000130   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \   00000140   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \   00000150   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \   00000160   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \   00000170   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \   00000180   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \   00000190   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \   000001A0   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \   000001B0   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \   000001C0   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \   000001D0   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \   000001E0   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \   000001F0   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \   00000200   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \   00000210   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \   00000220   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \   00000230   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+
+   \                                 In section .data, align 4
+   \                     logo_n:
+   \   00000000   0x62 0x6D          DC8 "bmp_logo.bin"
+   \              0x70 0x5F    
+   \              0x6C 0x6F    
+   \              0x67 0x6F    
+   \              0x2E 0x62    
+   \              0x69 0x6E    
+   \              0x00         
+   \   0000000D   0x00 0x00          DC8 0, 0, 0
+   \              0x00         
+   1544          
+
+   \                                 In section .text, align 2, keep-with-next
+   1545          void gcode_preview(FIL *file,int xpos_pixel,int ypos_pixel)
+   1546          {
+   \                     _Z13gcode_previewP3FILii: (+1)
+   \   00000000   0xB5F0             PUSH     {R4-R7,LR}
+   \   00000002   0xB083             SUB      SP,SP,#+12
+   \   00000004   0x4604             MOV      R4,R0
+   \   00000006   0x460E             MOV      R6,R1
+   \   00000008   0x4617             MOV      R7,R2
+   1547          
+   1548          	//uint8_t buff_pic[512];
+   1549          
+   1550          	uint8_t preview_pic=0;
+                 	        ^
+Warning[Pe177]: variable "preview_pic" was declared but never referenced
+   1551          	
+   1552          	//FIL curFile_1;
+   1553          	
+   1554          	
+   1555          	uint32_t size = 580;
+   1556          
+   1557          	uint8_t ress;
+                 	        ^
+Warning[Pe177]: variable "ress" was declared but never referenced
+   1558          	UINT read,write;
+                 	          ^
+Warning[Pe177]: variable "write" was declared but never referenced
+   1559          	volatile uint32_t i,j;
+   1560          	volatile uint16_t *p_index;
+   1561          	int res;
+                 	    ^
+Warning[Pe177]: variable "res" was declared but never referenced
+   1562          
+   1563              #if defined(MKS_DLP_BOARD)
+   1564              
+   1565              f_lseek(file, (12+116*116*2)+size*row);
+   \   0000000A   0x....             LDR.N    R5,??DataTable15_8
+   \   0000000C   0x68E8             LDR      R0,[R5, #+12]
+   \   0000000E   0xF44F 0x7111      MOV      R1,#+580
+   \   00000012   0xF646 0x122C      MOVW     R2,#+26924
+   \   00000016   0xFB01 0x2100      MLA      R1,R1,R0,R2
+   \   0000001A   0x4620             MOV      R0,R4
+   \   0000001C   0x.... 0x....      BL       f_lseek
+   1566          
+   1567              LCD_setWindowArea(xpos_pixel, ypos_pixel+row, 290,1);
+   \   00000020   0x2301             MOVS     R3,#+1
+   \   00000022   0xF44F 0x7291      MOV      R2,#+290
+   \   00000026   0x68E8             LDR      R0,[R5, #+12]
+   \   00000028   0x19C1             ADDS     R1,R0,R7
+   \   0000002A   0xB289             UXTH     R1,R1
+   \   0000002C   0x4630             MOV      R0,R6
+   \   0000002E   0xB280             UXTH     R0,R0
+   \   00000030   0x.... 0x....      BL       LCD_setWindowArea
+   1568              LCD_WriteRAM_Prepare(); 
+   \   00000034   0x.... 0x....      BL       LCD_WriteRAM_Prepare
+   1569              
+   1570              f_read(file,&bmp_public_buf,512,&read);
+   \   00000038   0x....             LDR.N    R6,??DataTable15_18
+   \   0000003A   0xAB01             ADD      R3,SP,#+4
+   \   0000003C   0xF44F 0x7200      MOV      R2,#+512
+   \   00000040   0x4631             MOV      R1,R6
+   \   00000042   0x4620             MOV      R0,R4
+   \   00000044   0x.... 0x....      BL       f_read
+   1571              f_read(file,&bmp_public_buf[512],580-512,&read);
+   \   00000048   0xAB01             ADD      R3,SP,#+4
+   \   0000004A   0x2244             MOVS     R2,#+68
+   \   0000004C   0xF506 0x7100      ADD      R1,R6,#+512
+   \   00000050   0x4620             MOV      R0,R4
+   \   00000052   0x.... 0x....      BL       f_read
+   1572              for(i=0;i<580;)
+   \   00000056   0x2000             MOVS     R0,#+0
+   \   00000058   0x9000             STR      R0,[SP, #+0]
+   \   0000005A   0xE007             B.N      ??gcode_preview_0
+   1573              {
+   1574                  p_index = (uint16_t *)(&bmp_public_buf[i]); 					
+   \                     ??gcode_preview_1: (+1)
+   \   0000005C   0x9800             LDR      R0,[SP, #+0]
+   \   0000005E   0x1980             ADDS     R0,R0,R6
+   1575                  LCD_WriteRAM(*p_index);
+   \   00000060   0x8800             LDRH     R0,[R0, #+0]
+   \   00000062   0x.... 0x....      BL       LCD_WriteRAM
+   1576                  i=i+2; 
+   \   00000066   0x9800             LDR      R0,[SP, #+0]
+   \   00000068   0x1C80             ADDS     R0,R0,#+2
+   \   0000006A   0x9000             STR      R0,[SP, #+0]
+   1577              }
+   \                     ??gcode_preview_0: (+1)
+   \   0000006C   0x9800             LDR      R0,[SP, #+0]
+   \   0000006E   0xF5B0 0x7F11      CMP      R0,#+580
+   \   00000072   0xD3F3             BCC.N    ??gcode_preview_1
+   1578              
+   1579              row++;
+   \   00000074   0x68E8             LDR      R0,[R5, #+12]
+   \   00000076   0x1C40             ADDS     R0,R0,#+1
+   \   00000078   0x60E8             STR      R0,[R5, #+12]
+   1580              if(row >= 290)
+   \   0000007A   0xF5B0 0x7F91      CMP      R0,#+290
+   \   0000007E   0xD305             BCC.N    ??gcode_preview_2
+   1581              {
+   1582                  row = 0;
+   \   00000080   0x2000             MOVS     R0,#+0
+   \   00000082   0x60E8             STR      R0,[R5, #+12]
+   1583                  gcode_preview_over = 0;
+   \   00000084   0x70A8             STRB     R0,[R5, #+2]
+   1584                  f_close(file);
+   \   00000086   0x4620             MOV      R0,R4
+   \   00000088   0x.... 0x....      BL       f_close
+   1585               }
+   1586          
+   1587              
+   1588              #else
+   1589          	//memset(bmp_public_buf,0,sizeof(bmp_public_buf));
+   1590          	f_lseek(file, (PREVIEW_LITTLE_PIC_SIZE+To_pre_view)+size*row+8);
+   1591              
+   1592          	//ress = f_read(file, buff_pic, size, &read);
+   1593          	//if(ress == FR_OK)
+   1594          	{
+   1595                	LCD_setWindowArea(xpos_pixel, ypos_pixel+row, 200,1);
+   1596          		LCD_WriteRAM_Prepare(); 
+   1597          		j=0;
+   1598          		i=0;
+   1599          		
+   1600          		while(1)
+   1601          		{
+   1602          			f_read(file, buff_pic, 400, &read);
+   1603          			for(i=0;i<400;)
+   1604          			{
+   1605          				bmp_public_buf[j]= ascii2dec_test1((char*)&buff_pic[i])<<4|ascii2dec_test1((char*)&buff_pic[i+1]);
+   1606          				//bmp_public_buf[j]= ascii2dec_test1((char*)&buff_pic[8+i])<<4|ascii2dec_test1((char*)&buff_pic[8+i+1]);
+   1607          				i+=2;
+   1608          				j++;
+   1609          			}
+   1610          			
+   1611          			//if(i>800)break;
+   1612          			//#if defined(TFT70)
+   1613          			//if(j>400)
+   1614          			//{
+   1615          			//	f_read(file, buff_pic, 1, &read);
+   1616          			//	break;
+   1617          			//}				
+   1618          			//#elif defined(TFT35)
+   1619          			if(j>=400)
+   1620          			{
+   1621          				//f_read(file, buff_pic, 1, &read);
+   1622          				break;
+   1623          			}				
+   1624          			//#endif
+   1625          
+   1626          		}
+   1627          		for(i=0;i<400;)
+   1628          		{
+   1629          			p_index = (uint16_t *)(&bmp_public_buf[i]); 					
+   1630          	    	LCD_WriteRAM(*p_index);
+   1631          			i=i+2;
+   1632          		}
+   1633                  /*
+   1634          		if(row<20)
+   1635          		{
+   1636          			SPI_FLASH_SectorErase(BAK_VIEW_ADDR+row*4096);
+   1637          		}
+   1638          		SPI_FLASH_BufferWrite(bmp_public_buf, BAK_VIEW_ADDR+row*400, 400);
+   1639          		*/
+   1640          		row++;
+   1641          		if(row >= 200)
+   1642          		{
+   1643          			size = 809;
+   1644          			row = 0;
+   1645          			
+   1646          			gcode_preview_over = 0;
+   1647          			//flash_preview_begin = 1;
+   1648          
+   1649          			f_close(file);
+   1650                      #if 0
+   1651          			if(gCurFileState.file_open_flag != 0xaa)
+   1652          			{
+   1653          				
+   1654          			
+   1655          				reset_file_info();
+   1656          				
+   1657          				res = f_open(file, curFileName, FA_OPEN_EXISTING | FA_READ);
+   1658          
+   1659          				if(res == FR_OK)
+   1660          				{
+   1661          					f_lseek(file,PREVIEW_SIZE+To_pre_view);
+   1662          					gCurFileState.file_open_flag = 0xaa;
+   1663          
+   1664          					//bakup_file_path((uint8_t *)curFileName, strlen(curFileName));
+   1665          
+   1666          					srcfp = file;
+   1667          
+   1668          					mksReprint.mks_printer_state = MKS_WORKING;
+   1669          
+   1670          					once_flag = 0;
+   1671          				}
+   1672          				
+   1673          			}
+   1674                      #endif
+   1675          		}
+   1676          	}
+   1677              #endif
+   1678          }
+   \                     ??gcode_preview_2: (+1)
+   \   0000008C   0xBDF7             POP      {R0-R2,R4-R7,PC}  ;; return
+   1679          
+
+   \                                 In section .text, align 2, keep-with-next
+   1680          void disp_pre_gcode(int xpos_pixel,int ypos_pixel)
+   1681          {
+   \                     disp_pre_gcode: (+1)
+   \   00000000   0xB510             PUSH     {R4,LR}
+   1682          	if(gcode_preview_over==1)
+   \   00000002   0x....             LDR.N    R4,??DataTable15_8
+   \   00000004   0x78A2             LDRB     R2,[R4, #+2]
+   \   00000006   0x2A01             CMP      R2,#+1
+   \   00000008   0xD110             BNE.N    ??disp_pre_gcode_0
+   1683          	{
+   1684          		if(mksdlp.print_file_type==1)
+   \   0000000A   0x....             LDR.N    R2,??DataTable15_5
+   \   0000000C   0xF892 0x22F3      LDRB     R2,[R2, #+755]
+   \   00000010   0x2A01             CMP      R2,#+1
+   \   00000012   0xD106             BNE.N    ??disp_pre_gcode_1
+   1685          		{
+   1686          			gcode_preview(&TEST_FIL1,xpos_pixel,ypos_pixel);
+   \   00000014   0x460A             MOV      R2,R1
+   \   00000016   0x4601             MOV      R1,R0
+   \   00000018   0xF104 0x0010      ADD      R0,R4,#+16
+   \   0000001C   0xE8BD 0x4010      POP      {R4,LR}
+   \   00000020   0x....             B.N      _Z13gcode_previewP3FILii
+   1687          		}
+   1688          		else
+   1689          		{
+   1690          			get_pic_display(1);
+   \                     ??disp_pre_gcode_1: (+1)
+   \   00000022   0x2001             MOVS     R0,#+1
+   \   00000024   0x.... 0x....      BL       get_pic_display
+   1691          			gcode_preview_over=0;
+   \   00000028   0x2000             MOVS     R0,#+0
+   \   0000002A   0x70A0             STRB     R0,[R4, #+2]
+   1692          		}
+   1693          	}
+   1694              #if 0
+   1695          	if(flash_preview_begin == 1)
+   1696          	{
+   1697          		flash_preview_begin = 0;
+   1698          		Draw_default_preview(xpos_pixel,ypos_pixel,1);	
+   1699          	}
+   1700          	if(default_preview_flg == 1)
+   1701          	{
+   1702          		Draw_default_preview(xpos_pixel,ypos_pixel,0);
+   1703          		default_preview_flg = 0;
+   1704          	}
+   1705              #endif
+   1706          }
+   \                     ??disp_pre_gcode_0: (+1)
+   \   0000002C   0xBD10             POP      {R4,PC}          ;; return
+
+   \                                 In section .text, align 2, keep-with-next
+   1707          void preview_gcode_prehandle(char *path)
+   1708          {
+   \                     preview_gcode_prehandle: (+1)
+   \   00000000   0xB570             PUSH     {R4-R6,LR}
+   \   00000002   0xB082             SUB      SP,SP,#+8
+   \   00000004   0x4604             MOV      R4,R0
+   1709          	uint8_t re;
+   1710          	UINT read;
+   1711          	uint32_t pre_read_cnt = 0;
+                 	         ^
+Warning[Pe177]: variable "pre_read_cnt" was declared but never referenced
+   1712          	uint32_t *p1,*p2;
+                 	          ^
+Warning[Pe177]: variable "p1" was declared but never referenced
+
+  	uint32_t *p1,*p2;
+  	              ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\draw_ui.cpp",1712  Warning[Pe177]: 
+          variable "p2" was declared but never referenced
+
+  static float zpos_bak = -1;
+               ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\draw_ui.cpp",61  Warning[Pe177]: 
+          variable "zpos_bak" was declared but never referenced
+
+  static   GUI_HWIN hMainWnd;
+                    ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\draw_ui.cpp",107  Warning[Pe177]: 
+          variable "hMainWnd" was declared but never referenced
+
+  		for(_y = y_off * 16/*32*/; _y < (y_off + 1) * 16/*32*/; _y++)
+  		                           ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\draw_ui.cpp",1414  Warning[Pa082]: 
+          undefined behavior: the order of volatile accesses is undefined in
+          this statement
+   1713          	
+   1714          	re = f_open(&TEST_FIL1, path, FA_OPEN_EXISTING | FA_READ);//	
+   \   00000006   0x....             LDR.N    R5,??DataTable15_8
+   \   00000008   0x2201             MOVS     R2,#+1
+   \   0000000A   0x4621             MOV      R1,R4
+   \   0000000C   0xF105 0x0010      ADD      R0,R5,#+16
+   \   00000010   0x.... 0x....      BL       f_open
+   1715          	#if 0
+   1716          	if(re == FR_OK)
+   1717          	{
+   1718          		f_lseek(&TEST_FIL1,PREVIEW_LITTLE_PIC_SIZE);//
+   1719          		f_read(&TEST_FIL1,&bmp_public_buf,8,&read);
+   1720          		if((bmp_public_buf[0] ==';')&&(bmp_public_buf[1] =='g')
+   1721          			&&(bmp_public_buf[2] =='i')&&(bmp_public_buf[3] =='m')
+   1722          			&&(bmp_public_buf[4] =='a')&&(bmp_public_buf[5] =='g')
+   1723          			&&(bmp_public_buf[6] =='e')&&(bmp_public_buf[7] ==':'))	
+   1724          		{
+   1725          			gcode_preview_over = 1;
+   1726          			from_flash_pic = 1;
+   1727          			HAL::AT24CXX_Write(BAK_PREVIEW_FROM_FLASH_ADDR, &from_flash_pic,1);
+   1728          		}
+   1729          		else
+   1730          		{
+   1731          			gcode_preview_over = 0;
+   1732          			default_preview_flg = 1;
+   1733          			from_flash_pic = 0; 
+   1734          			HAL::AT24CXX_Write(BAK_PREVIEW_FROM_FLASH_ADDR, &from_flash_pic,1);
+   1735          		}
+   1736          	}
+   1737          	#else
+   1738          	if(re==FR_OK)
+   \   00000014   0xB2C0             UXTB     R0,R0
+   \   00000016   0x2800             CMP      R0,#+0
+   \   00000018   0xD149             BNE.N    ??preview_gcode_prehandle_0
+   1739          	{
+   1740          		//p1 = (int32_t *)&bmp_public_buf[0];
+   1741          		
+   1742          		
+   1743          		#if defined(MKS_DLP_BOARD)
+   1744                  f_read(&TEST_FIL1,&bmp_public_buf[0],11,&read);
+   \   0000001A   0x....             LDR.N    R6,??DataTable15_18
+   \   0000001C   0xAB00             ADD      R3,SP,#+0
+   \   0000001E   0x220B             MOVS     R2,#+11
+   \   00000020   0x4631             MOV      R1,R6
+   \   00000022   0xF105 0x0010      ADD      R0,R5,#+16
+   \   00000026   0x.... 0x....      BL       f_read
+   1745          		if((bmp_public_buf[4]=='M')&&(bmp_public_buf[5]=='K')&&(bmp_public_buf[6]=='S')
+   1746          			&&(bmp_public_buf[7]=='D')&&(bmp_public_buf[8]=='L')&&(bmp_public_buf[9]=='P'))
+   \   0000002A   0x7930             LDRB     R0,[R6, #+4]
+   \   0000002C   0x284D             CMP      R0,#+77
+   \   0000002E   0xD11B             BNE.N    ??preview_gcode_prehandle_1
+   \   00000030   0x7970             LDRB     R0,[R6, #+5]
+   \   00000032   0x284B             CMP      R0,#+75
+   \   00000034   0xD118             BNE.N    ??preview_gcode_prehandle_1
+   \   00000036   0x79B0             LDRB     R0,[R6, #+6]
+   \   00000038   0x2853             CMP      R0,#+83
+   \   0000003A   0xD115             BNE.N    ??preview_gcode_prehandle_1
+   \   0000003C   0x79F0             LDRB     R0,[R6, #+7]
+   \   0000003E   0x2844             CMP      R0,#+68
+   \   00000040   0xD112             BNE.N    ??preview_gcode_prehandle_1
+   \   00000042   0x7A30             LDRB     R0,[R6, #+8]
+   \   00000044   0x284C             CMP      R0,#+76
+   \   00000046   0xD10F             BNE.N    ??preview_gcode_prehandle_1
+   \   00000048   0x7A70             LDRB     R0,[R6, #+9]
+   \   0000004A   0x2850             CMP      R0,#+80
+   \   0000004C   0xD10C             BNE.N    ??preview_gcode_prehandle_1
+   1747                  {
+   1748          
+   1749          			mksdlp.print_file_type=1;
+   \   0000004E   0x2001             MOVS     R0,#+1
+   \   00000050   0x....             LDR.N    R1,??DataTable15_5
+   \   00000052   0xF881 0x02F3      STRB     R0,[R1, #+755]
+   1750                      gcode_preview_over = 1;
+   \   00000056   0x70A8             STRB     R0,[R5, #+2]
+   1751                      from_flash_pic = 1;
+   \   00000058   0x7128             STRB     R0,[R5, #+4]
+   1752                      epr_write_data(EPR_PREVIEW_FROM_FLASH, &from_flash_pic,1);          
+   \   0000005A   0x4602             MOV      R2,R0
+   \   0000005C   0x1D29             ADDS     R1,R5,#+4
+   \   0000005E   0xF240 0x6029      MOVW     R0,#+1577
+   \   00000062   0x.... 0x....      BL       epr_write_data
+   \   00000066   0xBD73             POP      {R0,R1,R4-R6,PC}
+   1753                  }
+   1754                  else
+   1755                  {
+   1756                  	if(bmp_public_buf[0]==0x19&&bmp_public_buf[1]==0x00)//cbddlp
+   \                     ??preview_gcode_prehandle_1: (+1)
+   \   00000068   0x7830             LDRB     R0,[R6, #+0]
+   \   0000006A   0x2819             CMP      R0,#+25
+   \   0000006C   0xD113             BNE.N    ??preview_gcode_prehandle_2
+   \   0000006E   0x7870             LDRB     R0,[R6, #+1]
+   \   00000070   0x2800             CMP      R0,#+0
+   \   00000072   0xD110             BNE.N    ??preview_gcode_prehandle_2
+   1757                  	{
+   1758                  		mksdlp.print_file_type=2;
+   \   00000074   0x2002             MOVS     R0,#+2
+   \   00000076   0x....             LDR.N    R1,??DataTable15_5
+   \   00000078   0xF881 0x02F3      STRB     R0,[R1, #+755]
+   1759                  		get_pic_info(path);
+   \   0000007C   0x4620             MOV      R0,R4
+   \   0000007E   0x.... 0x....      BL       get_pic_info
+   1760                  		gcode_preview_over = 1;
+   \   00000082   0x2001             MOVS     R0,#+1
+   \   00000084   0x70A8             STRB     R0,[R5, #+2]
+   1761                      	from_flash_pic = 1;
+   \   00000086   0x7128             STRB     R0,[R5, #+4]
+   1762                      	epr_write_data(EPR_PREVIEW_FROM_FLASH, &from_flash_pic,1);				
+   \   00000088   0x4602             MOV      R2,R0
+   \   0000008A   0x1D29             ADDS     R1,R5,#+4
+   \   0000008C   0xF240 0x6029      MOVW     R0,#+1577
+   \   00000090   0x.... 0x....      BL       epr_write_data
+   \   00000094   0xBD73             POP      {R0,R1,R4-R6,PC}
+   1763                  	}
+   1764          			else
+   1765          			{
+   1766                      	gcode_preview_over = 0;
+   \                     ??preview_gcode_prehandle_2: (+1)
+   \   00000096   0x2000             MOVS     R0,#+0
+   \   00000098   0x70A8             STRB     R0,[R5, #+2]
+   1767                      	default_preview_flg = 1;
+   \   0000009A   0x2001             MOVS     R0,#+1
+   \   0000009C   0x70E8             STRB     R0,[R5, #+3]
+   1768                      	from_flash_pic = 0; 
+   \   0000009E   0x2000             MOVS     R0,#+0
+   \   000000A0   0x7128             STRB     R0,[R5, #+4]
+   1769                      	epr_write_data(EPR_PREVIEW_FROM_FLASH, &from_flash_pic,1);    
+   \   000000A2   0x2201             MOVS     R2,#+1
+   \   000000A4   0x1D29             ADDS     R1,R5,#+4
+   \   000000A6   0xF240 0x6029      MOVW     R0,#+1577
+   \   000000AA   0x.... 0x....      BL       epr_write_data
+   1770          			}
+   1771                  }
+   1772          
+   1773                  #else
+   1774                  f_read(&TEST_FIL1,&bmp_public_buf[0],1024,&read);
+   1775                  p2 = (uint32_t *)strstr((const char *)&bmp_public_buf[0],(const char *)";simage:");
+   1776          		if(p2)
+   1777          		{
+   1778          			pre_read_cnt = (uint32_t)p2-(uint32_t)((uint32_t *)(&bmp_public_buf[0]));
+   1779          			//pre_sread_cnt = (uint32_t)ps4-(uint32_t)((uint32_t *)(&bmp_public_buf[0]));
+   1780          
+   1781          			To_pre_view = pre_read_cnt;
+   1782          			//f_lseek(&TEST_FIL1,PREVIEW_LITTLE_PIC_SIZE+pre_read_cnt);
+   1783          			gcode_preview_over = 1;
+   1784          			from_flash_pic = 1;
+   1785          			epr_write_data(EPR_PREVIEW_FROM_FLASH, &from_flash_pic,1);			
+   1786          		}
+   1787          		else
+   1788          		{
+   1789          			gcode_preview_over = 0;
+   1790          			default_preview_flg = 1;
+   1791          			from_flash_pic = 0; 
+   1792          			epr_write_data(EPR_PREVIEW_FROM_FLASH, &from_flash_pic,1);		
+   1793          		}
+   1794                  #endif
+   1795          	}
+   1796          	#endif
+   1797          }
+   \                     ??preview_gcode_prehandle_0: (+1)
+   \   000000AE   0xBD73             POP      {R0,R1,R4-R6,PC}  ;; return
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10:
+   \   00000000   0x42C80000         DC32     0x42c80000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable15:
+   \   00000000   0x........         DC32     gCbEventStack
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable15_1:
+   \   00000000   0x........         DC32     button4
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable15_2:
+   \   00000000   0x........         DC32     gCfgItems
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable15_3:
+   \   00000000   0x........         DC32     disp_state_stack
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable15_4:
+   \   00000000   0x........         DC32     last_disp_state
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable15_5:
+   \   00000000   0x........         DC32     mksdlp
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable15_6:
+   \   00000000   0x........         DC32     GUI_FontHZ_fontHz14
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable15_7:
+   \   00000000   0x........         DC32     WIDGET_Effect_Simple
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable15_8:
+   \   00000000   0x........         DC32     value_test
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable15_9:
+   \   00000000   0x000317E0         DC32     0x317e0
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable15_10:
+   \   00000000   0xFFFCE820         DC32     0xfffce820
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable15_11:
+   \   00000000   0x........         DC32     mksReprint
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable15_12:
+   \   00000000   0x........         DC32     gCurFileState
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable15_13:
+   \   00000000   0x........         DC32     TimeIncrease
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable15_14:
+   \   00000000   0x........         DC32     printing_rate_update_flag
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable15_15:
+   \   00000000   0x........         DC32     wifi_refresh_flg
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable15_16:
+   \   00000000   0x........         DC32     key_set_value
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable15_17:
+   \   00000000   0x424082B0         DC32     0x424082b0
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable15_18:
+   \   00000000   0x........         DC32     bmp_public_buf
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable15_19:
+   \   00000000   0x........         DC32     logo_n
+   1798          
+   1799          
+   1800          #endif
+   1801          #if 0
+   1802          
+   1803          /*****************************************************/
+   1804          //path:Œƒº˛¬∑æ∂
+   1805          //xsize,ysize:œ‘ æ‘§¿¿Õº∆¨¥Û–°;
+   1806          //sel:
+   1807          //		0:Œƒº˛ƒø¬º‘§¿¿£ª
+   1808          //		1:¥Ú”°Œƒº˛‘§¿¿
+   1809          //
+   1810          uint8_t drawicon_preview(char *path,int xsize_small,int ysize_small,int xsize_big,int ysize_big,char sel)
+   1811          {
+   1812          
+   1813          	uint16_t *p_index;
+   1814          	int i=0;
+   1815          	char re;
+   1816          	UINT read;
+   1817          	char temp_test[8];
+   1818          	int row_1=0;
+   1819              
+   1820          	re = f_open(&TEST_FIL,path, FA_OPEN_EXISTING | FA_READ);//huaping.gcode
+   1821          	if(re == FR_OK)
+   1822          	{
+   1823                  memset(bmp_public_buf,0,sizeof(bmp_public_buf));
+   1824          		if(sel == 1)//big pic
+   1825          		{
+   1826          			f_lseek(&TEST_FIL,xsize_small*ysize_small+8*(ysize_small+1));
+   1827          		}
+   1828          		f_read(&TEST_FIL,&bmp_public_buf,8,&read);
+   1829          		if((bmp_public_buf[0] ==';')&&(bmp_public_buf[1] =='s')
+   1830          			&&(bmp_public_buf[2] =='i')&&(bmp_public_buf[3] =='m')
+   1831          			&&(bmp_public_buf[4] =='a')&&(bmp_public_buf[5] =='g')
+   1832          			&&(bmp_public_buf[6] =='e')&&(bmp_public_buf[7] ==':'))
+   1833          		{
+   1834          			while(1)
+   1835          			{
+   1836          				f_read(&TEST_FIL,&temp_test,2,&read);
+   1837          				if(sel == 1)//big pic
+   1838          				{
+   1839          						bmp_public_buf[row_1*(xsize_big*4)+i/2] = (char)(ascii2dec_test(&temp_test[0])<<4|ascii2dec_test(&temp_test[1]));				
+   1840          				}
+   1841          				else
+   1842          	            {
+   1843          	              		bmp_public_buf[row_1*(xsize_small*2)+i/2] = (char)(ascii2dec_test(&temp_test[0])<<4|ascii2dec_test(&temp_test[1]));
+   1844          	            }
+   1845          				i=i+2;
+   1846          				if(sel == 1)//big pic
+   1847          				{
+   1848          					if(i>=(xsize_big*4))
+   1849          					{
+   1850          		                i=0;
+   1851          		                row_1++;
+   1852          		                f_read(&TEST_FIL,&temp_test,9,&read);					
+   1853          					}
+   1854          					if(row_1>ysize_big)
+   1855          						break;					
+   1856          				}
+   1857          				else
+   1858          				{
+   1859          					if(i>=(xsize_small*4))
+   1860          					{
+   1861          		                i=0;
+   1862          		                row_1++;
+   1863          		                f_read(&TEST_FIL,&temp_test,9,&read);					
+   1864          					}
+   1865          					if(row_1>ysize_small)
+   1866          						break;
+   1867          				}
+   1868          
+   1869          			}
+   1870          			f_close(&TEST_FIL);
+   1871          			return 1;
+   1872          		}
+   1873          	}
+   1874          	f_close(&TEST_FIL);
+   1875          	return 0;
+   1876          
+   1877          }
+   1878          #endif
+   1879          
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+      32   DRAW_LOGO
+        32   -> LCD_WriteRAM
+        32   -> LCD_WriteRAM_Prepare
+         0   -> LCD_setWindowArea
+        32   -> LCD_setWindowArea
+        32   -> Pic_Logo_Read
+      56   Draw_default_preview(int, int, uint8_t)
+        56   -> LCD_WriteRAM
+        56   -> LCD_WriteRAM_Prepare
+        56   -> LCD_setWindowArea
+        56   -> default_view_Read
+        56   -> flash_view_Read
+      16   GUI_RefreshPage
+        16   -> MKS_DLP::ExposureTest()
+        16   -> MKS_DLP::set_test_exposure_time(uint16_t)
+        16   -> disp_wifi_state
+        16   -> display_print_times
+        16   -> draw_ready_print
+         0   -> print_time_run
+        16   -> setProBarRate
+        16   -> time_value_cnt
+       0   GUI_callback
+         0   -> pop_cb_stack()
+       0   ascii2dec_test1(char *)
+       8   clear_cur_ui
+         8   -> Clear_About
+         8   -> Clear_Clean
+         8   -> Clear_ExposureTest
+         8   -> Clear_Info
+         8   -> Clear_Language
+         8   -> Clear_Preview
+         8   -> Clear_Service
+         8   -> Clear_Set
+         8   -> Clear_Tool()
+         8   -> Clear_Wifi
+         8   -> Clear_detection
+         8   -> Clear_dialog
+         8   -> Clear_keyboard
+         8   -> Clear_move_motor
+         8   -> Clear_operate
+         8   -> Clear_print_file
+         8   -> Clear_printing
+         8   -> Clear_ready_print
+         0   -> GUI_Clear
+       0   creat_title_text
+       8   disp_pre_gcode
+         0   -> gcode_preview(FIL *, int, int)
+         8   -> get_pic_display
+       0   disp_sel_lang
+         0   -> BUTTON_SetBkColor
+       8   draw_return_ui
+         0   -> MKS_DLP::draw_return_printing_ui()
+         0   -> draw_About
+         0   -> draw_Clean
+         0   -> draw_ExposureTest
+         0   -> draw_Info
+         0   -> draw_Language
+         0   -> draw_Preview
+         0   -> draw_Service
+         0   -> draw_Set
+         0   -> draw_Wifi
+         0   -> draw_detection
+         0   -> draw_keyboard
+         0   -> draw_move_motor
+         0   -> draw_operate
+         0   -> draw_print_file
+         8   -> draw_printing
+         0   -> draw_ready_print
+         0   -> draw_tool()
+      32   gcode_preview(FIL *, int, int)
+        32   -> LCD_WriteRAM
+        32   -> LCD_WriteRAM_Prepare
+        32   -> LCD_setWindowArea
+        32   -> f_close
+        32   -> f_lseek
+        32   -> f_read
+       0   getDispText(int)
+       0   get_printing_rate
+      16   gui_view_init
+        16   -> BUTTON_SetDefaultBkColor
+        16   -> BUTTON_SetDefaultFont
+        16   -> BUTTON_SetDefaultTextAlign
+        16   -> BUTTON_SetDefaultTextColor
+        16   -> GUI_SetBkColor
+        16   -> GUI_SetFont
+        16   -> TEXT_SetDefaultFont
+        16   -> WIDGET_SetDefaultEffect
+         0   -> init_cb_stack()
+       8   init_cb_stack()
+         8   -> memset
+      48   layer_pic_clean
+        48   -> ili9320_SetPoint
+      48   layer_pic_display
+        48   -> ili9320_SetPoint
+       0   pop_cb_stack()
+      24   preview_gcode_prehandle
+        24   -> epr_write_data
+        24   -> f_open
+        24   -> f_read
+        24   -> get_pic_info
+       8   push_cb_stack
+      24   titleText_cat(char *, int, char *)
+         0   -> strcat
+        24   -> strlen
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable10
+       4  ??DataTable15
+       4  ??DataTable15_1
+       4  ??DataTable15_10
+       4  ??DataTable15_11
+       4  ??DataTable15_12
+       4  ??DataTable15_13
+       4  ??DataTable15_14
+       4  ??DataTable15_15
+       4  ??DataTable15_16
+       4  ??DataTable15_17
+       4  ??DataTable15_18
+       4  ??DataTable15_19
+       4  ??DataTable15_2
+       4  ??DataTable15_3
+       4  ??DataTable15_4
+       4  ??DataTable15_5
+       4  ??DataTable15_6
+       4  ??DataTable15_7
+       4  ??DataTable15_8
+       4  ??DataTable15_9
+       1  BMP_PIC_X
+       1  BMP_PIC_Y
+     166  DRAW_LOGO
+     170  Draw_default_preview(int, int, uint8_t)
+     192  GUI_RefreshPage
+       2  GUI_callback
+      20  TFT_screen
+      48  ascii2dec_test1(char *)
+      24  button4
+     186  clear_cur_ui
+       2  creat_title_text
+      46  disp_pre_gcode
+      36  disp_sel_lang
+     104  disp_state_stack
+     222  draw_return_ui
+       1  flash_preview_begin
+      44  gCbEventStack
+     142  gcode_preview(FIL *, int, int)
+       2  getDispText(int)
+     180  get_printing_rate
+      96  gui_view_init
+      22  init_cb_stack()
+       1  last_disp_state
+     126  layer_pic_clean
+     158  layer_pic_display
+      16  logo_n
+      48  pop_cb_stack()
+     176  preview_gcode_prehandle
+      58  push_cb_stack
+       4  srcfp
+      48  titleText_cat(char *, int, char *)
+     572  value_test
+          temperature_change_frequency
+          gcode_preview_over
+          default_preview_flg
+          from_flash_pic
+          disp_state
+          To_pre_view
+          row
+          TEST_FIL1
+       1  -- Other
+
+ 
+   200 bytes in section .bss
+   588 bytes in section .data
+     1 byte  in section .rodata
+ 2 210 bytes in section .text
+ 
+ 2 210 bytes of CODE  memory
+     0 bytes of CONST memory (+ 1 byte shared)
+   788 bytes of DATA  memory
+
+Errors: none
+Warnings: 94

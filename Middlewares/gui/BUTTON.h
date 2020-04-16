@@ -142,6 +142,7 @@ void             BUTTON_SetSelfDraw        (BUTTON_Handle hObj, unsigned int Ind
 //tan 20160831
 void BUTTON_SetBmpFileName(BUTTON_Handle hObj,char *pFile, char flag);
 void BUTTON_SetBmpFileNamePath(BUTTON_Handle hObj,char *pFile,char *g_path, char flag);
+void BUTTON_SetBmp_CBDDLP(BUTTON_Handle hObj,char *pFile,char *g_path, char flag,char dlp_flg);
 
 /************************************************************
 *

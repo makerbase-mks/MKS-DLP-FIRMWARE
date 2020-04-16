@@ -15377,12 +15377,18 @@ extern void mksBeeperAlarm(void);
 extern uint8_t clean_time_flg;
 extern uint8_t time_1s_flg;
 
+#if defined(__cplusplus)
+extern "C" {     /* Make sure we have C-declarations in C++ programs */
+#endif
 void btn_beeper(uint32_t beeper)
 {
     btn_flg = 1;
     btn_beep_cnt = beeper;
     BEEPER_OP=1;
 }
+#if defined(__cplusplus)
+}     /* Make sure we have C-declarations in C++ programs */
+#endif
 
 void SysTick_Handler_User()
 {

@@ -1514,7 +1514,7 @@
     </group>
   </group>
   <file>
-    <name>$PROJ_DIR$\..\Middlewares\GUI\mksDLP.a</name>
+    <name>$PROJ_DIR$\..\Middlewares\gui\mksDLP.a</name>
   </file>
 </project>
 

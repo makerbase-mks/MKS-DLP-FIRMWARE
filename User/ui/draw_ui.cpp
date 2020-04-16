@@ -1681,7 +1681,15 @@ void disp_pre_gcode(int xpos_pixel,int ypos_pixel)
 {
 	if(gcode_preview_over==1)
 	{
-		gcode_preview(&TEST_FIL1,xpos_pixel,ypos_pixel);
+		if(mksdlp.print_file_type==1)
+		{
+			gcode_preview(&TEST_FIL1,xpos_pixel,ypos_pixel);
+		}
+		else
+		{
+			get_pic_display(1);
+			gcode_preview_over=0;
+		}
 	}
     #if 0
 	if(flash_preview_begin == 1)
@@ -1737,16 +1745,29 @@ void preview_gcode_prehandle(char *path)
 		if((bmp_public_buf[4]=='M')&&(bmp_public_buf[5]=='K')&&(bmp_public_buf[6]=='S')
 			&&(bmp_public_buf[7]=='D')&&(bmp_public_buf[8]=='L')&&(bmp_public_buf[9]=='P'))
         {
+
+			mksdlp.print_file_type=1;
             gcode_preview_over = 1;
             from_flash_pic = 1;
             epr_write_data(EPR_PREVIEW_FROM_FLASH, &from_flash_pic,1);          
         }
         else
         {
-            gcode_preview_over = 0;
-            default_preview_flg = 1;
-            from_flash_pic = 0; 
-            epr_write_data(EPR_PREVIEW_FROM_FLASH, &from_flash_pic,1);      
+        	if(bmp_public_buf[0]==0x19&&bmp_public_buf[1]==0x00)//cbddlp
+        	{
+        		mksdlp.print_file_type=2;
+        		get_pic_info(path);
+        		gcode_preview_over = 1;
+            	from_flash_pic = 1;
+            	epr_write_data(EPR_PREVIEW_FROM_FLASH, &from_flash_pic,1);				
+        	}
+			else
+			{
+            	gcode_preview_over = 0;
+            	default_preview_flg = 1;
+            	from_flash_pic = 0; 
+            	epr_write_data(EPR_PREVIEW_FROM_FLASH, &from_flash_pic,1);    
+			}
         }
 
         #else
@@ -1774,6 +1795,7 @@ void preview_gcode_prehandle(char *path)
 	}
 	#endif
 }
+
 
 #endif
 #if 0

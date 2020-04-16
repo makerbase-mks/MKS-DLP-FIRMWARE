@@ -542,9 +542,9 @@ extern detection_menu_def detection_menu;
 
 //The second bit means hardware version, 1 for V1.1, 0 for V1.0, the bit follows F means fpga firmware version
 #ifdef USE_STM32F407ZET
-#define INFO_FIRMWARE_VAL        "1.0.3_F%d"
+#define INFO_FIRMWARE_VAL        "1.0.4_F%d"
 #else
-#define INFO_FIRMWARE_VAL        "1.1.3_F%d"
+#define INFO_FIRMWARE_VAL        "1.1.4_F%d"
 #endif
 
 

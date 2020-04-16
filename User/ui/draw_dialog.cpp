@@ -30,6 +30,7 @@
 #define GUI_FLASH
 #endif
 //extern GUI_CONST_STORAGE GUI_FONT GUI_FontFont24_MS;
+extern FIL TEST_FIL1;
 
 extern FATFS fs;
 extern unsigned char codebuff[100];
@@ -480,6 +481,7 @@ static void cbDlgWin(WM_MESSAGE * pMsg)
                 }
                 else if(DialogType == DIALOG_TYPE_DEL_FILE)
                 {
+                	f_close(&TEST_FIL1);
                     f_unlink(curFileName); 
                     Clear_dialog();
                     draw_print_file();

@@ -1,0 +1,529 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.10.1.6676/W32 for ARM        16/Apr/2020  18:39:17
+# Copyright 1999-2014 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marlin\stepper_dac.cpp
+#    Command line =  
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marlin\stepper_dac.cpp
+#        -D USE_HAL_DRIVER -D STM32F407xx -D STM32F40_41xxx -D USE_HAL_LIB -D
+#        MKS_DLP_BOARD -D TFT35 -D USE_STM32F407VET -lC
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM\mksDLP/List\ -lA
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM\mksDLP/List\
+#        --diag_suppress Pa050 -o
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM\mksDLP/Obj\ --no_unroll
+#        --no_inline --no_tbaa --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M4F -e --char_is_signed --fpu=VFPv4_sp --dlib_config
+#        "D:\Program Files (x86)\IAR Systems\Embedded Workbench
+#        7.0\arm\INC\c\DLib_Config_Full.h" -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Inc\ -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Src\ -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Drivers/STM32F4xx_HAL_Driver/Inc\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Middlewares/Third_Party/FatFs/src/drivers\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Middlewares/ST/STM32_USB_Host_Library/Core/Inc\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Inc\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Drivers/CMSIS/Device/ST/STM32F4xx/Include\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Middlewares/Third_Party/FatFs/src\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Middlewares/Third_Party/Marlin\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Drivers/CMSIS/Include\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Drivers/BSP/variant\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Drivers/BSP/Components/at24cxx\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Drivers/BSP/Components/w25qxx\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Drivers/BSP/Components/ssd2828\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Drivers/BSP/Components/lcd\
+#        -I D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Drivers/libstmf4\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Drivers/libstmf4/include\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Middlewares/arduino/stm32/cores/arduino\
+#        -I D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../User/ui\ -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../User/ui/Multi_language\
+#        -I D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../User/ui/QRENCODE\
+#        -I D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Middlewares/GUI\
+#        -Om --eec++ -I "D:\Program Files (x86)\IAR Systems\Embedded Workbench
+#        7.0\arm\CMSIS\Include\"
+#    List file    =  
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM\mksDLP/List\stepper_dac.lst
+#    Object file  =  
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM\mksDLP/Obj\stepper_dac.o
+#
+###############################################################################
+
+D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marlin\stepper_dac.cpp
+      1          /**
+      2           * Marlin 3D Printer Firmware
+      3           * Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+      4           *
+      5           * Based on Sprinter and grbl.
+      6           * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
+      7           *
+      8           * This program is free software: you can redistribute it and/or modify
+      9           * it under the terms of the GNU General Public License as published by
+     10           * the Free Software Foundation, either version 3 of the License, or
+     11           * (at your option) any later version.
+     12           *
+     13           * This program is distributed in the hope that it will be useful,
+     14           * but WITHOUT ANY WARRANTY; without even the implied warranty of
+     15           * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+     16           * GNU General Public License for more details.
+     17           *
+     18           * You should have received a copy of the GNU General Public License
+     19           * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+     20           *
+     21           */
+     22          
+     23          /**
+     24            stepper_dac.cpp - To set stepper current via DAC
+     25          
+     26            Part of Marlin
+     27          
+     28            Copyright (c) 2016 MarlinFirmware
+     29          
+     30            Marlin is free software: you can redistribute it and/or modify
+     31            it under the terms of the GNU General Public License as published by
+     32            the Free Software Foundation, either version 3 of the License, or
+     33            (at your option) any later version.
+     34          
+     35            Marlin is distributed in the hope that it will be useful,
+     36            but WITHOUT ANY WARRANTY; without even the implied warranty of
+     37            MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+     38            GNU General Public License for more details.
+     39          
+     40            You should have received a copy of the GNU General Public License
+     41            along with Marlin.  If not, see <http://www.gnu.org/licenses/>.
+     42          */
+     43          
+     44          #include "Marlin.h"
+
+    #define MIN_SOFTWARE_ENDSTOPS mksCfg.min_software_endstops	/*--mks cfg--*/
+            ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marlin\Configuration.h",824  Warning[Pe047]: 
+          incompatible redefinition of macro "MIN_SOFTWARE_ENDSTOPS" (declared
+          at line 819)
+
+    #define MAX_SOFTWARE_ENDSTOPS mksCfg.max_software_endstops	/*--mks cfg--*/
+            ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marlin\Configuration.h",834  Warning[Pe047]: 
+          incompatible redefinition of macro "MAX_SOFTWARE_ENDSTOPS" (declared
+          at line 829)
+
+  #define UNUSED(x) ((void)(x))
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_def.h",87  Warning[Pe047]: 
+          incompatible redefinition of macro "UNUSED" (declared at line 101 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marl
+          in\macros.h")
+
+  		volatile volatile float desireBedTempBak;
+  		         ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Inc\mks_cfg.h",407  Warning[Pe083]: 
+          type qualifier specified more than once
+
+  #define strcpy_P(dest, src) strcpy((dest), (src))
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\arduino\stm32\cores\arduino\avr\pgmspace.h",23  Warning[Pe047]: 
+          incompatible redefinition of macro "strcpy_P" (declared at line 93
+          of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marl
+          in\Marlin_export.h")
+
+  #define strstr_P(a, b) strstr((a), (b))
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\arduino\stm32\cores\arduino\avr\pgmspace.h",26  Warning[Pe047]: 
+          incompatible redefinition of macro "strstr_P" (declared at line 94
+          of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marl
+          in\Marlin_export.h")
+
+  #define sprintf_P(s, f, ...) sprintf((s), (f), __VA_ARGS__)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\arduino\stm32\cores\arduino\avr\pgmspace.h",28  Warning[Pe047]: 
+          incompatible redefinition of macro "sprintf_P" (declared at line 95
+          of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marl
+          in\Marlin_export.h")
+
+  #define pgm_read_word_near(addr) pgm_read_word(addr)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\arduino\stm32\cores\arduino\avr\pgmspace.h",38  Warning[Pe047]: 
+          incompatible redefinition of macro "pgm_read_word_near" (declared at
+          line 65 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marl
+          in\Marlin_export.h")
+
+  #define IS_IWDG_PRESCALER(PRESCALER) (((PRESCALER) == IWDG_Prescaler_4)  || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_iwdg.h",80  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_IWDG_PRESCALER" (declared at
+          line 209 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_iwdg.h")
+
+  #define IS_IWDG_RELOAD(RELOAD) ((RELOAD) <= 0xFFF)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_iwdg.h",97  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_IWDG_RELOAD" (declared at
+          line 222 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_iwdg.h")
+
+  #define IS_FSMC_NORSRAM_BANK(BANK) (((BANK) == FSMC_Bank1_NORSRAM1) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",272  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_NORSRAM_BANK" (declared
+          at line 834 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_NAND_BANK(BANK) (((BANK) == FSMC_Bank2_NAND) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",277  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_NAND_BANK" (declared at
+          line 855 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_MUX(MUX) (((MUX) == FSMC_DataAddressMux_Disable) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",298  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_MUX" (declared at line
+          839 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_MEMORY(MEMORY) (((MEMORY) == FSMC_MemoryType_SRAM) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",311  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_MEMORY" (declared at
+          line 842 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_BURSTMODE(STATE) (((STATE) == FSMC_BurstAccessMode_Disable) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",336  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_BURSTMODE" (declared at
+          line 894 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_ASYNWAIT(STATE) (((STATE) == FSMC_AsynchronousWait_Disable) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",347  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_ASYNWAIT" (declared at
+          line 915 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_WAIT_POLARITY(POLARITY) (((POLARITY) == FSMC_WaitSignalPolarity_Low) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",358  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_WAIT_POLARITY" (declared
+          at line 897 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_WRAP_MODE(MODE) (((MODE) == FSMC_WrapMode_Disable) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",369  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_WRAP_MODE" (declared at
+          line 900 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_WAIT_SIGNAL_ACTIVE(ACTIVE) (((ACTIVE) == FSMC_WaitSignalActive_BeforeWaitState) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",380  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_WAIT_SIGNAL_ACTIVE"
+          (declared at line 903 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_WRITE_OPERATION(OPERATION) (((OPERATION) == FSMC_WriteOperation_Disable) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",391  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_WRITE_OPERATION"
+          (declared at line 906 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_WAITE_SIGNAL(SIGNAL) (((SIGNAL) == FSMC_WaitSignal_Disable) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",402  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_WAITE_SIGNAL" (declared
+          at line 909 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_EXTENDED_MODE(MODE) (((MODE) == FSMC_ExtendedMode_Disable) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",414  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_EXTENDED_MODE" (declared
+          at line 912 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_WRITE_BURST(BURST) (((BURST) == FSMC_WriteBurst_Disable) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",426  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_WRITE_BURST" (declared
+          at line 920 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_ADDRESS_SETUP_TIME(TIME) ((TIME) <= 0xF)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",435  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_ADDRESS_SETUP_TIME"
+          (declared at line 923 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_ADDRESS_HOLD_TIME(TIME) ((TIME) <= 0xF)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",443  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_ADDRESS_HOLD_TIME"
+          (declared at line 925 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_DATASETUP_TIME(TIME) (((TIME) > 0) && ((TIME) <= 0xFF))
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",451  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_DATASETUP_TIME"
+          (declared at line 927 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_TURNAROUND_TIME(TIME) ((TIME) <= 0xF)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",459  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_TURNAROUND_TIME"
+          (declared at line 929 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_CLK_DIV(DIV) ((DIV) <= 0xF)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",467  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_CLK_DIV" (declared at
+          line 934 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_DATA_LATENCY(LATENCY) ((LATENCY) <= 0xF)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",475  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_DATA_LATENCY" (declared
+          at line 918 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_ACCESS_MODE(MODE) (((MODE) == FSMC_AccessMode_A) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",487  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_ACCESS_MODE" (declared
+          at line 850 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_WAIT_FEATURE(FEATURE) (((FEATURE) == FSMC_Waitfeature_Disable) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",508  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_WAIT_FEATURE" (declared
+          at line 858 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_ECC_STATE(STATE) (((STATE) == FSMC_ECC_Disable) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",520  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_ECC_STATE" (declared at
+          line 864 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_ECCPAGE_SIZE(SIZE) (((SIZE) == FSMC_ECCPageSize_256Bytes) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",535  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_ECCPAGE_SIZE" (declared
+          at line 867 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_TCLR_TIME(TIME) ((TIME) <= 0xFF)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",548  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_TCLR_TIME" (declared at
+          line 874 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_TAR_TIME(TIME) ((TIME) <= 0xFF)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",556  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_TAR_TIME" (declared at
+          line 876 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_SETUP_TIME(TIME) ((TIME) <= 0xFF)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",564  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_SETUP_TIME" (declared at
+          line 878 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_WAIT_TIME(TIME) ((TIME) <= 0xFF)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",572  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_WAIT_TIME" (declared at
+          line 880 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_HOLD_TIME(TIME) ((TIME) <= 0xFF)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",580  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_HOLD_TIME" (declared at
+          line 882 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_HIZ_TIME(TIME) ((TIME) <= 0xFF)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",588  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_HIZ_TIME" (declared at
+          line 884 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define FSMC_FLAG_FEMPT                          ((uint32_t)0x00000040)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",613  Warning[Pe047]: 
+          incompatible redefinition of macro "FSMC_FLAG_FEMPT" (declared at
+          line 530 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+    #define assert_param(expr) ((void)0)        
+            ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\stm32f4xx_conf.h",149  Warning[Pe047]: 
+          incompatible redefinition of macro "assert_param" (declared at line
+          431 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Inc\stm32f4xx_hal_c
+          onf.h")
+     45          
+     46          #if ENABLED(DAC_STEPPER_CURRENT)
+     47          
+     48            #include "stepper_dac.h"
+     49          
+     50            bool dac_present = false;
+     51            const uint8_t dac_order[NUM_AXIS] = DAC_STEPPER_ORDER;
+     52            uint8_t dac_channel_pct[XYZE] = DAC_MOTOR_CURRENT_DEFAULT;
+     53          
+     54            int dac_init() {
+     55              #if PIN_EXISTS(DAC_DISABLE)
+     56                OUT_WRITE(DAC_DISABLE_PIN, LOW);  // set pin low to enable DAC
+     57              #endif
+     58          
+     59              mcp4728_init();
+     60          
+     61              if (mcp4728_simpleCommand(RESET)) return -1;
+     62          
+     63              dac_present = true;
+     64          
+     65              mcp4728_setVref_all(DAC_STEPPER_VREF);
+     66              mcp4728_setGain_all(DAC_STEPPER_GAIN);
+     67          
+     68              if (mcp4728_getDrvPct(0) < 1 || mcp4728_getDrvPct(1) < 1 || mcp4728_getDrvPct(2) < 1 || mcp4728_getDrvPct(3) < 1 ) {
+     69                mcp4728_setDrvPct(dac_channel_pct);
+     70                mcp4728_eepromWrite();
+     71              }
+     72          
+     73              return 0;
+     74            }
+     75          
+     76            void dac_current_percent(uint8_t channel, float val) {
+     77              if (!dac_present) return;
+     78          
+     79              NOMORE(val, 100);
+     80          
+     81              mcp4728_analogWrite(dac_order[channel], val * 0.01 * (DAC_STEPPER_MAX));
+     82              mcp4728_simpleCommand(UPDATE);
+     83            }
+     84          
+     85            void dac_current_raw(uint8_t channel, uint16_t val) {
+     86              if (!dac_present) return;
+     87          
+     88              NOMORE(val, DAC_STEPPER_MAX);
+     89          
+     90              mcp4728_analogWrite(dac_order[channel], val);
+     91              mcp4728_simpleCommand(UPDATE);
+     92            }
+     93          
+     94            static float dac_perc(int8_t n) { return 100.0 * mcp4728_getValue(dac_order[n]) * (1.0 / (DAC_STEPPER_MAX)); }
+     95            static float dac_amps(int8_t n) { return mcp4728_getDrvPct(dac_order[n]) * (DAC_STEPPER_MAX) * 0.125 * (1.0 / (DAC_STEPPER_SENSE)); }
+     96          
+     97            uint8_t dac_current_get_percent(const AxisEnum axis) { return mcp4728_getDrvPct(dac_order[axis]); }
+     98            void dac_current_set_percents(const uint8_t pct[XYZE]) {
+     99              LOOP_XYZE(i) dac_channel_pct[i] = pct[dac_order[i]];
+    100              mcp4728_setDrvPct(dac_channel_pct);
+    101            }
+    102          
+    103            void dac_print_values() {
+    104              if (!dac_present) return;
+    105          
+    106              SERIAL_ECHO_START();
+    107              SERIAL_ECHOLNPGM("Stepper current values in % (Amps):");
+    108              SERIAL_ECHO_START();
+    109              SERIAL_ECHOPAIR(" X:",  dac_perc(X_AXIS));
+    110              SERIAL_ECHOPAIR(" (",   dac_amps(X_AXIS));
+    111              SERIAL_ECHOPAIR(") Y:", dac_perc(Y_AXIS));
+    112              SERIAL_ECHOPAIR(" (",   dac_amps(Y_AXIS));
+    113              SERIAL_ECHOPAIR(") Z:", dac_perc(Z_AXIS));
+    114              SERIAL_ECHOPAIR(" (",   dac_amps(Z_AXIS));
+    115              SERIAL_ECHOPAIR(") E:", dac_perc(E_AXIS));
+    116              SERIAL_ECHOPAIR(" (",   dac_amps(E_AXIS));
+    117              SERIAL_ECHOLN(")");
+    118            }
+    119          
+    120            void dac_commit_eeprom() {
+    121              if (!dac_present) return;
+    122              mcp4728_eepromWrite();
+    123            }
+    124          
+    125          #endif // DAC_STEPPER_CURRENT
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       1  -- Other
+
+ 
+ 1 byte in section .rodata
+ 
+ 0 bytes of CONST memory (+ 1 byte shared)
+
+Errors: none
+Warnings: 41

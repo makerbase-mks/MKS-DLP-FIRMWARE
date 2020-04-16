@@ -1,0 +1,2989 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.10.1.6676/W32 for ARM        16/Apr/2020  18:38:59
+# Copyright 1999-2014 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Src\main.cpp
+#    Command line =  
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Src\main.cpp -D USE_HAL_DRIVER
+#        -D STM32F407xx -D STM32F40_41xxx -D USE_HAL_LIB -D MKS_DLP_BOARD -D
+#        TFT35 -D USE_STM32F407VET -lC
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM\mksDLP/List\ -lA
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM\mksDLP/List\
+#        --diag_suppress Pa050 -o
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM\mksDLP/Obj\ --no_unroll
+#        --no_inline --no_tbaa --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M4F -e --char_is_signed --fpu=VFPv4_sp --dlib_config
+#        "D:\Program Files (x86)\IAR Systems\Embedded Workbench
+#        7.0\arm\INC\c\DLib_Config_Full.h" -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Inc\ -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Src\ -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Drivers/STM32F4xx_HAL_Driver/Inc\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Middlewares/Third_Party/FatFs/src/drivers\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Middlewares/ST/STM32_USB_Host_Library/Core/Inc\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Inc\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Drivers/CMSIS/Device/ST/STM32F4xx/Include\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Middlewares/Third_Party/FatFs/src\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Middlewares/Third_Party/Marlin\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Drivers/CMSIS/Include\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Drivers/BSP/variant\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Drivers/BSP/Components/at24cxx\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Drivers/BSP/Components/w25qxx\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Drivers/BSP/Components/ssd2828\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Drivers/BSP/Components/lcd\
+#        -I D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Drivers/libstmf4\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Drivers/libstmf4/include\
+#        -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Middlewares/arduino/stm32/cores/arduino\
+#        -I D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../User/ui\ -I
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../User/ui/Multi_language\
+#        -I D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../User/ui/QRENCODE\
+#        -I D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Middlewares/GUI\
+#        -Om --eec++ -I "D:\Program Files (x86)\IAR Systems\Embedded Workbench
+#        7.0\arm\CMSIS\Include\"
+#    List file    =  
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM\mksDLP/List\main.lst
+#    Object file  =  
+#        D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM\mksDLP/Obj\main.o
+#
+###############################################################################
+
+D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Src\main.cpp
+      1          /**
+      2            ******************************************************************************
+      3            * File Name          : main.c
+      4            * Description        : Main program body
+      5            ******************************************************************************
+      6            *
+      7            * COPYRIGHT(c) 2017 STMicroelectronics
+      8            *
+      9            * Redistribution and use in source and binary forms, with or without modification,
+     10            * are permitted provided that the following conditions are met:
+     11            *   1. Redistributions of source code must retain the above copyright notice,
+     12            *      this list of conditions and the following disclaimer.
+     13            *   2. Redistributions in binary form must reproduce the above copyright notice,
+     14            *      this list of conditions and the following disclaimer in the documentation
+     15            *      and/or other materials provided with the distribution.
+     16            *   3. Neither the name of STMicroelectronics nor the names of its contributors
+     17            *      may be used to endorse or promote products derived from this software
+     18            *      without specific prior written permission.
+     19            *
+     20            * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+     21            * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+     22            * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+     23            * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+     24            * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+     25            * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+     26            * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+     27            * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+     28            * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+     29            * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+     30            *
+     31            ******************************************************************************
+     32            */
+     33          /* Includes ------------------------------------------------------------------*/
+     34          //#include "Arduino.h"
+     35          
+     36          #include "main.h"
+     37          #include "stm32f4xx_hal.h"
+     38          #include "adc.h"
+     39          #include "dma.h"
+     40          #include "fatfs.h"
+     41          #include "i2c.h"
+     42          #include "rtc.h"
+     43          #include "sdio.h"
+     44          #include "spi.h"
+     45          #include "tim.h"
+     46          #include "usart.h"
+     47          #include "usb_host.h"
+     48          #include "gpio.h"
+     49          #include "fsmc.h"
+     50          #include "iwdg.h"
+     51          
+     52          /* USER CODE BEGIN Includes */
+     53          #include "Marlin.h"
+
+  #define UNUSED(x) (void) (x)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marlin\macros.h",101  Warning[Pe047]: 
+          incompatible redefinition of macro "UNUSED" (declared at line 87 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_def.h")
+
+    #define MIN_SOFTWARE_ENDSTOPS mksCfg.min_software_endstops	/*--mks cfg--*/
+            ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marlin\Configuration.h",824  Warning[Pe047]: 
+          incompatible redefinition of macro "MIN_SOFTWARE_ENDSTOPS" (declared
+          at line 819)
+
+    #define MAX_SOFTWARE_ENDSTOPS mksCfg.max_software_endstops	/*--mks cfg--*/
+            ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marlin\Configuration.h",834  Warning[Pe047]: 
+          incompatible redefinition of macro "MAX_SOFTWARE_ENDSTOPS" (declared
+          at line 829)
+
+  		volatile volatile float desireBedTempBak;
+  		         ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Inc\mks_cfg.h",407  Warning[Pe083]: 
+          type qualifier specified more than once
+
+  #define strcpy_P(dest, src) strcpy((dest), (src))
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\arduino\stm32\cores\arduino\avr\pgmspace.h",23  Warning[Pe047]: 
+          incompatible redefinition of macro "strcpy_P" (declared at line 93
+          of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marl
+          in\Marlin_export.h")
+
+  #define strstr_P(a, b) strstr((a), (b))
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\arduino\stm32\cores\arduino\avr\pgmspace.h",26  Warning[Pe047]: 
+          incompatible redefinition of macro "strstr_P" (declared at line 94
+          of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marl
+          in\Marlin_export.h")
+
+  #define sprintf_P(s, f, ...) sprintf((s), (f), __VA_ARGS__)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\arduino\stm32\cores\arduino\avr\pgmspace.h",28  Warning[Pe047]: 
+          incompatible redefinition of macro "sprintf_P" (declared at line 95
+          of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marl
+          in\Marlin_export.h")
+
+  #define pgm_read_word_near(addr) pgm_read_word(addr)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\arduino\stm32\cores\arduino\avr\pgmspace.h",38  Warning[Pe047]: 
+          incompatible redefinition of macro "pgm_read_word_near" (declared at
+          line 65 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marl
+          in\Marlin_export.h")
+
+  #define IS_IWDG_PRESCALER(PRESCALER) (((PRESCALER) == IWDG_Prescaler_4)  || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_iwdg.h",80  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_IWDG_PRESCALER" (declared at
+          line 209 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_iwdg.h")
+
+  #define IS_IWDG_RELOAD(RELOAD) ((RELOAD) <= 0xFFF)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_iwdg.h",97  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_IWDG_RELOAD" (declared at
+          line 222 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_iwdg.h")
+
+  #define IS_FSMC_NORSRAM_BANK(BANK) (((BANK) == FSMC_Bank1_NORSRAM1) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",272  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_NORSRAM_BANK" (declared
+          at line 834 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_NAND_BANK(BANK) (((BANK) == FSMC_Bank2_NAND) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",277  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_NAND_BANK" (declared at
+          line 855 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_MUX(MUX) (((MUX) == FSMC_DataAddressMux_Disable) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",298  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_MUX" (declared at line
+          839 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_MEMORY(MEMORY) (((MEMORY) == FSMC_MemoryType_SRAM) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",311  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_MEMORY" (declared at
+          line 842 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_BURSTMODE(STATE) (((STATE) == FSMC_BurstAccessMode_Disable) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",336  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_BURSTMODE" (declared at
+          line 894 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_ASYNWAIT(STATE) (((STATE) == FSMC_AsynchronousWait_Disable) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",347  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_ASYNWAIT" (declared at
+          line 915 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_WAIT_POLARITY(POLARITY) (((POLARITY) == FSMC_WaitSignalPolarity_Low) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",358  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_WAIT_POLARITY" (declared
+          at line 897 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_WRAP_MODE(MODE) (((MODE) == FSMC_WrapMode_Disable) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",369  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_WRAP_MODE" (declared at
+          line 900 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_WAIT_SIGNAL_ACTIVE(ACTIVE) (((ACTIVE) == FSMC_WaitSignalActive_BeforeWaitState) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",380  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_WAIT_SIGNAL_ACTIVE"
+          (declared at line 903 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_WRITE_OPERATION(OPERATION) (((OPERATION) == FSMC_WriteOperation_Disable) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",391  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_WRITE_OPERATION"
+          (declared at line 906 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_WAITE_SIGNAL(SIGNAL) (((SIGNAL) == FSMC_WaitSignal_Disable) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",402  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_WAITE_SIGNAL" (declared
+          at line 909 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_EXTENDED_MODE(MODE) (((MODE) == FSMC_ExtendedMode_Disable) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",414  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_EXTENDED_MODE" (declared
+          at line 912 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_WRITE_BURST(BURST) (((BURST) == FSMC_WriteBurst_Disable) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",426  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_WRITE_BURST" (declared
+          at line 920 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_ADDRESS_SETUP_TIME(TIME) ((TIME) <= 0xF)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",435  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_ADDRESS_SETUP_TIME"
+          (declared at line 923 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_ADDRESS_HOLD_TIME(TIME) ((TIME) <= 0xF)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",443  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_ADDRESS_HOLD_TIME"
+          (declared at line 925 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_DATASETUP_TIME(TIME) (((TIME) > 0) && ((TIME) <= 0xFF))
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",451  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_DATASETUP_TIME"
+          (declared at line 927 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_TURNAROUND_TIME(TIME) ((TIME) <= 0xF)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",459  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_TURNAROUND_TIME"
+          (declared at line 929 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_CLK_DIV(DIV) ((DIV) <= 0xF)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",467  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_CLK_DIV" (declared at
+          line 934 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_DATA_LATENCY(LATENCY) ((LATENCY) <= 0xF)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",475  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_DATA_LATENCY" (declared
+          at line 918 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_ACCESS_MODE(MODE) (((MODE) == FSMC_AccessMode_A) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",487  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_ACCESS_MODE" (declared
+          at line 850 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_WAIT_FEATURE(FEATURE) (((FEATURE) == FSMC_Waitfeature_Disable) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",508  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_WAIT_FEATURE" (declared
+          at line 858 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_ECC_STATE(STATE) (((STATE) == FSMC_ECC_Disable) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",520  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_ECC_STATE" (declared at
+          line 864 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_ECCPAGE_SIZE(SIZE) (((SIZE) == FSMC_ECCPageSize_256Bytes) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",535  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_ECCPAGE_SIZE" (declared
+          at line 867 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_TCLR_TIME(TIME) ((TIME) <= 0xFF)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",548  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_TCLR_TIME" (declared at
+          line 874 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_TAR_TIME(TIME) ((TIME) <= 0xFF)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",556  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_TAR_TIME" (declared at
+          line 876 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_SETUP_TIME(TIME) ((TIME) <= 0xFF)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",564  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_SETUP_TIME" (declared at
+          line 878 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_WAIT_TIME(TIME) ((TIME) <= 0xFF)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",572  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_WAIT_TIME" (declared at
+          line 880 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_HOLD_TIME(TIME) ((TIME) <= 0xFF)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",580  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_HOLD_TIME" (declared at
+          line 882 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define IS_FSMC_HIZ_TIME(TIME) ((TIME) <= 0xFF)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",588  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_FSMC_HIZ_TIME" (declared at
+          line 884 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+  #define FSMC_FLAG_FEMPT                          ((uint32_t)0x00000040)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_fsmc.h",613  Warning[Pe047]: 
+          incompatible redefinition of macro "FSMC_FLAG_FEMPT" (declared at
+          line 530 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_ll_fsmc.h")
+
+    #define assert_param(expr) ((void)0)        
+            ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\stm32f4xx_conf.h",149  Warning[Pe047]: 
+          incompatible redefinition of macro "assert_param" (declared at line
+          431 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Inc\stm32f4xx_hal_conf.h")
+
+   \                                 In section .text, align 4
+   \   __interwork __softfp void serialprintPGM(char const *)
+   \                     _Z14serialprintPGMPKc: (+1)
+   \   00000000   0xB510             PUSH     {R4,LR}
+   \   00000002   0x4604             MOV      R4,R0
+   \   00000004   0xE003             B.N      ??serialprintPGM_0
+   \                     ??serialprintPGM_1: (+1)
+   \   00000006   0xB2C9             UXTB     R1,R1
+   \   00000008   0x4803             LDR.N    R0,??serialprintPGM_2
+   \   0000000A   0x.... 0x....      BL       _ZN10USARTClass5writeEh
+   \                     ??serialprintPGM_0: (+1)
+   \   0000000E   0xF914 0x1B01      LDRSB    R1,[R4], #+1
+   \   00000012   0x0008             MOVS     R0,R1
+   \   00000014   0xD1F7             BNE.N    ??serialprintPGM_1
+   \   00000016   0xBD10             POP      {R4,PC}          ;; return
+   \                     ??serialprintPGM_2:
+   \   00000018   0x........         DC32     Serial6
+     54          #include "Marlin_export.h"
+     55          #include "mks_test.h"
+
+  #define IS_SPI_MODE(MODE) (((MODE) == SPI_Mode_Master) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_spi.h",173  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_SPI_MODE" (declared at line
+          511 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_spi.h")
+
+  #define IS_SPI_DATASIZE(DATASIZE) (((DATASIZE) == SPI_DataSize_16b) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_spi.h",185  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_SPI_DATASIZE" (declared at
+          line 523 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_spi.h")
+
+  #define IS_SPI_CPOL(CPOL) (((CPOL) == SPI_CPOL_Low) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_spi.h",197  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_SPI_CPOL" (declared at line
+          526 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_spi.h")
+
+  #define IS_SPI_CPHA(CPHA) (((CPHA) == SPI_CPHA_1Edge) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_spi.h",209  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_SPI_CPHA" (declared at line
+          529 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_spi.h")
+
+  #define IS_SPI_NSS(NSS) (((NSS) == SPI_NSS_Soft) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_spi.h",221  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_SPI_NSS" (declared at line
+          532 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_spi.h")
+
+  #define IS_SPI_BAUDRATE_PRESCALER(PRESCALER) (((PRESCALER) == SPI_BaudRatePrescaler_2) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_spi.h",239  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_SPI_BAUDRATE_PRESCALER"
+          (declared at line 536 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_spi.h")
+
+  #define IS_SPI_FIRST_BIT(BIT) (((BIT) == SPI_FirstBit_MSB) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_spi.h",257  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_SPI_FIRST_BIT" (declared at
+          line 545 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_spi.h")
+
+  #define IS_SPI_DIRECTION(DIRECTION) (((DIRECTION) == SPI_Direction_Rx) || \
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_spi.h",400  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_SPI_DIRECTION" (declared at
+          line 514 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_spi.h")
+
+  #define SPI_FLAG_CRCERR                 ((uint16_t)0x0010)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_spi.h",442  Warning[Pe047]: 
+          incompatible redefinition of macro "SPI_FLAG_CRCERR" (declared at
+          line 293 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_spi.h")
+
+  #define SPI_FLAG_MODF                   ((uint16_t)0x0020)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_spi.h",443  Warning[Pe047]: 
+          incompatible redefinition of macro "SPI_FLAG_MODF" (declared at line
+          294 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_spi.h")
+
+  #define IS_SPI_CRC_POLYNOMIAL(POLYNOMIAL) ((POLYNOMIAL) >= 0x1)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_spi.h",462  Warning[Pe047]: 
+          incompatible redefinition of macro "IS_SPI_CRC_POLYNOMIAL" (declared
+          at line 554 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_spi.h")
+
+  #define SPI_IT_TXE                   SPI_I2S_IT_TXE
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_spi.h",473  Warning[Pe047]: 
+          incompatible redefinition of macro "SPI_IT_TXE" (declared at line
+          280 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_spi.h")
+
+  #define SPI_IT_RXNE                  SPI_I2S_IT_RXNE
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_spi.h",474  Warning[Pe047]: 
+          incompatible redefinition of macro "SPI_IT_RXNE" (declared at line
+          281 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_spi.h")
+
+  #define SPI_IT_ERR                   SPI_I2S_IT_ERR
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_spi.h",475  Warning[Pe047]: 
+          incompatible redefinition of macro "SPI_IT_ERR" (declared at line
+          282 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_spi.h")
+
+  #define SPI_FLAG_RXNE                SPI_I2S_FLAG_RXNE
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_spi.h",477  Warning[Pe047]: 
+          incompatible redefinition of macro "SPI_FLAG_RXNE" (declared at line
+          290 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_spi.h")
+
+  #define SPI_FLAG_TXE                 SPI_I2S_FLAG_TXE
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_spi.h",478  Warning[Pe047]: 
+          incompatible redefinition of macro "SPI_FLAG_TXE" (declared at line
+          291 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_spi.h")
+
+  #define SPI_FLAG_OVR                 SPI_I2S_FLAG_OVR
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_spi.h",479  Warning[Pe047]: 
+          incompatible redefinition of macro "SPI_FLAG_OVR" (declared at line
+          295 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_spi.h")
+
+  #define SPI_FLAG_BSY                 SPI_I2S_FLAG_BSY
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\libstmf4\include\stm32f4xx_spi.h",480  Warning[Pe047]: 
+          incompatible redefinition of macro "SPI_FLAG_BSY" (declared at line
+          292 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Drivers\STM32F4xx_HAL_Driver
+          \Inc\stm32f4xx_hal_spi.h")
+     56          #include "mks_reprint.h"
+
+  #define SD_DETECT_INVERTED false
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marlin\cardreader.h",27  Warning[Pe047]: 
+          incompatible redefinition of macro "SD_DETECT_INVERTED" (declared at
+          line 512 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marl
+          in\Configuration_adv.h")
+
+  #define PSTR(s) s
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marlin\cardreader.h",31  Warning[Pe047]: 
+          incompatible redefinition of macro "PSTR" (declared at line 63 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\EWARM/../Middlewares/Third_P
+          arty/Marlin\Marlin.h")
+
+  #define pgm_read_byte(x) (*(char*)x)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marlin\cardreader.h",32  Warning[Pe047]: 
+          incompatible redefinition of macro "pgm_read_byte" (declared at line
+          64 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marl
+          in\Marlin_export.h")
+
+      static constexpr int8_t next_block_index(const int8_t block_index) { return BLOCK_MOD(block_index + 1); }
+             ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marlin\planner.h",582  Warning[Pe815]: 
+          type qualifier on return type is meaningless
+
+      static constexpr int8_t prev_block_index(const int8_t block_index) { return BLOCK_MOD(block_index - 1); }
+             ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marlin\planner.h",583  Warning[Pe815]: 
+          type qualifier on return type is meaningless
+
+        target_temperature[HOTEND_INDEX] = celsius;
+                                         ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marlin\temperature.h",397  Warning[Pa093]: 
+          implicit conversion from floating point to integer
+
+  #define LONG_FILENAME_LENGTH (13*MAX_VFAT_ENTRIES+1)
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marlin\cardreader.h",61  Warning[Pe047]: 
+          incompatible redefinition of macro "LONG_FILENAME_LENGTH" (declared
+          at line 119 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marl
+          in\SdFatConfig.h")
+
+  #define ALLOW_DEPRECATED_FUNCTIONS 0
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marlin\SdFat.h",635  Warning[Pe047]: 
+          incompatible redefinition of macro "ALLOW_DEPRECATED_FUNCTIONS"
+          (declared at line 67 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marl
+          in\SdFatConfig.h")
+
+  #define SPI_SD_INIT_RATE 11
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marlin\SdFat.h",647  Warning[Pe047]: 
+          incompatible redefinition of macro "SPI_SD_INIT_RATE" (declared at
+          line 79 of
+          "D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Middlewares\Third_Party\Marl
+          in\SdFatConfig.h")
+     57              
+     58          #include "spi_flash.h"
+     59          #include "cardreader.h"
+     60          //#ifdef USE_MKS_WIFI
+     61          #include "wifi_module.h"
+     62          //#endif    
+     63          #include "serial.h"  
+     64          
+     65          #include "gui.h"
+     66          
+     67          #include "ili9320.h"
+     68          #include "draw_ui.h"
+
+    #define FILAMENT_CHANGE_TEXT_EN				"Please click <Load> \nor <unload>,After \npinter pause."
+            ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\Multi_language\Language_en.h",175  Warning[Pe047]: 
+          incompatible redefinition of macro "FILAMENT_CHANGE_TEXT_EN"
+          (declared at line 153)
+
+  #define DIALOG_UNBIND_PRINTER_CN            "解除绑定?"
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\Multi_language\Language_s_cn.h",258  Warning[Pe047]: 
+          incompatible redefinition of macro "DIALOG_UNBIND_PRINTER_CN"
+          (declared at line 253)
+
+    #define FILAMENT_CHANGE_TEXT_T_CN				"待打印機暫停后,\n請按<進料>或<退料>"
+            ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\Multi_language\Language_t_cn.h",167  Warning[Pe047]: 
+          incompatible redefinition of macro "FILAMENT_CHANGE_TEXT_T_CN"
+          (declared at line 153)
+
+    #define FILAMENT_CHANGE_TEXT_RU				"Please click <Load> \nor <unload>,After \npinter pause."
+            ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\Multi_language\Language_ru.h",173  Warning[Pe047]: 
+          incompatible redefinition of macro "FILAMENT_CHANGE_TEXT_RU"
+          (declared at line 153)
+
+  #define DIALOG_UNBIND_PRINTER_RU            "Unbind the printer?"
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\Multi_language\Language_ru.h",270  Warning[Pe047]: 
+          incompatible redefinition of macro "DIALOG_UNBIND_PRINTER_RU"
+          (declared at line 265)
+
+    #define FILAMENT_CHANGE_TEXT_FR				"Please click <Load> \nor <unload>,After \npinter pause."
+            ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\Multi_language\Language_fr.h",173  Warning[Pe047]: 
+          incompatible redefinition of macro "FILAMENT_CHANGE_TEXT_FR"
+          (declared at line 153)
+
+  #define DIALOG_UNBIND_PRINTER_FR        "Unbind the printer?"
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\Multi_language\Language_fr.h",273  Warning[Pe047]: 
+          incompatible redefinition of macro "DIALOG_UNBIND_PRINTER_FR"
+          (declared at line 269)
+
+    #define FILAMENT_CHANGE_TEXT_SP				"Please click <Load> \nor <unload>,After \npinter pause."
+            ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\Multi_language\Language_sp.h",173  Warning[Pe047]: 
+          incompatible redefinition of macro "FILAMENT_CHANGE_TEXT_SP"
+          (declared at line 154)
+
+    #define FILAMENT_CHANGE_TEXT_IT				"Please click <Load> \nor <unload>,After \npinter pause."
+            ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\Multi_language\Language_it.h",173  Warning[Pe047]: 
+          incompatible redefinition of macro "FILAMENT_CHANGE_TEXT_IT"
+          (declared at line 153)
+
+  #define DIALOG_UNBIND_PRINTER_IT                "Unbind the printer?"
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\Multi_language\Language_it.h",269  Warning[Pe047]: 
+          incompatible redefinition of macro "DIALOG_UNBIND_PRINTER_IT"
+          (declared at line 264)
+
+  #define FILAMENT_CHANGE_TEXT_JP				"Please click <Load> \nor <unload>,After \npinter pause."
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\Multi_language\Multi_language.h",705  Warning[Pe047]: 
+          incompatible redefinition of macro "FILAMENT_CHANGE_TEXT_JP"
+          (declared at line 698)
+
+  #define FILAMENT_CHANGE_TEXT_GN				"Please click <Load> \nor <unload>,After \npinter pause."
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\Multi_language\Multi_language.h",913  Warning[Pe047]: 
+          incompatible redefinition of macro "FILAMENT_CHANGE_TEXT_GN"
+          (declared at line 907)
+
+  #define Simple_Dec"����"
+                    ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\draw_ui.h",499  Warning[Pe1649]: 
+          white space is required between the macro name "Simple_Dec" and its
+          replacement text
+
+  #define Simple_Speed "�ٶ�"
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\draw_ui.h",554  Warning[Pe047]: 
+          incompatible redefinition of macro "Simple_Speed" (declared at line
+          551)
+
+  #define Complex_Speed "�ٶ�"
+          ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\User\ui\draw_ui.h",555  Warning[Pe047]: 
+          incompatible redefinition of macro "Complex_Speed" (declared at line
+          552)
+     69          #include "draw_ready_print.h"
+     70          #include "draw_printing.h"
+     71          #include "mks_dlp_main.h"
+     72          #include "mks_fastio.h"
+     73          /* USER CODE END Includes */
+     74          /* Private variables ---------------------------------------------------------*/
+     75          /* USER CODE BEGIN PV */
+     76          /* Private variables ---------------------------------------------------------*/
+     77          void testAllStepAndMosFET();
+     78          /* USER CODE END PV */
+     79          
+     80          /* Private function prototypes -----------------------------------------------*/
+     81          void SystemClock_Config(void);
+     82          void Error_Handler(void);
+     83          static void MX_NVIC_Init(void);
+     84          void MX_USB_HOST_Process(void);
+     85          
+     86          /* USER CODE BEGIN PFP */
+     87          /* Private function prototypes -----------------------------------------------*/
+     88          
+     89          /* USER CODE END PFP */
+     90          /* USER CODE BEGIN 0 */
+     91          /* USER CODE END 0 */
+     92          extern "C" u16 DeviceCode;
+     93          
+
+   \                                 In section .bss, align 4
+     94          uint32_t logo_tick1,logo_tick2;
+   \                     logo_tick1:
+   \   00000000                      DS8 4
+
+   \                                 In section .bss, align 4
+   \                     logo_tick2:
+   \   00000000                      DS8 4
+     95          
+     96          extern "C"void setTouchBound(int x0, int x1, int y0, int y1 );
+     97          
+     98           
+
+   \                                 In section .text, align 4, keep-with-next
+     99          int main(void)
+    100          {
+   \                     main: (+1)
+   \   00000000   0xE92D 0x41F0      PUSH     {R4-R8,LR}
+    101            
+    102            /* USER CODE BEGIN 1 */
+    103                  //??????
+    104                  //SCB->VTOR = FLASH_BASE | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal FLASH */
+    105                  //SCB->VTOR = 0x08000000 | (0xC000 & (uint32_t)0x1FFFFF80);  /* Vector Table Relocation in Internal FLASH */
+    106                                                                  //?bootloader?,???0x10000, Options ->Linker ->Edit...-> 0x08010000
+    107                                                                  //?bootloader?,???0x0000, Options ->Linker ->Edit...-> 0x08000000 
+    108                                                                  //??????:?BootLoader??????,ROM????? 0x08010000, Options ->Linker ->Edit...-> Memony Regions ->Rom ->0x08010000
+    109            /* USER CODE END 1 */
+    110          
+    111            /* MCU Configuration----------------------------------------------------------*/
+    112          
+    113            /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+    114            HAL_Init();
+   \   00000004   0x.... 0x....      BL       HAL_Init
+    115          
+    116            /* Configure the system clock */
+    117            SystemClock_Config();
+   \   00000008   0x.... 0x....      BL       _Z18SystemClock_Configv
+    118            //NVIC_SetVectorTable(NVIC_VectTab_FLASH, 0x0000);
+    119            NVIC_SetVectorTable(NVIC_VectTab_FLASH, 0x10000);
+   \   0000000C   0xF44F 0x3180      MOV      R1,#+65536
+   \   00000010   0xF04F 0x6000      MOV      R0,#+134217728
+   \   00000014   0x.... 0x....      BL       NVIC_SetVectorTable
+    120          
+    121            /* Initialize all configured peripherals */
+    122            MX_GPIO_Init(); 
+   \   00000018   0x.... 0x....      BL       MX_GPIO_Init
+    123            MX_DMA_Init();
+   \   0000001C   0x.... 0x....      BL       MX_DMA_Init
+    124           // MX_FSMC_Init();
+    125            MX_FATFS_Init();
+   \   00000020   0x.... 0x....      BL       MX_FATFS_Init
+    126            MX_RTC_Init();
+   \   00000024   0x.... 0x....      BL       MX_RTC_Init
+    127            MX_I2C1_Init();
+   \   00000028   0x.... 0x....      BL       MX_I2C1_Init
+    128            MX_SDIO_SD_Init();
+   \   0000002C   0x.... 0x....      BL       MX_SDIO_SD_Init
+    129            MX_SPI2_Init();
+   \   00000030   0x.... 0x....      BL       MX_SPI2_Init
+    130            MX_TIM2_Init();
+   \   00000034   0x.... 0x....      BL       MX_TIM2_Init
+    131            MX_TIM3_Init();
+   \   00000038   0x.... 0x....      BL       MX_TIM3_Init
+    132            MX_TIM5_Init();
+   \   0000003C   0x.... 0x....      BL       MX_TIM5_Init
+    133            //MX_ADC1_Init();
+    134            MX_USART6_UART_Init();
+   \   00000040   0x.... 0x....      BL       MX_USART6_UART_Init
+    135          
+    136            MX_USB_HOST_Init();
+   \   00000044   0x.... 0x....      BL       MX_USB_HOST_Init
+    137            //MX_DAC_Init();
+    138            //MX_SPI3_Init();
+    139            MX_SPI1_Init();
+   \   00000048   0x.... 0x....      BL       MX_SPI1_Init
+    140            //MX_IWDG_Init();     //??
+    141            /* Initialize interrupts */
+    142            MX_NVIC_Init();
+   \   0000004C   0x.... 0x....      BL       _Z12MX_NVIC_Initv
+    143          
+    144            /* USER CODE BEGIN 2 */
+    145          	VUSB_ENA_OP = 1;
+   \   00000050   0x2001             MOVS     R0,#+1
+   \   00000052   0x.... 0x....      LDR.W    R1,??DataTable8  ;; 0x4241828c
+   \   00000056   0x6008             STR      R0,[R1, #+0]
+    146            
+    147              MYSERIAL.begin(BAUDRATE);
+   \   00000058   0x.... 0x....      LDR.W    R4,??DataTable8_1
+   \   0000005C   0xF44F 0x31E1      MOV      R1,#+115200
+   \   00000060   0x4620             MOV      R0,R4
+   \   00000062   0x.... 0x....      BL       _ZN10USARTClass5beginEj
+    148              SERIAL_PROTOCOLLNPGM("mksDLP start");
+   \   00000066   0x.... 0x....      ADR.W    R0,`?<Constant "mksDLP start\\n">`
+   \   0000006A   0x.... 0x....      BL       _Z14serialprintPGMPKc
+    149              SERIAL_PROTOCOLPAIR("EPR_END_ADDR:",EPR_END_ADDR);
+   \   0000006E   0xF44F 0x61CD      MOV      R1,#+1640
+   \   00000072   0x.... 0x....      ADR.W    R0,`?<Constant "EPR_END_ADDR:">`
+   \   00000076   0x.... 0x....      BL       _Z17serial_echopair_PPKci
+    150              SERIAL_EOL();
+   \   0000007A   0x210A             MOVS     R1,#+10
+   \   0000007C   0x4620             MOV      R0,R4
+   \   0000007E   0x.... 0x....      BL       _ZN10USARTClass5writeEh
+    151              SERIAL_ECHO_START();
+   \   00000082   0x.... 0x....      LDR.W    R0,??DataTable8_2
+   \   00000086   0x.... 0x....      BL       _Z14serialprintPGMPKc
+    152          	
+    153          
+    154             
+    155              
+    156          #ifdef USE_MKS_WIFI  
+    157          	WIFISERIAL.begin(115200);
+    158                  
+    159          #endif
+    160          
+    161          	//??SPI??
+    162            	SPI_Cmd(SPI2, ENABLE); 
+   \   0000008A   0x2101             MOVS     R1,#+1
+   \   0000008C   0x.... 0x....      LDR.W    R0,??DataTable8_3  ;; 0x40003800
+   \   00000090   0x.... 0x....      BL       SPI_Cmd
+    163             	SPI_Cmd(SPI1, ENABLE); 
+   \   00000094   0x2101             MOVS     R1,#+1
+   \   00000096   0x.... 0x....      LDR.W    R0,??DataTable8_4  ;; 0x40013000
+   \   0000009A   0x.... 0x....      BL       SPI_Cmd
+    164          
+    165            GUI_Init();
+   \   0000009E   0x.... 0x....      BL       GUI_Init
+    166            
+    167            DRAW_LOGO();
+   \   000000A2   0x.... 0x....      BL       DRAW_LOGO
+    168            Lcd_Light_ON; 
+   \   000000A6   0x2001             MOVS     R0,#+1
+   \   000000A8   0x.... 0x....      LDR.W    R1,??DataTable8_5  ;; 0x424082b0
+   \   000000AC   0x6008             STR      R0,[R1, #+0]
+    169            logo_tick1 = getTick();
+   \   000000AE   0x.... 0x....      BL       getTick
+   \   000000B2   0x.... 0x....      LDR.W    R1,??DataTable8_6
+   \   000000B6   0x6008             STR      R0,[R1, #+0]
+    170            gui_view_init();
+   \   000000B8   0x.... 0x....      BL       gui_view_init
+    171          
+    172            /*---------test begin-----------*/
+    173           //LCD_Init();
+    174           //mksEeprom_test();
+    175           //mksSSD2828Test();
+    176          // mksW25Q64Test();
+    177           //mksSdCardTest();
+    178           //mksUSBTest();
+    179              /*---------test end-------------*/
+    180          	//??PWM
+    181          	HAL_TIM_PWM_Start(&htim5, TIM_CHANNEL_1);
+   \   000000BC   0x2100             MOVS     R1,#+0
+   \   000000BE   0x.... 0x....      LDR.W    R0,??DataTable8_7
+   \   000000C2   0x.... 0x....      BL       HAL_TIM_PWM_Start
+    182          	TIM5->CCR1 = 0;
+   \   000000C6   0x2000             MOVS     R0,#+0
+   \   000000C8   0x.... 0x....      LDR.W    R1,??DataTable8_8  ;; 0x40000c34
+   \   000000CC   0x6008             STR      R0,[R1, #+0]
+    183          	
+    184              //??TIMER
+    185              HAL_TIM_Base_Start_IT(&htim2);
+   \   000000CE   0x.... 0x....      LDR.W    R0,??DataTable8_9
+   \   000000D2   0x.... 0x....      BL       HAL_TIM_Base_Start_IT
+    186            	HAL_TIM_Base_Start_IT(&htim3);
+   \   000000D6   0x.... 0x....      LDR.W    R0,??DataTable8_10
+   \   000000DA   0x.... 0x....      BL       HAL_TIM_Base_Start_IT
+    187           mkstft_ui_init();
+   \   000000DE   0x.... 0x....      BL       mkstft_ui_init
+    188          
+    189           mksTmp.cfg_hardware_test_enable = 0;
+   \   000000E2   0x.... 0x....      LDR.W    R4,??DataTable8_11
+   \   000000E6   0x2000             MOVS     R0,#+0
+   \   000000E8   0x74E0             STRB     R0,[R4, #+19]
+    190          
+    191            gCfgItems.fileSysType = FILE_SYS_USB;	//?U???????
+   \   000000EA   0x.... 0x....      LDR.W    R5,??DataTable8_12
+   \   000000EE   0xF105 0x06D8      ADD      R6,R5,#+216
+   \   000000F2   0x70B0             STRB     R0,[R6, #+2]
+    192            if(gCfgItems.fileSysType == FILE_SYS_USB)
+   \   000000F4   0xF996 0x0002      LDRSB    R0,[R6, #+2]
+   \   000000F8   0x2800             CMP      R0,#+0
+   \   000000FA   0xD125             BNE.N    ??main_1
+    193          	{
+    194          	if(Appli_state == APPLICATION_START)
+   \   000000FC   0x.... 0x....      LDR.W    R0,??DataTable8_13
+   \   00000100   0xF990 0x0000      LDRSB    R0,[R0, #+0]
+   \   00000104   0x2801             CMP      R0,#+1
+   \   00000106   0xD11F             BNE.N    ??main_1
+    195          		{
+    196          		for(int i=0;i<5000;i++)
+   \   00000108   0x2700             MOVS     R7,#+0
+   \   0000010A   0x.... 0x....      LDR.W    R8,??DataTable8_14
+   \   0000010E   0xE003             B.N      ??main_2
+    197          			{
+    198          	  		MX_USB_HOST_Process();
+    199          			card.checkFilesys(FILE_SYS_USB);
+    200          			if(card.usbOK) 
+    201          				break;
+    202          			HAL_Delay(1);			
+   \                     ??main_3: (+1)
+   \   00000110   0x2001             MOVS     R0,#+1
+   \   00000112   0x.... 0x....      BL       HAL_Delay
+   \   00000116   0x1C7F             ADDS     R7,R7,#+1
+   \                     ??main_2: (+1)
+   \   00000118   0xF241 0x3088      MOVW     R0,#+5000
+   \   0000011C   0x4287             CMP      R7,R0
+   \   0000011E   0xDA09             BGE.N    ??main_4
+   \   00000120   0x.... 0x....      BL       MX_USB_HOST_Process
+   \   00000124   0x2100             MOVS     R1,#+0
+   \   00000126   0x4640             MOV      R0,R8
+   \   00000128   0x.... 0x....      BL       _ZN10CardReader12checkFilesysEh
+   \   0000012C   0xF898 0x09BC      LDRB     R0,[R8, #+2492]
+   \   00000130   0x2800             CMP      R0,#+0
+   \   00000132   0xD0ED             BEQ.N    ??main_3
+    203          			}
+    204          		if(card.usbOK)
+   \                     ??main_4: (+1)
+   \   00000134   0xF898 0x09BC      LDRB     R0,[R8, #+2492]
+   \   00000138   0x2800             CMP      R0,#+0
+   \   0000013A   0xD005             BEQ.N    ??main_1
+    205          			{
+    206          	  		card.initusb();
+   \   0000013C   0x4640             MOV      R0,R8
+   \   0000013E   0x.... 0x....      BL       _ZN10CardReader7initusbEv
+    207          	  		card.mksConfiguration();
+   \   00000142   0x4640             MOV      R0,R8
+   \   00000144   0x.... 0x....      BL       _ZN10CardReader16mksConfigurationEv
+    208          			}
+    209          		}
+    210          	}
+    211            else if(SD_DET_IP == 0)
+    212            {
+    213            	card.initsd();
+    214            	card.mksConfiguration();
+    215            }
+    216            #if 0//tan_mask
+    217            else
+    218            {
+    219              FATFS_UnLinkDriver(SD_Path); 
+    220            }
+    221            #endif
+    222          
+    223            switch(gCfgItems.language_bak)
+   \                     ??main_1: (+1)
+   \   00000148   0xF895 0x00FC      LDRB     R0,[R5, #+252]
+   \   0000014C   0x1E40             SUBS     R0,R0,#+1
+   \   0000014E   0x2806             CMP      R0,#+6
+   \   00000150   0xD81D             BHI.N    ??main_5
+   \   00000152   0xE8DF 0xF000      TBB      [PC, R0]
+   \                     ??main_0:
+   \   00000156   0x04 0x08          DC8      0x4,0x8,0x1C,0xC
+   \              0x1C 0x0C    
+   \   0000015A   0x10 0x14          DC8      0x10,0x14,0x18,0x0
+   \              0x18 0x00    
+    224            {
+    225            	case 1:
+    226          		gCfgItems.language_bak= LANG_SIMPLE_CHINESE;
+   \                     ??main_6: (+1)
+   \   0000015E   0x2001             MOVS     R0,#+1
+   \   00000160   0xF885 0x00FC      STRB     R0,[R5, #+252]
+    227          		break;
+   \   00000164   0xE016             B.N      ??main_7
+    228          	case 2:
+    229          		gCfgItems.language_bak= LANG_COMPLEX_CHINESE;
+   \                     ??main_8: (+1)
+   \   00000166   0x2002             MOVS     R0,#+2
+   \   00000168   0xF885 0x00FC      STRB     R0,[R5, #+252]
+    230          		break;
+   \   0000016C   0xE012             B.N      ??main_7
+    231          	case 3:
+    232          		gCfgItems.language_bak= LANG_ENGLISH;
+    233          		break;
+    234          	case 4:
+    235          		gCfgItems.language_bak= LANG_RUSSIAN;
+   \                     ??main_9: (+1)
+   \   0000016E   0x2007             MOVS     R0,#+7
+   \   00000170   0xF885 0x00FC      STRB     R0,[R5, #+252]
+    236          		break;
+   \   00000174   0xE00E             B.N      ??main_7
+    237          	case 5:
+    238          		gCfgItems.language_bak= LANG_SPANISH;
+   \                     ??main_10: (+1)
+   \   00000176   0x200A             MOVS     R0,#+10
+   \   00000178   0xF885 0x00FC      STRB     R0,[R5, #+252]
+    239          		break;
+   \   0000017C   0xE00A             B.N      ??main_7
+    240          	case 6:
+    241          		gCfgItems.language_bak= LANG_FRENCH;
+   \                     ??main_11: (+1)
+   \   0000017E   0x2006             MOVS     R0,#+6
+   \   00000180   0xF885 0x00FC      STRB     R0,[R5, #+252]
+    242          		break;
+   \   00000184   0xE006             B.N      ??main_7
+    243          	case 7:
+    244          		gCfgItems.language_bak= LANG_ITALY;
+   \                     ??main_12: (+1)
+   \   00000186   0x200C             MOVS     R0,#+12
+   \   00000188   0xF885 0x00FC      STRB     R0,[R5, #+252]
+    245          		break;
+   \   0000018C   0xE002             B.N      ??main_7
+    246              default:
+    247                  gCfgItems.language_bak= LANG_ENGLISH;
+   \                     ??main_5: (+1)
+   \   0000018E   0x2003             MOVS     R0,#+3
+   \   00000190   0xF885 0x00FC      STRB     R0,[R5, #+252]
+    248                  break;		
+    249            }
+    250            
+    251            if(gCfgItems.multiple_language == 0)
+   \                     ??main_7: (+1)
+   \   00000194   0xF895 0x019B      LDRB     R0,[R5, #+411]
+   \   00000198   0x2800             CMP      R0,#+0
+   \   0000019A   0xD10D             BNE.N    ??main_13
+    252            {
+    253          	if(gCfgItems.language_bak != 0)
+   \   0000019C   0xF895 0x00FC      LDRB     R0,[R5, #+252]
+   \   000001A0   0x2800             CMP      R0,#+0
+   \   000001A2   0xD009             BEQ.N    ??main_13
+    254          	{
+    255          		gCfgItems.language = gCfgItems.language_bak;
+   \   000001A4   0xF995 0x00FC      LDRSB    R0,[R5, #+252]
+   \   000001A8   0xF885 0x00D8      STRB     R0,[R5, #+216]
+    256          		AT24CXX_Write(EPR_LANGUAGE,(uint8_t *)&gCfgItems.language,1);	
+   \   000001AC   0x2201             MOVS     R2,#+1
+   \   000001AE   0x4631             MOV      R1,R6
+   \   000001B0   0xF44F 0x60C1      MOV      R0,#+1544
+   \   000001B4   0x.... 0x....      BL       AT24CXX_Write
+    257          	}
+    258            }
+    259          
+    260            //mksTmp.cfg_hardware_test_enable = 0;	//for test
+    261          
+    262            if(mksTmp.cfg_hardware_test_enable)	//??????
+   \                     ??main_13: (+1)
+   \   000001B8   0x7CE0             LDRB     R0,[R4, #+19]
+   \   000001BA   0x2800             CMP      R0,#+0
+   \   000001BC   0xD015             BEQ.N    ??main_14
+    263            {
+    264          	GUI_SetBkColor(gCfgItems.background_color);
+   \   000001BE   0x6868             LDR      R0,[R5, #+4]
+   \   000001C0   0x.... 0x....      BL       GUI_SetBkColor
+    265          	GUI_SetColor(gCfgItems.title_color);
+   \   000001C4   0x6DA8             LDR      R0,[R5, #+88]
+   \   000001C6   0x.... 0x....      BL       GUI_SetColor
+    266          	GUI_Clear();
+   \   000001CA   0x.... 0x....      BL       GUI_Clear
+    267          	GUI_UC_SetEncodeNone();
+   \   000001CE   0x.... 0x....      BL       GUI_UC_SetEncodeNone
+    268          	GUI_SetFont(&GUI_FontHZ16);
+   \   000001D2   0x.... 0x....      LDR.W    R0,??DataTable8_15
+   \   000001D6   0x.... 0x....      BL       GUI_SetFont
+    269              GUI_DispStringAt("????-(??????V1.0.0_002)", 20, 0);
+   \   000001DA   0x2200             MOVS     R2,#+0
+   \   000001DC   0x2114             MOVS     R1,#+20
+   \   000001DE   0x.... 0x....      ADR.W    R0,`?<Constant "??~(??????V1.0.0_002)">`
+   \   000001E2   0x.... 0x....      BL       GUI_DispStringAt
+    270            	mksHardwareTest();
+   \   000001E6   0x.... 0x....      BL       mksHardwareTest
+    271            }
+    272            GUI_SetFont(&FONT_TITLE);
+   \                     ??main_14: (+1)
+   \   000001EA   0x.... 0x....      LDR.W    R0,??DataTable8_16
+   \   000001EE   0x.... 0x....      BL       GUI_SetFont
+    273            
+    274          	
+    275            setup();
+   \   000001F2   0x.... 0x....      BL       setup
+    276            //mksdlp.ssd.test();
+    277            mksdlp.dlp_start();
+   \   000001F6   0x.... 0x....      LDR.W    R0,??DataTable8_17
+   \   000001FA   0x.... 0x....      BL       _ZN7MKS_DLP9dlp_startEv
+    278           
+    279            
+    280            //mksdlp.ExposureTest();
+    281            disp_language_init();	
+   \   000001FE   0x.... 0x....      BL       _Z18disp_language_initv
+    282            GUI_UC_SetEncodeUTF8();
+   \   00000202   0x.... 0x....      BL       GUI_UC_SetEncodeUTF8
+    283            
+    284            if(DeviceCode==0x9488)
+   \   00000206   0x.... 0x....      LDR.W    R0,??DataTable8_18
+   \   0000020A   0x8800             LDRH     R0,[R0, #+0]
+   \   0000020C   0xF249 0x4188      MOVW     R1,#+38024
+   \   00000210   0x4288             CMP      R0,R1
+   \   00000212   0xD119             BNE.N    ??main_15
+    285            {
+    286          	TFT_screen.display_style = gCfgItems.display_style;// 1:???;0:???;
+   \   00000214   0x.... 0x....      LDR.W    R0,??DataTable8_19
+   \   00000218   0xF895 0x1271      LDRB     R1,[R5, #+625]
+   \   0000021C   0x7001             STRB     R1,[R0, #+0]
+    287          	TFT_screen.firstpage_gap = 32;
+   \   0000021E   0x2120             MOVS     R1,#+32
+   \   00000220   0x7041             STRB     R1,[R0, #+1]
+    288          	TFT_screen.gap_h = 2;
+   \   00000222   0x2102             MOVS     R1,#+2
+   \   00000224   0x7081             STRB     R1,[R0, #+2]
+    289          	TFT_screen.gap_v = 2;
+   \   00000226   0x70C1             STRB     R1,[R0, #+3]
+    290          	TFT_screen.width = 480;
+   \   00000228   0xF44F 0x71F0      MOV      R1,#+480
+   \   0000022C   0x8081             STRH     R1,[R0, #+4]
+    291          	TFT_screen.high = 320;
+   \   0000022E   0xF44F 0x71A0      MOV      R1,#+320
+   \   00000232   0x80C1             STRH     R1,[R0, #+6]
+    292          	TFT_screen.btn_x_pixel = 117;
+   \   00000234   0x2175             MOVS     R1,#+117
+   \   00000236   0x8101             STRH     R1,[R0, #+8]
+    293          	TFT_screen.btn_y_pixel = 140;
+   \   00000238   0x218C             MOVS     R1,#+140
+   \   0000023A   0x8141             STRH     R1,[R0, #+10]
+    294          	TFT_screen.title_xpos = 3;
+   \   0000023C   0x2103             MOVS     R1,#+3
+   \   0000023E   0x8181             STRH     R1,[R0, #+12]
+    295          	TFT_screen.title_ypos = 5;
+   \   00000240   0x2105             MOVS     R1,#+5
+   \   00000242   0x81C1             STRH     R1,[R0, #+14]
+    296          	TFT_screen.title_high = 36;		
+   \   00000244   0x2124             MOVS     R1,#+36
+   \   00000246   0x8201             STRH     R1,[R0, #+16]
+    297            }
+    298            setTouchBound(gCfgItems.touch_adj_xMin, gCfgItems.touch_adj_xMax, gCfgItems.touch_adj_yMax, gCfgItems.touch_adj_yMin);
+   \                     ??main_15: (+1)
+   \   00000248   0x68F3             LDR      R3,[R6, #+12]
+   \   0000024A   0x6932             LDR      R2,[R6, #+16]
+   \   0000024C   0x68B1             LDR      R1,[R6, #+8]
+   \   0000024E   0x6870             LDR      R0,[R6, #+4]
+   \   00000250   0x.... 0x....      BL       setTouchBound
+    299          	
+    300          #if 0
+    301            if(gCfgItems.pwroff_save_mode == 1)
+    302            {
+    303            	FALA_CTRL = 1;
+    304          	//
+    305            }
+    306          #endif
+    307            
+    308            mks_initPrint();
+   \   00000254   0x.... 0x....      BL       mks_initPrint
+    309          
+    310            
+    311            gCfgItems.fileSysType = FILE_SYS_USB;			//??????? U?
+   \   00000258   0x2000             MOVS     R0,#+0
+   \   0000025A   0x70B0             STRB     R0,[R6, #+2]
+    312          #if 0
+    313            if(gCfgItems.fileSysType == FILE_SYS_USB)	//?U???????
+    314            {
+    315          	  for(int i=0;i<1000;i++)
+    316          		  {
+    317          		  MX_USB_HOST_Process();
+    318          		  card.checkFilesys(FILE_SYS_USB);
+    319          		  if(card.usbOK) 
+    320          			  break;
+    321          		  }
+    322            	card.initusb();
+    323          	
+    324            }
+    325            else
+    326            {
+    327            	card.initsd();
+    328            }
+    329          #endif
+    330            mks_rePrintCheck();
+   \   0000025C   0x.... 0x....      BL       mks_rePrintCheck
+    331          	
+    332          /*
+    333            if(SD_DET_IP == 0)
+    334            {
+    335            	mks_rePrintCheck();
+    336            }
+    337            else//??????
+    338            {
+    339          	  while(1)
+    340          	  {
+    341          		  logo_tick2 = getTick();
+    342          		  if(getTickDiff(logo_tick2, logo_tick1)>=3000)
+    343          		  {
+    344          			  draw_ready_print();
+    345          			  break;
+    346          		  }
+    347          	  }  
+    348            }
+    349            */
+    350          
+    351          #ifdef USE_MKS_WIFI 
+    352            if(gCfgItems.wifi_type == ESP_WIFI)
+    353            {
+    354          	wifi_init();
+    355            }
+    356          #endif
+    357            /* USER CODE END 2 */
+    358          
+    359          	//mksdlp.ExposureTest();
+    360          	
+    361            /* Infinite loop */
+    362            /* USER CODE BEGIN WHILE */
+    363            while (1)
+    364            {
+    365            /* USER CODE END WHILE */
+    366            //IsrTemperatureHandler();
+    367            /* USER CODE BEGIN 3 */
+    368            loop();
+   \                     ??main_16: (+1)
+   \   00000260   0x.... 0x....      BL       loop
+    369            
+    370            MX_USB_HOST_Process();
+   \   00000264   0x.... 0x....      BL       MX_USB_HOST_Process
+    371            card.udiskState_Polling();
+   \   00000268   0x.... 0x....      LDR.W    R0,??DataTable8_14
+   \   0000026C   0x.... 0x....      BL       _ZN10CardReader18udiskState_PollingEv
+   \   00000270   0xE7F6             B.N      ??main_16
+    372           // mksEeprom_test();
+    373            }
+    374            /* USER CODE END 3 */
+    375          
+    376          }
+    377          
+
+   \                                 In section .bss, align 4
+    378          uint8_t poweroff_det_flg;
+   \                     poweroff_det_flg:
+   \   00000000                      DS8 1
+    379          uint32_t poweroff_det_cnt;
+    380          uint8_t poweroff_det_low_flg;
+   \                     poweroff_det_low_flg:
+   \   00000001                      DS8 1
+    381          uint32_t poweroff_det_low_cnt;
+    382          uint8_t poweroff_det_high_flg;
+   \                     poweroff_det_high_flg:
+   \   00000002                      DS8 1
+    383          uint32_t poweroff_det_high_cnt;
+    384          
+    385          uint8_t filament_det1_flg;
+   \                     filament_det1_flg:
+   \   00000003                      DS8 1
+    386          uint32_t filament_det1_cnt;
+    387          uint8_t filament_det1_low_flg;
+   \                     filament_det1_low_flg:
+   \   00000004                      DS8 1
+    388          uint32_t filament_det1_low_cnt;
+    389          uint8_t filament_det1_high_flg;
+   \                     filament_det1_high_flg:
+   \   00000005                      DS8 1
+    390          uint32_t filament_det1_high_cnt;
+    391          uint8_t filament_det1_check;
+   \                     filament_det1_check:
+   \   00000006                      DS8 1
+    392          
+    393          uint8_t filament_det2_flg;
+    394          uint32_t filament_det2_cnt;
+    395          uint8_t filament_det2_low_flg;
+    396          uint32_t filament_det2_low_cnt;
+    397          uint8_t filament_det2_high_flg;
+    398          uint32_t filament_det2_high_cnt;
+    399          uint8_t filament_det2_check;
+    400          
+    401          volatile unsigned long BeeperFreq=0;
+    402          volatile unsigned char BeeperCnt=0;
+   \                     BeeperCnt:
+   \   00000007                      DS8 1
+    403          volatile unsigned char mksBpAlrmEn=0;
+   \                     mksBpAlrmEn:
+   \   00000008                      DS8 1
+    404          
+    405          
+    406          static uint8_t beeper_cnt;
+                                ^
+Warning[Pe177]: variable "beeper_cnt" was declared but never referenced
+    407          static uint8_t check_beeper_cnt;
+                                ^
+Warning[Pe177]: variable "check_beeper_cnt" was declared but never referenced
+
+    setTouchBound(gCfgItems.touch_adj_xMin, gCfgItems.touch_adj_xMax, gCfgItems.touch_adj_yMax, gCfgItems.touch_adj_yMin);
+    ^
+"D:\DLP_proj\DLP_github\MKS-DLP-FIRMWARE\Src\main.cpp",298  Warning[Pa082]: 
+          undefined behavior: the order of volatile accesses is undefined in
+          this statement
+    408          
+    409          extern uint8_t from_flash_pic;
+    410          __IO uint32_t delaycnt = 0;
+    411          __IO uint8_t beeper_flg = 0;
+    412          
+    413          uint8_t beep_pwdet=0;
+   \                     beep_pwdet:
+   \   00000009                      DS8 1
+    414          uint8_t beep_mtdet1=0;
+   \                     beep_mtdet1:
+   \   0000000A                      DS8 1
+    415          uint8_t beep_mtdet2=0;
+   \                     beep_mtdet2:
+   \   0000000B                      DS8 1
+   \                     poweroff_det_cnt:
+   \   0000000C                      DS8 4
+   \                     poweroff_det_low_cnt:
+   \   00000010                      DS8 4
+   \                     poweroff_det_high_cnt:
+   \   00000014                      DS8 4
+   \                     filament_det1_cnt:
+   \   00000018                      DS8 4
+   \                     filament_det1_low_cnt:
+   \   0000001C                      DS8 4
+   \                     filament_det1_high_cnt:
+   \   00000020                      DS8 4
+   \                     delaycnt:
+   \   00000024                      DS8 4
+
+   \                                 In section .bss, align 1
+   \                     filament_det2_flg:
+   \   00000000                      DS8 1
+
+   \                                 In section .bss, align 4
+   \                     filament_det2_cnt:
+   \   00000000                      DS8 4
+
+   \                                 In section .bss, align 1
+   \                     filament_det2_low_flg:
+   \   00000000                      DS8 1
+
+   \                                 In section .bss, align 4
+   \                     filament_det2_low_cnt:
+   \   00000000                      DS8 4
+
+   \                                 In section .bss, align 1
+   \                     filament_det2_high_flg:
+   \   00000000                      DS8 1
+
+   \                                 In section .bss, align 4
+   \                     filament_det2_high_cnt:
+   \   00000000                      DS8 4
+
+   \                                 In section .bss, align 1
+   \                     filament_det2_check:
+   \   00000000                      DS8 1
+
+   \                                 In section .bss, align 4
+   \                     BeeperFreq:
+   \   00000000                      DS8 4
+
+   \                                 In section .bss, align 1
+   \                     beeper_flg:
+   \   00000000                      DS8 1
+    416          
+
+   \                                 In section .text, align 2, keep-with-next
+    417          void mksBeeperAlarm(void)
+    418          {
+    419          #if 0
+    420          		if((gCfgItems.filament_det1_level_flg==1)||(gCfgItems.filament_det2_level_flg==1))
+    421          		{
+    422          			//????????,
+    423          			//????????????
+    424          			//??????????????,
+    425          			//??????????5??
+    426          			beeper_cnt = 10;
+    427          		}
+    428          		else
+    429          		{
+    430          			if((MKS_PWRDN == 1) && (MKS_MTRDN == 1))
+    431          			{
+    432          				check_beeper_cnt++;
+    433          			}
+    434          			if(check_beeper_cnt >=5)
+    435          			{
+    436          					mksBpAlrmEn = 0;
+    437          					BeeperFreq = 0;
+    438          					BeeperCnt = 0;	
+    439          					SPEAKER = 0;
+    440          					check_beeper_cnt = 0;
+    441          			}
+    442          			beeper_cnt = 20;
+    443          		}
+    444          
+    445          		if(mksBpAlrmEn)
+    446          		{
+    447          			BeeperFreq++;
+    448          			
+    449          			
+    450          			if(BeeperFreq%3000 == 0)
+    451          			{
+    452          				BeeperCnt++;
+    453          				SPEAKER = BeeperCnt%2;
+    454          				//HAL_Delay(3000);
+    455          			}
+    456          		
+    457          			if(BeeperCnt > beeper_cnt)	
+    458          			{	
+    459          				SPEAKER = 0;
+    460          				mksBpAlrmEn=0;
+    461          				BeeperCnt=0;
+    462          				BeeperFreq = 0;
+    463          			}
+    464          		}
+    465          		#endif
+    466                  
+    467                  if(beep_pwdet)
+   \                     _Z14mksBeeperAlarmv: (+1)
+   \   00000000   0x.... 0x....      LDR.W    R0,??DataTable8_20  ;; 0x42408288
+   \   00000004   0x.... 0x....      LDR.W    R1,??DataTable8_21
+   \   00000008   0x7A4A             LDRB     R2,[R1, #+9]
+   \   0000000A   0x2A00             CMP      R2,#+0
+   \   0000000C   0xD008             BEQ.N    ??mksBeeperAlarm_0
+    468                  {
+    469                      if(MKS_PW_DET_OP== 1)
+   \   0000000E   0x6802             LDR      R2,[R0, #+0]
+   \   00000010   0x2A01             CMP      R2,#+1
+   \   00000012   0xD105             BNE.N    ??mksBeeperAlarm_0
+    470                      {
+    471                          beep_pwdet=0;
+   \   00000014   0x2200             MOVS     R2,#+0
+   \   00000016   0x724A             STRB     R2,[R1, #+9]
+    472                          BeeperCnt = 0;
+   \   00000018   0x71CA             STRB     R2,[R1, #+7]
+    473                          delaycnt = 0;
+   \   0000001A   0x624A             STR      R2,[R1, #+36]
+    474                          mksBpAlrmEn = 0;    
+   \   0000001C   0x720A             STRB     R2,[R1, #+8]
+    475                          BEEPER_OP = 0;
+   \   0000001E   0x62C2             STR      R2,[R0, #+44]
+    476                      }
+    477                  }
+    478          
+    479                  if(beep_mtdet1)
+   \                     ??mksBeeperAlarm_0: (+1)
+   \   00000020   0x7A8A             LDRB     R2,[R1, #+10]
+   \   00000022   0x2A00             CMP      R2,#+0
+   \   00000024   0xD008             BEQ.N    ??mksBeeperAlarm_1
+    480                  {
+    481                      if(MKS_MT_DET1_OP== 1)
+   \   00000026   0x6802             LDR      R2,[R0, #+0]
+   \   00000028   0x2A01             CMP      R2,#+1
+   \   0000002A   0xD105             BNE.N    ??mksBeeperAlarm_1
+    482                      {
+    483                          beep_mtdet1=0;
+   \   0000002C   0x2200             MOVS     R2,#+0
+   \   0000002E   0x728A             STRB     R2,[R1, #+10]
+    484                          BeeperCnt = 0;
+   \   00000030   0x71CA             STRB     R2,[R1, #+7]
+    485                          delaycnt = 0;
+   \   00000032   0x624A             STR      R2,[R1, #+36]
+    486                          mksBpAlrmEn = 0;    
+   \   00000034   0x720A             STRB     R2,[R1, #+8]
+    487                          BEEPER_OP = 0;
+   \   00000036   0x62C2             STR      R2,[R0, #+44]
+    488                      }
+    489                  }
+    490                  
+    491                  if(beep_mtdet2)
+   \                     ??mksBeeperAlarm_1: (+1)
+   \   00000038   0x7ACA             LDRB     R2,[R1, #+11]
+   \   0000003A   0x2A00             CMP      R2,#+0
+   \   0000003C   0xD008             BEQ.N    ??mksBeeperAlarm_2
+    492                  {
+    493                      if(MKS_MT_DET2_OP== 1)
+   \   0000003E   0x6802             LDR      R2,[R0, #+0]
+   \   00000040   0x2A01             CMP      R2,#+1
+   \   00000042   0xD105             BNE.N    ??mksBeeperAlarm_2
+    494                      {
+    495                          beep_mtdet2=0;
+   \   00000044   0x2200             MOVS     R2,#+0
+   \   00000046   0x72CA             STRB     R2,[R1, #+11]
+    496                          BeeperCnt = 0;
+   \   00000048   0x71CA             STRB     R2,[R1, #+7]
+    497                          delaycnt = 0;
+   \   0000004A   0x624A             STR      R2,[R1, #+36]
+    498                          mksBpAlrmEn = 0;    
+   \   0000004C   0x720A             STRB     R2,[R1, #+8]
+    499                          BEEPER_OP = 0;
+   \   0000004E   0x62C2             STR      R2,[R0, #+44]
+    500                      }
+    501                  }
+    502                  
+    503          		if(mksBpAlrmEn)
+   \                     ??mksBeeperAlarm_2: (+1)
+   \   00000050   0x7A0A             LDRB     R2,[R1, #+8]
+   \   00000052   0x2A00             CMP      R2,#+0
+   \   00000054   0xD018             BEQ.N    ??mksBeeperAlarm_3
+    504          		{
+    505          			delaycnt++;
+   \   00000056   0x6A4A             LDR      R2,[R1, #+36]
+   \   00000058   0x1C52             ADDS     R2,R2,#+1
+   \   0000005A   0x624A             STR      R2,[R1, #+36]
+    506          			if(delaycnt >= 1000)
+   \   0000005C   0x6A4A             LDR      R2,[R1, #+36]
+   \   0000005E   0xF5B2 0x7F7A      CMP      R2,#+1000
+   \   00000062   0xD308             BCC.N    ??mksBeeperAlarm_4
+    507          			{
+    508          				BeeperCnt++;
+   \   00000064   0x79CA             LDRB     R2,[R1, #+7]
+   \   00000066   0x1C52             ADDS     R2,R2,#+1
+   \   00000068   0x71CA             STRB     R2,[R1, #+7]
+    509          				delaycnt = 0;
+   \   0000006A   0x2200             MOVS     R2,#+0
+   \   0000006C   0x624A             STR      R2,[R1, #+36]
+    510          				BEEPER_OP = BeeperCnt%2;
+   \   0000006E   0x79CA             LDRB     R2,[R1, #+7]
+   \   00000070   0xF002 0x0201      AND      R2,R2,#0x1
+   \   00000074   0x62C2             STR      R2,[R0, #+44]
+    511          			}
+    512          			if(BeeperCnt>=20)
+   \                     ??mksBeeperAlarm_4: (+1)
+   \   00000076   0x79CA             LDRB     R2,[R1, #+7]
+   \   00000078   0x2A14             CMP      R2,#+20
+   \   0000007A   0xDB05             BLT.N    ??mksBeeperAlarm_3
+    513          			{
+    514          				BeeperCnt = 0;
+   \   0000007C   0x2200             MOVS     R2,#+0
+   \   0000007E   0x71CA             STRB     R2,[R1, #+7]
+    515          				delaycnt = 0;
+   \   00000080   0x624A             STR      R2,[R1, #+36]
+    516          				mksBpAlrmEn = 0;	
+   \   00000082   0x720A             STRB     R2,[R1, #+8]
+    517          				BEEPER_OP = 0;
+   \   00000084   0x4611             MOV      R1,R2
+   \   00000086   0x62C1             STR      R1,[R0, #+44]
+    518          			}
+    519          		}
+    520          }
+   \                     ??mksBeeperAlarm_3: (+1)
+   \   00000088   0x4770             BX       LR               ;; return
+    521          
+
+   \                                 In section .text, align 2, keep-with-next
+    522          void Close_machine_display()
+    523          {
+   \                     _Z21Close_machine_displayv: (+1)
+   \   00000000   0xB510             PUSH     {R4,LR}
+    524          	clear_cur_ui();
+   \   00000002   0x.... 0x....      BL       clear_cur_ui
+    525          	disp_state = PRINT_READY_UI;
+   \   00000006   0x2001             MOVS     R0,#+1
+   \   00000008   0x.... 0x....      LDR.W    R1,??DataTable8_22
+   \   0000000C   0x7008             STRB     R0,[R1, #+0]
+    526          	GUI_SetBkColor(gCfgItems.background_color);
+   \   0000000E   0x.... 0x....      LDR.W    R4,??DataTable8_12
+   \   00000012   0x6860             LDR      R0,[R4, #+4]
+   \   00000014   0x.... 0x....      BL       GUI_SetBkColor
+    527          	GUI_SetColor(gCfgItems.title_color);
+   \   00000018   0x6DA0             LDR      R0,[R4, #+88]
+   \   0000001A   0x.... 0x....      BL       GUI_SetColor
+    528          	GUI_Clear();
+   \   0000001E   0x.... 0x....      BL       GUI_Clear
+    529          	GUI_DispStringAt(common_menu.close_machine_tips, 190, 140);
+   \   00000022   0x228C             MOVS     R2,#+140
+   \   00000024   0x21BE             MOVS     R1,#+190
+   \   00000026   0x.... 0x....      LDR.W    R0,??DataTable8_23
+   \   0000002A   0x6880             LDR      R0,[R0, #+8]
+   \   0000002C   0x.... 0x....      BL       GUI_DispStringAt
+    530          	MKS_PW_OFF_OP = 0;
+   \   00000030   0x2000             MOVS     R0,#+0
+   \   00000032   0x.... 0x....      LDR.W    R1,??DataTable8_20  ;; 0x42408288
+   \   00000036   0x6008             STR      R0,[R1, #+0]
+    531          }
+   \   00000038   0xBD10             POP      {R4,PC}          ;; return
+    532          
+    533          //??????
+    534          //??:PB0????,????????????????
+    535          //??:PB1????,
+    536          //????????:
+    537          //PB4,????????????220DET????PWC??;
+    538          //???PWC???
+
+   \                                 In section .text, align 2, keep-with-next
+    539          void PowerOff_Filament_Check()
+    540          {
+   \                     _Z23PowerOff_Filament_Checkv: (+1)
+   \   00000000   0xB538             PUSH     {R3-R5,LR}
+    541          	volatile uint8_t i;
+    542          
+    543          	//????
+    544          	if(gCfgItems.insert_det_module == 1)//?220det??,????
+   \   00000002   0x.... 0x....      LDR.W    R4,??DataTable8_21
+   \   00000006   0x.... 0x....      LDR.W    R0,??DataTable8_12
+   \   0000000A   0xF890 0x1198      LDRB     R1,[R0, #+408]
+   \   0000000E   0x2901             CMP      R1,#+1
+   \   00000010   0xD14F             BNE.N    ??PowerOff_Filament_Check_0
+    545          	{
+    546          		if((mksReprint.mks_printer_state == MKS_WORKING)&&(gCfgItems.mask_det_Function!=1))//??????????
+   \   00000012   0x.... 0x....      LDR.W    R5,??DataTable8_24
+   \   00000016   0xF895 0x1058      LDRB     R1,[R5, #+88]
+   \   0000001A   0x29A7             CMP      R1,#+167
+   \   0000001C   0xF040 0x809E      BNE.W    ??PowerOff_Filament_Check_1
+   \   00000020   0xF500 0x71CC      ADD      R1,R0,#+408
+   \   00000024   0x7B89             LDRB     R1,[R1, #+14]
+   \   00000026   0x2901             CMP      R1,#+1
+   \   00000028   0xF000 0x8098      BEQ.W    ??PowerOff_Filament_Check_1
+    547          		{
+    548          			if(MKS_PW_DET_OP== 0)
+   \   0000002C   0x.... 0x....      LDR.W    R1,??DataTable8_20  ;; 0x42408288
+   \   00000030   0x680A             LDR      R2,[R1, #+0]
+   \   00000032   0x2A00             CMP      R2,#+0
+   \   00000034   0xD139             BNE.N    ??PowerOff_Filament_Check_2
+    549          			{
+    550          				poweroff_det_flg = 1;
+   \   00000036   0x2201             MOVS     R2,#+1
+   \   00000038   0x7022             STRB     R2,[R4, #+0]
+    551          				if(poweroff_det_cnt >= 1000)
+   \   0000003A   0x68E2             LDR      R2,[R4, #+12]
+   \   0000003C   0xF5B2 0x7F7A      CMP      R2,#+1000
+   \   00000040   0xF0C0 0x808C      BCC.W    ??PowerOff_Filament_Check_1
+    552          				{
+    553          					if((MKS_PW_DET_OP==0)&&(gCfgItems.have_ups==1))//?UPS????
+   \   00000044   0x6809             LDR      R1,[R1, #+0]
+   \   00000046   0x2900             CMP      R1,#+0
+   \   00000048   0xD12B             BNE.N    ??PowerOff_Filament_Check_3
+   \   0000004A   0xF890 0x00ED      LDRB     R0,[R0, #+237]
+   \   0000004E   0x2801             CMP      R0,#+1
+   \   00000050   0xD127             BNE.N    ??PowerOff_Filament_Check_3
+    554          					{
+    555          						poweroff_det_flg = 0;
+   \   00000052   0x2000             MOVS     R0,#+0
+   \   00000054   0x7020             STRB     R0,[R4, #+0]
+    556          						poweroff_det_cnt= 0;
+   \   00000056   0x60E0             STR      R0,[R4, #+12]
+    557          						
+    558          						clear_cur_ui();
+   \   00000058   0x.... 0x....      BL       clear_cur_ui
+    559          						stop_print_time();
+   \   0000005C   0x.... 0x....      BL       stop_print_time
+    560                					card.pauseSDPrint();
+   \   00000060   0x.... 0x....      LDR.W    R0,??DataTable8_14
+   \   00000064   0x.... 0x....      BL       _ZN10CardReader12pauseSDPrintEv
+    561                					print_job_timer.pause();
+   \   00000068   0x.... 0x....      LDR.W    R0,??DataTable8_25
+   \   0000006C   0x.... 0x....      BL       _ZN9Stopwatch5pauseEv
+    562          						mksReprint.mks_printer_state = MKS_PAUSING;
+   \   00000070   0x20A8             MOVS     R0,#+168
+   \   00000072   0xF885 0x0058      STRB     R0,[R5, #+88]
+    563          
+    564          						if(from_flash_pic==1)
+   \   00000076   0x.... 0x....      LDR.W    R0,??DataTable8_26
+   \   0000007A   0x7800             LDRB     R0,[R0, #+0]
+   \   0000007C   0x2801             CMP      R0,#+1
+   \   0000007E   0xD104             BNE.N    ??PowerOff_Filament_Check_4
+    565          							flash_preview_begin = 1;
+   \   00000080   0x2001             MOVS     R0,#+1
+   \   00000082   0x.... 0x....      LDR.W    R1,??DataTable8_27
+   \   00000086   0x7008             STRB     R0,[R1, #+0]
+   \   00000088   0xE003             B.N      ??PowerOff_Filament_Check_5
+    566          						else
+    567          							default_preview_flg = 1;						
+   \                     ??PowerOff_Filament_Check_4: (+1)
+   \   0000008A   0x2001             MOVS     R0,#+1
+   \   0000008C   0x.... 0x....      LDR.W    R1,??DataTable8_28
+   \   00000090   0x7008             STRB     R0,[R1, #+0]
+    568          						draw_printing();
+   \                     ??PowerOff_Filament_Check_5: (+1)
+   \   00000092   0x.... 0x....      BL       draw_printing
+    569          						mksBpAlrmEn = 1;
+   \   00000096   0x2001             MOVS     R0,#+1
+   \   00000098   0x7220             STRB     R0,[R4, #+8]
+    570                                  beep_pwdet=1;
+   \   0000009A   0x7260             STRB     R0,[R4, #+9]
+    571          						delaycnt = 0;
+   \   0000009C   0x2000             MOVS     R0,#+0
+   \   0000009E   0x6260             STR      R0,[R4, #+36]
+    572          
+    573          						return;				
+   \   000000A0   0xBD31             POP      {R0,R4,R5,PC}
+    574          					}
+    575          					//?UPS????
+    576          					poweroff_det_flg = 0;
+   \                     ??PowerOff_Filament_Check_3: (+1)
+   \   000000A2   0x2000             MOVS     R0,#+0
+   \   000000A4   0x7020             STRB     R0,[R4, #+0]
+    577          					poweroff_det_cnt= 0;
+   \   000000A6   0x60E0             STR      R0,[R4, #+12]
+    578          
+    579          					//Close_machine_display();
+    580          
+    581          					return;
+   \   000000A8   0xBD31             POP      {R0,R4,R5,PC}
+    582          				}
+    583          			}
+    584          			else
+    585          			{
+    586          				poweroff_det_flg = 0;
+   \                     ??PowerOff_Filament_Check_2: (+1)
+   \   000000AA   0x2100             MOVS     R1,#+0
+   \   000000AC   0x7021             STRB     R1,[R4, #+0]
+    587          				poweroff_det_cnt= 0;
+   \   000000AE   0x60E1             STR      R1,[R4, #+12]
+   \   000000B0   0xE054             B.N      ??PowerOff_Filament_Check_1
+    588          			}
+    589          		}		
+    590          	}
+    591          	else//?PWC????
+    592          	{
+    593          		if(MKS_PW_DET_OP == 0)//
+   \                     ??PowerOff_Filament_Check_0: (+1)
+   \   000000B2   0x.... 0x....      LDR.W    R1,??DataTable8_20  ;; 0x42408288
+   \   000000B6   0x680A             LDR      R2,[R1, #+0]
+   \   000000B8   0x2A00             CMP      R2,#+0
+   \   000000BA   0xD101             BNE.N    ??PowerOff_Filament_Check_6
+    594          		{
+    595          			poweroff_det_low_flg = 1;//????
+   \   000000BC   0x2201             MOVS     R2,#+1
+   \   000000BE   0x7062             STRB     R2,[R4, #+1]
+    596          		}
+    597          		
+    598          		if(poweroff_det_low_cnt >= 80)// 1s??????
+   \                     ??PowerOff_Filament_Check_6: (+1)
+   \   000000C0   0x6922             LDR      R2,[R4, #+16]
+   \   000000C2   0x2A50             CMP      R2,#+80
+   \   000000C4   0xD30B             BCC.N    ??PowerOff_Filament_Check_7
+    599          		{
+    600          			if(MKS_PW_DET_OP == 1)
+   \   000000C6   0x680A             LDR      R2,[R1, #+0]
+   \   000000C8   0x2A01             CMP      R2,#+1
+   \   000000CA   0xD105             BNE.N    ??PowerOff_Filament_Check_8
+    601          			{
+    602          				poweroff_det_low_flg = 0;
+   \   000000CC   0x2200             MOVS     R2,#+0
+   \   000000CE   0x7062             STRB     R2,[R4, #+1]
+    603          				poweroff_det_low_cnt = 0;
+   \   000000D0   0x6122             STR      R2,[R4, #+16]
+    604          				poweroff_det_flg=1;
+   \   000000D2   0x2201             MOVS     R2,#+1
+   \   000000D4   0x7022             STRB     R2,[R4, #+0]
+   \   000000D6   0xE002             B.N      ??PowerOff_Filament_Check_7
+    605          			}
+    606          			else
+    607          			{
+    608          				poweroff_det_low_flg = 0;
+   \                     ??PowerOff_Filament_Check_8: (+1)
+   \   000000D8   0x2200             MOVS     R2,#+0
+   \   000000DA   0x7062             STRB     R2,[R4, #+1]
+    609          				poweroff_det_low_cnt = 0;
+   \   000000DC   0x6122             STR      R2,[R4, #+16]
+    610          			}
+    611          		}
+    612          		
+    613          		if(poweroff_det_flg==1)
+   \                     ??PowerOff_Filament_Check_7: (+1)
+   \   000000DE   0x7822             LDRB     R2,[R4, #+0]
+   \   000000E0   0x2A01             CMP      R2,#+1
+   \   000000E2   0xD13B             BNE.N    ??PowerOff_Filament_Check_1
+    614          		{
+    615          			poweroff_det_high_flg = 1;
+   \   000000E4   0x2201             MOVS     R2,#+1
+   \   000000E6   0x70A2             STRB     R2,[R4, #+2]
+    616          			if(poweroff_det_high_cnt >= 80)
+   \   000000E8   0x6962             LDR      R2,[R4, #+20]
+   \   000000EA   0x2A50             CMP      R2,#+80
+   \   000000EC   0xD336             BCC.N    ??PowerOff_Filament_Check_1
+    617          			{
+    618          				if(MKS_PW_DET_OP == 1)
+   \   000000EE   0x6809             LDR      R1,[R1, #+0]
+   \   000000F0   0x2901             CMP      R1,#+1
+   \   000000F2   0xD12D             BNE.N    ??PowerOff_Filament_Check_9
+    619          				{
+    620          					if((mksReprint.mks_printer_state == MKS_WORKING)&&(gCfgItems.have_ups==1))//?????UPS????,???????
+   \   000000F4   0x.... 0x....      LDR.W    R5,??DataTable8_24
+   \   000000F8   0xF895 0x1058      LDRB     R1,[R5, #+88]
+   \   000000FC   0x29A7             CMP      R1,#+167
+   \   000000FE   0xD120             BNE.N    ??PowerOff_Filament_Check_10
+   \   00000100   0xF890 0x00ED      LDRB     R0,[R0, #+237]
+   \   00000104   0x2801             CMP      R0,#+1
+   \   00000106   0xD11C             BNE.N    ??PowerOff_Filament_Check_10
+    621          					{
+    622          						poweroff_det_high_flg = 0;
+   \   00000108   0x2000             MOVS     R0,#+0
+   \   0000010A   0x70A0             STRB     R0,[R4, #+2]
+    623          						poweroff_det_high_cnt = 0;
+   \   0000010C   0x6160             STR      R0,[R4, #+20]
+    624          						poweroff_det_flg=0;
+   \   0000010E   0x7020             STRB     R0,[R4, #+0]
+    625          
+    626          						clear_cur_ui();
+   \   00000110   0x.... 0x....      BL       clear_cur_ui
+    627          						stop_print_time();
+   \   00000114   0x.... 0x....      BL       stop_print_time
+    628                					card.pauseSDPrint();
+   \   00000118   0x....             LDR.N    R0,??DataTable8_14
+   \   0000011A   0x.... 0x....      BL       _ZN10CardReader12pauseSDPrintEv
+    629                					print_job_timer.pause();
+   \   0000011E   0x....             LDR.N    R0,??DataTable8_25
+   \   00000120   0x.... 0x....      BL       _ZN9Stopwatch5pauseEv
+    630          						mksReprint.mks_printer_state = MKS_PAUSING;
+   \   00000124   0x20A8             MOVS     R0,#+168
+   \   00000126   0xF885 0x0058      STRB     R0,[R5, #+88]
+    631          
+    632          						//draw_pause();
+    633          						if(from_flash_pic==1)
+   \   0000012A   0x....             LDR.N    R0,??DataTable8_26
+   \   0000012C   0x7800             LDRB     R0,[R0, #+0]
+   \   0000012E   0x2801             CMP      R0,#+1
+   \   00000130   0xD103             BNE.N    ??PowerOff_Filament_Check_11
+    634          							flash_preview_begin = 1;
+   \   00000132   0x2001             MOVS     R0,#+1
+   \   00000134   0x....             LDR.N    R1,??DataTable8_27
+   \   00000136   0x7008             STRB     R0,[R1, #+0]
+   \   00000138   0xE05C             B.N      ??PowerOff_Filament_Check_12
+    635          						else
+    636          							default_preview_flg = 1;						
+   \                     ??PowerOff_Filament_Check_11: (+1)
+   \   0000013A   0x2001             MOVS     R0,#+1
+   \   0000013C   0x....             LDR.N    R1,??DataTable8_28
+   \   0000013E   0x7008             STRB     R0,[R1, #+0]
+   \   00000140   0xE058             B.N      ??PowerOff_Filament_Check_12
+    637          						draw_printing();
+    638          						mksBpAlrmEn = 1;
+    639          						delaycnt = 0;
+    640          
+    641          						return;
+    642          					}
+    643          					//?UPS???????,?????
+    644          					poweroff_det_high_flg = 0;
+   \                     ??PowerOff_Filament_Check_10: (+1)
+   \   00000142   0x2000             MOVS     R0,#+0
+   \   00000144   0x70A0             STRB     R0,[R4, #+2]
+    645          					poweroff_det_high_cnt = 0;
+   \   00000146   0x6160             STR      R0,[R4, #+20]
+    646          					poweroff_det_flg=0;
+   \   00000148   0x7020             STRB     R0,[R4, #+0]
+    647          					Close_machine_display();
+   \   0000014A   0xE8BD 0x4031      POP      {R0,R4,R5,LR}
+   \   0000014E   0x....             B.N      _Z21Close_machine_displayv
+    648          					return;					
+    649          				}
+    650          				else
+    651          				{
+    652          					poweroff_det_low_flg = 0;
+   \                     ??PowerOff_Filament_Check_9: (+1)
+   \   00000150   0x2100             MOVS     R1,#+0
+   \   00000152   0x7061             STRB     R1,[R4, #+1]
+    653          					poweroff_det_low_cnt = 0;
+   \   00000154   0x6121             STR      R1,[R4, #+16]
+    654          					poweroff_det_high_flg = 0;
+   \   00000156   0x70A1             STRB     R1,[R4, #+2]
+    655          					poweroff_det_high_cnt = 0;
+   \   00000158   0x6161             STR      R1,[R4, #+20]
+    656          					poweroff_det_flg = 0;
+   \   0000015A   0x7021             STRB     R1,[R4, #+0]
+    657          				}
+    658          			}
+    659          		}
+    660          	}
+    661          	//????2
+    662          #if 0       //mks 2018-07_a
+    663          	if((mksCfg.extruders == 2)&&(mksReprint.mks_printer_state == MKS_WORKING)&&(gCfgItems.mask_det_Function!=1))//??????????
+    664          	{
+    665          		if(gCfgItems.filament_det1_level_flg == 1)//??????????????????
+    666          		{
+    667          			//??????,???2s????2s???
+    668                		if(MKS_MT_DET2_OP == 0)
+    669          			{
+    670          				filament_det2_low_flg = 1;//????
+    671          			}
+    672          			
+    673          			if(filament_det2_low_cnt >= 2000)// 2s
+    674          			{
+    675                  		if(MKS_MT_DET2_OP == 1)
+    676          				{
+    677          					filament_det2_high_flg = 1;
+    678          					filament_det2_check=1;
+    679          
+    680          					filament_det2_low_flg = 0;
+    681          					filament_det2_low_cnt = 0;
+    682          				}
+    683          				else
+    684          				{
+    685          					filament_det2_low_flg = 0;
+    686          					filament_det2_low_cnt = 0;
+    687          				}
+    688          			}
+    689          				
+    690          			if(filament_det2_check ==1)
+    691          			{
+    692          				if(filament_det2_high_cnt >= 2000)
+    693          				{
+    694          					if(MKS_MT_DET2_OP == 1)
+    695          					{
+    696          						filament_det2_high_flg= 0;
+    697          						filament_det2_high_cnt= 0;
+    698          						filament_det2_check=0;
+    699          						
+    700          						clear_cur_ui();
+    701          						stop_print_time();
+    702                					card.pauseSDPrint();
+    703                					print_job_timer.pause();
+    704          						mksReprint.mks_printer_state = MKS_PAUSING;
+    705          
+    706          						//draw_pause();
+    707          						if(from_flash_pic==1)
+    708          							flash_preview_begin = 1;
+    709          						else
+    710          							default_preview_flg = 1;						
+    711          						draw_printing();
+    712          						mksBpAlrmEn = 1;
+    713          						delaycnt = 0;
+    714          
+    715          						return;		
+    716          					}
+    717          					else
+    718          					{
+    719          						filament_det2_low_flg = 0;
+    720          						filament_det2_low_cnt = 0;
+    721          						filament_det2_high_flg= 0;
+    722          						filament_det2_high_cnt= 0;
+    723          						filament_det2_check=0;
+    724          					}
+    725          				}
+    726          			}
+    727          		}
+    728          		else//?????????????????
+    729          		{
+    730          			if(MKS_MT_DET2_OP == 0)
+    731          			{
+    732          				filament_det2_flg = 1;
+    733          				if(filament_det2_cnt >= 1000)
+    734          				{
+    735          					if(MKS_MT_DET2_OP == 0)
+    736          					{
+    737          						filament_det2_flg = 0;
+    738          						filament_det2_cnt= 0;
+    739          
+    740          						clear_cur_ui();
+    741          						stop_print_time();
+    742                					card.pauseSDPrint();
+    743                					print_job_timer.pause();
+    744          						mksReprint.mks_printer_state = MKS_PAUSING;
+    745          
+    746          						if(from_flash_pic==1)
+    747          							flash_preview_begin = 1;
+    748          						else
+    749          							default_preview_flg = 1;						
+    750          						draw_printing();
+    751          						mksBpAlrmEn = 1;
+    752                                  beep_mtdet2=1;
+    753          						delaycnt = 0;
+    754          
+    755          						return;				
+    756          					}
+    757          				}
+    758          			}
+    759          			else
+    760          			{
+    761          				filament_det2_flg = 0;
+    762                          filament_det2_cnt = 0;
+    763          			}
+    764          		}
+    765          	}
+    766          #endif	
+    767          	//????1
+    768          	if((mksReprint.mks_printer_state == MKS_WORKING)&&(gCfgItems.mask_det_Function!=1))//??????????
+   \                     ??PowerOff_Filament_Check_1: (+1)
+   \   0000015C   0x....             LDR.N    R5,??DataTable8_24
+   \   0000015E   0xF895 0x1058      LDRB     R1,[R5, #+88]
+   \   00000162   0x29A7             CMP      R1,#+167
+   \   00000164   0xF040 0x8085      BNE.W    ??PowerOff_Filament_Check_13
+   \   00000168   0xF500 0x70CC      ADD      R0,R0,#+408
+   \   0000016C   0x7B81             LDRB     R1,[R0, #+14]
+   \   0000016E   0x2901             CMP      R1,#+1
+   \   00000170   0xF000 0x807F      BEQ.W    ??PowerOff_Filament_Check_13
+    769          	{
+    770          		if(gCfgItems.filament_det0_level_flg == 1)//??????????????????
+   \   00000174   0x....             LDR.N    R1,??DataTable8_20  ;; 0x42408288
+   \   00000176   0x7840             LDRB     R0,[R0, #+1]
+   \   00000178   0x2801             CMP      R0,#+1
+   \   0000017A   0x6808             LDR      R0,[R1, #+0]
+   \   0000017C   0xD148             BNE.N    ??PowerOff_Filament_Check_14
+    771          		{
+    772          			//??????,???2s????2s???
+    773                		if(MKS_MT_DET1_OP == 0)
+   \   0000017E   0x2800             CMP      R0,#+0
+   \   00000180   0xD101             BNE.N    ??PowerOff_Filament_Check_15
+    774          			{
+    775          				filament_det1_low_flg = 1;//????
+   \   00000182   0x2001             MOVS     R0,#+1
+   \   00000184   0x7120             STRB     R0,[R4, #+4]
+    776          			}
+    777          			
+    778          			if(filament_det1_low_cnt >= 2000)// 2s
+   \                     ??PowerOff_Filament_Check_15: (+1)
+   \   00000186   0x69E0             LDR      R0,[R4, #+28]
+   \   00000188   0xF5B0 0x6FFA      CMP      R0,#+2000
+   \   0000018C   0xD30C             BCC.N    ??PowerOff_Filament_Check_16
+    779          			{
+    780                  		if(MKS_MT_DET1_OP == 1)
+   \   0000018E   0x6808             LDR      R0,[R1, #+0]
+   \   00000190   0x2801             CMP      R0,#+1
+   \   00000192   0xD106             BNE.N    ??PowerOff_Filament_Check_17
+    781          				{
+    782          					filament_det1_high_flg = 1;
+   \   00000194   0x2001             MOVS     R0,#+1
+   \   00000196   0x7160             STRB     R0,[R4, #+5]
+    783          					filament_det1_check=1;
+   \   00000198   0x71A0             STRB     R0,[R4, #+6]
+    784          
+    785          					filament_det1_low_flg = 0;
+   \   0000019A   0x2000             MOVS     R0,#+0
+   \   0000019C   0x7120             STRB     R0,[R4, #+4]
+    786          					filament_det1_low_cnt = 0;
+   \   0000019E   0x61E0             STR      R0,[R4, #+28]
+   \   000001A0   0xE002             B.N      ??PowerOff_Filament_Check_16
+    787          				}
+    788          				else
+    789          				{
+    790          					filament_det1_low_flg = 0;
+   \                     ??PowerOff_Filament_Check_17: (+1)
+   \   000001A2   0x2000             MOVS     R0,#+0
+   \   000001A4   0x7120             STRB     R0,[R4, #+4]
+    791          					filament_det1_low_cnt = 0;
+   \   000001A6   0x61E0             STR      R0,[R4, #+28]
+    792          				}
+    793          			}
+    794          				
+    795          			if(filament_det1_check ==1)
+   \                     ??PowerOff_Filament_Check_16: (+1)
+   \   000001A8   0x79A0             LDRB     R0,[R4, #+6]
+   \   000001AA   0x2801             CMP      R0,#+1
+   \   000001AC   0xD161             BNE.N    ??PowerOff_Filament_Check_13
+    796          			{
+    797          				if(filament_det1_high_cnt >= 2000)
+   \   000001AE   0x6A20             LDR      R0,[R4, #+32]
+   \   000001B0   0xF5B0 0x6FFA      CMP      R0,#+2000
+   \   000001B4   0xD35D             BCC.N    ??PowerOff_Filament_Check_13
+    798          				{
+    799          					if(MKS_MT_DET1_OP == 1)
+   \   000001B6   0x6808             LDR      R0,[R1, #+0]
+   \   000001B8   0x2801             CMP      R0,#+1
+   \   000001BA   0xD122             BNE.N    ??PowerOff_Filament_Check_18
+    800          					{
+    801          						filament_det1_high_flg= 0;
+   \   000001BC   0x2000             MOVS     R0,#+0
+   \   000001BE   0x7160             STRB     R0,[R4, #+5]
+    802          						filament_det1_high_cnt= 0;
+   \   000001C0   0x6220             STR      R0,[R4, #+32]
+    803          						filament_det1_check=0;
+   \   000001C2   0x71A0             STRB     R0,[R4, #+6]
+    804          
+    805          						clear_cur_ui();
+   \   000001C4   0x.... 0x....      BL       clear_cur_ui
+    806          						stop_print_time();
+   \   000001C8   0x.... 0x....      BL       stop_print_time
+    807                					card.pauseSDPrint();
+   \   000001CC   0x....             LDR.N    R0,??DataTable8_14
+   \   000001CE   0x.... 0x....      BL       _ZN10CardReader12pauseSDPrintEv
+    808                					print_job_timer.pause();
+   \   000001D2   0x....             LDR.N    R0,??DataTable8_25
+   \   000001D4   0x.... 0x....      BL       _ZN9Stopwatch5pauseEv
+    809          						mksReprint.mks_printer_state = MKS_PAUSING;
+   \   000001D8   0x20A8             MOVS     R0,#+168
+   \   000001DA   0xF885 0x0058      STRB     R0,[R5, #+88]
+    810          
+    811          
+    812          						if(from_flash_pic==1)
+   \   000001DE   0x....             LDR.N    R0,??DataTable8_26
+   \   000001E0   0x7800             LDRB     R0,[R0, #+0]
+   \   000001E2   0x2801             CMP      R0,#+1
+   \   000001E4   0xD103             BNE.N    ??PowerOff_Filament_Check_19
+    813          							flash_preview_begin = 1;
+   \   000001E6   0x2001             MOVS     R0,#+1
+   \   000001E8   0x....             LDR.N    R1,??DataTable8_27
+   \   000001EA   0x7008             STRB     R0,[R1, #+0]
+   \   000001EC   0xE002             B.N      ??PowerOff_Filament_Check_12
+    814          						else
+    815          							default_preview_flg = 1;						
+   \                     ??PowerOff_Filament_Check_19: (+1)
+   \   000001EE   0x2001             MOVS     R0,#+1
+   \   000001F0   0x....             LDR.N    R1,??DataTable8_28
+   \   000001F2   0x7008             STRB     R0,[R1, #+0]
+    816          						draw_printing();
+   \                     ??PowerOff_Filament_Check_12: (+1)
+   \   000001F4   0x.... 0x....      BL       draw_printing
+    817          						mksBpAlrmEn = 1;
+   \   000001F8   0x2001             MOVS     R0,#+1
+   \   000001FA   0x7220             STRB     R0,[R4, #+8]
+    818          						delaycnt = 0;
+   \   000001FC   0x2000             MOVS     R0,#+0
+   \   000001FE   0x6260             STR      R0,[R4, #+36]
+    819          
+    820          						return;		
+   \   00000200   0xBD31             POP      {R0,R4,R5,PC}
+    821          					}
+    822          					else
+    823          					{
+    824          						filament_det1_low_flg = 0;
+   \                     ??PowerOff_Filament_Check_18: (+1)
+   \   00000202   0x2000             MOVS     R0,#+0
+   \   00000204   0x7120             STRB     R0,[R4, #+4]
+    825          						filament_det1_low_cnt = 0;
+   \   00000206   0x61E0             STR      R0,[R4, #+28]
+    826          						filament_det1_high_flg= 0;
+   \   00000208   0x7160             STRB     R0,[R4, #+5]
+    827          						filament_det1_high_cnt= 0;
+   \   0000020A   0x6220             STR      R0,[R4, #+32]
+    828          						filament_det1_check=0;
+   \   0000020C   0x71A0             STRB     R0,[R4, #+6]
+   \   0000020E   0xBD31             POP      {R0,R4,R5,PC}
+    829          					}
+    830          				}
+    831          			}
+    832          		}
+    833          		else//?????????????????
+    834          		{
+    835          			if(MKS_MT_DET1_OP == 0)
+   \                     ??PowerOff_Filament_Check_14: (+1)
+   \   00000210   0x2800             CMP      R0,#+0
+   \   00000212   0xD12B             BNE.N    ??PowerOff_Filament_Check_20
+    836          			{
+    837          				filament_det1_flg = 1;
+   \   00000214   0x2001             MOVS     R0,#+1
+   \   00000216   0x70E0             STRB     R0,[R4, #+3]
+    838          				if(filament_det1_cnt >= 1000)
+   \   00000218   0x69A0             LDR      R0,[R4, #+24]
+   \   0000021A   0xF5B0 0x7F7A      CMP      R0,#+1000
+   \   0000021E   0xD328             BCC.N    ??PowerOff_Filament_Check_13
+    839          				{
+    840          					if(MKS_MT_DET1_OP == 0)
+   \   00000220   0x6808             LDR      R0,[R1, #+0]
+   \   00000222   0x2800             CMP      R0,#+0
+   \   00000224   0xD125             BNE.N    ??PowerOff_Filament_Check_13
+    841          					{
+    842          						filament_det1_flg = 0;
+   \   00000226   0x2000             MOVS     R0,#+0
+   \   00000228   0x70E0             STRB     R0,[R4, #+3]
+    843          						filament_det1_cnt= 0;
+   \   0000022A   0x61A0             STR      R0,[R4, #+24]
+    844          
+    845          						clear_cur_ui();
+   \   0000022C   0x.... 0x....      BL       clear_cur_ui
+    846          						stop_print_time();
+   \   00000230   0x.... 0x....      BL       stop_print_time
+    847                					card.pauseSDPrint();
+   \   00000234   0x....             LDR.N    R0,??DataTable8_14
+   \   00000236   0x.... 0x....      BL       _ZN10CardReader12pauseSDPrintEv
+    848                					print_job_timer.pause();
+   \   0000023A   0x....             LDR.N    R0,??DataTable8_25
+   \   0000023C   0x.... 0x....      BL       _ZN9Stopwatch5pauseEv
+    849          						mksReprint.mks_printer_state = MKS_PAUSING;
+   \   00000240   0x20A8             MOVS     R0,#+168
+   \   00000242   0xF885 0x0058      STRB     R0,[R5, #+88]
+    850          
+    851          						if(from_flash_pic==1)
+   \   00000246   0x....             LDR.N    R0,??DataTable8_26
+   \   00000248   0x7800             LDRB     R0,[R0, #+0]
+   \   0000024A   0x2801             CMP      R0,#+1
+   \   0000024C   0xD103             BNE.N    ??PowerOff_Filament_Check_21
+    852          							flash_preview_begin = 1;
+   \   0000024E   0x2001             MOVS     R0,#+1
+   \   00000250   0x....             LDR.N    R1,??DataTable8_27
+   \   00000252   0x7008             STRB     R0,[R1, #+0]
+   \   00000254   0xE002             B.N      ??PowerOff_Filament_Check_22
+    853          						else
+    854          							default_preview_flg = 1;						
+   \                     ??PowerOff_Filament_Check_21: (+1)
+   \   00000256   0x2001             MOVS     R0,#+1
+   \   00000258   0x....             LDR.N    R1,??DataTable8_28
+   \   0000025A   0x7008             STRB     R0,[R1, #+0]
+    855          						draw_printing();
+   \                     ??PowerOff_Filament_Check_22: (+1)
+   \   0000025C   0x.... 0x....      BL       draw_printing
+    856          						mksBpAlrmEn = 1;
+   \   00000260   0x2001             MOVS     R0,#+1
+   \   00000262   0x7220             STRB     R0,[R4, #+8]
+    857                                  beep_mtdet1=1;
+   \   00000264   0x72A0             STRB     R0,[R4, #+10]
+    858          						delaycnt = 0;
+   \   00000266   0x2000             MOVS     R0,#+0
+   \   00000268   0x6260             STR      R0,[R4, #+36]
+    859          
+    860          						return;				
+   \   0000026A   0xBD31             POP      {R0,R4,R5,PC}
+    861          					}
+    862          				}
+    863          			}
+    864          			else
+    865          			{
+    866          				filament_det1_flg = 0;
+   \                     ??PowerOff_Filament_Check_20: (+1)
+   \   0000026C   0x2000             MOVS     R0,#+0
+   \   0000026E   0x70E0             STRB     R0,[R4, #+3]
+    867                          filament_det1_cnt = 0;
+   \   00000270   0x61A0             STR      R0,[R4, #+24]
+    868          			}
+    869          		}
+    870          	}
+    871          }
+   \                     ??PowerOff_Filament_Check_13: (+1)
+   \   00000272   0xBD31             POP      {R0,R4,R5,PC}    ;; return
+    872          
+    873          /** System Clock Configuration
+    874          */
+
+   \                                 In section .text, align 2, keep-with-next
+    875          void SystemClock_Config(void)
+    876          {
+   \                     _Z18SystemClock_Configv: (+1)
+   \   00000000   0xB500             PUSH     {LR}
+   \   00000002   0xB097             SUB      SP,SP,#+92
+    877          
+    878            RCC_OscInitTypeDef RCC_OscInitStruct;
+    879            RCC_ClkInitTypeDef RCC_ClkInitStruct;
+    880            RCC_PeriphCLKInitTypeDef PeriphClkInitStruct;
+    881          
+    882              /**Configure the main internal regulator output voltage 
+    883              */
+    884            __HAL_RCC_PWR_CLK_ENABLE();
+   \   00000004   0x2000             MOVS     R0,#+0
+   \   00000006   0x9000             STR      R0,[SP, #+0]
+   \   00000008   0x....             LDR.N    R0,??DataTable8_29  ;; 0x40023840
+   \   0000000A   0x6801             LDR      R1,[R0, #+0]
+   \   0000000C   0xF041 0x5180      ORR      R1,R1,#0x10000000
+   \   00000010   0x6001             STR      R1,[R0, #+0]
+   \   00000012   0x6800             LDR      R0,[R0, #+0]
+   \   00000014   0xF000 0x5080      AND      R0,R0,#0x10000000
+   \   00000018   0x9000             STR      R0,[SP, #+0]
+    885          
+    886            __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+   \   0000001A   0x2000             MOVS     R0,#+0
+   \   0000001C   0x9000             STR      R0,[SP, #+0]
+   \   0000001E   0x....             LDR.N    R0,??DataTable8_30  ;; 0x40007000
+   \   00000020   0x6801             LDR      R1,[R0, #+0]
+   \   00000022   0xF441 0x4180      ORR      R1,R1,#0x4000
+   \   00000026   0x6001             STR      R1,[R0, #+0]
+   \   00000028   0x6800             LDR      R0,[R0, #+0]
+   \   0000002A   0xF400 0x4080      AND      R0,R0,#0x4000
+   \   0000002E   0x9000             STR      R0,[SP, #+0]
+    887          
+    888              /**Initializes the CPU, AHB and APB busses clocks 
+    889              */
+    890            RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSI|RCC_OSCILLATORTYPE_HSE;
+   \   00000030   0x2009             MOVS     R0,#+9
+   \   00000032   0x900A             STR      R0,[SP, #+40]
+    891            RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+   \   00000034   0x2001             MOVS     R0,#+1
+   \   00000036   0x900B             STR      R0,[SP, #+44]
+    892            RCC_OscInitStruct.LSIState = RCC_LSI_ON;
+   \   00000038   0x900F             STR      R0,[SP, #+60]
+    893            RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+   \   0000003A   0x2002             MOVS     R0,#+2
+   \   0000003C   0x9010             STR      R0,[SP, #+64]
+    894            RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+   \   0000003E   0xF44F 0x0080      MOV      R0,#+4194304
+   \   00000042   0x9011             STR      R0,[SP, #+68]
+    895            RCC_OscInitStruct.PLL.PLLM = 4;
+   \   00000044   0x2004             MOVS     R0,#+4
+   \   00000046   0x9012             STR      R0,[SP, #+72]
+    896            RCC_OscInitStruct.PLL.PLLN = 168;
+   \   00000048   0x20A8             MOVS     R0,#+168
+   \   0000004A   0x9013             STR      R0,[SP, #+76]
+    897            RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+   \   0000004C   0x2002             MOVS     R0,#+2
+   \   0000004E   0x9014             STR      R0,[SP, #+80]
+    898            RCC_OscInitStruct.PLL.PLLQ = 7;
+   \   00000050   0x2007             MOVS     R0,#+7
+   \   00000052   0x9015             STR      R0,[SP, #+84]
+    899            if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+   \   00000054   0xA80A             ADD      R0,SP,#+40
+   \   00000056   0x.... 0x....      BL       HAL_RCC_OscConfig
+   \   0000005A   0x2800             CMP      R0,#+0
+   \   0000005C   0xD001             BEQ.N    ??SystemClock_Config_0
+    900            {
+    901              Error_Handler();
+   \   0000005E   0x.... 0x....      BL       Error_Handler
+    902            }
+    903          
+    904              /**Initializes the CPU, AHB and APB busses clocks 
+    905              */
+    906            RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+    907                                        |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+   \                     ??SystemClock_Config_0: (+1)
+   \   00000062   0x200F             MOVS     R0,#+15
+   \   00000064   0x9005             STR      R0,[SP, #+20]
+    908            RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+   \   00000066   0x2002             MOVS     R0,#+2
+   \   00000068   0x9006             STR      R0,[SP, #+24]
+    909            RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+   \   0000006A   0x2000             MOVS     R0,#+0
+   \   0000006C   0x9007             STR      R0,[SP, #+28]
+    910            RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
+   \   0000006E   0xF44F 0x50A0      MOV      R0,#+5120
+   \   00000072   0x9008             STR      R0,[SP, #+32]
+    911            RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
+   \   00000074   0xF44F 0x5080      MOV      R0,#+4096
+   \   00000078   0x9009             STR      R0,[SP, #+36]
+    912          
+    913            if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK)
+   \   0000007A   0x2105             MOVS     R1,#+5
+   \   0000007C   0xA805             ADD      R0,SP,#+20
+   \   0000007E   0x.... 0x....      BL       HAL_RCC_ClockConfig
+   \   00000082   0x2800             CMP      R0,#+0
+   \   00000084   0xD001             BEQ.N    ??SystemClock_Config_1
+    914            {
+    915              Error_Handler();
+   \   00000086   0x.... 0x....      BL       Error_Handler
+    916            }
+    917            
+    918          
+    919            PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_RTC;
+   \                     ??SystemClock_Config_1: (+1)
+   \   0000008A   0x2002             MOVS     R0,#+2
+   \   0000008C   0x9001             STR      R0,[SP, #+4]
+    920            PeriphClkInitStruct.RTCClockSelection = RCC_RTCCLKSOURCE_LSI;
+   \   0000008E   0xF44F 0x7000      MOV      R0,#+512
+   \   00000092   0x9004             STR      R0,[SP, #+16]
+    921            if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
+   \   00000094   0xA801             ADD      R0,SP,#+4
+   \   00000096   0x.... 0x....      BL       HAL_RCCEx_PeriphCLKConfig
+   \   0000009A   0x2800             CMP      R0,#+0
+   \   0000009C   0xD001             BEQ.N    ??SystemClock_Config_2
+    922            {
+    923              Error_Handler();
+   \   0000009E   0x.... 0x....      BL       Error_Handler
+    924            }
+    925          
+    926              /**Configure the Systick interrupt time 
+    927              */
+    928            HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/1000);
+   \                     ??SystemClock_Config_2: (+1)
+   \   000000A2   0x.... 0x....      BL       HAL_RCC_GetHCLKFreq
+   \   000000A6   0xF44F 0x717A      MOV      R1,#+1000
+   \   000000AA   0xFBB0 0xF0F1      UDIV     R0,R0,R1
+   \   000000AE   0x.... 0x....      BL       HAL_SYSTICK_Config
+    929          
+    930              /**Configure the Systick 
+    931              */
+    932            HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK);
+   \   000000B2   0x2004             MOVS     R0,#+4
+   \   000000B4   0x.... 0x....      BL       HAL_SYSTICK_CLKSourceConfig
+    933          
+    934            /* SysTick_IRQn interrupt configuration */
+    935            HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
+   \   000000B8   0x2200             MOVS     R2,#+0
+   \   000000BA   0x4611             MOV      R1,R2
+   \   000000BC   0xF04F 0x30FF      MOV      R0,#-1
+   \   000000C0   0x.... 0x....      BL       HAL_NVIC_SetPriority
+    936          }
+   \   000000C4   0xB017             ADD      SP,SP,#+92
+   \   000000C6   0xBD00             POP      {PC}             ;; return
+    937          
+    938          /** NVIC Configuration
+    939          */
+
+   \                                 In section .text, align 2, keep-with-next
+    940          static void MX_NVIC_Init(void)
+    941          {
+   \                     _Z12MX_NVIC_Initv: (+1)
+   \   00000000   0xB580             PUSH     {R7,LR}
+    942            /* TIM2_IRQn interrupt configuration */
+    943            HAL_NVIC_SetPriority(TIM2_IRQn, 2, 0);
+   \   00000002   0x2200             MOVS     R2,#+0
+   \   00000004   0x2102             MOVS     R1,#+2
+   \   00000006   0x201C             MOVS     R0,#+28
+   \   00000008   0x.... 0x....      BL       HAL_NVIC_SetPriority
+    944            HAL_NVIC_EnableIRQ(TIM2_IRQn);
+   \   0000000C   0x201C             MOVS     R0,#+28
+   \   0000000E   0x.... 0x....      BL       HAL_NVIC_EnableIRQ
+    945            /* TIM3_IRQn interrupt configuration */
+    946            HAL_NVIC_SetPriority(TIM3_IRQn, 2, 0);
+   \   00000012   0x2200             MOVS     R2,#+0
+   \   00000014   0x2102             MOVS     R1,#+2
+   \   00000016   0x201D             MOVS     R0,#+29
+   \   00000018   0x.... 0x....      BL       HAL_NVIC_SetPriority
+    947            HAL_NVIC_EnableIRQ(TIM3_IRQn);
+   \   0000001C   0x201D             MOVS     R0,#+29
+   \   0000001E   0x.... 0x....      BL       HAL_NVIC_EnableIRQ
+    948            /* TIM4_IRQn interrupt configuration */
+    949            HAL_NVIC_SetPriority(TIM4_IRQn, 2, 0);
+   \   00000022   0x2200             MOVS     R2,#+0
+   \   00000024   0x2102             MOVS     R1,#+2
+   \   00000026   0x201E             MOVS     R0,#+30
+   \   00000028   0x.... 0x....      BL       HAL_NVIC_SetPriority
+    950            HAL_NVIC_EnableIRQ(TIM4_IRQn);
+   \   0000002C   0x201E             MOVS     R0,#+30
+   \   0000002E   0x.... 0x....      BL       HAL_NVIC_EnableIRQ
+    951            /* TIM5_IRQn interrupt configuration */
+    952            HAL_NVIC_SetPriority(TIM5_IRQn, 2, 0);
+   \   00000032   0x2200             MOVS     R2,#+0
+   \   00000034   0x2102             MOVS     R1,#+2
+   \   00000036   0x2032             MOVS     R0,#+50
+   \   00000038   0x.... 0x....      BL       HAL_NVIC_SetPriority
+    953            HAL_NVIC_EnableIRQ(TIM5_IRQn);
+   \   0000003C   0x2032             MOVS     R0,#+50
+   \   0000003E   0xE8BD 0x4002      POP      {R1,LR}
+   \   00000042   0x.... 0x....      B.W      HAL_NVIC_EnableIRQ
+    954          }
+    955          /* USER CODE BEGIN 4 */
+    956          
+    957          /* USER CODE END 4 */
+    958          
+    959          /**
+    960            * @brief  This function is executed in case of error occurrence.
+    961            * @param  None
+    962            * @retval None
+    963            */
+
+   \                                 In section .text, align 2, keep-with-next
+    964          void Error_Handler(void)
+    965          {
+    966            /* USER CODE BEGIN Error_Handler */
+    967            /* User can add his own implementation to report the HAL error return state */
+    968            while(1) 
+   \                     Error_Handler: (+1)
+   \                     ??Error_Handler_0: (+1)
+   \   00000000   0xE7FE             B.N      ??Error_Handler_0
+    969            {
+    970            }
+    971            /* USER CODE END Error_Handler */ 
+    972          }
+    973          
+    974          #ifdef USE_FULL_ASSERT
+    975          
+    976          /**
+    977             * @brief Reports the name of the source file and the source line number
+    978             * where the assert_param error has occurred.
+    979             * @param file: pointer to the source file name
+    980             * @param line: assert_param error line source number
+    981             * @retval None
+    982             */
+    983          void assert_failed(uint8_t* file, uint32_t line)
+    984          {
+    985            /* USER CODE BEGIN 6 */
+    986            /* User can add his own implementation to report the file name and line number,
+    987              ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+    988            /* USER CODE END 6 */
+    989          
+    990          }
+    991          
+    992          #endif
+    993          
+    994          /**
+    995            * @}
+    996            */ 
+    997          
+    998          /**
+    999            * @}
+   1000          */ 
+   1001          
+
+   \                                 In section .text, align 2, keep-with-next
+   1002          void testAllStepAndMosFET()
+   1003          {
+   \                     _Z20testAllStepAndMosFETv: (+1)
+   \   00000000   0xB478             PUSH     {R3-R6}
+   1004          
+   1005            XENA_OP = 0;YENA_OP = 0;ZENA_OP = 0;E0ENA_OP = 0;
+   \   00000002   0x....             LDR.N    R0,??DataTable8_20  ;; 0x42408288
+   \   00000004   0x2100             MOVS     R1,#+0
+   \   00000006   0x6001             STR      R1,[R0, #+0]
+   \   00000008   0x6001             STR      R1,[R0, #+0]
+   \   0000000A   0x....             LDR.N    R1,??DataTable8_31  ;; 0x42400284
+   \   0000000C   0x2200             MOVS     R2,#+0
+   \   0000000E   0x604A             STR      R2,[R1, #+4]
+   \   00000010   0x6002             STR      R2,[R0, #+0]
+   1006          
+   1007          
+   1008            uint32_t testCnt=0;
+   1009            volatile uint32_t delayCnt=0;
+   \   00000012   0x4613             MOV      R3,R2
+   \   00000014   0x9300             STR      R3,[SP, #+0]
+   \   00000016   0xF640 0x15C5      MOVW     R5,#+2501
+   1010            
+   1011            while(1)
+   1012            {
+   1013              testCnt++;
+   \                     ??testAllStepAndMosFET_0: (+1)
+   \   0000001A   0x1C52             ADDS     R2,R2,#+1
+   1014              if(testCnt % 5000 > 2500)
+   \   0000001C   0xF241 0x3388      MOVW     R3,#+5000
+   \   00000020   0xFBB2 0xF3F3      UDIV     R3,R2,R3
+   \   00000024   0xF241 0x3488      MOVW     R4,#+5000
+   \   00000028   0xFB04 0x2313      MLS      R3,R4,R3,R2
+   \   0000002C   0x....             LDR.N    R4,??DataTable8_32  ;; 0x42410284
+   \   0000002E   0x42AB             CMP      R3,R5
+   \   00000030   0xD306             BCC.N    ??testAllStepAndMosFET_1
+   1015                {XDIR_OP = 0;YDIR_OP = 0;ZDIR_OP = 0;E0DIR_OP = 0;}
+   \   00000032   0x2600             MOVS     R6,#+0
+   \   00000034   0x6006             STR      R6,[R0, #+0]
+   \   00000036   0x6006             STR      R6,[R0, #+0]
+   \   00000038   0x6026             STR      R6,[R4, #+0]
+   \   0000003A   0x4634             MOV      R4,R6
+   \   0000003C   0x6004             STR      R4,[R0, #+0]
+   \   0000003E   0xE005             B.N      ??testAllStepAndMosFET_2
+   1016              else
+   1017              	{XDIR_OP = 1;YDIR_OP = 1;ZDIR_OP = 1;E0DIR_OP = 1;}
+   \                     ??testAllStepAndMosFET_1: (+1)
+   \   00000040   0x2601             MOVS     R6,#+1
+   \   00000042   0x6006             STR      R6,[R0, #+0]
+   \   00000044   0x6006             STR      R6,[R0, #+0]
+   \   00000046   0x6026             STR      R6,[R4, #+0]
+   \   00000048   0x4634             MOV      R4,R6
+   \   0000004A   0x6004             STR      R4,[R0, #+0]
+   1018              
+   1019              if(testCnt % 5000 > 2500)   //MOS
+   \                     ??testAllStepAndMosFET_2: (+1)
+   \   0000004C   0x42AB             CMP      R3,R5
+   \   0000004E   0xD304             BCC.N    ??testAllStepAndMosFET_3
+   1020                {BED_OP=1;HEATER1_OP=1;FAN_OP=1;}
+   \   00000050   0x2301             MOVS     R3,#+1
+   \   00000052   0x6003             STR      R3,[R0, #+0]
+   \   00000054   0x6003             STR      R3,[R0, #+0]
+   \   00000056   0x6003             STR      R3,[R0, #+0]
+   \   00000058   0xE003             B.N      ??testAllStepAndMosFET_4
+   1021              else
+   1022                {BED_OP=0;HEATER1_OP=0;FAN_OP=0;}
+   \                     ??testAllStepAndMosFET_3: (+1)
+   \   0000005A   0x2300             MOVS     R3,#+0
+   \   0000005C   0x6003             STR      R3,[R0, #+0]
+   \   0000005E   0x6003             STR      R3,[R0, #+0]
+   \   00000060   0x6003             STR      R3,[R0, #+0]
+   1023          	
+   1024              XSTEP_OP =0;YSTEP_OP =0;ZSTEP_OP =0;E0STEP_OP =0;
+   \                     ??testAllStepAndMosFET_4: (+1)
+   \   00000062   0x2300             MOVS     R3,#+0
+   \   00000064   0x6003             STR      R3,[R0, #+0]
+   \   00000066   0x6003             STR      R3,[R0, #+0]
+   \   00000068   0x600B             STR      R3,[R1, #+0]
+   \   0000006A   0x6003             STR      R3,[R0, #+0]
+   1025              delayCnt = 0; while(delayCnt < 2000) delayCnt++;
+   \   0000006C   0x9300             STR      R3,[SP, #+0]
+   \   0000006E   0xE002             B.N      ??testAllStepAndMosFET_5
+   \                     ??testAllStepAndMosFET_6: (+1)
+   \   00000070   0x9B00             LDR      R3,[SP, #+0]
+   \   00000072   0x1C5B             ADDS     R3,R3,#+1
+   \   00000074   0x9300             STR      R3,[SP, #+0]
+   \                     ??testAllStepAndMosFET_5: (+1)
+   \   00000076   0x9B00             LDR      R3,[SP, #+0]
+   \   00000078   0xF5B3 0x6FFA      CMP      R3,#+2000
+   \   0000007C   0xD3F8             BCC.N    ??testAllStepAndMosFET_6
+   1026              XSTEP_OP =1;YSTEP_OP =1;ZSTEP_OP =1;E0STEP_OP =1;
+   \   0000007E   0x2301             MOVS     R3,#+1
+   \   00000080   0x6003             STR      R3,[R0, #+0]
+   \   00000082   0x6003             STR      R3,[R0, #+0]
+   \   00000084   0x600B             STR      R3,[R1, #+0]
+   \   00000086   0x6003             STR      R3,[R0, #+0]
+   1027              delayCnt = 0; while(delayCnt < 2000) delayCnt++;
+   \   00000088   0x2300             MOVS     R3,#+0
+   \   0000008A   0x9300             STR      R3,[SP, #+0]
+   \                     ??testAllStepAndMosFET_7: (+1)
+   \   0000008C   0x9B00             LDR      R3,[SP, #+0]
+   \   0000008E   0xF5B3 0x6FFA      CMP      R3,#+2000
+   \   00000092   0xD2C2             BCS.N    ??testAllStepAndMosFET_0
+   \   00000094   0x9B00             LDR      R3,[SP, #+0]
+   \   00000096   0x1C5B             ADDS     R3,R3,#+1
+   \   00000098   0x9300             STR      R3,[SP, #+0]
+   \   0000009A   0xE7F7             B.N      ??testAllStepAndMosFET_7
+   1028            }
+   1029            
+   1030            
+   1031          }
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8:
+   \   00000000   0x4241828C         DC32     0x4241828c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_1:
+   \   00000000   0x........         DC32     Serial6
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_2:
+   \   00000000   0x........         DC32     echomagic
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_3:
+   \   00000000   0x40003800         DC32     0x40003800
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_4:
+   \   00000000   0x40013000         DC32     0x40013000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_5:
+   \   00000000   0x424082B0         DC32     0x424082b0
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_6:
+   \   00000000   0x........         DC32     logo_tick1
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_7:
+   \   00000000   0x........         DC32     htim5
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_8:
+   \   00000000   0x40000C34         DC32     0x40000c34
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_9:
+   \   00000000   0x........         DC32     htim2
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_10:
+   \   00000000   0x........         DC32     htim3
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_11:
+   \   00000000   0x........         DC32     mksTmp
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_12:
+   \   00000000   0x........         DC32     gCfgItems
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_13:
+   \   00000000   0x........         DC32     Appli_state
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_14:
+   \   00000000   0x........         DC32     card
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_15:
+   \   00000000   0x........         DC32     GUI_FontHZ16
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_16:
+   \   00000000   0x........         DC32     GUI_FontHZ_fontHz14
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_17:
+   \   00000000   0x........         DC32     mksdlp
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_18:
+   \   00000000   0x........         DC32     DeviceCode
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_19:
+   \   00000000   0x........         DC32     TFT_screen
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_20:
+   \   00000000   0x42408288         DC32     0x42408288
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_21:
+   \   00000000   0x........         DC32     poweroff_det_flg
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_22:
+   \   00000000   0x........         DC32     disp_state
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_23:
+   \   00000000   0x........         DC32     common_menu
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_24:
+   \   00000000   0x........         DC32     mksReprint
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_25:
+   \   00000000   0x........         DC32     print_job_timer
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_26:
+   \   00000000   0x........         DC32     from_flash_pic
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_27:
+   \   00000000   0x........         DC32     flash_preview_begin
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_28:
+   \   00000000   0x........         DC32     default_preview_flg
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_29:
+   \   00000000   0x40023840         DC32     0x40023840
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_30:
+   \   00000000   0x40007000         DC32     0x40007000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_31:
+   \   00000000   0x42400284         DC32     0x42400284
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_32:
+   \   00000000   0x42410284         DC32     0x42410284
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     `?<Constant "mksDLP start\\n">`:
+   \   00000000   0x6D 0x6B          DC8 "mksDLP start\012"
+   \              0x73 0x44    
+   \              0x4C 0x50    
+   \              0x20 0x73    
+   \              0x74 0x61    
+   \              0x72 0x74    
+   \              0x0A 0x00    
+   \   0000000E   0x00 0x00          DC8 0, 0
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     `?<Constant "EPR_END_ADDR:">`:
+   \   00000000   0x45 0x50          DC8 "EPR_END_ADDR:"
+   \              0x52 0x5F    
+   \              0x45 0x4E    
+   \              0x44 0x5F    
+   \              0x41 0x44    
+   \              0x44 0x52    
+   \              0x3A 0x00    
+   \   0000000E   0x00 0x00          DC8 0, 0
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     `?<Constant "??~(??????V1.0.0_002)">`:
+   \   00000000   0x3F 0x3F          DC8 "??~(??????V1.0.0_002)"
+   \              0x7E 0x28    
+   \              0x3F 0x3F    
+   \              0x3F 0x3F    
+   \              0x3F 0x3F    
+   \              0x56 0x31    
+   \              0x2E 0x30    
+   \              0x2E 0x30    
+   \              0x5F 0x30    
+   \              0x30 0x32    
+   \              0x29 0x00    
+   \   00000016   0x00 0x00          DC8 0, 0
+   1032          
+   1033          
+   1034          /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       8   Close_machine_display()
+         8   -> GUI_Clear
+         8   -> GUI_DispStringAt
+         8   -> GUI_SetBkColor
+         8   -> GUI_SetColor
+         8   -> clear_cur_ui
+       0   Error_Handler
+       8   MX_NVIC_Init()
+         0   -> HAL_NVIC_EnableIRQ
+         8   -> HAL_NVIC_EnableIRQ
+         8   -> HAL_NVIC_SetPriority
+      16   PowerOff_Filament_Check()
+        16   -> CardReader::pauseSDPrint()
+         0   -> Close_machine_display()
+        16   -> Stopwatch::pause()
+        16   -> clear_cur_ui
+        16   -> draw_printing
+        16   -> stop_print_time
+      96   SystemClock_Config()
+        96   -> Error_Handler
+        96   -> HAL_NVIC_SetPriority
+        96   -> HAL_RCCEx_PeriphCLKConfig
+        96   -> HAL_RCC_ClockConfig
+        96   -> HAL_RCC_GetHCLKFreq
+        96   -> HAL_RCC_OscConfig
+        96   -> HAL_SYSTICK_CLKSourceConfig
+        96   -> HAL_SYSTICK_Config
+      24   main()
+        24   -> AT24CXX_Write
+        24   -> CardReader::checkFilesys(unsigned char)
+        24   -> CardReader::initusb()
+        24   -> CardReader::mksConfiguration()
+        24   -> CardReader::udiskState_Polling()
+        24   -> DRAW_LOGO
+        24   -> GUI_Clear
+        24   -> GUI_DispStringAt
+        24   -> GUI_Init
+        24   -> GUI_SetBkColor
+        24   -> GUI_SetColor
+        24   -> GUI_SetFont
+        24   -> GUI_UC_SetEncodeNone
+        24   -> GUI_UC_SetEncodeUTF8
+        24   -> HAL_Delay
+        24   -> HAL_Init
+        24   -> HAL_TIM_Base_Start_IT
+        24   -> HAL_TIM_PWM_Start
+        24   -> MKS_DLP::dlp_start()
+        24   -> MX_DMA_Init
+        24   -> MX_FATFS_Init
+        24   -> MX_GPIO_Init
+        24   -> MX_I2C1_Init
+        24   -> MX_NVIC_Init()
+        24   -> MX_RTC_Init
+        24   -> MX_SDIO_SD_Init
+        24   -> MX_SPI1_Init
+        24   -> MX_SPI2_Init
+        24   -> MX_TIM2_Init
+        24   -> MX_TIM3_Init
+        24   -> MX_TIM5_Init
+        24   -> MX_USART6_UART_Init
+        24   -> MX_USB_HOST_Init
+        24   -> MX_USB_HOST_Process
+        24   -> NVIC_SetVectorTable
+        24   -> SPI_Cmd
+        24   -> SystemClock_Config()
+        24   -> USARTClass::begin(uint32_t)
+        24   -> USARTClass::write(uint8_t)
+        24   -> disp_language_init()
+        24   -> getTick
+        24   -> gui_view_init
+        24   -> loop
+        24   -> mksHardwareTest
+        24   -> mks_initPrint
+        24   -> mks_rePrintCheck
+        24   -> mkstft_ui_init
+        24   -> serial_echopair_P(char const *, int)
+        24   -> serialprintPGM(char const *)
+        24   -> setTouchBound
+        24   -> setup
+       0   mksBeeperAlarm()
+       8   serialprintPGM(char const *)
+         8   -> USARTClass::write(uint8_t)
+      16   testAllStepAndMosFET()
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      24  ?<Constant "??~(??????V1.0.0_002)">
+      16  ?<Constant "EPR_END_ADDR:">
+      16  ?<Constant "mksDLP start\n">
+       4  ??DataTable8
+       4  ??DataTable8_1
+       4  ??DataTable8_10
+       4  ??DataTable8_11
+       4  ??DataTable8_12
+       4  ??DataTable8_13
+       4  ??DataTable8_14
+       4  ??DataTable8_15
+       4  ??DataTable8_16
+       4  ??DataTable8_17
+       4  ??DataTable8_18
+       4  ??DataTable8_19
+       4  ??DataTable8_2
+       4  ??DataTable8_20
+       4  ??DataTable8_21
+       4  ??DataTable8_22
+       4  ??DataTable8_23
+       4  ??DataTable8_24
+       4  ??DataTable8_25
+       4  ??DataTable8_26
+       4  ??DataTable8_27
+       4  ??DataTable8_28
+       4  ??DataTable8_29
+       4  ??DataTable8_3
+       4  ??DataTable8_30
+       4  ??DataTable8_31
+       4  ??DataTable8_32
+       4  ??DataTable8_4
+       4  ??DataTable8_5
+       4  ??DataTable8_6
+       4  ??DataTable8_7
+       4  ??DataTable8_8
+       4  ??DataTable8_9
+       4  BeeperFreq
+      58  Close_machine_display()
+       2  Error_Handler
+      70  MX_NVIC_Init()
+     628  PowerOff_Filament_Check()
+     200  SystemClock_Config()
+       1  beeper_flg
+       1  filament_det2_check
+       4  filament_det2_cnt
+       1  filament_det2_flg
+       4  filament_det2_high_cnt
+       1  filament_det2_high_flg
+       4  filament_det2_low_cnt
+       1  filament_det2_low_flg
+       4  logo_tick1
+       4  logo_tick2
+     626  main()
+     138  mksBeeperAlarm()
+      40  poweroff_det_flg
+          poweroff_det_low_flg
+          poweroff_det_high_flg
+          filament_det1_flg
+          filament_det1_low_flg
+          filament_det1_high_flg
+          filament_det1_check
+          BeeperCnt
+          mksBpAlrmEn
+          beep_pwdet
+          beep_mtdet1
+          beep_mtdet2
+          poweroff_det_cnt
+          poweroff_det_low_cnt
+          poweroff_det_high_cnt
+          filament_det1_cnt
+          filament_det1_low_cnt
+          filament_det1_high_cnt
+          delaycnt
+      28  serialprintPGM(char const *)
+     156  testAllStepAndMosFET()
+       1  -- Other
+
+ 
+    69 bytes in section .bss
+     1 byte  in section .rodata
+ 2 094 bytes in section .text
+ 
+ 2 066 bytes of CODE  memory (+ 28 bytes shared)
+     0 bytes of CONST memory (+  1 byte  shared)
+    69 bytes of DATA  memory
+
+Errors: none
+Warnings: 86

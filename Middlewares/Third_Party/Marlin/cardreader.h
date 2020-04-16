@@ -137,6 +137,8 @@ public:
 	void checkFilesys(unsigned char filesys);
   //void openFile(char* name, const bool read, const bool subcall=false);
    bool openFile(char* name,bool read,bool replace_current=true);
+   bool open_CBD_File(char* filename);
+   void close_CBD_File();
   //void openLogFile(char* name);
   //void removeFile(const char * const name);
   //void closefile(bool store_location=false);

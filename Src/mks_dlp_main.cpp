@@ -255,11 +255,30 @@ void MKS_DLP::moveRelative_Z(float Z,float feedrate)
 
 void MKS_DLP::moveRelativeZandGetBmp(float Z,float feedrate)	
 {
+	uint8_t aa_i;
+	
 	status.quickStop_status = false;
 	destination[Z_AXIS] += Z; 	//移动相对位置
 	//do_blocking_move_to_z(destination[Z_AXIS],feedrate);
 	do_blocking_move_to_z_nowait(destination[Z_AXIS],feedrate);
-	get_sdcard_bmps();			//读取图片
+	if(mksdlp.print_file_type==1)
+	{
+		get_sdcard_bmps();			//读取图片
+	}
+	else
+	{
+		if(cbddlp_file_header.antiAliasingLevel>1)
+		{
+			for(aa_i=0;aa_i<cbddlp_file_header.antiAliasingLevel;aa_i++)
+			{
+				decode_layer_from_rle((uint32_t)(status.currentLayer+head.Bottomlayers-1)+aa_i*cbddlp_file_header.numberOfLayers,aa_i);
+			}
+		}
+		else
+		{
+			decode_layer_from_rle((uint32_t)(status.currentLayer+head.Bottomlayers-1),WORK_USED_BANK);
+		}
+	}
 	stepper.synchronize();
 }
 
@@ -426,9 +445,14 @@ void MKS_DLP::getHead2()
 	
 	rc = card.gets(sd_char,2);	//底层层数
 	set_Bottomlayers(sd_char[0]<<8 | sd_char[1]);
+
+	//由于兼容cbddlp，需做一个相关的转换
+	head.LedOnTime_bak=head.LedOnTime;//曝光时间
+	head.BottomLedOnTime_bak=head.BottomLedOnTime;	//底层曝光时间
 }
 void MKS_DLP::startFileprint()
 {
+	cbddlp_file_header.antiAliasingLevel=0;
     mksdlp.ssd.init();//重新初始化2k屏，避免长时间待机之后，2k屏无法正常打印。
 	getHead1();
 	getHead2();
@@ -820,15 +844,42 @@ void MKS_DLP::get_sdcard_bmps()
 			}
 }
 
+uint8_t aalay_cnt=0;
+
 void MKS_DLP::bottomLayerPrint() 
 {
+	uint8_t aa_i;
+	
 	if(status.curBottomlayers == 0) //读取底层图片
 		{
 		bank2disp_enable(WORK_USED_BANK,0,0);
-		get_sdcard_bmps();
-		status.exposure = true;
+		if(mksdlp.print_file_type==1)
+		{
+			get_sdcard_bmps();
+			status.exposure = true;
+			bank2disp_enable(WORK_USED_BANK,1,1);	//显示图片
+		}
+		else
+		{
+			if(cbddlp_file_header.antiAliasingLevel>1)
+			{
+				aalay_cnt++;
+				for(aa_i=0;aa_i<cbddlp_file_header.antiAliasingLevel;aa_i++)
+				{
+				//写BANK_USED_ID0~BANK_USED_ID3
+					decode_layer_from_rle((uint32_t)status.curBottomlayers+aa_i*cbddlp_file_header.numberOfLayers,aa_i);
+				}
+				status.exposure = true;
+				bank2disp_enable(BANK_USED_ID0,1,1);	//显示图片				
+			}
+			else
+			{
+				decode_layer_from_rle((uint32_t)status.curBottomlayers,WORK_USED_BANK);
+				status.exposure = true;
+				bank2disp_enable(WORK_USED_BANK,1,1);	//显示图片
+			}
+		}
 
-		bank2disp_enable(WORK_USED_BANK,1,1);	//显示图片
 		destination[Z_AXIS] = head.thickness;
 		do_blocking_move_to_z(destination[Z_AXIS],PRINT_FEEDRATE);	//移动Z轴，
 		stepper.synchronize();
@@ -842,36 +893,95 @@ void MKS_DLP::bottomLayerPrint()
 		clr_ticket();	
 		}
 	
-	if(status.exposure == false && tick_ms > head.LedOffTime)
+	if((status.exposure == false && tick_ms > head.LedOffTime)
+		||(status.exposure == false && aalay_cnt>0 && cbddlp_file_header.antiAliasingLevel>1))
+	{
+		if(mksdlp.print_file_type!=1)
 		{
-		bank2disp_enable(WORK_USED_BANK,1,1);	//显示图片                      
-		status.exposure = true;  
-		led_on();				//开曝光	
-		clr_ticket();
-									
+			
+			if(cbddlp_file_header.antiAliasingLevel>1)
+			{
+				
+				if(aalay_cnt==0)
+				{
+					for(aa_i=0;aa_i<cbddlp_file_header.antiAliasingLevel;aa_i++)
+					{
+					//写BANK_USED_ID0~BANK_USED_ID3
+						decode_layer_from_rle((uint32_t)status.curBottomlayers+aa_i*cbddlp_file_header.numberOfLayers,aa_i);
+					}
+					led_on();
+				}
+				//decode_layer_from_rle((uint32_t)(status.curBottomlayers+aalay_cnt*cbddlp_file_header.numberOfLayers));	
+				//bank2disp_enable(aalay_cnt,0,0);
+				bank2disp_enable(aalay_cnt,1,1);	//显示图片					
+				aalay_cnt++;
+				status.exposure = true;  
+				//led_on();				//开曝光	
+				clr_ticket();
+
+			}
+			else
+			{
+				decode_layer_from_rle((uint32_t)status.curBottomlayers,WORK_USED_BANK);
+				
+				bank2disp_enable(WORK_USED_BANK,1,1);	//显示图片                      
+				status.exposure = true;  
+				led_on();				//开曝光	
+				clr_ticket();				
+			}
 		}
-	
-	if(status.exposure == true && tick_ms > head.BottomLedOnTime)	
+		else
 		{
+			bank2disp_enable(WORK_USED_BANK,1,1);	//显示图片                      
+			status.exposure = true;  
+			led_on();				//开曝光	
+			clr_ticket();
+		}					
+	}
+	
+	if(status.exposure == true && tick_ms > head.BottomLedOnTime_bak)	
+	{
 
 		if(status.curBottomlayers < head.Bottomlayers)
-			{
+		{
 			status.exposure = false;	
-			led_off();			//关闭曝光
+			//led_off();			//关闭曝光
 			clr_ticket();
-			write_Information_layer(DLP_MOVING);
-			moveRelative_Z(home_bump_mm_P[2],PRINT_FEEDRATE);		//移动Z轴，
-			if(mksReprint.mks_printer_state == MKS_WORKING)
-				moveRelative_Z(head.thickness-home_bump_mm_P[2],PRINT_FEEDRATE);		//移动Z轴，
-			write_Information_layer(DLP_STOPED);				
-			status.curBottomlayers++;
+			if(cbddlp_file_header.antiAliasingLevel>1)
+			{
+				if(aalay_cnt>=cbddlp_file_header.antiAliasingLevel)
+				{
+					aalay_cnt = 0;
+					LED_BACK_LIGHT_OP = 0; 
+					CleanDataTrans();
+					led_off();			//关闭曝光
+					write_Information_layer(DLP_MOVING);
+					moveRelative_Z(home_bump_mm_P[2],PRINT_FEEDRATE);		//移动Z轴，
+					if(mksReprint.mks_printer_state == MKS_WORKING)
+						moveRelative_Z(head.thickness-home_bump_mm_P[2],PRINT_FEEDRATE);		//移动Z轴，
+					write_Information_layer(DLP_STOPED);				
+					status.curBottomlayers++;
+				}
+			}
+			else
+			{
+				led_off();			//关闭曝光
+				write_Information_layer(DLP_MOVING);
+				moveRelative_Z(home_bump_mm_P[2],PRINT_FEEDRATE);		//移动Z轴，
+				if(mksReprint.mks_printer_state == MKS_WORKING)
+					moveRelative_Z(head.thickness-home_bump_mm_P[2],PRINT_FEEDRATE);		//移动Z轴，
+				write_Information_layer(DLP_STOPED);				
+				status.curBottomlayers++;
+			}
 #if defined(MKS_DLP_DEBUG)			
 			report_mksdlp_position();
 #endif
 			}
 		else
 			{
-			tick_ms = head.LedOnTime+1;
+			aalay_cnt=0;
+			//tick_ms = head.LedOnTime+1;
+			tick_ms = head.LedOnTime_bak+1;
 			status.currentLayer++;
 			GeneralLayersPrint();
 			}
@@ -879,49 +989,113 @@ void MKS_DLP::bottomLayerPrint()
 
 }
 
+
 void MKS_DLP::GeneralLayersPrint() 
 {
-	if(status.exposure == true && tick_ms > head.LedOnTime)
-		{
-		status.exposure = false;
-		led_off();				//关闭曝光
-		clr_ticket();
-		if(status.currentLayer < head.totalLayers)
-			{
-			bank2disp_enable(WORK_USED_BANK,0,0);
-			
-			write_Information_layer(DLP_MOVING);
+	if(status.exposure == true && tick_ms > head.LedOnTime_bak)
+	{
 
-/*			
-			moveRelative_Z(home_bump_mm_P[2],PRINT_FEEDRATE);		//移动Z轴，
-			get_sdcard_bmps();			//读取图片
-*/
-			moveRelativeZandGetBmp(home_bump_mm_P[2],PRINT_FEEDRATE);//移动Z轴，并读取图片
-/*			
-			write_Information_layer(DLP_MOVING);
-			moveRelative_Z(home_bump_mm_P[2],PRINT_FEEDRATE);		//移动Z轴，
-*/			
-			if(mksReprint.mks_printer_state == MKS_WORKING)
-				moveRelative_Z(head.thickness-home_bump_mm_P[2],PRINT_FEEDRATE);		//移动Z轴，
-			write_Information_layer(DLP_STOPED);				
+		//if(status.currentLayer < head.totalLayers)
+		if(((status.currentLayer < head.totalLayers)&&(mksdlp.print_file_type==1))
+			||(((status.currentLayer-1) < head.totalLayers-head.Bottomlayers)&&(mksdlp.print_file_type!=1)))
+		{
+			if(cbddlp_file_header.antiAliasingLevel>1)
+			{
+				status.exposure = false;
+				
+				if(aalay_cnt==0)
+				{
+					LED_BACK_LIGHT_OP = 0; 
+					CleanDataTrans();
+					led_off();				//关闭曝光
+					
+					aalay_cnt++;
+					bank2disp_enable(WORK_USED_BANK,0,0);
+					write_Information_layer(DLP_MOVING);
+
+					moveRelativeZandGetBmp(home_bump_mm_P[2],PRINT_FEEDRATE);//移动Z轴，并读取图片
+			
+					if(mksReprint.mks_printer_state == MKS_WORKING)
+						moveRelative_Z(head.thickness-home_bump_mm_P[2],PRINT_FEEDRATE);		//移动Z轴，
+					write_Information_layer(DLP_STOPED);	
+				}
+				clr_ticket();
+				//else
+				//{
+				//	bank2disp_enable(WORK_USED_BANK,0,0);
+				//	decode_layer_from_rle((uint32_t)((status.currentLayer+head.Bottomlayers-1)+aalay_cnt*cbddlp_file_header.numberOfLayers),WORK_USED_BANK);
+				//	aalay_cnt++;
+				//}
+			}
+			else
+			{
+				status.exposure = false;
+				led_off();				//关闭曝光
+				clr_ticket();
+				
+				bank2disp_enable(WORK_USED_BANK,0,0);
+				
+				write_Information_layer(DLP_MOVING);
+
+				/*			
+				moveRelative_Z(home_bump_mm_P[2],PRINT_FEEDRATE);		//移动Z轴，
+				get_sdcard_bmps();			//读取图片
+				*/
+				moveRelativeZandGetBmp(home_bump_mm_P[2],PRINT_FEEDRATE);//移动Z轴，并读取图片
+				/*			
+				write_Information_layer(DLP_MOVING);
+				moveRelative_Z(home_bump_mm_P[2],PRINT_FEEDRATE);		//移动Z轴，
+				*/			
+				if(mksReprint.mks_printer_state == MKS_WORKING)
+					moveRelative_Z(head.thickness-home_bump_mm_P[2],PRINT_FEEDRATE);		//移动Z轴，
+				write_Information_layer(DLP_STOPED);
+			}
 #if defined(MKS_DLP_DEBUG)			
 			report_mksdlp_position();
 #endif
 			//bank2disp_enable(WORK_USED_BANK,1,1);	//显示图片	
-			}
+		}
 		else
+		{
+			if(cbddlp_file_header.antiAliasingLevel>1)
 			{
-				printingHasFinished(); 		//打印结束
+				LED_BACK_LIGHT_OP = 0; 
+				ExposureDataTrans_circle();
+				CleanDataTrans();
+			}		
+			printingHasFinished(); 		//打印结束
+		}
+	}
+	
+	if((status.exposure == false && tick_ms > head.LedOffTime)
+		||(status.exposure == false && aalay_cnt>0 &&cbddlp_file_header.antiAliasingLevel>1))
+	{
+
+		if(cbddlp_file_header.antiAliasingLevel>1)
+		{
+			bank2disp_enable(aalay_cnt-1,1,1);	//显示图片      
+			if(aalay_cnt==1)
+			{
+				led_on();			//开曝光	
+			}
+			aalay_cnt++;
+			status.exposure = true;		
+			clr_ticket();		
+			if(aalay_cnt-1>=cbddlp_file_header.antiAliasingLevel)
+			{
+				aalay_cnt = 0;
+				status.currentLayer++;
 			}
 		}
-	if(status.exposure == false && tick_ms > head.LedOffTime)
+		else
 		{
-		bank2disp_enable(WORK_USED_BANK,1,1);	//显示图片      
-		led_on();			//开曝光	
-		status.exposure = true;		
-		clr_ticket();
-		status.currentLayer++;
+			bank2disp_enable(WORK_USED_BANK,1,1);	//显示图片      
+			led_on();			//开曝光	
+			status.exposure = true;		
+			clr_ticket();		
+			status.currentLayer++;
 		}
+	}
 
 }
 
@@ -940,7 +1114,9 @@ void MKS_DLP::get_available_bmps()
 	
 	bool card_eof = card.eof();
 
-	if((status.currentLayer > head.totalLayers) || card_eof)	//打印结束
+	//if((status.currentLayer > head.totalLayers) || card_eof)	//打印结束
+	if((((status.currentLayer > head.totalLayers)||card_eof)&&(mksdlp.print_file_type==1))
+		||((status.currentLayer-1 > head.totalLayers)&&(mksdlp.print_file_type!=1)))	//打印结束
 		{
 		printingHasFinished();
 		return;
@@ -1324,6 +1500,15 @@ void MKS_DLP::set_LedOnTime(uint16_t value)
 	epr_write_data(EPR_SAV_LEDONTIME, (uint8_t *)&head.LedOnTime,sizeof(head.LedOnTime));
 	head.LedOnTime = 0;
 	epr_read_data((int)EPR_SAV_LEDONTIME, (uint8_t*)&head.LedOnTime, sizeof(head.LedOnTime));
+	if(cbddlp_file_header.antiAliasingLevel>1)
+	{
+		head.LedOnTime_bak=(head.LedOnTime*1.0/cbddlp_file_header.antiAliasingLevel+0.5);
+	}
+	else
+	{		
+		head.LedOnTime_bak=head.LedOnTime;
+	}
+	
 }
 
  void MKS_DLP::set_LedOffTime(uint16_t value)
@@ -1350,6 +1535,17 @@ void MKS_DLP::set_BottomLedOnTime(uint16_t value)
 	epr_write_data(EPR_SAV_B_LEDONTIME, (uint8_t *)&head.BottomLedOnTime,sizeof(head.BottomLedOnTime));
 	head.BottomLedOnTime = 0;
 	epr_read_data((int)EPR_SAV_B_LEDONTIME, (uint8_t*)&head.BottomLedOnTime, sizeof(head.BottomLedOnTime));
+	if(cbddlp_file_header.antiAliasingLevel>1)
+	{
+		head.BottomLedOnTime_bak=(uint32_t)(head.BottomLedOnTime*1.0/cbddlp_file_header.antiAliasingLevel+0.5);
+	}
+	else
+	{
+		head.BottomLedOnTime_bak=head.BottomLedOnTime;
+	}
+
+	
+
 }
 
 uint16_t MKS_DLP::get_LedOnTime()
@@ -1384,7 +1580,14 @@ void MKS_DLP::set_Zoffset()
 
 uint16_t MKS_DLP::get_totalLayers()
 {
-	return(head.totalLayers + head.Bottomlayers -1);
+	if(mksdlp.print_file_type == 1)
+	{
+		return(head.totalLayers + head.Bottomlayers -1);
+	}
+	else
+	{
+		return(head.totalLayers);
+	}
 }
 
 uint16_t MKS_DLP::get_currentLayer()
@@ -1646,6 +1849,11 @@ void MKS_DLP::resumePrint()
 }
 void MKS_DLP::stopPrint()
 {
+	if(cbddlp_file_header.antiAliasingLevel>1)
+	{
+		ExposureDataTrans_circle();
+		CleanDataTrans();
+	}
 	led_off();
 	quickstop_stepper();
 	//moveMax_Z();
@@ -1697,6 +1905,9 @@ void MKS_DLP::read_Information_paused()
 	epr_read_data((int)EPR_SAV_B_LAYER, (uint8_t*)&head.Bottomlayers, sizeof(head.Bottomlayers));
 	epr_read_data((int)EPR_SAV_B_LEDONTIME, (uint8_t*)&head.BottomLedOnTime, sizeof(head.BottomLedOnTime));
 
+	head.LedOnTime_bak = head.LedOnTime;
+	head.BottomLedOnTime_bak = head.BottomLedOnTime;
+	
 	epr_read_data((int)EPR_SAV_C_LAYER, (uint8_t*)&cLayer, sizeof(cLayer));
 	if(cLayer <= head.Bottomlayers)
 		{
@@ -1728,11 +1939,35 @@ void MKS_DLP::read_Information_paused()
 void MKS_DLP::contiuePrint_paused()
 {
 		char string[20];
-	
+		uint8_t aa_i;
+		
 		card.sdprinting = true;
-		getHead1();
-		card.setIndex(mksReprint.sdpos);
-		get_sdcard_bmps();
+		if(mksdlp.print_file_type == 1)
+		{
+			getHead1();
+			card.setIndex(mksReprint.sdpos);
+			get_sdcard_bmps();
+		}
+		else
+		{
+			if(status.currentLayer != 0)
+			{
+				if(cbddlp_file_header.antiAliasingLevel>1)
+				{
+					aalay_cnt++;
+					for(aa_i=0;aa_i<cbddlp_file_header.antiAliasingLevel;aa_i++)
+					{
+						//写BANK_USED_ID0~BANK_USED_ID3
+						decode_layer_from_rle((uint32_t)status.currentLayer+aa_i*cbddlp_file_header.numberOfLayers,aa_i);
+					}			
+				}
+				else
+				{
+					decode_layer_from_rle((uint32_t)status.currentLayer,WORK_USED_BANK);
+				}			
+			}			
+		}
+		
 		status.exposure = false;
 		tick_ms = head.LedOffTime+1;
 
@@ -1861,6 +2096,8 @@ bool MKS_DLP::read_Information_layer()
 		epr_read_data((int)EPR_SAV_B_LAYER, (uint8_t*)&head.Bottomlayers, sizeof(head.Bottomlayers));
 		epr_read_data((int)EPR_SAV_B_LEDONTIME, (uint8_t*)&head.BottomLedOnTime, sizeof(head.BottomLedOnTime));
 
+		head.LedOnTime_bak = head.LedOnTime;
+		head.BottomLedOnTime_bak = head.BottomLedOnTime;
 
 		if(cLayer <= head.Bottomlayers)
 			{
@@ -1891,11 +2128,34 @@ bool MKS_DLP::read_Information_layer()
 void MKS_DLP::contiuePrint_Pwdwn()
 {
 	char string[20];
+	uint8_t aa_i;
 	
 	card.sdprinting = true;
-	getHead1();
-	card.setIndex(mksReprint.sdpos);
-	get_sdcard_bmps();
+	if(mksdlp.print_file_type == 1)
+	{
+		getHead1();
+		card.setIndex(mksReprint.sdpos);
+		get_sdcard_bmps();
+	}
+	else
+	{
+		if(status.currentLayer != 0)
+		{
+			if(cbddlp_file_header.antiAliasingLevel>1)
+			{
+				aalay_cnt++;
+				for(aa_i=0;aa_i<cbddlp_file_header.antiAliasingLevel;aa_i++)
+				{
+					//写BANK_USED_ID0~BANK_USED_ID3
+					decode_layer_from_rle((uint32_t)status.currentLayer+aa_i*cbddlp_file_header.numberOfLayers,aa_i);
+				}			
+			}
+			else
+			{
+				decode_layer_from_rle((uint32_t)status.currentLayer,WORK_USED_BANK);
+			}			
+		}
+	}
 	status.exposure = false;
 	tick_ms = head.LedOffTime+1;
 
@@ -1960,7 +2220,11 @@ void MKS_DLP::draw_return_printing_ui()
 
 void MKS_DLP::draw_printing()
 {
-		getHead1();
+		if(mksdlp.print_file_type == 1)
+			getHead1();
+		else
+			get_cbddlp_file_header();
+		
 		draw_status_clear();
 		display_print_statue(); 					 
 		setProBarRate(/*get_printing_rate(srcfp)*/); 
@@ -1968,5 +2232,538 @@ void MKS_DLP::draw_printing()
 		card.setIndex(0);
 }
 
+//====================================================//
+cbddlp_file_head_t cbddlp_file_header;
+print_parameters print_para;
+layer_definition layer_def;
+preview_pic_def preview_pic1,preview_pic2;
 
+typedef union{
+	BYTE sd_char[4];
+	float val_f;
+}hex_to_float;
+
+typedef union{
+	BYTE sd_char[4];
+	uint32_t val_i;
+}hex_to_int; 
+
+void MKS_DLP::get_cbddlp_file_header()
+{
+		BYTE sd_char[4];
+		hex_to_float temp_float;
+		hex_to_int temp_int;
+		uint8_t rc;
+		long index=0;
+
+		rc = card.gets(sd_char,4);	//magic
+		memcpy(cbddlp_file_header.magic,sd_char,4);
+		
+		rc = card.gets(temp_int.sd_char,4);	//version
+		cbddlp_file_header.version=temp_int.val_i;
+		
+		//build sizes
+		rc = card.gets(temp_float.sd_char,4);	//bedXmm
+		cbddlp_file_header.bedXmm=temp_float.val_f;
+		rc = card.gets(temp_float.sd_char,4);	//bedYmm
+		cbddlp_file_header.bedYmm=temp_float.val_f;	
+		rc = card.gets(temp_float.sd_char,4);	//bedZmm
+		cbddlp_file_header.bedZmm=temp_float.val_f;	
+		//UnKnow
+		rc = card.gets(sd_char,4);	//
+		memcpy(cbddlp_file_header.unknown1,sd_char,4);
+		rc = card.gets(sd_char,4);	//
+		memcpy(cbddlp_file_header.unknown2,sd_char,4);	
+		rc = card.gets(sd_char,4);	//
+		memcpy(cbddlp_file_header.unknown3,sd_char,4);	
+
+		rc = card.gets(temp_float.sd_char,4);	//layerHeighe
+		cbddlp_file_header.layerHeightMilimeter=temp_float.val_f; 
+
+		rc = card.gets(temp_float.sd_char,4);	//exposureTime
+		cbddlp_file_header.exposureTimeSeconds=temp_float.val_f; 
+
+		rc = card.gets(temp_float.sd_char,4);	//exposureBottomTime
+		cbddlp_file_header.exposureBottomTimeSeconds=temp_float.val_f; 
+
+		rc = card.gets(temp_float.sd_char,4);	//offTime
+		cbddlp_file_header.offTimeSeconds=temp_float.val_f; 	
+
+		rc = card.gets(temp_int.sd_char,4);	//bottomLayers
+		cbddlp_file_header.bottomLayers=temp_int.val_i;
+
+		rc = card.gets(temp_int.sd_char,4);	//resolutionX
+		cbddlp_file_header.resolutionX=temp_int.val_i;
+
+		rc = card.gets(temp_int.sd_char,4);	//resolutionY
+		cbddlp_file_header.resolutionY=temp_int.val_i;
+	
+		rc = card.gets(temp_int.sd_char,4);	//previewOneOffsetAddress
+		cbddlp_file_header.previewOneOffsetAddress=temp_int.val_i;
+
+		rc = card.gets(temp_int.sd_char,4);	//layersDefinitionOffsetAddress
+		cbddlp_file_header.layersDefinitionOffsetAddress=temp_int.val_i;
+
+		rc = card.gets(temp_int.sd_char,4);	//numberOfLayers
+		cbddlp_file_header.numberOfLayers=temp_int.val_i;
+
+		rc = card.gets(temp_int.sd_char,4);	//previewTwoOffsetAddress
+		cbddlp_file_header.previewTwoOffsetAddress=temp_int.val_i;
+
+		if(cbddlp_file_header.version > 1)
+		{
+			rc = card.gets(temp_int.sd_char,4);	//printTime---s
+			cbddlp_file_header.printTime=temp_int.val_i;
+		}
+		
+		rc = card.gets(temp_int.sd_char,4);	//projectType
+		cbddlp_file_header.projectType=temp_int.val_i;
+		if(cbddlp_file_header.version > 1)
+		{
+			rc = card.gets(temp_int.sd_char,4);	//printParametersOffsetAddress
+			cbddlp_file_header.printParametersOffsetAddress=temp_int.val_i;
+
+			rc = card.gets(temp_int.sd_char,4);	//printParametersSize
+			cbddlp_file_header.printParametersSize=temp_int.val_i;
+
+			rc = card.gets(temp_int.sd_char,4);	//antiAliasingLevel
+			cbddlp_file_header.antiAliasingLevel=temp_int.val_i;
+
+			rc = card.gets(sd_char,2);	//lightPWM
+			cbddlp_file_header.lightPWM=sd_char[1]<<8|sd_char[0];
+
+			rc = card.gets(sd_char,2);	//lightPWM
+			cbddlp_file_header.bottomLightPWM=sd_char[1]<<8|sd_char[0];
+		}
+		//padding
+		rc = card.gets(sd_char,4);	//
+		memcpy(cbddlp_file_header.padding1,sd_char,4);
+		rc = card.gets(sd_char,4);	//
+		memcpy(cbddlp_file_header.padding2,sd_char,4);	
+		rc = card.gets(sd_char,4);	//
+		memcpy(cbddlp_file_header.padding3,sd_char,4);		
+
+
+		//change to mks
+		head.Bottomlayers=cbddlp_file_header.bottomLayers;
+		head.totalLayers=cbddlp_file_header.numberOfLayers;
+		head.thickness=cbddlp_file_header.layerHeightMilimeter;
+		head.LedOnTime=cbddlp_file_header.exposureTimeSeconds*1000;
+		head.LedOffTime=cbddlp_file_header.offTimeSeconds*1000;
+		head.BottomLedOnTime=cbddlp_file_header.exposureBottomTimeSeconds*1000;
+		
+		if(cbddlp_file_header.antiAliasingLevel>4)//目前cbddlp格式在mks中只能做到4级灰度
+			cbddlp_file_header.antiAliasingLevel=4;
+		
+		if(cbddlp_file_header.antiAliasingLevel>1)
+		{
+			head.LedOnTime_bak=(uint32_t)(cbddlp_file_header.exposureTimeSeconds*1000.0/cbddlp_file_header.antiAliasingLevel+0.5);
+			head.BottomLedOnTime_bak=(uint32_t)(cbddlp_file_header.exposureBottomTimeSeconds*1000.0/cbddlp_file_header.antiAliasingLevel+0.5);
+		}
+		else
+		{
+			head.LedOnTime_bak=head.LedOnTime;
+			head.BottomLedOnTime_bak=head.BottomLedOnTime;
+		}
+}
+
+
+void MKS_DLP::get_cbddlp_preview1_info()
+{
+	BYTE sd_char[4];
+	uint8_t rc;
+	long index=0;	
+	hex_to_int temp_int;
+	
+	index = cbddlp_file_header.previewOneOffsetAddress;
+	card.setIndex(index);
+	
+	rc = card.gets(temp_int.sd_char,4);	//resolution_X
+	preview_pic1.resolution_X = temp_int.val_i;
+
+	rc = card.gets(temp_int.sd_char,4);	//resolution_Y
+	preview_pic1.resolution_Y = temp_int.val_i;
+
+	rc = card.gets(temp_int.sd_char,4);	//ofs_image
+	preview_pic1.ofs_image = temp_int.val_i;	
+
+	rc = card.gets(temp_int.sd_char,4);	//len_image_data
+	preview_pic1.len_image_data = temp_int.val_i; 
+
+	//padding
+	//rc = card.gets(sd_char,4);	
+	//rc = card.gets(sd_char,4);		
+	//rc = card.gets(sd_char,4);	
+	//rc = card.gets(sd_char,4);
+}
+
+void MKS_DLP::get_cbddlp_preview2_info()
+{
+	BYTE sd_char[4];
+	uint8_t rc;
+	long index=0;	
+	hex_to_int temp_int;
+	
+	index = cbddlp_file_header.previewTwoOffsetAddress;
+	card.setIndex(index);
+	
+	rc = card.gets(temp_int.sd_char,4);	//resolution_X
+	preview_pic2.resolution_X = temp_int.val_i;
+
+	rc = card.gets(temp_int.sd_char,4);	//resolution_Y
+	preview_pic2.resolution_Y = temp_int.val_i;
+
+	rc = card.gets(temp_int.sd_char,4);	//ofs_image
+	preview_pic2.ofs_image = temp_int.val_i;	
+
+	rc = card.gets(temp_int.sd_char,4);	//len_image_data
+	preview_pic2.len_image_data = temp_int.val_i; 
+
+	//padding
+	//rc = card.gets(sd_char,4);	
+	//rc = card.gets(sd_char,4);		
+	//rc = card.gets(sd_char,4);	
+	//rc = card.gets(sd_char,4);
+
+}
+
+extern void LCD_setWindowArea(uint16_t StartX, uint16_t StartY, uint16_t Width, uint16_t Height);
+extern void LCD_WriteRAM_Prepare(void);
+extern void LCD_WriteRAM(u16 RGB_Code);
+
+#define PIC_1_X	290
+#define PIC_1_Y 290
+#define PIC_2_X 116
+#define PIC_2_Y	116
+
+#define PIX_1_SCREEN_POS_X	40
+#define PIX_1_SCREEN_POS_Y	15
+void get_pic_display(uint8_t sel)
+{
+	int imageData[500];//单行数据
+	int imageData_bak[500];//单行数据
+	BYTE sd_char[4];
+	uint8_t rc;
+	long index=0;	
+	hex_to_int temp_int;
+	
+	long i;
+	int dot,color;
+	int repeat;
+	int d = 0;
+	int y=0,y1=0,y2=0;
+	int x_off=0;	
+	int32_t resolutionX,resolutionY,ofs_image,imge_data_len;
+
+	volatile float ii,jj,k1,k2;
+	int m,n;
+	int w,h;
+
+	uint32_t pcnt=0;
+	
+	if(sel==1)
+	{
+		m=PIC_1_X;
+		n=PIC_1_Y;
+		w=preview_pic1.resolution_X;
+		h=preview_pic1.resolution_Y;
+		ii=(float)w/(float)m;//采样行间距
+		jj=(float)h/(float)n;//采样列间距		
+
+		resolutionX = preview_pic1.resolution_X;
+		resolutionY = preview_pic1.resolution_Y;
+		ofs_image = preview_pic1.ofs_image;
+		imge_data_len = preview_pic1.len_image_data;
+
+		if(resolutionX>=500)
+		{
+			w=preview_pic2.resolution_X;
+			h=preview_pic2.resolution_Y;
+			ii=(float)w/(float)m;//采样行间距
+			jj=(float)h/(float)n;//采样列间距		
+		
+			resolutionX = preview_pic2.resolution_X;
+			resolutionY = preview_pic2.resolution_Y;
+			ofs_image = preview_pic2.ofs_image;
+			imge_data_len = preview_pic2.len_image_data;			
+		}
+		if(resolutionX>=500)resolutionX=500;
+
+	}
+	else
+	{
+		pcnt=0;
+		memset(bmp_public_buf,0,sizeof(bmp_public_buf));
+		
+		m=PIC_2_X;
+		n=PIC_2_Y;
+		w=preview_pic2.resolution_X;
+		h=preview_pic2.resolution_Y;	
+		ii=(float)w/(float)m;//采样行间距
+		jj=(float)h/(float)n;//采样列间距
+
+		resolutionX = preview_pic2.resolution_X;
+		resolutionY = preview_pic2.resolution_Y;
+		ofs_image = preview_pic2.ofs_image;
+		imge_data_len = preview_pic2.len_image_data;	
+
+		if(resolutionX>=500)resolutionX=500;
+	}
+
+	index = ofs_image;
+	card.setIndex(index);	
+
+	for(i=0;i<imge_data_len;i++)
+	{
+		rc = card.gets(sd_char,2);
+		dot = (sd_char[0]&0xff)|(sd_char[1]<<8);
+		i=i+1;
+		color = dot;
+		
+		repeat = 1;
+        if ((dot & 0x0020) == 0x0020)
+		{
+		   rc = card.gets(sd_char,2);
+           repeat += sd_char[0] & 0xFF | ((sd_char[1] & 0x0F) << 8);
+		   i=i+2;
+        }
+
+         while (repeat > 0) 
+		 {	
+		 
+				imageData[d++] = color;
+				if(d==resolutionX)
+				{
+					d=0;
+					
+					if(y1==y)
+					{
+						do
+						{
+							if(sel==1)
+							{
+								for(int t=0;t<m;t++)
+								{
+									imageData_bak[t]=imageData[(int)(ii*t)];
+								}
+								LCD_setWindowArea(PIX_1_SCREEN_POS_X,PIX_1_SCREEN_POS_Y+y2,m,1);
+								LCD_WriteRAM_Prepare(); 
+								for(x_off=0;x_off<m;x_off++)
+								{
+									LCD_WriteRAM(imageData_bak[x_off]);
+								}
+								y2++;
+								y1=(int)(jj*(float)(y2));//下次要读取的行号
+							}
+							else
+							{
+								for(int t=0;t<m;t++)
+								{
+									imageData_bak[t]=imageData[(int)(ii*t)];
+									bmp_public_buf[pcnt++]=(imageData_bak[t]&0x000000ff)>>0;
+									bmp_public_buf[pcnt++]=(imageData_bak[t]&0x0000ff00)>>8;
+								}							
+								y2++;
+								y1=(int)(jj*(float)(y2));//下次要读取的行号
+							}
+						}while(y1==y);
+					}
+					y++;					
+				}
+	            repeat--;				
+         }		
+	}		
+	card.close_CBD_File();
+}
+
+void get_pic_info(char *path)
+{
+	if(card.open_CBD_File((char*)path))
+	{
+		mksdlp.get_cbddlp_file_header();
+		mksdlp.get_cbddlp_preview1_info();
+		mksdlp.get_cbddlp_preview2_info();
+	}	
+}
+void MKS_DLP::get_cbddlp_print_para_info()
+{
+	BYTE sd_char[4];
+	hex_to_float temp_float;
+	hex_to_int temp_int;
+	uint8_t rc;
+	long index=0;	
+	
+	index = cbddlp_file_header.printParametersOffsetAddress;
+	card.setIndex(index);	
+
+	rc = card.gets(temp_float.sd_char,4);	//bottomLiftDistance
+	print_para.bottomLiftDistance=temp_float.val_f; 
+
+	rc = card.gets(temp_float.sd_char,4);	//bottomLiftSpeed
+	print_para.bottomLiftSpeed=temp_float.val_f;
+
+	rc = card.gets(temp_float.sd_char,4);	//liftingDistance
+	print_para.liftingDistance=temp_float.val_f;
+
+	rc = card.gets(temp_float.sd_char,4);	//liftingSpeed
+	print_para.liftingSpeed=temp_float.val_f;	
+
+	rc = card.gets(temp_float.sd_char,4);	//retractSpeed
+	print_para.retractSpeed=temp_float.val_f;	
+
+	rc = card.gets(temp_float.sd_char,4);	//retractSpeed
+	print_para.VolumeMl=temp_float.val_f;	
+
+	rc = card.gets(temp_float.sd_char,4);	//WeightG
+	print_para.WeightG=temp_float.val_f;
+
+	rc = card.gets(temp_float.sd_char,4);	//CostDollars
+	print_para.CostDollars=temp_float.val_f;	
+
+	rc = card.gets(temp_float.sd_char,4);	//BottomLightOffDelay
+	print_para.BottomLightOffDelay=temp_float.val_f;
+
+	rc = card.gets(temp_float.sd_char,4);	//lightOffDelay
+	print_para.lightOffDelay=temp_float.val_f;	
+
+	rc = card.gets(temp_int.sd_char,4);	//bottomLayerCount	
+	print_para.bottomLayerCount = temp_int.val_i; 
+
+	rc = card.gets(temp_float.sd_char,4);	//p1
+	print_para.P1=temp_float.val_f;	
+	rc = card.gets(temp_float.sd_char,4);	//p2
+	print_para.P2=temp_float.val_f;	
+	rc = card.gets(temp_float.sd_char,4);	//p3
+	print_para.P3=temp_float.val_f;	
+	rc = card.gets(temp_float.sd_char,4);	//p4
+	print_para.P4=temp_float.val_f;	
+	
+}
+//layer 从第0层开始；
+//layer begin zero
+void MKS_DLP::get_cbddlp_cur_layer_def(uint32_t layer)
+{
+	BYTE sd_char[32];
+	hex_to_float temp_float;
+	hex_to_int temp_int;
+	uint8_t rc;
+	long index=0;	
+	
+	index = cbddlp_file_header.layersDefinitionOffsetAddress + layer*sizeof(layer_def);
+	card.setIndex(index);
+
+	rc = card.gets(temp_float.sd_char,4);	//layerPositionZ	
+	layer_def.layerPositionZ=temp_float.val_f;	
+
+	rc = card.gets(temp_float.sd_char,4);	//layerExposure	
+	layer_def.layerExposure=temp_float.val_f;	
+
+	rc = card.gets(temp_float.sd_char,4);	//layerExposure	
+	layer_def.layerOffTimeSeconds=temp_float.val_f;	
+
+	rc = card.gets(temp_int.sd_char,4);	//dataAddress	
+	layer_def.dataAddress= temp_int.val_i; 
+
+	rc = card.gets(temp_int.sd_char,4);	//dataSize	
+	layer_def.dataSize = temp_int.val_i; 	
+
+	//UnKnow
+	rc = card.gets(sd_char,4);	//
+	memcpy(layer_def.unknown1,sd_char,4);
+	rc = card.gets(sd_char,4);	//
+	memcpy(layer_def.unknown2,sd_char,4);	
+	rc = card.gets(sd_char,4);	//
+	memcpy(layer_def.unknown3,sd_char,4);	
+	rc = card.gets(sd_char,4);	//
+	memcpy(layer_def.unknown4,sd_char,4);	
+	
+}
+
+void MKS_DLP::startFileprint_cbd()
+{
+    mksdlp.ssd.init();//重新初始化2k屏，避免长时间待机之后，2k屏无法正常打印。
+	get_cbddlp_file_header();
+	get_cbddlp_preview1_info();
+	get_cbddlp_preview2_info();
+	get_cbddlp_print_para_info();
+
+	clean_Information_layer();
+	status_init();
+	draw_status_clear();
+	display_print_statue();
+	GUI_Exec();
+	mks_G28("G28 Z0");	
+}
+
+void MKS_DLP::decode_layer_from_rle(uint32_t cur_layer,uint8_t work_bank)
+{
+	int i,j,k;
+
+	BYTE sd_char;
+	uint8_t rc;
+	long index=0;	
+
+	uint8_t color;
+	uint16_t length,length_sum;
+	uint16_t curpoint;
+	uint8_t *p;
+	uint8_t remaining;
+	
+
+	get_cbddlp_cur_layer_def(cur_layer);
+	
+	
+	index = layer_def.dataAddress;
+	card.setIndex(index);
+
+	memset(Line_Pixel,0,sizeof(Line_Pixel));
+	if((work_bank==BANK_USED_ID0)||work_bank==WORK_USED_BANK)
+	{
+		memset(&bmp_layer_buf[0],0,DATA_LEN_TFT*X_RATIO_TFT);
+	}
+	mksdlp.bmp.current_line=0;
+	p = Line_Pixel;
+	curpoint = 0;
+	for(i=0;i<layer_def.dataSize;i++)
+	{
+		rc = card.gets(&sd_char,1);
+		color = (sd_char&0x80)>>7;
+		length = sd_char&0x7f;
+		
+		for(j=0;j<length;j++)
+		{
+			if(curpoint<Y_RATIO/2)
+			{
+				*p=color;
+			}
+			else
+			{
+				*(p+FILLCODE) = color;
+			}
+			p++;
+			curpoint++;
+			
+			if(curpoint>cbddlp_file_header.resolutionX)
+			{
+				mksdlp.line_gen_data(mksdlp.bmp.current_line,work_bank);
+				if((work_bank==BANK_USED_ID0)||work_bank==WORK_USED_BANK)
+					mksdlp.line_gen_data_TFT(mksdlp.bmp.current_line);
+				mksdlp.bmp.current_line++;
+				curpoint=0;
+				memset(Line_Pixel,0,sizeof(Line_Pixel));
+				p = &Line_Pixel[0];
+				remaining = length-j;//结尾多余颜色，放到下一行。
+				for(k=0;k<remaining;k++)
+				{
+					*p=color;
+					p++;
+					curpoint++;
+				}
+				break;
+			}
+		}	
+	}
+}
+
+//====================================================//
 

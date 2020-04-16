@@ -11,6 +11,7 @@
 #include "fatfs.h"
 
 #include "mks_dlp_main.h"
+extern void startFileprint_cbd();
 
 extern uint8_t preview_no_display;
 extern uint8_t gcode_preview_over;
@@ -19,14 +20,17 @@ GUI_HWIN hPreviewWnd;
 static BUTTON_STRUCT button_del_file,button_print, buttonRet;
 
 static void cbPreviewWin(WM_MESSAGE * pMsg) {
-
+	char *temp;
+	
     switch (pMsg->MsgId)
     {
     case WM_PAINT:
         //GUI_SetColor(0xfed965);
         //GUI_DrawRect(10-1, 190-1, 150+1,250+1);
-
-        GUI_SetColor(0x000000);
+		if(mksdlp.print_file_type==1)
+        	GUI_SetColor(0x000000);
+		else
+			GUI_SetColor(0x5C5C5C);
         GUI_FillRect(15,15,355,305);
         break;
     case WM_TOUCH:
@@ -66,8 +70,25 @@ static void cbPreviewWin(WM_MESSAGE * pMsg) {
                 	card.startFileprint();
                   #if ENABLED(MKS_DLP_BOARD)
                 	//mksdlp.getHead();
-                	
-					mksdlp.startFileprint();
+                	temp = strstr(curFileName,".mdlp");
+				  	if(temp != NULL)
+				  	{
+				  		mksdlp.print_file_type = 1;// .mksdlp
+				  	}
+					else
+					{
+						mksdlp.print_file_type = 2; // .cbddlp
+					}
+					
+                	if(mksdlp.print_file_type==1)
+                	{
+						mksdlp.startFileprint();
+                	}
+					else
+					{
+						mksdlp.startFileprint_cbd();
+					}
+					
                   #endif
                 	once_flag = 0;
 #if 0    //skyblue modify 2018-10                    

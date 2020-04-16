@@ -91,7 +91,7 @@ void cutFileName(char *path, int len, int bytePerLine,  char *outStr)
 				wcscat(outStr, (const WCHAR *)&gFileTail[3]);
 			#else
                                 //#if ENABLED(MKS_DLP_BOARD)
-                                strncpy(outStr, beginIndex, strIndex2 - beginIndex + 2);
+                                strncpy(outStr, beginIndex, strIndex2 - beginIndex + 4);
                                 //#else
 				//strncpy(outStr, beginIndex, strIndex2 - beginIndex + 1);
 				//strcat(outStr, "g");

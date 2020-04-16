@@ -696,6 +696,40 @@ bool CardReader::openFile(char* filename,bool silent, bool replace_current/*=tru
         return false;
     }
 }
+bool CardReader::open_CBD_File(char* filename)
+{
+    SdBaseFile parent;
+    char *oldP;
+    boolean bFound;
+    
+    char newname[100]={0};
+  
+	f_close(&curFile);
+
+  if(filename[2] != '/') 
+  {    
+   if(card.cardOK)
+	   strcat(newname,SD_Path);
+   else if(card.usbOK)
+	   strcat(newname,USBH_Path);
+   else
+          return false;
+  }
+	strcat(newname,filename);
+
+	if(f_open(&curFile, (const TCHAR *)newname, FA_OPEN_EXISTING | FA_READ) == FR_OK)					
+    {
+		
+        sdpos = 0;
+        filesize = curFile.fsize;
+        return true;
+    }
+	return false;
+}
+void CardReader::close_CBD_File()
+{
+	f_close(&curFile);
+}
 
 void CardReader::printStatus()
 {
@@ -960,6 +994,7 @@ void CardReader::ShowSDFiles(void)
 	
   #if _USE_LFN
 		static TCHAR lfn[_MAX_LFN + 1];
+  		memset(lfn,0,sizeof(lfn));
 		fno.lfname = lfn;
 		fno.lfsize = _MAX_LFN + 1;
 #endif
@@ -991,12 +1026,14 @@ void CardReader::ShowSDFiles(void)
 			}
 			if ( fno.fname[0] == '.') 
 				continue;
-	
 			if ((fno.lfname[0] == 0) || (fno.lfname == 0))
 				fn = fno.fname;
 			else
 				fn = fno.lfname;
-	
+			if((strstr(fn,"System Volume Information")!=NULL)
+				&&(fno.fattrib & AM_DIR))//不显示sd卡的隐藏文件夹"System Volume Information"
+				continue;
+
 			/*	 if (fno.fattrib & AM_DIR) 
 			{
 			continue;
@@ -1008,7 +1045,15 @@ void CardReader::ShowSDFiles(void)
 				#if _LFN_UNICODE
 				if((wcsstr((const wchar_t *)fn, (const wchar_t *)gFileName)) || (wcsstr((const wchar_t *)fn, (const wchar_t *)gFileNameCap)) || (fno.fattrib & AM_DIR))
 				#else
-					if((strstr(fn, ".gco")) || (strstr(fn, ".GCO")) || (strstr(fn, ".mdl"))|| (strstr(fn, ".MDL"))|| (fno.fattrib & AM_DIR))
+					if((strstr(fn, ".gco")&&(*(strstr(fn, ".gcode")+5+1)==NULL)) 
+						|| (strstr(fn, ".GCO")&&(*(strstr(fn, ".GCODE")+5+1)==NULL)) 
+						|| (strstr(fn, ".mdl")&&(*(strstr(fn, ".mdlp")+4+1)==NULL))
+						|| (strstr(fn, ".MDL")&&(*(strstr(fn, ".mdlp")+4+1)==NULL))
+						|| (strstr(fn, ".pho")&&(*(strstr(fn, ".photon")+6+1)==NULL))
+						|| (strstr(fn, ".PHO")&&(*(strstr(fn, ".PHOTON")+6+1)==NULL))
+						|| (strstr(fn, ".cbd")&&(*(strstr(fn, ".cbddlp")+6+1)==NULL))
+						|| (strstr(fn, ".CBD")&&(*(strstr(fn, ".CBDDLP")+6+1)==NULL))
+						|| (fno.fattrib & AM_DIR))
 				#endif
 				{
 					  //Sd_display_file_cnt++;

@@ -70,6 +70,9 @@ struct DLP_HEAD
 		uint32_t	LedOffTime;//灭灯时间
 		uint32_t	BottomLedOnTime; 	//底层曝光时间
 		uint16_t	Bottomlayers;	//底层层数
+
+		uint32_t	LedOnTime_bak;//曝光时间
+		uint32_t	BottomLedOnTime_bak;//底层曝光时间
 };
 
 
@@ -172,6 +175,89 @@ struct DLP_POWEROFF_RESUME
 	uint16_t addr;
 //#pragma pack()  	
 };
+//========================================================//
+//cbddlp file
+//=======================================================//
+typedef struct cbddlp_file_head_t
+{
+ uint8_t magic[4];
+ int32_t version;
+ float bedXmm;
+ float bedYmm;
+ float bedZmm;
+ uint8_t unknown1[4];
+ uint8_t unknown2[4];
+ uint8_t unknown3[4];
+ float layerHeightMilimeter;
+ float exposureTimeSeconds;
+ float exposureBottomTimeSeconds;
+ float offTimeSeconds;
+ int32_t bottomLayers;
+ int32_t resolutionX;
+ int32_t resolutionY;
+ int32_t previewOneOffsetAddress;
+ int32_t layersDefinitionOffsetAddress;
+ int32_t numberOfLayers;
+ int32_t previewTwoOffsetAddress;
+ int32_t printTime;
+ int32_t projectType;
+ int32_t printParametersOffsetAddress;
+ int32_t printParametersSize;
+ int32_t antiAliasingLevel;
+ short lightPWM;
+ short bottomLightPWM;
+ uint8_t padding1[4];
+ uint8_t padding2[4];
+ uint8_t padding3[4];
+}cbddlp_file_head;
+
+extern cbddlp_file_head_t cbddlp_file_header;
+
+typedef struct print_parameters_t
+{
+ float bottomLiftDistance;
+ float bottomLiftSpeed;
+ float liftingDistance;
+ float liftingSpeed;
+ float retractSpeed;
+ float VolumeMl;
+ float WeightG;
+ float CostDollars;
+ float BottomLightOffDelay;
+ float lightOffDelay;
+ int32_t bottomLayerCount;
+ float P1;
+ float P2;
+ float P3;
+ float P4;
+}print_parameters;
+
+extern print_parameters print_para;
+
+typedef struct layer_definition_t
+{
+ float layerPositionZ;
+ float layerExposure;
+ float layerOffTimeSeconds;
+ int32_t dataAddress;
+ int32_t dataSize;
+ uint8_t unknown1[4];
+ uint8_t unknown2[4];
+ uint8_t unknown3[4];
+ uint8_t unknown4[4];
+}layer_definition;
+
+extern layer_definition layer_def;
+
+typedef struct preview_pic_def_t
+{
+	int32_t resolution_X;
+	int32_t resolution_Y;
+	int32_t ofs_image;
+	int32_t len_image_data;
+}preview_pic_def;
+
+extern preview_pic_def preview_pic_big,preview_pic_small;
 
 
 class MKS_DLP {
@@ -193,7 +279,7 @@ class MKS_DLP {
 	bool quick_stop_ena;
 	SSD2828 ssd;
 	
-	
+	uint8_t print_file_type;// 1:.mdlp;	2:.cbddlp
 #if defined(MKS_DLP_WRITE_FILE)	|| defined(MKS_DLP_WRITE_TFT_FILE)
 	FIL	file;
 #endif		
@@ -295,9 +381,29 @@ class MKS_DLP {
 	 void line_fill_all_one(uint8_t bank_used_id);
 	 void ExposureAll_on();
 	 void ExposureAll_off();
-
+//cbddlp
+	void get_cbddlp_file_header();
+	void get_cbddlp_preview1_info();
+	void get_cbddlp_preview2_info();
+	void get_cbddlp_print_para_info();
+	void get_cbddlp_cur_layer_def(uint32_t layer);
+	void startFileprint_cbd();
+	void decode_layer_from_rle(uint32_t cur_layer,uint8_t work_bank);	
 	
 };
+
+#if defined(__cplusplus)
+extern "C" {     /* Make sure we have C-declarations in C++ programs */
+#endif
+
+extern void get_pic_info(char *path);
+extern void get_pic_display(uint8_t sel);
+
+
+#if defined(__cplusplus)
+}     /* Make sure we have C-declarations in C++ programs */
+#endif
+
 
 
 
@@ -312,6 +418,8 @@ extern MKS_DLP mksdlp;
 
 /* Includes ------------------------------------------------------------------*/
 
+
+//=======================================================//
 
 
 #ifdef __cplusplus
