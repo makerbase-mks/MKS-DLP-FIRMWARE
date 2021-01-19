@@ -78,6 +78,7 @@
 
 #define BEEPER_OP			PBout(13)
 #define LED_BACK_LIGHT_OP	PEout(2)
+#define LED_BACK_LIGHT_OP_V2	PAout(6)//hardware V2 use PA6 for LED
 #define LED_F_OP   	 		PEout(4)		
 #define MB_F_OP   	 		PEout(3)
 #define VUSB_ENA_OP			PDout(3)

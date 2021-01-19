@@ -953,6 +953,9 @@ void MKS_DLP::bottomLayerPrint()
 				{
 					aalay_cnt = 0;
 					LED_BACK_LIGHT_OP = 0; 
+                                    #if defined(USE_STM32F407VET)
+					LED_BACK_LIGHT_OP_V2 = 0;
+                                    #endif
 					CleanDataTrans();
 					led_off();			//¹Ø±ÕÆØ¹â
 					write_Information_layer(DLP_MOVING);
@@ -1006,6 +1009,9 @@ void MKS_DLP::GeneralLayersPrint()
 				if(aalay_cnt==0)
 				{
 					LED_BACK_LIGHT_OP = 0; 
+                                        #if defined(USE_STM32F407VET)
+					LED_BACK_LIGHT_OP_V2 = 0;
+                                        #endif
 					CleanDataTrans();
 					led_off();				//¹Ø±ÕÆØ¹â
 					
@@ -1060,6 +1066,9 @@ void MKS_DLP::GeneralLayersPrint()
 			if(cbddlp_file_header.antiAliasingLevel>1)
 			{
 				LED_BACK_LIGHT_OP = 0; 
+                                #if defined(USE_STM32F407VET)
+				LED_BACK_LIGHT_OP_V2 = 0;
+                                #endif
 				ExposureDataTrans_circle();
 				CleanDataTrans();
 			}		
@@ -1279,6 +1288,9 @@ void MKS_DLP::ExposureTest()
 		bank2disp_enable(TEST_USED_BANK,1,1);
 		ssd.sleep_out();
 		LED_BACK_LIGHT_OP = 1;
+                #if defined(USE_STM32F407VET)
+		LED_BACK_LIGHT_OP_V2 = 1;
+                #endif
 		status.led_status = true;
 
 		mipi_te_cnt = 0;
@@ -1296,6 +1308,10 @@ void MKS_DLP::ExposureTest()
 				}
 #endif
 		LED_BACK_LIGHT_OP = 0; 
+                #if defined(USE_STM32F407VET)
+		LED_BACK_LIGHT_OP_V2 = 0;
+                #endif
+                
 		status.led_status = false;
 		bank2disp_enable(CLEAN_USED_BANK,1,1);	//Çå³ýÆÁÄ»
 		ssd.sleep_in();
@@ -1317,11 +1333,17 @@ void MKS_DLP::ExposureAll_on()
     bank2disp_enable(TEST_USED_BANK,1,1);
     ssd.sleep_out();
     LED_BACK_LIGHT_OP = 1;
+    #if defined(USE_STM32F407VET)
+	LED_BACK_LIGHT_OP_V2 = 1;
+    #endif
     status.led_status = true;
 }
 void MKS_DLP::ExposureAll_off()
 {
     LED_BACK_LIGHT_OP = 0; 
+    #if defined(USE_STM32F407VET)
+	LED_BACK_LIGHT_OP_V2 = 0;
+    #endif
     status.led_status = false;
     bank2disp_enable(CLEAN_USED_BANK,1,1);  //Çå³ýÆÁÄ»
     ssd.sleep_in();
@@ -1351,6 +1373,9 @@ void MKS_DLP::led_on()
 {
 	ssd.sleep_out();
 	LED_BACK_LIGHT_OP = 1;
+        #if defined(USE_STM32F407VET)
+	LED_BACK_LIGHT_OP_V2 = 1;
+        #endif
 	status.led_status = true;
 #if defined(MKS_DLP_DEBUG)
 	SERIAL_PROTOCOLPGM("led on:");
@@ -1379,6 +1404,9 @@ void MKS_DLP::led_on()
 void MKS_DLP::led_off()
 {
 	LED_BACK_LIGHT_OP = 0; 
+        #if defined(USE_STM32F407VET)
+	LED_BACK_LIGHT_OP_V2 = 0;
+        #endif
 	status.led_status = false;
 	
 	bank2disp_enable(CLEAN_USED_BANK,1,1);	//Çå³ýÆÁÄ»
@@ -1449,6 +1477,9 @@ void MKS_DLP::led_off()
 			 bank2disp_enable_gray(TEST_USED_BANK,1,1,i);
 			 ssd.sleep_out();
 			 LED_BACK_LIGHT_OP = 1;
+                         #if defined(USE_STM32F407VET)
+			 LED_BACK_LIGHT_OP_V2 = 1;
+                         #endif
 			 status.led_status = true;
 	 
 			 mipi_te_cnt = 0;
@@ -1459,6 +1490,9 @@ void MKS_DLP::led_off()
 				 }
 			HAL_Delay(2000);
 			 LED_BACK_LIGHT_OP = 0; 
+                         #if defined(USE_STM32F407VET)
+			 LED_BACK_LIGHT_OP_V2 = 0;
+                         #endif
 			 status.led_status = false;
 			 bank2disp_enable(CLEAN_USED_BANK,1,1);  //Çå³ýÆÁÄ»
 			 ssd.sleep_in();

@@ -319,7 +319,7 @@ void MX_GPIO_Init(void)
 
   /*Configure GPIO pins : PAPin PAPin PAPin PAPin 
                            PAPin PAPin */
-  GPIO_InitStruct.Pin = Z_STEP_Pin|Z_ENA_Pin|SPI1_CS_SSDB_Pin|SPI1_CS_CPLD_Pin 
+  GPIO_InitStruct.Pin = LED_V2_Pin|Z_STEP_Pin|Z_ENA_Pin|SPI1_CS_SSDB_Pin|SPI1_CS_CPLD_Pin 
                           |WIFI_RST_Pin|FL_CS_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_PULLUP;

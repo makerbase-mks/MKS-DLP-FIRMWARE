@@ -208,6 +208,10 @@
 #define WIFI_IO0_GPIO_Port GPIOE
 #define WIFI_IO1_Pin GPIO_PIN_1
 #define WIFI_IO1_GPIO_Port GPIOE
+//hardware v2.0 use PA6 for LED.
+#define LED_V2_Pin GPIO_PIN_6
+#define LED_V2_GPIO_Port GPIOA
+
 #endif
 #define USART6_TX_Pin GPIO_PIN_6
 #define USART6_TX_GPIO_Port GPIOC
